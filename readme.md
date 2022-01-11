@@ -1,11 +1,8 @@
-# World Food Programme UI Kit (WFP-UI)
+# UN Core (World Food Programme UI Kit) (WFP-UI)
 
 ## **[Click here to visit: Living Style Guide & Documentation](https://wfp.org/UIGuide)**
 
-| Branch | Build Status                                                                                                                                                                                                                                                       |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| master | [![Build Status](https://dev.azure.com/worldfoodprogramme/ui/_apis/build/status/wfp.ui?repoName=wfp%2Fdesignsystem&branchName=master)](https://dev.azure.com/worldfoodprogramme/ui/_build/latest?definitionId=242&repoName=wfp%2Fdesignsystem&branchName=master)() |
-| next   | [![Build Status](https://dev.azure.com/worldfoodprogramme/ui/_apis/build/status/wfp.ui?repoName=wfp%2Fdesignsystem&branchName=next)](https://dev.azure.com/worldfoodprogramme/ui/_build/latest?definitionId=242&repoName=wfp%2Fdesignsystem&branchName=next)       |
+#### WARNING: This branch is experimental and in current development. Things could easily break!
 
 ## ![Usage](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/toolkit.svg 'Usage') Usage
 
@@ -40,8 +37,6 @@ import '@un/react/assets/css/styles.css';
 Additional information about the Usage can be found [here](https://wfp.org/UIGuide).
 
 ### Development
-
-#### WARNING: This branch is experimental and in current development. Things could easily break!
 
 Please refer to the [Contribution Guidelines](./.github/CONTRIBUTING.md) before starting any work.
 Use the `feat/` branches for active development.
@@ -85,16 +80,75 @@ In version 2.0 some paths will change due to the new monorepo architecture which
 
 All packages can be found in `packages/`.
 
-- `figma connect`: Downloading assets and color values from the Figma library
-- `fonts`: All Fonts used by WFP
-- `humanitarian-icons`: OCHA humanitarian icons customized by the Publications Unit of wfp
+- [cli](/packages/cli): CLI tools for executing different tasks
+- `figma-connect`: Tool for downloading assets and color values from your Figma library
+- `humanitarian-icons`: OCHA humanitarian icons customized by the Publications Unit of WFP
+- `humanitarian-icons-react`: humanitarian icons for react.js usage
+- `icon-build-helper`: helper library to generate icons and pictograms for different usages
 - `layout`: breakpoints, spacings, etc.
-- `pictograms`: pictogram icons
-- `colors` no longer used!
+- `icons`: icons used by the components
+- `icons-react`: icons for react.js usage
+- ~~`colors` no longer used!~~
 - `styles`: all components styles
 - `themes`: theming (colors, etc.)
 - `type`: typescales
-- `ui`: the "old" react components, TODO: rename to `react`
+- `react`: react components
+
+`WFP digital design system` packages can be found in `wfp/` (temporary) and are also an example for customizing the UN Core to your needs.
+
+- `logos`: Logos used by WFP
+- `fonts`: All Fonts currently used by WFP
+- `react`: react components using the UN core with WFP customizations
+- `styles`: all components styles with WFP customizations (also includes type and layout overrides if needed)
+- `themes`: all WFP themes (white, dark, field)
+- `pictograms`: pictogram icons
+- `pictograms-react`: pictogram icons for react.js usage
+
+### How to load the css
+
+Import a sass file from a single source to have all basic styles and the theme available.
+
+`styles` to import all component styles and `themes` with
+
+```scss
+// scss/ui.scss
+// Generates global stylesheet containing the styles and theme
+$css--variables: true;
+$css--reset: true;
+$css--body: true;
+@use "./meta" as meta;
+@use "@un/styles/scss/themes";
+@use "@un/styles/scss/theme" with (
+  $theme: meta.$carbon--theme--wfp
+);
+```
+
+When using css-modules with scss for your own components you can create a helper file to forward the needed mixins and variables.
+
+```scss
+// scss/meta.scss file
+// Forward the needed tools to your css-module
+@forward "@un/styles/scss/breakpoint";
+@forward "@un/styles/scss/motion";
+@forward "@un/styles/scss/spacing";
+@forward "@un/styles/scss/type";
+@forward "@un/styles/scss/utilities/convert";
+
+// Forward the theme tokens
+@import '@un/themes/scss';
+```
+
+```scss
+// component.module.scss
+// Uses the UN Core mixins and variables
+@use "scss/meta" as *;
+
+.element {
+    background: $button-primary;
+    @include breakpoint-up(md) {
+        background: $button-secondary;
+    }
+}
 
 ### UN Core Examples
 
@@ -167,13 +221,17 @@ We recommend the use of [React Storybook](https://github.com/storybooks/react-st
 1. Generate new tests
 
 ```
+
 npm run test
+
 ```
 
 2. Start the server:
 
 ```
+
 npm run storybook
+
 ```
 
 3. Open browser to `http://localhost:9000/`.
@@ -195,7 +253,9 @@ Make sure your commit does not produce any errors while checking:
 Use jest for testing the components. Once commited the branches will be also tested on [Travis CI](https://travis-ci.org/wfp/ui).
 
 ```
+
 npm run test
+
 ```
 
 ### Deployment
@@ -210,18 +270,22 @@ The UI Kit uses Azure Devops and [semantic-release](https://github.com/semantic-
 ### Generate alpha release
 
 ```
+
 npm run release -- --prerelease alpha
 npm publish --tag alpha
 
 or
 git push --follow-tags origin next && npm publish --tag alpha
+
 ```
 
 ### Generate full release
 
 ```
+
 npm run release
 npm publish
+
 ```
 
 ### Releasing Storybook (documentation) to AWS S3
@@ -229,7 +293,9 @@ npm publish
 Create a new build for the documentation and copy the `assets` and `docs` folder manually to [WFP`s AWS S3 instance](https://cdn.wfp.org/guides/ui/) following the naming scheme (for example: v1.2.1).
 
 ```
+
 npm run build:storybook
+
 ```
 
 Edit the `website-redirect-location` meta tag of `index.html` to point [wfp.org/UIGuide](https://wfp.org/UIGuide) to the latest documentation folder. This can be done with [MountainDuck](https://mountainduck.io/).
@@ -237,6 +303,8 @@ Edit the `website-redirect-location` meta tag of `index.html` to point [wfp.org/
 Edit the first line of `assets/depreciation-warning.html` to point to the latest version of the UI Kit.
 
 Clear the Server cache with [Cloudfront Purge Tool](https://chrome.google.com/webstore/detail/cloudfront-purge-tool).
+
+```
 
 ```
 
