@@ -76,13 +76,6 @@ steps:
   - script: |
       npm run lerna:publishFromPackage
     displayName: "lerna publish"
-
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: "./packages/web/cloudformation"
-      artifact: "memo-web-cloudformation"
-      publishLocation: "pipeline"
-
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: "./packages/react"
