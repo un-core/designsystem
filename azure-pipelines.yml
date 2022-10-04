@@ -32,7 +32,7 @@ steps:
     name: npmrcFile
     displayName: "Download CA certificate"
     inputs:
-      secureFile: "npmrc"
+      secureFile: ".npmrc"
   - task: CmdLine@2
     inputs:
       script: cp $(npmrcFile.secureFilePath) ./.npmrc
