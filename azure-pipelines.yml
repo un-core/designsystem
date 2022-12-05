@@ -19,6 +19,13 @@ steps:
       git config --global user.name "Azure Devops Pipeline"
       git config --global user.email "robert.guehne@wfp.org"
     displayName: Git config user
+    condition: 
+
+  - task: CmdLine@2
+    displayName: Git Branch $(branchName)
+    inputs:
+      script: "git branch"
+
   - task: CmdLine@2
     displayName: Checkout $(branchName)
     inputs:
