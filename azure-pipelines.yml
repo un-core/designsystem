@@ -24,7 +24,7 @@ steps:
   - task: CmdLine@2
     displayName: Git Branch $(branchName)
     inputs:
-      script: "git branch"
+      script: "git branch -r"
 
   - task: CmdLine@2
     displayName: Checkout $(branchName)
