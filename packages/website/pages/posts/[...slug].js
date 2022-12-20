@@ -33,7 +33,7 @@ export default function Post({ post, posts, morePosts, preview }) {
       ) : (
         <>
           <article>
-            {!router?.query?.app && (
+            {/* {!router?.query?.app && (
               <LinkBack
                 href={process.env.NEXT_PUBLIC_BLOG_FOLDER}
                 //hasBack={hasBack}
@@ -43,7 +43,7 @@ export default function Post({ post, posts, morePosts, preview }) {
                   Back to overview
                 </a>
               </LinkBack>
-            )}
+            )} */}
 
             {/*<Head>
                 <title>{post.title}</title> 

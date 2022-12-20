@@ -6,13 +6,9 @@ import useSettings from '../../hooks/useSettings';
 
 /** Loading spinners are used when retrieving data or performing slow computations, and help to notify users that loading is underway. */
 
-export default function Loading({
-  active,
-  className,
-  withOverlay,
-  small,
-  ...other
-}) {
+const Loading = (props) => {
+  const { active, className, withOverlay, small, ...other } = props;
+
   const { prefix } = useSettings();
 
   const loadingClasses = classNames(`${prefix}--loading`, className, {
@@ -54,13 +50,9 @@ export default function Loading({
   ) : (
     loading
   );
-}
+};
 
 Loading.propTypes = {
-  prefix: PropTypes.string.isRequired,
-  /**
-   * Specify whether you want the loading indicator to be spinning or not
-   */
   active: PropTypes.bool,
 
   /**
@@ -84,3 +76,5 @@ Loading.defaultProps = {
   withOverlay: true,
   small: false,
 };
+
+export default Loading;

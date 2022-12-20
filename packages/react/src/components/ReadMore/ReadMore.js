@@ -32,7 +32,7 @@ const MoreLink = ({ handleToggleClick, link, text, showMore }) => {
 };
 
 /** ReadMore component is a simple way to keep longer content from cluttering up your page, giving you more control over how much content is displayed to visitor */
-export default function ReadMore({
+const ReadMore = ({
   collapseLink,
   collapseText,
   children,
@@ -43,7 +43,7 @@ export default function ReadMore({
   expandText,
   fade,
   maxHeight,
-}) {
+}) => {
   const { prefix } = useSettings();
   const [showMore, setShowMore] = useState(false);
   const [innerHeight, setInnerHeight] = useState(0);
@@ -113,7 +113,7 @@ export default function ReadMore({
       />
     </div>
   );
-}
+};
 
 ReadMore.propTypes = {
   /**
@@ -163,3 +163,5 @@ ReadMore.defaultProps = {
   expandText: 'Read more',
   collapseText: 'Read less',
 };
+
+export default ReadMore;

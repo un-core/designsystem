@@ -97,7 +97,7 @@ const Tooltip = ({
 
   const visibilityChange = (e) => {
     setVisibility(e);
-    if (onVisibilityChange) onVisibilityChange(e);
+    if (onVisibleChange) onVisibleChange(e);
   };
 
   const tooltip = (

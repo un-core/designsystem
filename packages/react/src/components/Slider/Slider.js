@@ -24,7 +24,7 @@ function PropTypeEmptyString(props, propName, componentName) {
 
 /** Sliders provide a visual indication of adjustable content, where the user can move the handle along a horizontal track to increase or decrease the value. */
 
-function Slider(props) {
+const Slider = (props) => {
   const {
     additional,
     ariaLabelInput,
@@ -169,7 +169,7 @@ function Slider(props) {
       }}
     </Input>
   );
-}
+};
 
 Slider.propTypes = {
   /**
