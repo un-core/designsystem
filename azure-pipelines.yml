@@ -3,6 +3,7 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
 
 trigger:
   - main
@@ -83,6 +84,7 @@ steps:
   - script: |
       npm run lerna:publishFromPackage
     displayName: "lerna publish"
+    condition: eq(variables.isMain, 'true')
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: "./packages/react"
