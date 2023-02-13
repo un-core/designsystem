@@ -3,7 +3,19 @@ import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 import * as ReactHook from 'react-hook-form';
 
-interface SingleDatePickerInputProps {
+interface CommonDatePickerInputProps {
+  controlled?: boolean;
+  className?: string;
+  placeholder?: string;
+  type?: string;
+  active?: boolean;
+  name?: string;
+  isDirty?: boolean;
+  isTouched?: boolean;
+  error?: string;
+}
+
+interface SingleDatePickerInputProps extends CommonDatePickerInputProps {
   datePicker: React.ElementType;
   labelText: string;
   placeholder?: string;
@@ -172,4 +184,4 @@ const SingleDatePickerInput: React.FC<SingleDatePickerInputProps> = ({
 //   onChange: () => {},
 // };
 
-export { SingleDatePickerInput };
+export { SingleDatePickerInput, CommonDatePickerInputProps };

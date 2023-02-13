@@ -1,6 +1,6 @@
 import React from 'react';
 import markdown from './README.mdx';
-import { Add, Home16 } from '@un/icons-react';
+import { Add, Home } from '@un/icons-react';
 
 export default {
   title: 'Components/UI Elements/Icon',
@@ -19,7 +19,7 @@ Regular.args = {
 };
 
 const description = `
-You can customize the icon by using the icon name eg \`<Home16/>\`.
+You can customize the icon by using the icon name eg \`<Home/>\`.
 `;
 
 Regular.story = {
@@ -30,4 +30,4 @@ Regular.story = {
   },
 };
 
-export const Trial = (args) => <Home16 icon={Home16} {...args} />;
+export const Trial = (args) => <Home icon={Home} {...args} />;

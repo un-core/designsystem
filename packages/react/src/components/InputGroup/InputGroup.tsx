@@ -65,6 +65,9 @@ const InputGroup: React.FC<PropsWithChildren<InputGroupProps>> = (props) => {
 
   const getRadioButtons = () => {
     const children = React.Children.map(props.children, (radioButton) => {
+      if (!React.isValidElement(radioButton)) {
+        return radioButton;
+      }
       const { value, ...other } = radioButton.props;
       /* istanbul ignore if */
       if (radioButton.props.hasOwnProperty.call('checked')) {
@@ -95,36 +98,35 @@ const InputGroup: React.FC<PropsWithChildren<InputGroupProps>> = (props) => {
       setSelected(newSelection);
       props.onChange && props.onChange(newSelection, props.name, evt);
     }
+  };
+  const labelClasses = classNames(`${prefix}--label`, {
+    [`${prefix}--visually-hidden`]: hideLabel,
+  });
 
-    const labelClasses = classNames(`${prefix}--label`, {
-      [`${prefix}--visually-hidden`]: hideLabel,
-    });
+  const wrapperClasses = classNames(`${prefix}--form-item`, {
+    [`${prefix}--input-group__vertical`]: vertical,
+    wrapperClassName,
+  });
 
-    const wrapperClasses = classNames(`${prefix}--form-item`, {
-      [`${prefix}--input-group__vertical`]: vertical,
-      wrapperClassName,
-    });
+  const label = labelText ? (
+    <span className={labelClasses}>{labelText}</span>
+  ) : null;
 
-    const label = labelText ? (
-      <span className={labelClasses}>{labelText}</span>
-    ) : null;
+  const helper = helperText ? (
+    <div className={`${prefix}--form__helper-text`}>{helperText}</div>
+  ) : null;
 
-    const helper = helperText ? (
-      <div className={`${prefix}--form__helper-text`}>{helperText}</div>
-    ) : null;
-
-    return (
-      <div className={wrapperClasses}>
-        <div className={className} disabled={disabled}>
-          {label}
-          {helper}
-          <div className={`${prefix}--input-group-inside`}>
-            {controlled ? getRadioButtons() : children}
-          </div>
+  return (
+    <div className={wrapperClasses}>
+      <div className={className} data-disabled={disabled}>
+        {label}
+        {helper}
+        <div className={`${prefix}--input-group-inside`}>
+          {controlled ? getRadioButtons() : children}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 };
 
 // InputGroup.propTypes = {

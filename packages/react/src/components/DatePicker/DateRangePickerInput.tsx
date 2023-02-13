@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 import * as ReactHook from 'react-hook-form';
+import { CommonDatePickerInputProps } from './SingleDatePickerInput';
 
-interface DateRangePickerInputProps {
+interface DateRangePickerValueProps {
+  startDate?: string;
+  endDate?: string;
+}
+
+interface DateRangePickerInputProps extends CommonDatePickerInputProps {
   datePicker: React.ElementType;
   labelText: string;
-  placeholder?: string;
   hideLabel?: boolean;
   showClearDate?: boolean;
   invalid?: boolean | ReactHook.FieldError;
@@ -15,9 +20,9 @@ interface DateRangePickerInputProps {
   inputIconPosition?: string;
   helperText?: string;
   onBlur?: () => void;
-  value?: string;
+  value?: DateRangePickerValueProps;
   id?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: DateRangePickerValueProps) => void;
   startDatePlaceholderText?: string;
   endDatePlaceholderText?: string;
   startDateId?: string;
@@ -29,35 +34,20 @@ interface DateRangePickerInputProps {
 
 const DateRangePickerInput: React.FC<DateRangePickerInputProps> = (props) => {
   const {
-    controlled,
     datePicker,
     labelText,
-    className,
     id,
-    placeholder,
-    type,
     onChange,
-    onClick,
     hideLabel,
     invalid,
     invalidText,
     helperText,
     value,
-    startDate,
-    endDate,
     startDateId,
     startDatePlaceholderText,
     endDateId,
     endDatePlaceholderText,
-    name,
     onBlur,
-    onDragStart,
-    onDrop,
-    onFocus,
-    showClearDate,
-    isDirty,
-    isTouched,
-    error,
     ...other
   } = props;
 
