@@ -7,7 +7,7 @@ import { Placement } from '../../typesLegacy/utils';
 import useSettings from '../../hooks/useSettings';
 
 interface TooltipProps {
-  children?: React.ReactNode;
+  children?: React.ReactElement;
   content?:
     | React.ReactNode
     | ((options: {
@@ -29,7 +29,7 @@ interface TooltipProps {
   delayShow?: number;
   followCursor?: boolean;
   interactive?: boolean;
-  mutationObserverOptions?: MutationObserverInit | null;
+  mutationObserverOptions?: any; //MutationObserverInit | null;
   offset?: [number, number];
   onVisibleChange?: (state: boolean) => void;
 }
@@ -112,7 +112,7 @@ const Tooltip: React.FC<PropsWithChildren<TooltipProps>> = ({
   });
 
   const triggerElement =
-    !createRefWrapper && typeof children !== 'string' ? (
+    !createRefWrapper && typeof children !== 'string' && children ? (
       React.cloneElement(children, {
         ref: setTriggerRef,
         className: elementClassNames,

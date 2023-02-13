@@ -16,10 +16,15 @@ interface LinkProps {
   disabled?: boolean;
   visited?: boolean;
   size?: 'sm' | 'md' | 'lg';
-  renderIcon?: () => void | {};
+  renderIcon?: React.JSXElementConstructor<any>;
+  target?: string;
+  onClick?: () => void;
 }
 
-const Link: React.FC<PropsWithChildren<LinkProps>> = React.forwardRef(
+const Link = React.forwardRef<
+  HTMLAnchorElement | HTMLParagraphElement,
+  PropsWithChildren<LinkProps>
+>(
   (
     {
       children,
@@ -30,6 +35,7 @@ const Link: React.FC<PropsWithChildren<LinkProps>> = React.forwardRef(
       visited,
       renderIcon: Icon,
       size,
+      target,
       ...other
     },
     ref
@@ -44,10 +50,10 @@ const Link: React.FC<PropsWithChildren<LinkProps>> = React.forwardRef(
     });
 
     const Tag = disabled ? 'p' : 'a';
-    const rel = other.target === '_blank' ? 'noopener' : null;
+    const rel = target === '_blank' ? 'noopener' : undefined;
     return (
       <Tag
-        href={disabled ? null : href}
+        href={disabled ? undefined : href}
         className={classNames}
         rel={rel}
         ref={ref}

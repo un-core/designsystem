@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import type { PropsWithChildren } from 'react';
-import classNames, { Argument } from 'classnames';
+import classNames from 'classnames';
 import { CaretDown } from '@un/icons-react';
 
 import useSettings from '../../hooks/useSettings';
@@ -27,7 +27,8 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   id?: string;
   disabled?: boolean;
   name?: string;
-  className?: Argument;
+  className?: string;
+  inputRef?: React.RefObject<HTMLTextAreaElement>;
 }
 /** The select component allows users to choose one option from a list. It is used in forms for users to submit data. */
 
@@ -56,14 +57,13 @@ const Select: React.FC<PropsWithChildren<SelectProps>> = React.forwardRef(
 
     const usedId = id ? id : name;
 
-    const selectClasses = classNames({
+    const selectClasses = classNames(className, {
       [`${prefix}--select`]: true,
       [`${prefix}--select--inline`]: inline,
       [`${prefix}--select--small`]: small,
       [`${prefix}--select--light`]: light,
       [`${prefix}--select--invalid`]: invalid,
       [`${prefix}--select--disabled`]: disabled,
-      [className]: className,
     });
 
     const ariaProps = {};

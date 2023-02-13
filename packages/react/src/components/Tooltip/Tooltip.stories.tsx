@@ -29,7 +29,7 @@ export const Dark = (args) => (
     // options
     {...args}
     trigger="click">
-    <span>Click here to show tooltip</span>
+    <span className="trial">Click here to show tooltip</span>
   </Tooltip>
 );
 

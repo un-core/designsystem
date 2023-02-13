@@ -34,9 +34,8 @@ const Toggle: React.FC<ToggleProps> = ({
 }) => {
   const { prefix } = useSettings();
   let input;
-  const wrapperClasses = classNames({
+  const wrapperClasses = classNames(className, {
     [`${prefix}--form-item`]: true,
-    [className]: className,
   });
 
   // const checkedProps = {};
@@ -75,55 +74,5 @@ const Toggle: React.FC<ToggleProps> = ({
     </div>
   );
 };
-
-// Toggle.propTypes = {
-//   /**
-//    * Specify a custom className to apply to the form-item node
-//    */
-//   className: PropTypes.string,
-
-//   /**
-//    * Specify whether the toggle should be on by default
-//    */
-//   defaultToggled: PropTypes.bool,
-
-//   /**
-//    * Provide an optional hook that is called when the control is toggled
-//    */
-//   onToggle: PropTypes.func,
-
-//   /**
-//    * Provide an id that unique represents the underlying `input`
-//    */
-//   id: PropTypes.string,
-
-//   /**
-//    * Provide an name that unique represents the underlying `input`
-//    */
-//   name: PropTypes.string.isRequired,
-
-//   /**
-//    * Specify whether the control is toggled
-//    */
-//   toggled: PropTypes.bool,
-
-//   /**
-//    * Specify the label for the "off" position
-//    */
-//   labelA: PropTypes.string.isRequired,
-
-//   /**
-//    * Specify the label for the "on" position
-//    */
-//   labelB: PropTypes.string.isRequired,
-// };
-
-// Toggle.defaultProps = {
-//   defaultToggled: false,
-//   labelA: 'Off',
-//   labelB: 'On',
-//   name: 'toggle',
-//   onToggle: () => {},
-// };
 
 export default Toggle;
