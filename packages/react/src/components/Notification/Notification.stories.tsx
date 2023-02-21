@@ -3,11 +3,10 @@ import {
   ToastNotification,
   InlineNotification,
   NotificationActionButton,
-  BlockNotification,
-} from '../Notification';
+} from './Notification';
+import BlockNotification from './BlockNotification';
 import Button from '../Button';
 import { notificationtypes } from '../../prop-types/types';
-
 import markdown from './README.mdx';
 
 export default {
@@ -37,6 +36,7 @@ Toast.args = {
   iconDescription: 'describes the close button',
   statusIconDescription: 'describes the status icon',
   hideCloseButton: false,
+  notificationType: 'toast',
 };
 
 export const NotificationTypes = (args) => (
@@ -68,6 +68,7 @@ NotificationTypes.args = {
   iconDescription: 'describes the close button',
   statusIconDescription: 'describes the status icon',
   hideCloseButton: false,
+  notificationType: 'toast',
 };
 
 const hello = `
@@ -132,6 +133,7 @@ ToastLowContrast.args = {
   iconDescription: 'describes the close button',
   statusIconDescription: 'describes the status icon',
   hideCloseButton: false,
+  notificationType: 'toast',
 };
 
 ToastLowContrast.story = {
@@ -173,6 +175,7 @@ Inline.args = {
   subtitle: 'Subtitle text goes here.',
   iconDescription: 'describes the close button',
   statusIconDescription: 'describes the status icon',
+  notificationType: 'inline',
 };
 
 Inline.story = {
@@ -215,6 +218,7 @@ InlineLowContrast.args = {
   subtitle: 'Subtitle text goes here.',
   iconDescription: 'describes the close button',
   statusIconDescription: 'describes the status icon',
+  notificationType: 'inline',
 };
 
 export const BlockNotificationElement = (args) => (
@@ -264,4 +268,5 @@ BlockNotificationElement.args = {
   subtitle: 'Subtitle text goes here.',
   iconDescription: 'describes the close button',
   statusIconDescription: 'describes the status icon',
+  notificationType: 'inline',
 };

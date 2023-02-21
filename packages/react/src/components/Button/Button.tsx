@@ -16,7 +16,6 @@ type ButtonProps = PropsWithChildren<{
   // todo: revise iconDescription
   iconDescription?: string;
   disabled?: boolean;
-  allCaps?: boolean;
   tabIndex?: number;
   type?: 'button' | 'reset' | 'submit';
   useFlexbox?: boolean;
@@ -33,7 +32,6 @@ const Button: React.FC<ButtonProps> = ({
   small,
   large,
   kind = 'primary',
-  allCaps,
   href,
   iconReverse,
   tabIndex,
@@ -74,7 +72,7 @@ const Button: React.FC<ButtonProps> = ({
     [`${prefix}--btn--danger--secondary`]: kind === 'danger--secondary',
     [`${prefix}--btn--tertiary`]: kind === 'tertiary',
     [`${prefix}--btn--animating`]: count,
-    [`${prefix}--btn--all-caps`]: allCaps,
+    //  [`${prefix}--btn--all-caps`]: allCaps, //allcaps props no longer in use
   });
 
   const commonProps = {

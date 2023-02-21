@@ -1,6 +1,6 @@
 import React from 'react';
 import type { PropsWithChildren } from 'react';
-import classNames, { Argument } from 'classnames';
+import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 import { ScreenSize, Spacing } from '../../typesLegacy/utils';
 
@@ -12,9 +12,9 @@ type WrapperProps = PropsWithChildren<{
   mobilePageWidth?: ScreenSize;
   spacing?: Spacing;
   background?: 'lighter' | 'dark';
-  className?: Argument;
+  className?: string;
   backgroundClassName?: string;
-  backgroundStyle: any;
+  backgroundStyle?: any;
 }>;
 
 const Wrapper: React.FC<WrapperProps> = (props) => {
