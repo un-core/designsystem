@@ -13,6 +13,7 @@ type CreditsProps = PropsWithChildren<{
 */
   className?: string;
 }>;
+
 /** Credits are mostly used when a photo need a source attribution. */
 const Credits: React.FC<CreditsProps> = ({
   children,
