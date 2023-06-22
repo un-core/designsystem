@@ -4,8 +4,14 @@ import Search from '../Search';
 import Link from '../Link';
 
 type BannerNavigationWithContentProps = {
+  /**
+   * A onChange Function for the search
+   */
   // eslint-disable-next-line @typescript-eslint/ban-types
   searchOnChange?: () => {};
+  /**
+   * Allows to disable the search input
+   */
   search?: boolean;
 };
 
@@ -54,7 +60,7 @@ const BannerNavigationWithContent: React.FC<
       </Link>
     </BannerNavigationItem>
     <BannerNavigationItem>
-      <Link href="https://humanitarianbooking.wfp.org" target="_blank">
+      <Link href="https://unbooking.org/" target="_blank">
         UN Booking Hub
       </Link>
     </BannerNavigationItem>

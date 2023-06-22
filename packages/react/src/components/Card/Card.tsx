@@ -7,18 +7,57 @@ import { CardKind } from '../../utils';
 /**
  * Cards are a convenient means of displaying content composed of different types of objects. It is a multi usage component which creates boxes that are usually teasing some kind of content. */
 type CardProps = PropsWithChildren<{
+  /**
+   Additional className which will be added
+ */
   className?: string;
+  /**
+   An optimized photograph
+ */
   image?: string;
+  /**
+  isExternal if true, opens link in a different window
+*/
   isExternal?: boolean;
+  /**
+  Render the Card as link
+*/
   isLink?: boolean;
+  /**
+  A short sentence to explain the content of the node (max 180 characters) 
+*/
   subTitle?: React.ReactNode;
+  /**
+   A search-friendly title (ideally 50 characters, max 100) 
+*/
   title?: string | React.ReactNode;
+  /**
+  Additional metadatas
+*/
   metadata?: string;
+  /**
+   * Alternative text for image
+   */
   alt?: string;
+  /**
+   * The content of the Card
+   */
   children?: React.ReactNode;
+  /**
+  Kind of Card
+*/
   kind?: CardKind;
+  /**
+  The URL where the content uploaded is located.
+*/
   url?: string;
+  /**
+   * override default card width with preferred width
+   */
   cardWidth?: string;
+  /**
+   * override default card width with preferred width
+   */
   cardHeight?: string;
 }>;
 

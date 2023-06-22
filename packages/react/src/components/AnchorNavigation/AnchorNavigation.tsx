@@ -4,7 +4,13 @@ import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 
 type AnchorNavigationProps = PropsWithChildren<{
+  /**
+   * The `title` is represented in the header
+   */
   title?: string;
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
   className?: string;
 }>;
 

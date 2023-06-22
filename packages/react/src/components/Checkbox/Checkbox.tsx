@@ -5,10 +5,29 @@ import useSettings from '../../hooks/useSettings';
 
 interface CheckboxProps
   extends Omit<React.ComponentPropsWithRef<'input'>, 'onChange'> {
+  /**
+   * Specify whether the Checkbox is in an indeterminate state
+   */
   indeterminate?: boolean;
+  /**
+   * Provide a label to provide a description of the Checkbox input that you are
+   * exposing to the user
+   */
   labelText?: React.ReactNode;
+  /**
+   * Specify whether the label should be hidden, or not
+   */
   hideLabel?: boolean;
+  /**
+   * The CSS class name to be placed on the wrapping element
+   */
   wrapperClassName?: string;
+  /**
+   *
+   * @param event | The event triggering the change
+   * @param checked | The new value of the checkbox
+   * @param customId | The id of the checkbox
+   */
   onChange?(
     event: React.ChangeEvent<HTMLInputElement>,
     checked?: boolean,

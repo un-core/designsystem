@@ -6,9 +6,21 @@ import useSettings from '../../hooks/useSettings';
 
 /** Context menu are used as navigational elements. They should contain commands that apply to the target object. */
 type ContextMenuProps = PropsWithChildren<{
+  /**
+   * Provide content to display when contextMenu is clicked
+   */
   content?: React.ReactNode;
+  /**
+   * Provide a href prop as an alternative to onClick
+   */
   href?: string;
+  /**
+   * Inline links are used within a sentence or paragraph and are styled with an underline. They should not be paired with an icon.
+   */
   inline?: boolean;
+  /**
+   * Provide a custom className
+   */
   className?: string;
 }>;
 

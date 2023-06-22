@@ -15,7 +15,7 @@ export default {
 export const Regular = (args) => <Pagination {...args} />;
 
 const description = `
-You can customize the content by using \`BannerNavigation\`.
+You can customize the content by using \`Pagination\`.
 `;
 
 Regular.args = {
