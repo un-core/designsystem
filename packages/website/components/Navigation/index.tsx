@@ -4,8 +4,8 @@ import {
   Button,
   MainNavigationItem,
   BannerNavigation,
-  MainNavigationExternal,
   useTheme,
+  MainNavigation,
 } from '@un/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -36,12 +36,12 @@ export default function Navigation() {
       <BannerNavigation className={styles.bannerNavigation}>
         <span>🚧 This website is work in progress 👷</span>
       </BannerNavigation>
-      <MainNavigationExternal
+      <MainNavigation
         logo={<NextLink href="./">UN core</NextLink>}
-        components={{
-          LanguageExternal: () => null,
-          UserExternal: () => null,
-        }}
+        // components={{
+        //   // LanguageExternal: () => null,
+        //   UserExternal: () => null,
+        // }}
         className={styles.mainNavigation}
         pageWidth="full">
         <MainNavigationItem>
@@ -85,7 +85,7 @@ export default function Navigation() {
             </NextLink>
           </div>
         </MainNavigationItem>
-      </MainNavigationExternal>
+      </MainNavigation>
     </>
   );
 }
