@@ -34,6 +34,7 @@ $input-border: 1px solid $field-border;
     height: $input-height;
     appearance: none;
     display: block;
+    min-width: none;
     width: 100%;
     padding: 0 $spacing-06 0 $spacing-03;
     color: $text-primary;

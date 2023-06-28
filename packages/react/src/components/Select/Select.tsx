@@ -12,6 +12,7 @@ interface SelectProps
   inline?: boolean;
   defaultValue?: string;
   iconDescription?: string;
+  hideLabel?: boolean;
 }
 
 /** The select component allows users to choose one option from a list. It is used in forms for users to submit data. */
@@ -23,9 +24,8 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
     disabled,
     children,
     iconDescription,
-    // hideLabel,
-
     light,
+    hideLabel,
   } = props;
 
   const { prefix } = useSettings();
@@ -53,7 +53,10 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
   });
 
   return (
-    <Input {...wrapperProps} inputWrapperClassName={`${prefix}--select`}>
+    <Input
+      {...wrapperProps}
+      inputWrapperClassName={`${prefix}--select`}
+      hideLabel={hideLabel}>
       <select
         //{...other}
         //{...ariaProps}

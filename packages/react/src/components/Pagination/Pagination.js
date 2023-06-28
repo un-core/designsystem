@@ -116,7 +116,10 @@ function Pagination(props) {
                 <SelectItem key={size} value={size} text={String(size)} />
               ))}
             </Select>
-            <span className="wfp--pagination__text">&nbsp;|&nbsp;&nbsp;</span>
+            <span className="wfp--pagination__text">
+              {' '}
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+            </span>
           </React.Fragment>
         )}
         <span className="wfp--pagination__text">
@@ -141,7 +144,6 @@ function Pagination(props) {
             className="wfp--pagination__button-icon"
             description={backwardText}
           />
-          A{' '}
         </button>
         {pageInputDisabled ? null : (
           <Select
