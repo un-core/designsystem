@@ -34,13 +34,12 @@ jobs:
           sudo apt-get install gridsite-clients
 
           # Create local mirror of Azure DevOps repository
-          # https://$(System.AccessToken)@dev.azure.com/organ/
           git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror
-          # git clone --mirror https://${AZURE_GIT_USERNAME}:$(urlencode ${AZURE_GIT_PASSWORD})@${AZURE_REPO_URL} repo-mirror
+          
           
           # Sync AWS CodeCommit repository
-          # cd repo-mirror
-          # git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
+          cd repo-mirror
+          git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
           
         displayName: 'Sync repository with AWS CodeCommit'
         env:
