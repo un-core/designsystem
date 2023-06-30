@@ -35,7 +35,7 @@ jobs:
 
           # Create local mirror of Azure DevOps repository
           # https://$(System.AccessToken)@dev.azure.com/organ/
-          git clone --mirror https://worldfoodprogramme@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror
+          git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror
           # git clone --mirror https://${AZURE_GIT_USERNAME}:$(urlencode ${AZURE_GIT_PASSWORD})@${AZURE_REPO_URL} repo-mirror
           
           # Sync AWS CodeCommit repository
