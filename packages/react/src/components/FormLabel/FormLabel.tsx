@@ -5,7 +5,13 @@ import useSettings from '../../hooks/useSettings';
 
 /** Form Label can be used whenever it is needed to show a label detached from a regular input. */
 type FormLabelProps = PropsWithChildren<{
+  /**
+   * The ID of the related input which will be used as `htmlFor`
+   */
   id?: string;
+  /**
+   * Additional `class` attributes
+   */
   className?: string;
 }>;
 

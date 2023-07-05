@@ -7,7 +7,13 @@ import Tooltip from '../Tooltip/Tooltip';
 
 /** FormHint allows you to add a longer explanation to an input element. */
 type FormHintProps = PropsWithChildren<{
+  /**
+   * The additional className which will be added
+   */
   className?: string;
+  /**
+   * The description of the icon
+   */
   description?: string;
 }>;
 

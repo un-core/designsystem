@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 
@@ -15,7 +15,7 @@ interface BreadcrumbProps {
   className?: string;
 }
 
-const Breadcrumb: React.FC<PropsWithChildren<BreadcrumbProps>> = ({
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
   children,
   className,
   ...other

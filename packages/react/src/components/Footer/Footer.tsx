@@ -11,17 +11,40 @@ import useSettings from '../../hooks/useSettings';
 
 /** A Footer is a section at the bottom of each page. It typically contains basic site information, copyright data or links to related pages. */
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  external?: boolean;
+  /**
+   The content of the footer containing relevant links
+ */
   children?: React.ReactNode;
+  /**
+   Additional className which will be added
+ */
+  className?: string;
+  /** 
+   Meta content, usually the copyright notice
+ */
   metaContent?: React.ReactNode;
   metaLinks?: React.ReactNode;
+  /**
+   Optional WFP logo for mobile devices, can be used if the Logo should be provided by the CDN
+ */
   logo?: string | React.ReactNode;
+  /**
+   Optional WFP logo for desktop devices, can be used if the Logo should be provided by the CDN
+ */
   logoExtended?: string | React.ReactNode;
+  /**
+   * Specify the max-width on desktop devices (same as \`Wrapper\` component)
+   */
   pageWidth?: ScreenSize;
+  /**
+   Override the SDG icon
+ */
   sdgLogo?: React.ReactNode;
+  /**
+   The WFP logo, can be used if the SDG logo should be provided in a different way
+ */
   subTitle?: string | React.ReactNode;
   secondary?: React.ReactNode;
-  className?: string;
   labelOne?: string;
   labelTwo?: string;
   linkTextOne?: string;
@@ -44,7 +67,7 @@ const Footer: React.FC<FooterProps> = ({
   metaContent,
   metaLinks,
   secondary,
-  pageWidth,
+  pageWidth = 'lg',
 }) => {
   const { prefix } = useSettings();
 
