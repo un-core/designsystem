@@ -7,6 +7,8 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbHome,
+  Tabs,
+  Tab,
   // Story,
 } from '@un/react';
 import { MDXRemote } from 'next-mdx-remote';
@@ -54,7 +56,10 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
       }`}>
       {split?.children && (
         <>
-          {split.children.length === 0 && level > 0 ? (
+          {split.name === 'code' ? null : (split.children.length === 0 && // Code Preview
+              level > 0) ||
+            split.children[0].name === 'code' ? (
+            // Child level
             <NextLink
               href={`/${slugifyWithSlashes(split.path?.key)}`}
               passHref
@@ -63,11 +68,11 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
                 className={styles.item}
                 onMouseUp={(e: any) => e.target.blur()}>
                 <div className={styles.icon} />
-
                 {split.name}
               </Link>
             </NextLink>
           ) : split.children.length > 0 && level > 0 ? (
+            // Main Level
             <span
               className={styles.sidebarTitle}
               onClick={() => setOpen(!open)}>
@@ -116,11 +121,19 @@ interface SidebarWrapperProps {
   post: any;
   posts: any;
   propTypes: any;
-  data?: any;
+  // data?: any;
 }
 
+export const CustomTab = ({ children, ...props }: any) => {
+  return (
+    <Tab {...props}>
+      <div className={styles.tab}>{children}</div>
+    </Tab>
+  );
+};
+
 export default function SidebarWrapper({
-  data,
+  // data,
   post,
   posts,
   propTypes,
@@ -200,8 +213,18 @@ export default function SidebarWrapper({
             </Text>
           )}
           <Text kind="story-title" /*className={styles.title}*/>
-            {data?.post?.title}
+            {post?.title}
           </Text>
+
+          <Tabs>
+            <NextLink
+              href={`${slugifyWithSlashes(post.slug).replace('/code', '')}`}>
+              <Tab label={`Usage`} components={{ Tab }}></Tab>
+            </NextLink>
+            <NextLink href={`${slugifyWithSlashes(post.slug)}/code`}>
+              <Tab label={`Code`} components={{ Tab }}></Tab>
+            </NextLink>
+          </Tabs>
 
           <div className={styles.excerpt}>
             <MDXRemote {...post.mdxExcerptSource} components={components} />
