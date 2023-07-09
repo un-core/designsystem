@@ -1,0 +1,15 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bridgedocs-dev-131736-authRole",
+      "UnauthRoleArn": "arn:aws:iam::500398178270:role/amplify-bridgedocs-dev-131736-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::500398178270:role/amplify-bridgedocs-dev-131736-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-bridgedocs-dev-131736-deployment",
+      "UnauthRoleName": "amplify-bridgedocs-dev-131736-unauthRole",
+      "StackName": "amplify-bridgedocs-dev-131736",
+      "StackId": "arn:aws:cloudformation:eu-central-1:500398178270:stack/amplify-bridgedocs-dev-131736/64f1e7a0-10ee-11ee-a4a7-0255b52f0588",
+      "AmplifyAppId": "d21wsjgodkomo"
+    }
+  }
+}
