@@ -225,6 +225,7 @@ const CodeBlockLive = (props: any) => {
       </div>
     );
   }
+  return null;
   return (
     <div
       className={`${stylesModule.code} wfp--code-block ${

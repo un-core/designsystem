@@ -20,7 +20,7 @@ import { Button, mdxComponents, BlockNotification, TextInput } from '@un/react';
 
 import FaviconGenerator from '../../../_posts/Favicons/FaviconGenerator';
 
-const { code, /*pre,*/ ...mdxComponentsWithoutCode } = mdxComponents;
+const { /* code, */ /*pre,*/ ...mdxComponentsWithoutCode } = mdxComponents;
 const components = {
   ...mdxComponentsWithoutCode,
   Video,
@@ -41,7 +41,9 @@ const components = {
   //code: CodeBlockLive,
 
   pre: Pre,
-  code: code,
+  code: () => {
+    return null;
+  }, // code,
   ComponentsList,
   Meta: Flex,
   BlockNotification,

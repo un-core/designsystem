@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import {
   Link,
   Wrapper,
-  Text,
+  // Text,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbHome,
-  Tabs,
+  // Tabs,
   Tab,
   // Story,
 } from '@un/react';
@@ -206,25 +206,25 @@ export default function SidebarWrapper({
                 );
               })}
           </Breadcrumb>
-
+          {/*}
           {post.subtitle && (
-            <Text kind="story-subtitle" /*className={styles.subTitle}*/>
+            <Text kind="story-subtitle" >
               {post.subtitle}
             </Text>
           )}
-          <Text kind="story-title" /*className={styles.title}*/>
+          <Text kind="story-title" >
             {post?.title}
           </Text>
 
           <Tabs>
             <NextLink
               href={`${slugifyWithSlashes(post.slug).replace('/code', '')}`}>
-              <Tab label={`Usage`} components={{ Tab }}></Tab>
+              <Tab label={`Usage`}></Tab>
             </NextLink>
             <NextLink href={`${slugifyWithSlashes(post.slug)}/code`}>
-              <Tab label={`Code`} components={{ Tab }}></Tab>
+              <Tab label={`Code`}></Tab>
             </NextLink>
-          </Tabs>
+          </Tabs>*/}
 
           <div className={styles.excerpt}>
             <MDXRemote {...post.mdxExcerptSource} components={components} />

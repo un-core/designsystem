@@ -8250,6 +8250,11 @@
   resolved "https://registry.yarnpkg.com/@types/pretty-hrtime/-/pretty-hrtime-1.0.1.tgz#72a26101dc567b0d68fd956cf42314556e42d601"
   integrity sha512-VjID5MJb1eGKthz2qUerWT8+R4b9N+CHvGCzg9fn4kWZgaF9AhdYikQio3R7wV8YY1NsQKPaCwKz1Yff+aHNUQ==
 
+"@types/prismjs@^1.26.0":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@types/prismjs/-/prismjs-1.26.0.tgz#a1c3809b0ad61c62cac6d4e0c56d610c910b7654"
+  integrity sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -9920,24 +9925,10 @@ ast-types-flow@^0.0.7:
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
   integrity sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==
 
-ast-types@0.15.2:
-  version "0.15.2"
-  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.15.2.tgz#39ae4809393c4b16df751ee563411423e85fb49d"
-  integrity sha512-c27loCv9QkZinsa5ProX751khO9DJl/AcB5c2KNtA6NRvHKS0PgLfcftz72KVq504vB0Gku5s2kUZzDBvQWvHg==
-  dependencies:
-    tslib "^2.0.1"
-
-ast-types@^0.14.2:
+ast-types@0.15.2, ast-types@^0.14.0, ast-types@^0.14.2, ast-types@^0.16.1:
   version "0.14.2"
   resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.14.2.tgz#600b882df8583e3cd4f2df5fa20fa83759d4bdfd"
   integrity sha512-O0yuUDnZeQDL+ncNGlJ78BiO4jnYI3bvMsD5prT0/nsgijG/LpNBIr63gTjVTNsiGkgQhiyCShTgxt8oXOrklA==
-  dependencies:
-    tslib "^2.0.1"
-
-ast-types@^0.16.1:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.16.1.tgz#7a9da1617c9081bc121faafe91711b4c8bb81da2"
-  integrity sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==
   dependencies:
     tslib "^2.0.1"
 
@@ -25751,6 +25742,14 @@ prism-react-renderer@^1.3.1, prism-react-renderer@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.3.5.tgz#786bb69aa6f73c32ba1ee813fbe17a0115435085"
   integrity sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==
+
+prism-react-renderer@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-2.0.6.tgz#24f0c1afbc07d4a268677fb05e77079ea80b6a2f"
+  integrity sha512-ERzmAI5UvrcTw5ivfEG20/dYClAsC84eSED5p9X3oKpm0xPV4A5clFK1mp7lPIdKmbLnQYsPTGiOI7WS6gWigw==
+  dependencies:
+    "@types/prismjs" "^1.26.0"
+    clsx "^1.2.1"
 
 prismjs@^1.20.0, prismjs@^1.25.0, prismjs@^1.28.0:
   version "1.29.0"
