@@ -95,12 +95,12 @@ You could use the `initialEntered` prop of `AccordionItem` to expand items when 
 </AccordionItem>
 ```
 
-<BlockNotification title="Note" kind="info">
+<Callout title="Note" kind="info">
 The `Accordion` component also has an `initialEntered` prop which can make every accordion item expanded when initially mounted.
 
 When the `initialEntered` prop is specified on an individual `AccordionItem` at the same time, it overrides the `initialEntered` prop of `Accordion` component.
 
-</BlockNotification>
+</Callout>
 
 ### Customising header
 
@@ -209,22 +209,22 @@ export default function Example() {
 }
 ```
 
-<BlockNotification kind="warning" title="Info">
+<Callout kind="warning" title="Info">
 The `itemKey` prop of `AccordionItem` is not required to be globally unique, but it should be unique among its sibling `AccordionItem` components.
 
 Also, you don't need to specify the `itemKey` prop for an item if you don't want to programmatically toggle it.
 
-</BlockNotification>
+</Callout>
 
 ### From underneath Accordion
 
 To programmatically open or close accordion items or access the state from a component that is underneath `Accordion` in the React tree, use the `useAccordionState` hook.
 
-<BlockNotification kind="info" title="Info">
+<Callout kind="info" title="Info">
   If you want to access and control state of the `current` item, there is a
   simpler way to achieve it using the [render prop
   pattern](#render-prop-pattern).
-</BlockNotification>
+</Callout>
 
 ### Item render prop
 

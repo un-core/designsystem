@@ -4,4 +4,4 @@ export * from './NotificationTextDetails';
 // export * from './InlineNotification.tsx.legacy';
 export * from './ToastNotification';
 
-export { BlockNotification } from './BlockNotification';
+export { Callout } from './Callout';

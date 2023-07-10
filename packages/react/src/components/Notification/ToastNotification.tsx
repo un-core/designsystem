@@ -4,9 +4,9 @@ import { NotificationIcon } from './NotificationIcon';
 import { NotificationTextDetails } from './NotificationTextDetails';
 import useSettings from '../../hooks/useSettings';
 import classNames from 'classnames';
-import { BlockNotificationProps } from './BlockNotification';
+import { CalloutProps } from './Callout';
 
-interface ToastNotificationProps extends BlockNotificationProps {
+interface ToastNotificationProps extends CalloutProps {
   /**
    * Specify the timeout in milliseconds
    */

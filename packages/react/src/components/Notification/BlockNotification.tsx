@@ -4,7 +4,7 @@ import useSettings from '../../hooks/useSettings';
 import { NotificationTextDetails } from './NotificationTextDetails';
 import { NotificationIcon } from './NotificationIcon';
 
-export interface BlockNotificationProps
+export interface CalloutProps
   extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> {
   /**
    * Pass in the action nodes that will be rendered within the Notification
@@ -74,8 +74,8 @@ export interface BlockNotificationProps
   title?: React.ReactNode;
 }
 
-export const BlockNotification: React.FC<BlockNotificationProps> =
-  React.forwardRef((props, ref) => {
+export const Callout: React.FC<CalloutProps> = React.forwardRef(
+  (props, ref) => {
     const {
       actions,
       role = 'alert',
@@ -131,8 +131,9 @@ export const BlockNotification: React.FC<BlockNotificationProps> =
         </div>
       </div>
     );
-  });
+  }
+);
 
-BlockNotification.displayName = 'BlockNotification';
+Callout.displayName = 'Callout';
 
-export default BlockNotification;
+export default Callout;

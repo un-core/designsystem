@@ -3,7 +3,7 @@ import {
   ToastNotification,
   //InlineNotification,
   NotificationActionButton,
-  BlockNotification,
+  Callout,
 } from '.';
 import Button from '../Button';
 import { notificationtypes } from '../../prop-types/types';
@@ -144,22 +144,22 @@ ToastLowContrast.story = {
 
 export const Inline = (args) => (
   <>
-    <BlockNotification
+    <Callout
       {...args}
       kind="success"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="error"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="warning"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="info"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
@@ -185,22 +185,22 @@ Inline.story = {
 
 export const InlineLowContrast = (args) => (
   <>
-    <BlockNotification
+    <Callout
       {...args}
       kind="success"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="error"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="warning"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="info"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
@@ -217,14 +217,14 @@ InlineLowContrast.args = {
   statusIconDescription: 'describes the status icon',
 };
 
-export const BlockNotificationElement = (args) => (
+export const CalloutElement = (args) => (
   <>
-    <BlockNotification
+    <Callout
       {...args}
       kind="success"
       actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
     />
-    <BlockNotification
+    <Callout
       advancedActions
       {...args}
       subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
@@ -237,7 +237,7 @@ export const BlockNotificationElement = (args) => (
         </>
       }
     />
-    <BlockNotification
+    <Callout
       advancedActions
       {...args}
       kind="info"
@@ -249,7 +249,7 @@ export const BlockNotificationElement = (args) => (
         </>
       }
     />
-    <BlockNotification
+    <Callout
       {...args}
       kind="warning"
       icon={<div>Icon</div>}
@@ -258,7 +258,7 @@ export const BlockNotificationElement = (args) => (
   </>
 );
 
-BlockNotificationElement.args = {
+CalloutElement.args = {
   role: 'alert',
   title: 'Notification title',
   subtitle: 'Subtitle text goes here.',

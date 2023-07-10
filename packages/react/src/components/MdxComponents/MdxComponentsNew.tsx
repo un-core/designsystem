@@ -1,7 +1,7 @@
 import Story from '../Story';
 import React from 'react';
 import { List, ListItem } from '../List';
-import { BlockNotification } from '../Notification';
+import { Callout } from '../Notification';
 import Table from '../Table';
 import useSettings from '../../hooks/useSettings';
 import Link from '../Link';
@@ -129,7 +129,7 @@ const pre = (props) => {
 const blockquote = ({ children, ...other }) => {
   if (Array.isArray(children) && children.length >= 2 && children[0].props)
     return (
-      <BlockNotification
+      <Callout
         kind="info"
         {...other}
         subtitle={children.map((e, i) => {
@@ -138,7 +138,7 @@ const blockquote = ({ children, ...other }) => {
         title={children[0].props.children}
       />
     );
-  return <BlockNotification kind="info" {...other} subtitle={children} />;
+  return <Callout kind="info" {...other} subtitle={children} />;
 };
 
 /*const code = ({ children, className, ...other }) => {

@@ -4,9 +4,9 @@ import useSettings from '../../hooks/useSettings';
 import { NotificationButton } from './NotificationButton';
 import { NotificationTextDetails } from './NotificationTextDetails';
 import { NotificationIcon } from './NotificationIcon';
-import { BlockNotificationProps } from './BlockNotification';
+import { CalloutProps } from './Callout';
 
-interface InlineNotificationProps extends BlockNotificationProps {
+interface InlineNotificationProps extends CalloutProps {
   /**
    * Pass in the action nodes that will be rendered within the InlineNotification
    */

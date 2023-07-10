@@ -92,8 +92,11 @@ export {
   NotificationActionButton,
   NotificationButton,
   NotificationTextDetails,
-  BlockNotification,
+  Callout,
 } from './components/Notification';
+
+// Legacy export for backwards compatibility
+export { Callout as BlockNotification } from './components/Notification';
 export { default as NumberInput } from './components/NumberInput';
 export { default as Pagination } from './components/Pagination';
 export { default as RadioButton } from './components/RadioButton';
