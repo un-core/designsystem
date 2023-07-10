@@ -4,7 +4,7 @@ import Layout from '../components/Blog/Layout';
 import { Wrapper } from '@un/react';
 import { getAllPosts } from '../lib/getPost';
 
-//triggering a commit
+//another deploy trigger
 const Posts = ({ articles }: any) => {
   return (
     <Layout>
