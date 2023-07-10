@@ -6,26 +6,87 @@ import SelectItem from '../SelectItem';
 // import { equals } from '../../tools/array';
 
 interface PaginationProps {
+  /**
+   * The description for the backward icon.
+   */
   backwardText?: string;
+  /**
+   * The CSS class names.
+   */
   className?: string;
+  /**
+   * The function returning a translatable text showing where the current page is,
+   * in a manner of the range of items.
+   */
   itemRangeText?: (min: number, max: number, total: number) => string;
+  /**
+   * The description for the forward icon.
+   */
   forwardText?: string;
+  /**
+   * The unique ID of this component instance.
+   */
   id?: string | number;
+  /**
+   * The translatable text indicating the number of items per page.
+   */
   itemsPerPageText?: string;
+  /**
+   * A variant of `itemsPerPageText`, with a sign indicating that the number follows, e.g. ':'.
+   */
   itemsPerPageFollowsText?: string;
+  /**
+   * A variant of `itemRangeText`, used if the total number of items is unknown.
+   */
   itemText?: (min: number, max: number) => string;
+  /**
+   * The callback function called when the current page changes.
+   */
   onChange?: (params: { page: number; pageSize: number }) => void;
+  /**
+   * A function returning PII showing where the current page is.
+   */
   pageRangeText?: (current: number, total: number) => string;
+  /**
+   * The translatable text showing the current page.
+   */
   pageText?: (page: number) => string;
+  /**
+   * The choices for `pageSize`.
+   */
   pageSizes: number[];
+  /**
+   * `true` if ture the pageSizes should be not visible.
+   */
   pageSizesDisabled?: boolean;
+  /**
+   * The total number of items.
+   */
   totalItems?: number;
+  /**
+   * `true` if the backward/forward buttons should be disabled.
+   */
   disabled?: boolean;
+  /**
+   * The current page.
+   */
   page?: number;
+  /**
+   * The number dictating how many items a page contains.
+   */
   pageSize?: number;
   pageNumberText?: string;
+  /**
+   * `true` if the total number of items is unknown.
+   */
   pagesUnknown?: boolean;
+  /**
+   * `true` if the current page should be the last page.
+   */
   isLastPage?: boolean;
+  /**
+   * `true` if the select box to change the page should be disabled.
+   */
   pageInputDisabled?: boolean;
 }
 

@@ -6,16 +6,49 @@ import { HeroKind } from '../../utils';
 /**
  * Hero are a convenient means of displaying content composed of different types of objects. It is a multi usage component which creates boxes that are usually teasing some kind of content. */
 type HeroProps = PropsWithChildren<{
+  /**
+   The links target
+*/
   href?: string;
+  /**
+   An optimized photograph
+ */
   image?: string;
+  /**
+  External link flag
+*/
   isExternal?: boolean;
+  /**
+  Render the Hero as link
+*/
   isLink?: boolean;
+  /**
+  A short sentence to explain the content of the node (max 180 characters) 
+*/
   subTitle?: React.ReactNode;
+  /**
+   A search-friendly title (ideally 50 characters, max 100) 
+*/
   title?: string | React.ReactNode;
+  /**
+  Additional metadatas
+*/
   metadata?: string;
+  /**
+  Additional more content
+*/
   more?: React.ReactNode;
+  /**
+  Kind of Hero
+*/
   kind?: HeroKind;
+  /**
+  The URL where the content uploaded is located.
+*/
   url?: string;
+  /**
+   Additional className which will be added
+ */
   className?: string;
 }>;
 

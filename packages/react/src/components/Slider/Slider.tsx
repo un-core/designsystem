@@ -8,22 +8,70 @@ import { UseInputProps } from '../Input/useInput';
 /** Sliders provide a visual indication of adjustable content, where the user can move the handle along a horizontal track to increase or decrease the value. */
 
 interface SliderProps extends InputProps, React.ComponentPropsWithRef<'input'> {
+  /**
+   * Specify an optional className to be applied to the form-item node
+   */
   formItemClassName?: string;
+  /**
+   * Specify if the control should be disabled, or not
+   */
   disabled?: boolean;
+  /**
+   * Specify whether you want the underlying label to be visually hidden
+   */
   hideLabel?: boolean;
+  /**
+   * The minimum value.
+   */
   min: number;
+  /**
+   * The label associated with the minimum value.
+   */
   minLabel?: string;
+  /**
+   * The maximum value.
+   */
   max: number;
+  /**
+   * The label associated with the maximum value.
+   */
   maxLabel?: string;
+  /**
+   * The callback to format the label associated with the minimum/maximum value.
+   */
   formatLabel?: () => void;
+  /**
+   * The `name` attribute of the `<input>`.
+   */
   name?: string;
+  /**
+   * The `type` attribute of the `<input>`.
+   */
   inputType?: string;
+  /**
+   * The `ariaLabel` for the `<input>`.
+   */
   ariaLabelInput?: string;
+  /**
+   * A value determining how much the value should increase/decrease by moving the thumb by mouse.
+   */
   step?: number;
+  /**
+   * Specify the value of the input, if undefined or null the value is empty
+   */
   value?: number | '';
+  /**
+   * `true` to hide the number input box.
+   */
   hideTextInput?: boolean;
   // eslint-disable-next-line @typescript-eslint/ban-types
+  /**
+   * Use the width of the parent element
+   */
   fullWidth?: boolean;
+  /**
+   * `true` to hide the controls on slider.
+   */
   hideControls?: boolean;
 }
 

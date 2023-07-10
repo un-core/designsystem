@@ -25,7 +25,13 @@ const SecondaryNavigationTitle: React.FC<SecondaryNavigationTitleProps> = ({
 export interface SecondaryNavigationProps
   extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
+  /**
+   * Specify the max-width on desktop devices (same as \`Wrapper\` component)
+   */
   pageWidth?: 'sm' | 'md' | 'lg' | 'full';
+  /**
+   * The CSS class name to be placed on the wrapping element
+   */
   wrapperClassName?: string;
   id?: string;
   additional?: React.ReactNode;

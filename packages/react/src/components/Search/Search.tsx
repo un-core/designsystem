@@ -7,8 +7,14 @@ import { UseInputProps } from '../Input/useInput';
 
 interface SearchProps extends InputProps, React.ComponentPropsWithRef<'input'> {
   defaultValue?: string | number;
+  /**
+   * Specify an optional className to be applied to the form-item node
+   */
   formItemClassName?: string;
   inputWrapperClassName?: string;
+  /**
+   * Specify whether you want the underlying label to be visually hidden
+   */
   hideLabel?: boolean;
   children?: React.ReactNode | string;
   light?: boolean;
@@ -17,6 +23,9 @@ interface SearchProps extends InputProps, React.ComponentPropsWithRef<'input'> {
    */
   closeButtonLabelText?: string;
   //  placeholder?: string;
+  /**
+   * Specify if the control should be disabled, or not
+   */
   disabled?: boolean;
   id?: string;
   hideControls?: boolean;
@@ -24,11 +33,22 @@ interface SearchProps extends InputProps, React.ComponentPropsWithRef<'input'> {
    * Specify a style for the search input
    */
   kind?: 'large' | 'small' | 'main' | 'light' | 'banner';
+  /**
+   * The new value is available first arg 'searchValue' and evt object if needed is on second arg.
+   * i.e.
+   * const handleChange = (searchValue, evt) => {
+   * console.log("searchValue", searchValue); // a string
+   * console.log("evt", evt); // the whole event object
+   * }
+   */
   onChange?: (
     event?: React.ChangeEvent<HTMLInputElement>,
     value?: string
   ) => void;
   onSearchIconClick?: () => void;
+  /**
+   * `true` to use the small version of Search
+   */
   small?: boolean;
   value?: string;
   className?: string;

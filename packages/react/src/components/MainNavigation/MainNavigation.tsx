@@ -11,7 +11,13 @@ import { WrapperProps } from '../Wrapper/Wrapper';
 /** The Main Navigation is a Horizontal Menu which consists of multiple clickable items placed at the top of the page. The navigation stays unchanged when browswing through the site and is present on every page. The currently selected item is usually highlighted. */
 
 interface MainNavigationProps extends React.ComponentPropsWithRef<'div'> {
+  /**
+   * The Logo can be either a string or a component
+   */
   logo?: string | React.ReactNode;
+  /**
+   * Specify the max-width on desktop devices (same as \`Wrapper\` component)
+   */
   pageWidth?: ScreenSize;
   /*
    * The replaceable components to be used for the main navigation. MobileButton(prefix, toggleMenu): accepts a React.ReactNode which will be used as the mobile button. Wrapper: accepts a React.ReactNode which will be used as the wrapper.
@@ -20,9 +26,21 @@ interface MainNavigationProps extends React.ComponentPropsWithRef<'div'> {
     Wrapper?: ComponentType<WrapperProps>;
     MobileButton?: ComponentType<MobileButtonProps>;
   };
+  /**
+   * Specify the max-width on mobile devices (same as \`Wrapper\` component)
+   */
   mobilePageWidth?: ScreenSize;
+  /**
+   * Additional className for the `Wrapper`
+   */
   wrapperClassName?: string;
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
   className?: string;
+  /**
+   * Defines an `id` for the component.
+   */
   id?: string;
 }
 

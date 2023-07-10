@@ -9,27 +9,64 @@ import useInput, { UseInputProps } from '../Input/useInput';
 interface NumberInputProps
   extends InputProps,
     React.ComponentPropsWithRef<'input'> {
+  /**
+   * The maximum value.
+   */
   max?: number;
+  /**
+   * The minimum value.
+   */
   min?: number;
+  /**
+   * Specify how much the valus should increase/decrease upon clicking on up/down button
+   */
   step?: number;
+  /**
+   * `true` to allow empty string.
+   */
   allowEmpty?: boolean;
+  /**
+   * Specify if the control should be disabled, or not
+   */
   disabled?: boolean;
+  /**
+   * Specify a custom `id` for the input
+   */
   id?: string;
+  /**
+   * Provide text that is used alongside the control label for additional help
+   */
   helperText?: string;
+  /**
+   * Specify whether you want the underlying label to be visually hidden
+   */
   hideLabel?: boolean;
   hideControls?: boolean;
+  /**
+   * `true` to use the light version.
+   */
   light?: boolean;
   pattern?: string;
+  /**
+   * The new value is available in 'imaginaryTarget.value'
+   * i.e. to get the value: evt.imaginaryTarget.value
+   */
   onChange?: (
     evt?: React.ChangeEvent,
     value?: number,
     direction?: string
   ) => void;
+  /**
+   * Provide an optional function to be called when the up/down button is clicked
+   */
   onClick?: (
     evt?: React.MouseEvent,
     value?: number,
     direction?: string
   ) => void;
+  /**
+   * Specify the value of the input, if undefined or null the value is empty
+   */
   value?: '' | number | string;
 }
 

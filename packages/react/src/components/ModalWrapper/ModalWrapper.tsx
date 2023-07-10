@@ -16,8 +16,17 @@ interface ModalWrapperProps
   components?: {
     Wrapper?: React.ReactNode;
   };*/;
+  /**
+   * Specify a custom trigger `Button`.
+   */
   customButton?: React.ReactElement;
+  /**
+   * Specify the text for the trigger `Button`.
+   */
   buttonTriggerText?: React.ReactNode;
+  /**
+   * Specify a `class` for the trigger `Button`.
+   */
   buttonTriggerClassName?: string;
   /*modalLabel?: React.ReactNode;
   modalHeading?: React.ReactNode;
@@ -30,8 +39,17 @@ interface ModalWrapperProps
   width?: 'wide' | 'narrow';
   secondaryButtonText?: React.ReactNode;
   */
+  /**
+   * @param handle - function to open the modal
+   */
   handleOpen?: () => void;
+  /**
+   * @param handle - function to submit content in the modal
+   */
   handleSubmit?: (handle: () => void) => void;
+  /**
+   * @param handle - function to close the modal
+   */
   handleClose?: () => void;
   triggerButtonKind?: ButtonKind;
   shouldCloseAfterSubmit?: boolean;

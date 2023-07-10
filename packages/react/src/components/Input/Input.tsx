@@ -66,8 +66,17 @@ export interface InputProps {
    * Provide a name for the control
    */
   name?: string;
+  /**
+   * Specify whether the input is required
+   */
   required?: boolean;
+  /**
+   * Specify whether the input should be diabled
+   */
   disabled?: boolean;
+  /**
+   * Specify whether the input should be read-only
+   */
   readOnly?: boolean;
   inline?: boolean;
   addonBefore?: string | React.ReactNode;
