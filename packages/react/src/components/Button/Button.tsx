@@ -42,7 +42,7 @@ interface ButtonBaseProps {
    */
   disabled?: boolean;
   tabIndex?: number;
-  target?: any;
+  target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
   // type?: 'button' | 'reset' | 'submit';
   useFlexbox?: boolean;
   id?: string;
