@@ -45,7 +45,7 @@ interface ButtonBaseProps {
    * Optional prop to specify the tabIndex of the Button
    */
   tabIndex?: number;
-  target?: any;
+  target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
   // type?: 'button' | 'reset' | 'submit';
   useFlexbox?: boolean;
   id?: string;
