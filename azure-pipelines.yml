@@ -111,6 +111,8 @@ jobs:
       - script: |
           yarn build
         displayName: 'yarn build'
+        env:
+         FIGMA_TOKEN: $(FIGMA_TOKEN)
 
       - script: |
           npm run lerna:versionNoPush
