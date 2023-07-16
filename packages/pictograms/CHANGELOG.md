@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.14.33 (2023-07-16)
+
+**Note:** Version bump only for package @un/pictograms
+
+
+
+
+
 ## 11.14.32 (2023-07-16)
 
 **Note:** Version bump only for package @un/pictograms
