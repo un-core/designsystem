@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.26.69 (2023-07-16)
+
+**Note:** Version bump only for package @un/styles
+
+
+
+
+
 ## [10.26.63](https://github.com/wfp/designsystem/compare/@un/styles@10.26.62...@un/styles@10.26.63) (2023-04-23)
 
 ### Bug Fixes
