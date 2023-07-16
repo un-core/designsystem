@@ -8,7 +8,7 @@ export default function FigmaImage({
   img,
   width,
   height,
-  background,
+  //background,
   ...props
 }: any) {
   // const src = `https://www.figma.com/embed?embed_host=astra&url=${url}`;
@@ -22,7 +22,7 @@ export default function FigmaImage({
       {...props}
     />
   );
-  return (
+  /* return (
     <div
       className={`wfp--code-block ${styles.figmaImage} ${
         background ? styles.background : styles.transparent
@@ -34,7 +34,6 @@ export default function FigmaImage({
         alt="Figma file"
         {...props}
       />
-      {/*<Image src={img} width={width} height={height} alt="Figma file" />*/}
     </div>
-  );
+  ); */
 }

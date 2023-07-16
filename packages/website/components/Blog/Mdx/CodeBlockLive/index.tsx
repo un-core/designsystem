@@ -232,7 +232,7 @@ const CodeBlockLive = (props: any) => {
         source ? stylesModule.previewWithSource : ''
       }`}>
       {source && <div className={stylesModule.preview}>{children}</div>}
-      <Highlight
+      {/*<Highlight
         {...defaultProps}
         code={code}
         language={language}
@@ -248,7 +248,7 @@ const CodeBlockLive = (props: any) => {
             ))}
           </pre>
         )}
-      </Highlight>
+                </Highlight>*/}
       <Button
         className={stylesModule.copyButton}
         small

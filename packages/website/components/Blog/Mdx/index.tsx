@@ -20,7 +20,7 @@ import { Button, mdxComponents, Callout, TextInput } from '@un/react';
 
 import FaviconGenerator from '../../../_posts/Favicons/FaviconGenerator';
 
-const { /* code, */ /*pre,*/ ...mdxComponentsWithoutCode } = mdxComponents;
+const { code, /*pre,*/ ...mdxComponentsWithoutCode } = mdxComponents;
 const components = {
   ...mdxComponentsWithoutCode,
   Video,
@@ -36,14 +36,14 @@ const components = {
   //CodeBlockLive,
   DoUse,
   DoNotUse,
-  //code: code,
-  //pre: (e) => <CodeBlock {...e} OrginalCode={code} />,
+  code: code,
+  pre: (e) => <CodeBlock {...e} OrginalCode={code} />,
   //code: CodeBlockLive,
 
   pre: Pre,
-  code: () => {
+  /*code: () => {
     return null;
-  }, // code,
+  }, // code,*/
   ComponentsList,
   Meta: Flex,
   Callout,
