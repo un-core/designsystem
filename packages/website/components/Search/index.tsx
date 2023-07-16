@@ -1,8 +1,6 @@
 // .components/Search/index.js
 
 import algoliasearch from 'algoliasearch/lite';
-//import { InstantSearch } from 'react-instantsearch-dom';
-
 import CustomSearchBox from './CustomSearchBox';
 import CustomHits from './CustomHits';
 import { useEffect, useRef, useState } from 'react';
@@ -18,7 +16,7 @@ const searchApiKey: string =
 
 const searchClient: any = algoliasearch(appId, searchApiKey);
 
-export const useOutsideAlerter = ({ ref, setOpen }) => {
+export const useOutsideAlerter = ({ ref, setOpen }: any) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -31,6 +29,7 @@ export const useOutsideAlerter = ({ ref, setOpen }) => {
       // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref]);
 };
 

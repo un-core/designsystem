@@ -37,7 +37,7 @@ const components = {
   DoUse,
   DoNotUse,
   code: code,
-  pre: (e) => <CodeBlock {...e} OrginalCode={code} />,
+  //pre: (e) => <CodeBlock {...e} OrginalCode={code} />,
   //code: CodeBlockLive,
 
   pre: Pre,
