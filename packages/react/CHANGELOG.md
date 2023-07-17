@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.18.94 (2023-07-17)
+
+
+### Bug Fixes
+
+* **website:** mdx loader updated ([60c83bb](https://github.com/wfp/ui/commit/60c83bba74621ba5a93c9718bc49e4cdfbc807b6))
+
+
+
+
+
 ## 1.18.93 (2023-07-16)
 
 **Note:** Version bump only for package @un/react
