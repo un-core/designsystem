@@ -16,7 +16,15 @@ import ComponentsList from './ComponentsList';
 import { H1, H2, H3, H4, H5 } from './Headings';
 import IconList from './Icons/IconListNew';
 import PropTypes from '../../PropTypes';
-import { Button, mdxComponents, Callout, TextInput } from '@un/react';
+import {
+  AddonBefore,
+  AddonAfter,
+  Button,
+  mdxComponents,
+  Callout,
+  TextInput,
+  Input,
+} from '@un/react';
 
 import FaviconGenerator from '../../../_posts/Favicons/FaviconGenerator';
 
@@ -36,6 +44,8 @@ const components = {
   //CodeBlockLive,
   DoUse,
   DoNotUse,
+  AddonBefore,
+  AddonAfter,
   code: code,
   //pre: (e) => <CodeBlock {...e} OrginalCode={code} />,
   //code: CodeBlockLive,
@@ -46,6 +56,7 @@ const components = {
   }, // code,*/
   ComponentsList,
   Meta: Flex,
+  Input: Input,
   Callout,
   Button,
   PropTypes,

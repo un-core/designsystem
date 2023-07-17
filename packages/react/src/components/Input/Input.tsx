@@ -151,7 +151,7 @@ export interface AddonBeforeProps {
   prefix?: string;
 }
 
-function AddonBefore({
+export function AddonBefore({
   addonBefore,
   prefix,
 }: InputPropsForReplacementComponents) {
@@ -161,7 +161,7 @@ function AddonBefore({
   return null;
 }
 
-function AddonAfter({
+export function AddonAfter({
   addonAfter,
   prefix,
 }: InputPropsForReplacementComponents) {
@@ -173,7 +173,7 @@ function AddonAfter({
 
 /**
  * Shows the error message underneath the element */
-function Error({
+export function Error({
   errorId,
   errorClasses,
   invalid,

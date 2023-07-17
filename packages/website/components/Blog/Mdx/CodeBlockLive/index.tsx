@@ -1,7 +1,7 @@
 /* eslint-disable no-irregular-whitespace */
 // src/components/CodeBlock.js
 import React, { useState } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 import stylesModule from './codeBlockLive.module.scss';
 import {
   LiveProvider,
@@ -225,17 +225,17 @@ const CodeBlockLive = (props: any) => {
       </div>
     );
   }
-  return null;
+
   return (
     <div
       className={`${stylesModule.code} wfp--code-block ${
         source ? stylesModule.previewWithSource : ''
       }`}>
       {source && <div className={stylesModule.preview}>{children}</div>}
+
       <Highlight
-        {...defaultProps}
         code={code}
-        language={language}
+        language="tsx" //{language}
         theme={vsDark}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={{ ...style, padding: '20px' }}>
@@ -252,9 +252,7 @@ const CodeBlockLive = (props: any) => {
       <Button
         className={stylesModule.copyButton}
         small
-        onClick={() => handleCopyCode(code)}
-        //style={{ color: `${copiedCode === 'Copied!' ? 'green' : 'red'}` }}
-      >
+        onClick={() => handleCopyCode(code)}>
         {copiedCode}
       </Button>
     </div>
@@ -299,6 +297,7 @@ export function Pre({
   }
   // wfp--story__code
   const childObject: any = children;
+
   return <pre {...props}>{childObject}</pre>;
 }
 

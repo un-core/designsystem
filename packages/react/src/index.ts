@@ -55,7 +55,15 @@ export { default as FormLabel } from './components/FormLabel';
 export { default as InfoBar } from './components/InfoBar';
 export { default as Link } from './components/Link';
 export { default as Loading } from './components/Loading';
-export { default as Input, useInput } from './components/Input';
+export {
+  default as Input,
+  useInput,
+  Label,
+  Error,
+  Helper,
+  AddonBefore,
+  AddonAfter,
+} from './components/Input';
 export { default as InlineLoading } from './components/InlineLoading';
 export { List, ListItem } from './components/List';
 export {
