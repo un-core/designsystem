@@ -120,15 +120,11 @@ jobs:
           yarn publish:alpha-cli
         displayName: 'yarn publish:alpha-cli'
 
-      - script: |
-                
+      - script: |  
           # Install urlencode function to encode reserved characters in passwords
           sudo apt-get install gridsite-clients
-
           # Create local mirror of Azure DevOps repository
-          git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror
-          
-          
+          git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror   
           # Sync AWS CodeCommit repository
           cd repo-mirror
           git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
@@ -141,16 +137,6 @@ jobs:
           AWS_REPO_URL: $(AWS_REPO_URL)
           AWS_GIT_USERNAME: $(AWS_GIT_USERNAME)
           AWS_GIT_PASSWORD: $(AWS_GIT_PASSWORD)
-  
-#      - task: GitHubRelease@1
-#        inputs:
-#          gitHubConnection: 'Utzel-Butzel'
-#          repositoryName: '$(Build.Repository.Name)'
-#          action: 'create'
-#          target: '$(Build.SourceVersion)'
-#          tagSource: 'gitTag'
-#          changeLogCompareToRelease: 'lastFullRelease'
-#          changeLogType: 'commitBased'
 
       - powershell: |
           echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"
@@ -159,25 +145,3 @@ jobs:
 #        npmVersionString=$(node -p "require('./packages/ui/package.json').version")
 #        echo "##vso[build.updatebuildnumber]$npmVersionString"
 #      displayName: 'set build number'
-
-# TODO: Needs to reimplemented, probably in it's own package
-#    - script: |
-#        yarn build:storybook
-#      workingDirectory: './packages/ui/'
-#      displayName: 'yarn build:storybook'
-#      env:
-#        STORYBOOK_INTERNAL_ASSETS:
-#        STORYBOOK_NPM_VERSION: $(nextRelease)
-#        STORYBOOK_ASSETS: https://cdn.wfp.org/guides/ui/assets/v0.0.1/
-
-#    - task: PublishPipelineArtifact@1
-#      inputs:
-#        targetPath: "./packages/ui/docs"
-#        artifact: "wfp-ui-kit-build"
-#        publishLocation: "pipeline"
-
-#    - task: PublishPipelineArtifact@1
-#      inputs:
-#        targetPath: ".packages/ui/assets"
-#        artifact: "wfp-ui-kit-assets"
-#        publishLocation: "pipeline"
