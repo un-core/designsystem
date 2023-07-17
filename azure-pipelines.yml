@@ -111,6 +111,8 @@ jobs:
       - script: |
           yarn build
         displayName: 'yarn build'
+        env:
+         FIGMA_TOKEN: $(FIGMA_TOKEN)
 
       - script: |
           npm run lerna:versionNoPush
@@ -140,15 +142,15 @@ jobs:
           yarn publish:alpha-cli
         displayName: 'yarn publish:alpha-cli'
 
-      - task: GitHubRelease@1
-        inputs:
-          gitHubConnection: 'Utzel-Butzel'
-          repositoryName: '$(Build.Repository.Name)'
-          action: 'create'
-          target: '$(Build.SourceVersion)'
-          tagSource: 'gitTag'
-          changeLogCompareToRelease: 'lastFullRelease'
-          changeLogType: 'commitBased'
+#      - task: GitHubRelease@1
+#        inputs:
+#          gitHubConnection: 'Utzel-Butzel'
+#          repositoryName: '$(Build.Repository.Name)'
+#          action: 'create'
+#          target: '$(Build.SourceVersion)'
+#          tagSource: 'gitTag'
+#          changeLogCompareToRelease: 'lastFullRelease'
+#          changeLogType: 'commitBased'
 
       - powershell: |
           echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"

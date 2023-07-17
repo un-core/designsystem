@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.31 (2023-07-16)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
+## 0.0.30 (2023-07-16)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
 ## 0.0.23 (2022-12-06)
 
 **Note:** Version bump only for package @un/icons-core
