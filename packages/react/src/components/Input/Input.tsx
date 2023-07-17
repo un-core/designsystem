@@ -307,9 +307,9 @@ const Input: React.FC<PropsWithChildren<InputPropsI>> = ({
     Error,
     ...componentsOverride,
   };
-  const AddOnAfterComponent =
+  const AddonAfterComponent =
     components.AddonAfter as React.FC<InputPropsForReplacementComponents>;
-  const AddOnBeforeComponent =
+  const AddonBeforeComponent =
     components.AddonBefore as React.FC<InputPropsForReplacementComponents>;
   const LabelComponent =
     components.Label as React.FC<InputPropsForReplacementComponents>;
@@ -340,9 +340,9 @@ const Input: React.FC<PropsWithChildren<InputPropsI>> = ({
       <HelperComponent {...componentProps} />
       {additional}
       <div className={inputWrapperClasses}>
-        <AddOnBeforeComponent {...componentProps} />
+        <AddonBeforeComponent {...componentProps} />
         {children}
-        <AddOnAfterComponent {...componentProps} />
+        <AddonAfterComponent {...componentProps} />
       </div>
       <ErrorComponent {...componentProps} />
     </FormItem>

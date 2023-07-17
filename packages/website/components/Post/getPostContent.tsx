@@ -6,7 +6,7 @@ import remarkMdxCodeMeta from 'remark-mdx-code-meta';
 import remarkGfm from 'remark-gfm';
 import rehypeCode from '../../lib/rehypeCode';
 import rehypeImgSize from 'rehype-img-size';
-import unified from 'unified';
+import { unified } from 'unified';
 import rehypeFigmaImage from '../../lib/rehypeFigmaImage';
 import rehypeToC from '../../lib/rehypeToC';
 import rehypeComponentsList from '../../lib/rehypeComponentsList';
