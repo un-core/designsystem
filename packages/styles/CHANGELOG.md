@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.26.72 (2023-07-17)
+
+**Note:** Version bump only for package @un/styles
+
+
+
+
+
 ## 10.26.71 (2023-07-17)
 
 
