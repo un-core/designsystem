@@ -23,7 +23,6 @@ import components from '../Blog/Mdx';
 import References from '../Blog/References';
 import TableOfContent from '../Blog/References/TableOfContent';
 import slugifyWithSlashes from '../../lib/slugifyWithSlashes';
-// import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { NextSeo } from 'next-seo';
 import PropTypes from '../PropTypes';
 
@@ -227,15 +226,16 @@ export default function SidebarWrapper({
           </Tabs>*/}
 
           <div className={styles.excerpt}>
-            <MDXRemote {...post.mdxExcerptSource} components={components} />
+            {post.mdxExcerptSource && (
+              <MDXRemote {...post.mdxExcerptSource} components={components} />
+            )}
           </div>
 
           {post.mainComponent && <PropTypes propTypes={propTypes} {...post} />}
 
-          {/* <Story>
-            <TinaMarkdown components={components} content={data?.post?.body} />
-          </Story> */}
-          <MDXRemote {...post.mdxSource} components={components} />
+          {post.mdxSource && (
+            <MDXRemote {...post.mdxSource} components={components} />
+          )}
 
           <Link
             href={`https://github.com/un-core/designsystem/tree/content/website-content/packages/website/${

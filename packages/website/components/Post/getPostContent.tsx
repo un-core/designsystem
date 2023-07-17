@@ -125,6 +125,7 @@ export default async function getPostContent(params: any) {
 
   const processor = unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkStringify)
     .use(remarkHeadings);
 
