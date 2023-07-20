@@ -3,7 +3,13 @@ import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 
 export interface FormItemProps extends React.AllHTMLAttributes<HTMLDivElement> {
+  /**
+   * Specify whether the FormItem should be rendered as invalid
+   */
   invalid?: boolean;
+  /**
+   * Specify whether the FormItem should be rendered as inline
+   */
   inline?: boolean;
 }
 

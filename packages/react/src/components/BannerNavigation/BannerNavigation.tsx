@@ -5,6 +5,9 @@ import Wrapper from '../Wrapper';
 import useSettings from '../../hooks/useSettings';
 
 type BannerNavigationItemProps = PropsWithChildren<{
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
   className?: string;
 }>;
 
@@ -21,7 +24,13 @@ const BannerNavigationItem: React.FC<BannerNavigationItemProps> = ({
 };
 
 type BannerNavigationProps = PropsWithChildren<{
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
   className?: string;
+  /**
+   * Specify the max-width on desktop devices (same as \`Wrapper\` component)
+   */
   pageWidth?: 'sm' | 'md' | 'lg' | 'full';
 }>;
 

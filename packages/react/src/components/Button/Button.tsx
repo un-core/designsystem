@@ -41,6 +41,9 @@ interface ButtonBaseProps {
    * Specify whether the Button should be disabled, or not
    */
   disabled?: boolean;
+  /**
+   * Optional prop to specify the tabIndex of the Button
+   */
   tabIndex?: number;
   target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
   // type?: 'button' | 'reset' | 'submit';

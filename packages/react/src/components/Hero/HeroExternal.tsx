@@ -6,9 +6,21 @@ import Wrapper from '../Wrapper';
 import useSettings from '../../hooks/useSettings';
 
 type HeroExternalProps = PropsWithChildren<{
+  /**
+   A search-friendly title (ideally 50 characters, max 100) 
+*/
   title?: string | ReactNode;
+  /**
+   Additional className which will be added
+ */
   className?: string;
+  /**
+  A short sentence to explain the content of the node (max 180 characters) 
+*/
   subTitle: React.ReactNode;
+  /**
+   An optimized photograph
+ */
   image: string;
 }>;
 

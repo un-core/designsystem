@@ -6,8 +6,19 @@ import { ChevronLeft } from '@un/icons-react';
 import useSettings from '../../hooks/useSettings';
 
 type SidebarProps = PropsWithChildren<{
+  /**
+   The `active` prop show the content section when an item is clicked. It's useful in mobile view 
+ */
   active?: boolean | string | number;
+  /**
+   The Sidebar is usually where the sidebar items will be. 
+   `<SidebarHeader/>` can be called in `Sidebar` and example search can be used in here
+ */
   sidebar?: React.ReactNode;
+  /**
+     The sidebarMobileHeader is shwon when view is in mobile version. 
+     `<SidebarBackButton/>` can used in the `sidebarMobileHeader` prop
+  */
   sidebarMobileHeader?: React.ReactNode;
   className?: string;
 }>;
@@ -37,10 +48,14 @@ const Sidebar: React.FC<SidebarProps> = ({
   );
 };
 
-type SidebarHeaderProps = PropsWithChildren<{
+export interface SidebarHeaderProps {
+  /**
+   Disable the default padding of the SidebarHeader
+ */
   noPadding?: boolean;
+  children?: React.ReactNode;
   className?: string;
-}>;
+}
 
 const SidebarHeader: React.FC<SidebarHeaderProps> = ({
   className,
@@ -106,7 +121,14 @@ const SidebarContentBody: React.FC<SidebarContentBodyProps> = ({
   );
 };
 
-const SidebarScroll = ({ children, ...other }) => {
+interface SidebarScrollProps {
+  children?: React.ReactNode;
+}
+
+const SidebarScroll: React.FC<SidebarScrollProps> = ({
+  children,
+  ...other
+}) => {
   const { prefix } = useSettings();
   return (
     <div className={`${prefix}--sidebar-content__scroll`} {...other}>
@@ -115,7 +137,14 @@ const SidebarScroll = ({ children, ...other }) => {
   );
 };
 
-const SidebarBackButton = ({ children, ...other }) => {
+interface SidebarBackButtonProps {
+  children?: React.ReactNode;
+}
+
+const SidebarBackButton: React.FC<SidebarBackButtonProps> = ({
+  children,
+  ...other
+}) => {
   const { prefix } = useSettings();
   return (
     <div className={`${prefix}--sidebar-content__back-button`} {...other}>

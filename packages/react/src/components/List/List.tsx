@@ -4,8 +4,17 @@ import useSettings from '../../hooks/useSettings';
 
 /** List component show a number of connected items written consecutively, typically one below the other. */
 export interface ListBaseProps {
+  /**
+   * Specify a custom className
+   */
   className?: string;
+  /**
+   * Specify if colons should be used
+   */
   colon?: boolean;
+  /**
+   * Specify a kind.
+   */
   kind?:
     | 'unstyled'
     | 'simple-inline'
@@ -15,6 +24,9 @@ export interface ListBaseProps {
     | 'ordered'
     | 'tooltip'
     | 'bullets';
+  /**
+   * Specify if the List should be small
+   */
   small?: boolean;
 }
 

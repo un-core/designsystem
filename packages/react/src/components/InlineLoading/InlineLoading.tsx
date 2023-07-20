@@ -11,10 +11,26 @@ import useSettings from '../../hooks/useSettings';
 import Loading from '../Loading';
 
 interface InlineLoadingProps {
+  /**
+   * Specify whether the load was successful
+   */
   success?: boolean;
+  /**
+   * Specify the description for the inline loading text
+   */
   description?: React.ReactNode;
+  /**
+   * Provide a delay for the `setTimeout` for success
+   */
   successDelay?: number;
+  /**
+   * Provide an optional handler to be invoked when <InlineLoading> is
+   * successful
+   */
   onSuccess?: () => void;
+  /**
+   * Specify a custom className to be applied to the container node
+   */
   className?: string;
 }
 

@@ -4,8 +4,17 @@ import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 
 type AuthLayoutProps = PropsWithChildren<{
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
   className?: string;
+  /**
+   * The image is set as background on the left section when provided
+   */
   image?: React.ReactNode;
+  /**
+   * This usually consist of `<BackgroundContent/>` if you wish to provide content and background color instead of an image
+   */
   backgroundContent?: React.ReactNode;
 }>;
 

@@ -9,9 +9,23 @@ import { UseInputProps } from '../Input/useInput';
 interface SelectProps
   extends InputProps,
     React.ComponentPropsWithRef<'select'> {
+  /**
+   * Specify whether you want the inline version of this control
+   */
   inline?: boolean;
+  /**
+   * Optionally provide the default value of the `<select>`
+   */
   defaultValue?: string;
+  /**
+   * Provide a description for the twistie icon that can be read by screen readers
+   */
   iconDescription?: string;
+  /**
+   * Specify whether the label should be hidden, or not
+   */
+  hideLabel?: boolean;
+  children?: React.ReactNode;
 }
 
 /** The select component allows users to choose one option from a list. It is used in forms for users to submit data. */
@@ -23,9 +37,8 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
     disabled,
     children,
     iconDescription,
-    // hideLabel,
-
     light,
+    hideLabel,
   } = props;
 
   const { prefix } = useSettings();
@@ -53,7 +66,10 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
   });
 
   return (
-    <Input {...wrapperProps} inputWrapperClassName={`${prefix}--select`}>
+    <Input
+      {...wrapperProps}
+      inputWrapperClassName={`${prefix}--select`}
+      hideLabel={hideLabel}>
       <select
         //{...other}
         //{...ariaProps}

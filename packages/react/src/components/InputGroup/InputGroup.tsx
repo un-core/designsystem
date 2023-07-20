@@ -97,50 +97,6 @@ const InputGroup: React.FC<InputGroupProps> = (props) => {
     }
   }, [valueSelected, defaultSelected]);
 
-  //   static getDerivedStateFromProps({ valueSelected, defaultSelected }, state) {
-  //     const { prevValueSelected } = state;
-  //     return prevValueSelected === valueSelected
-  //       ? null
-  //       : {
-  //           selected: valueSelected || defaultSelected,
-  //           prevValueSelected: valueSelected,
-  //         };
-  //   }
-
-  /* const getRadioButtons = () => {
-    const children = React.Children.map(props.children, (radioButton) => {
-      const { value, ...other } = radioButton.props;
-
-    TODO: if (radioButton.props.hasOwnProperty.call('checked')) {
-        warning(
-          false,
-          `Instead of using the checked property on the RadioButton, set
-            the defaultSelected property or valueSelected property on the InputGroup.`
-        );
-      }
-
-      return (
-        <RadioButton
-          {...other}
-          name={props.name}
-          key={value}
-          value={value}
-          onChange={handleChange}
-          checked={value === selected}
-        />
-      );
-    });
-
-    return children;
-  };*/
-
-  /* const handleChange = (newSelection, value, evt) => {
-    if (newSelection !== selected) {
-      setSelected(newSelection);
-      //TOOD: props.onChange(newSelection, props.name, evt);
-    }
-  };*/
-
   const labelClasses = classNames(`${prefix}--label`, {
     [`${prefix}--visually-hidden`]: hideLabel,
   });

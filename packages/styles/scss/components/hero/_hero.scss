@@ -56,7 +56,7 @@
   }
 
   .#{$prefix}--photo-card--no-background {
-    background: var(--interactive-02); //TODO add from token
+    background: $link-primary-hover; //interactive-02 new token name
   }
 
   .#{$prefix}--photo-card__info {
@@ -79,20 +79,20 @@
   .#{$prefix}--photo-card__info__metadata {
     margin: 0;
     margin-bottom: $spacing-02;
-    @include type.type-style('label');
+    @include type.typescale('omega');
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   .#{$prefix}--photo-card__info__subtitle {
     margin: 0;
-    @include type.type-style('body-short-02');
+    @include type.typescale('zeta');
   }
 
   .#{$prefix}--photo-card__info__title {
     margin: 0;
-    /* @include typescale('zeta');
-    text-transform: uppercase;
+    @include type.typescale('beta');
+    /*text-transform: uppercase;
     letter-spacing: 0.05em; */
     & + .#{$prefix}--photo-card__info__subtitle {
       margin-top: $spacing-03;

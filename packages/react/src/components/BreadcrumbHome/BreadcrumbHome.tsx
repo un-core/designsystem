@@ -4,7 +4,13 @@ import { Home } from '@un/icons-react';
 import useSettings from '../../hooks/useSettings';
 
 interface BreadcrumbHomeProps {
+  /**
+   * Specify an optional text for the `Home` Icon
+   */
   hometext?: React.ReactNode;
+  /**
+   * Specify an optional className to be added to the `Home` Icon
+   */
   className?: string;
 }
 

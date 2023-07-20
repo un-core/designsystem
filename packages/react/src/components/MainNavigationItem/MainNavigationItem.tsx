@@ -6,12 +6,22 @@ import useSettings from '../../hooks/useSettings';
 import useMainNavigation from '../MainNavigation/useMainNavigation';
 
 interface MainNavigationItemProps {
+  /**
+   * If defined the `MainNaviationItem` will have a toggleable
+   * SubNavigation. See the `SubNavigation` component for details on usage
+   */
   subNavigation?: React.ReactNode;
   activeMenuItem?: string;
   menuItem?: string;
   subNavWideAsContent?: boolean;
   onChangeSub?: (action: string, id?: number, e?: any) => void;
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
   className?: string;
+  /**
+   * Specify if you want to use the external version of the component
+   */
   external?: boolean;
 }
 

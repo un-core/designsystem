@@ -5,11 +5,26 @@ import useSettings from '../../hooks/useSettings';
 import { IIcon } from '../../utils';
 
 interface ItemProps extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> {
+  /**
+   * Provide the title for the item contet
+   */
   title?: React.ReactNode;
+  /**
+   * Provide the description for the item content
+   */
   children?: React.ReactNode;
+  /**
+   * Provide the icon for the item content
+   */
   icon?: React.ReactNode | IIcon;
   // button?: React.ReactNode;
+  /**
+   * Provide a kind to use different appearances.
+   */
   kind?: 'undefined' | 'horizontal' | 'large';
+  /**
+   * Provide a wrap to use different borders.
+   */
   wrapper?: 'undefined' | 'sidebar' | 'repeater';
   showAdditionalIcon?: boolean;
   subContent?: React.ReactNode;

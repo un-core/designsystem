@@ -132,6 +132,7 @@
 
     .#{$prefix}--select-input {
       height: rem(24px);
+      min-width: 0;
       width: auto;
       padding: 0 1.25rem 0 0.4rem;
       margin: 0;
@@ -148,7 +149,7 @@
     .#{$prefix}--select--inline
       .#{$prefix}--select-input
       ~ .#{$prefix}--select__arrow {
-      right: 0.3rem;
+      // right: 0.3rem;
       top: 0;
     }
 
@@ -167,6 +168,11 @@
       &:focus {
         @include focus-outline('border');
       }
+    }
+
+    .#{$prefix}--select__arrow {
+      right: 0;
+      // top: 0.6rem;
     }
   }
 
@@ -197,11 +203,6 @@
     .#{$prefix}--pagination__button--backward {
       margin: 0 $spacing-05;
       padding: 0 $spacing-05;
-    }
-
-    .#{$prefix}--select__arrow {
-      right: 0;
-      top: 0.6rem;
     }
   }
 
