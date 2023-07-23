@@ -3,6 +3,9 @@
   "description": "Styles for the WFP Design System",
   "version": "10.26.72",
   "license": "Apache-2.0",
+  "author": "Robert Gühne <wfp.org>",
+  "homepage": "https://www.wfp.org",
+  "main": "styles.css",
   "repository": {
     "type": "git",
     "url": "https://github.com/wfp/designsystem.git",
@@ -20,11 +23,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "sass --load-path=node_modules --load-path=../../node_modules  --no-source-map --style compressed ./index-with-tokens.scss:styles.css"
+  },
   "dependencies": {
     "@carbon/feature-flags": "^0.6.0",
     "@carbon/grid": "^10.39.0",
     "@carbon/motion": "^10.22.0",
-    "@ibm/plex": "6.0.0-next.6",
     "@un/layout": "^10.26.15",
     "@un/themes": "^10.40.14",
     "@un/themes-core": "^0.0.32",

@@ -42,3 +42,4 @@ packages/pictograms/es/*
 actions/copy-carbon/output/*
 
 .npmrc
+packages/styles/styles.css
