@@ -21,11 +21,11 @@ import classNames from 'classnames';
 
 import * as ReactDOMServer from 'react-dom/server';
 
-import * as unComponents from '@un/react';
+import * as unComponents from '@wfp/react';
 import * as unHumanitarianIcons from '@un/humanitarian-icons-react';
 import * as unPictograms from '@un/pictograms-react';
 import * as icons from '@un/icons-react';
-import { Button, Empty } from '@un/react';
+import { Button, Empty } from '@wfp/react';
 import prettier from 'prettier/standalone';
 import babelParser from 'prettier/parser-babel';
 import htmlParser from 'prettier/parser-html';

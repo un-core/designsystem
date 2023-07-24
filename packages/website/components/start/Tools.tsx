@@ -3,7 +3,7 @@ import styles from './tools.module.scss';
 import Link from 'next/link';
 import MoreLink from '../MoreLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Wrapper } from '@un/react';
+import { Wrapper } from '@wfp/react';
 import {
   faBellPlus,
   faGlassWaterDroplet,
@@ -86,7 +86,7 @@ export default function Tools() {
           title="React"
           content="The core library includes all essential components and can be used with css only or react. Tokens can be also used with your favorite component library"
           icon={faLeaf}
-          link="https://npmjs.com/package/@un/react"
+          link="https://npmjs.com/package/@wfp/react"
           npmLink
         />
         <PossibilitiesContainer
@@ -101,7 +101,7 @@ export default function Tools() {
           content="css and scss implementation of the core components ready to use with the react library or plain html"
           // background="#FFDFDF"
           icon={faBellPlus}
-          link="https://npmjs.com/package/@un/styles"
+          link="https://npmjs.com/package/@wfp/styles"
           npmLink
         />
         <PossibilitiesContainer

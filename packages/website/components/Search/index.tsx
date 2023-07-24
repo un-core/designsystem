@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 import styles from './styles.module.scss';
 
 import { InstantSearch } from 'react-instantsearch-hooks-web';
-import { Search } from '@un/react';
+import { Search } from '@wfp/react';
 
 const appId: string = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '';
 const searchApiKey: string =

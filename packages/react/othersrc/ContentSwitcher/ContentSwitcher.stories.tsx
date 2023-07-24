@@ -33,7 +33,7 @@ Regular.args = {
 };
 
 const regularsourcecode = `
-import { ContentSwitcher , Switch } from "@un/react";
+import { ContentSwitcher , Switch } from "@wfp/react";
 
 <ContentSwitcher onChange={() => {}}>
   <Switch

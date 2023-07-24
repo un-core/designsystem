@@ -1,5 +1,5 @@
 {
-  "name": "@un/react",
+  "name": "@wfp/react",
   "version": "1.18.96",
   "description": "WFP UI Kit",
   "license": "Apache-2",
@@ -118,7 +118,7 @@
     "@un/babel-preset-wfp": "^0.1.27",
     "@un/icons-react": "^10.34.52",
     "@un/pictograms-react": "^11.14.39",
-    "@un/styles": "^10.26.73",
+    "@wfp/styles": "^10.26.73",
     "@un/themes-core": "^0.0.32",
     "add": "^2.0.6",
     "all-contributors-cli": "^6.17.0",

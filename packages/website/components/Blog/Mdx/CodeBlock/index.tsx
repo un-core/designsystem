@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 import stylesModule from './codeBlock.module.scss';
 
-import { Button } from '@un/react';
+import { Button } from '@wfp/react';
 
 const CodeBlock = ({ children }: any) => {
   //return <OrginalCode>{children}</OrginalCode>;

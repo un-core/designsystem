@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@un/react';
+import { Link } from '@wfp/react';
 import logos from '@un/logos/index.json';
 import * as wfpLogos from '@un/logos/umd';
 import styles from './logos.module.scss';

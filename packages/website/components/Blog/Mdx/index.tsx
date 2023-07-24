@@ -24,7 +24,7 @@ import {
   Callout,
   TextInput,
   Input,
-} from '@un/react';
+} from '@wfp/react';
 
 import FaviconGenerator from '../../../_posts/Favicons/FaviconGenerator';
 

@@ -1,7 +1,13 @@
 /* eslint-disable no-console */
 
 import React from 'react';
-import { Button, Module, ModuleFooter, Tooltip, tooltipStyle } from '@un/react';
+import {
+  Button,
+  Module,
+  ModuleFooter,
+  Tooltip,
+  tooltipStyle,
+} from '@wfp/react';
 import { Download } from '@un/icons-react';
 
 import styles from './icon-list.module.scss';

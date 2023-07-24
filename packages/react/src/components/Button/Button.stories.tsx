@@ -112,7 +112,7 @@ Using an Button with only an Icon while not beeing recommended can be achieved b
 `;
 
 const buttoniconsnippet = `
-import { Button } from '@un/react';
+import { Button } from '@wfp/react';
 import { AddCircleGlyph } from '@un/icons-react';
 
   <>
@@ -154,7 +154,7 @@ or less.
 `;
 
 const smallbuttonsnippet = `
-import { Button } from '@un/react';
+import { Button } from '@wfp/react';
 import { AddCircleGlyph } from '@un/icons-react';
 
   <>
@@ -193,7 +193,7 @@ or less.
 `;
 
 const largebuttonsnippet = `
-import { Button } from '@un/react';
+import { Button } from '@wfp/react';
 import { AddCircleGlyph } from '@un/icons-react';
 
   <>

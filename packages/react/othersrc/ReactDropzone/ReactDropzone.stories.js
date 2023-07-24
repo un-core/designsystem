@@ -51,7 +51,7 @@ Regular.parameters = {
   docs: {
     source: {
       code: ` 
-import { Icon, List, ListItem } from '@un/react';
+import { Icon, List, ListItem } from '@wfp/react';
 import Dropzone from 'react-dropzone';
 import { UploadGlyph } from '@un/icons-react';
 
@@ -125,7 +125,7 @@ Advanced.parameters = {
     source: {
       code: `
 import Dropzone, { useDropzone } from 'react-dropzone';
-import { Icon, List, ListItem } from '@un/react';
+import { Icon, List, ListItem } from '@wfp/react';
 import { UploadGlyph } from '@un/icons-react';
 import classNames from 'classnames';
 

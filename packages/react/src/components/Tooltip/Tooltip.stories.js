@@ -72,7 +72,7 @@ WithIcon.args = {
 };
 
 const withiconsourcecode = `
-import { Tooltip  } from "@un/react";
+import { Tooltip  } from "@wfp/react";
 import { iconOverflowMenu } from '@un/icons';
 
 <Tooltip

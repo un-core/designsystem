@@ -129,7 +129,7 @@ CustomIcon.args = {
 };
 
 const customiconsourcecode = `
-import { Blockquote,  Icon } from "@un/react";
+import { Blockquote,  Icon } from "@wfp/react";
 import { AddOutlineGlyph } from '@un/icons-react';
 
 <Blockquote icon={<AddOutlineGlyph height={48} width={48} />}>
@@ -182,7 +182,7 @@ WithButtons.args = {
 };
 
 const withbuttonsourcecode = `
-import { Blockquote, Button  } from "@un/react";
+import { Blockquote, Button  } from "@wfp/react";
 
 <Blockquote
   actionButtons={<><Button>Accept</Button><Button kind="danger--primary">Reject</Button></>}
