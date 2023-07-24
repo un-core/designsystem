@@ -1,7 +1,7 @@
 {
     "name": "@un/cli",
     "description": "Task automation for working with the WFP Design System",
-    "version": "10.25.34",
+    "version": "10.25.35",
     "license": "Apache-2.0",
     "private": true,
     "bin": {
