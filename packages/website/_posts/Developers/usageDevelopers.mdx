@@ -11,43 +11,61 @@ slug: 'Documentation/Developing/Installation'
 
 ## Create a React app
 
-TODO: This section is not updated yet
-
-To kickstart your new project with the Kit, we do recommend to **generate a boilerplate React app** with the official [create-react-app](https://github.com/facebook/create-react-app) tool or other bootstraping tools: you will be provided with a solid build setup with zero effort (that is, no configuration needed on your part). An example using the UI-Kit and `create-react-app` can be found [here](https://github.com/wfp/ui/tree/master/examples/create-react-app).
+To kickstart your new project with the Kit, we do recommend to **generate a boilerplate React app** with the official [create-react-app](https://github.com/facebook/create-react-app) tool or other bootstraping tools. An example using the UI-Kit and `create-react-app` can be found [here](https://github.com/wfp/ui/tree/master/examples/create-react-app).
 
 You can use the [Codesandbox template](https://codesandbox.io/s/wfp-ui-template-5bef8) template to try out the Kit without installing anything.
 
 An example implementation using `create-react-app` and `scss` can be found in our [GitHub repository](https://github.com/wfp/ui/tree/master/examples/create-react-app).
 
-## Add the Kit as a dependency
+## 1. Add the Kit as a dependency 📦
 
-The next step is to **add the Kit to your project as a dependency**. You can choose to install it through `npm` or `yarn`: they are both valid package managers and we don't want to recommend one over the other, but once you pick your favourite tool, simply stick with it and avoid using them simultaneously.
+The next step is to **add the Kit to your project as a dependency**. You can choose to install it through a package manager like `npm` or `yarn`.
 
 To install the Kit through `npm`, run:
 
 ```bash
-npm install @wfp/react @wfp/react-icons @un/style @un/themes-core --save
+npm install @wfp/react @un/style --save
 ```
 
 To install the Kit through `yarn`, run:
 
 ```bash
-yarn add @wfp/react @wfp/react-icons @un/style @un/themes-core
+yarn add @wfp/react @un/style
 ```
 
 ## Install the latest features 🌱
 
-Install this package with the `@alpha` tag to get access to the latest features.
+<Callout kind="warning">
+  This is not recommended for production environments.
+</Callout>
 
+Install the packages with the `@alpha` tag to get access to the latest features.
+
+```bash
+npm install @wfp/react@alpha  @un/style@alpha
 ```
-npm install @wfp/react@alpha @wfp/react-icons@alpha @un/style@alpha @un/themes-core@alpha
+
+## 2. Load the Styles 🌈
+
+This is a required step in case you want to load the full UI Kit stylesheet. You can either load the complete stylesheet or the scss files.
+
+### Import the CSS
+
+To import the full CSS through React, first make sure to have a `css` loader installed, then use the following code:
+
+```jsx
+import '@un/styles/styles.css';
 ```
 
-## Load the CSS
+### Alternative: Import the SCSS
 
-This is a required step in case you want to load the full UI Kit stylesheet. If this is the case, you can choose between **importing it through React** or **through the CDN**. If this is not the case, you may then want to check the guidelines on [how to include only specific parts of the Kit CSS](https://uikit.wfp.org/docs/index.html?path=/story/getting-started-using-the-kit--page).
+To import the full SCSS through React, first make sure to have a `sass` loader installed, then use the following code:
 
-To import the full CSS through React, first make sure to have a `scss` loader installed, then use the following code:
+```bash
+npm install @un/themes-core--save-dev
+```
+
+In your custom `.scss` file, import the theme and the components you need.
 
 ```jsx
 // Import all stylesheets
@@ -68,14 +86,14 @@ import '@wfp/styles';
 }
 ```
 
-TODO: This are is not updated yet
+### 3. Global Settings
 
-The css file can be directly embedded in the `<head/>` section of your application.
+Wrap your Application in the [UnCoreProvider](/posts/documentation/developing/themes) to set global settings.
 
-```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://uikit.wfp.org/cdn/X.X.X/css/styles.min.css"
-/>
+```jsx
+import { UnCoreProvider } from '@un/core';
+
+<UnCoreProvider>
+...content
+<UnCoreProvider>
 ```
