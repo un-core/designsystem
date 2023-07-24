@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.18.98 (2023-07-24)
+
+**Note:** Version bump only for package @wfp/react
+
+
+
+
+
 ## 1.18.95 (2023-07-17)
 
 **Note:** Version bump only for package @wfp/react
