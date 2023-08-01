@@ -33,9 +33,6 @@
     "ui-kit",
     "components"
   ],
-  "resolutions": {
-    "ast-types": "^0.14.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.14.2",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -67,98 +64,6 @@
     "prettier": "^2.2.1",
     "rimraf": "^3.0.0",
     "stylelint": "^13.13.1"
-  },
-  "husky": {
-    "hooks": {}
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "header-max-length": [
-        2,
-        "always",
-        72
-      ],
-      "body-max-line-length": [
-        2,
-        "always",
-        80
-      ],
-      "scope-case": [
-        0,
-        "always",
-        "lower-case"
-      ],
-      "type-enum": [
-        2,
-        "always",
-        [
-          "build",
-          "ci",
-          "chore",
-          "docs",
-          "feat",
-          "fix",
-          "perf",
-          "refactor",
-          "revert",
-          "test",
-          "style"
-        ]
-      ]
-    }
-  },
-  "installDependencies":false,
-  "lint-staged": {
-    "**/*.js": [
-      "prettier --write",
-      "eslint",
-      "git add"
-    ],
-    "**/*.scss": [
-      "prettier --write",
-      "stylelint --report-needless-disables --report-invalid-scope-disables --allow-empty-input",
-      "git add"
-    ],
-    "!(*sass).md": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "stylelint": {
-    "extends": [
-      "./config/stylelint-config-carbon"
-    ]
-  },
-  "prettier": {
-    "jsxBracketSameLine": true,
-    "printWidth": 80,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "config": {
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert"
-      ],
-      "warnOnFail": false,
-      "maxSubjectLength": 100,
-      "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "Subject does not match subject pattern!"
-    },
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog-components"
-    }
   },
   "repository": {
     "type": "git",
