@@ -1,4 +1,4 @@
-# World Food Programme UI Kit (WFP-UI)
+# World Food Programme UI Kit (WFP-UI) 🇺🇳
 
 ## **[Click here to visit: Living Style Guide & Documentation](https://wfp.org/UIGuide)**
 
@@ -7,13 +7,13 @@
 | master | [![Build Status](https://dev.azure.com/worldfoodprogramme/ui/_apis/build/status/wfp.ui?repoName=wfp%2Fdesignsystem&branchName=master)](https://dev.azure.com/worldfoodprogramme/ui/_build/latest?definitionId=242&repoName=wfp%2Fdesignsystem&branchName=master)() |
 | next   | [![Build Status](https://dev.azure.com/worldfoodprogramme/ui/_apis/build/status/wfp.ui?repoName=wfp%2Fdesignsystem&branchName=next)](https://dev.azure.com/worldfoodprogramme/ui/_build/latest?definitionId=242&repoName=wfp%2Fdesignsystem&branchName=next)       |
 
-## ![Usage](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/toolkit.svg 'Usage') Usage
+## ![Usage](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/toolkit.svg "Usage") Usage
 
-### Installation
+### Installation 💾
 
 Information about the installation can be found in the [online documentation](https://www.designsystem.wfp.org/posts/documentation/developing/installation).
 
-### Development
+### Development 🚧
 
 #### WARNING: This branch is experimental and in current development. Things could easily break!
 
@@ -75,13 +75,13 @@ All Examples can be found in `wfp/`.
 
 View available Components [here](https://wfp.org/UIGuide). Usage information is available when you click the blue **Show Info** icon in the top right corner of the selected component.
 
-## ![About](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/branding.svg 'About') About the WFP UI Guidelines
+## ![About](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/branding.svg "About") About the WFP UI Guidelines
 
 The new WFP UI Kit is based on the [World Food Programme’s Branding Guidance](http://brand.manuals.wfp.org/) WFP's new branding was launched in early 2018 and will be implemented across the organization, strengthening WFP’s brand image through consistent representation.
 
 Building on this initiative, the World Food Programme’s User Interface Style Guide emphasizes WFP’s commitment to establish and build the brand.
 
-## ![Purpose](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/usability.svg 'Purpose') Purpose
+## ![Purpose](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/usability.svg "Purpose") Purpose
 
 The purpose of this project is to create a unified toolkit that is used by UX-designers and developers alike on their projects to ensure all WFP-branded projects are accessible, appealing, and have a consistent look and feel across the board by following WFP’s design and implementation guidelines.
 
