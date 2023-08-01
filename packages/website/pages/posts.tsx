@@ -1,8 +1,8 @@
-import React from 'react';
-import Articles from '../components/Blog/Articles';
-import Layout from '../components/Blog/Layout';
-import { Wrapper } from '@wfp/react';
-import { getAllPosts } from '../lib/getPost';
+import React from "react";
+import Articles from "../components/Blog/Articles";
+import Layout from "../components/Blog/Layout";
+import { Wrapper } from "@wfp/react";
+import { getAllPosts } from "../lib/getPost";
 
 //3rd deploy trigger
 const Posts = ({ articles }: any) => {
@@ -18,14 +18,14 @@ const Posts = ({ articles }: any) => {
 export async function getStaticProps() {
   const articles =
     (await getAllPosts([
-      'title',
-      'date',
-      'slug',
-      'excerpt',
-      'author',
-      'ogImage',
-      'coverImage',
-      'content',
+      "title",
+      "date",
+      "slug",
+      "excerpt",
+      "author",
+      "ogImage",
+      "coverImage",
+      "content",
     ])) || [];
 
   /*articles.map((a) => {
@@ -36,7 +36,7 @@ export async function getStaticProps() {
       a.coverImage
     );
 
-    const coverImageFile = require('../_posts/sample-image.jpg');
+    const coverImageFile = require('../_/sample-image.jpg');
   });*/
 
   return {

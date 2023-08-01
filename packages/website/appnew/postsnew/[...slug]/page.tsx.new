@@ -136,7 +136,7 @@ export async function getStaticProps({ params }) {
         [
           rehypeImgSize,
           {
-            dir: '_posts/',
+            dir: '_/',
           },
         ],
       ],

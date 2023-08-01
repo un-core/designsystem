@@ -1,11 +1,11 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import ErrorPage from 'next/error';
-import Layout from '../../components/Blog/Layout';
-import { getAllPosts } from '../../lib/getPost';
-import Sidebar from '../../components/Sidebar';
-import slugify from 'slugify';
-import getPostContent from '../../components/Post/getPostContent';
+import React from "react";
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
+import Layout from "../components/Blog/Layout";
+import { getAllPosts } from "../lib/getPost";
+import Sidebar from "../components/Sidebar";
+import slugify from "slugify";
+import getPostContent from "../components/Post/getPostContent";
 
 interface Props {
   post?: {
@@ -48,11 +48,11 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts(['slug']);
+  const posts = await getAllPosts(["slug"]);
 
   return {
     paths: posts.map((post) => {
-      const slug = post.slug.split('/').map((e) => slugify(e, { lower: true }));
+      const slug = post.slug.split("/").map((e) => slugify(e, { lower: true }));
       return {
         params: {
           slug,
