@@ -8,7 +8,7 @@ import {
   faHandshakeAlt,
   faStarShooting,
   faVectorCircle,
-} from '@fortawesome/pro-light-svg-icons';
+} from '@fortawesome/free-regular-svg-icons';
 
 import { faReact } from '@fortawesome/free-brands-svg-icons';
 

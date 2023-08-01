@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/pro-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-regular-svg-icons';
 import Link from 'next/link';
 import { Link as LinkCore } from '@wfp/react';
 

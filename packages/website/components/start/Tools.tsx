@@ -10,7 +10,7 @@ import {
   faHandshakeAlt,
   faLeaf,
   faSatellite,
-} from '@fortawesome/pro-light-svg-icons';
+} from '@fortawesome/free-regular-svg-icons';
 import { faFigma, faNpm } from '@fortawesome/free-brands-svg-icons';
 
 /* interface PossibilitiesContainerProps {

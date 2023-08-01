@@ -1,4 +1,4 @@
-import { faArrowUpRightFromSquare } from '@fortawesome/pro-solid-svg-icons';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@wfp/react';
 import React from 'react';
