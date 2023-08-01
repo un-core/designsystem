@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import NextLink from 'next/link';
+import React, { useEffect } from "react";
+import NextLink from "next/link";
 import {
   Button,
   MainNavigationItem,
   BannerNavigation,
   MainNavigationExternal,
   useTheme,
-} from '@wfp/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+} from "@wfp/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import Search from '../Search';
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Search from "../Search";
 
-import styles from './styles.module.scss';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import styles from "./styles.module.scss";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 export default function Navigation() {
   //const { t } = useTranslation('website');
   const theme: any = useTheme();
@@ -23,10 +23,10 @@ export default function Navigation() {
     const prefixClass = `wfp--theme--`;
 
     const classes = wrapperElement.className
-      .split(' ')
+      .split(" ")
       .filter((c) => !c.startsWith(prefixClass));
 
-    wrapperElement.className = classes.join(' ').trim();
+    wrapperElement.className = classes.join(" ").trim();
     wrapperElement.classList.add(`wfp--theme--${theme.actualTheme}`);
   });
 
@@ -42,18 +42,19 @@ export default function Navigation() {
           UserExternal: () => null,
         }}
         className={styles.mainNavigation}
-        pageWidth="full">
+        pageWidth="full"
+      >
         <MainNavigationItem>
           <NextLink href="/">Homepage</NextLink>
         </MainNavigationItem>
         <MainNavigationItem>
-          <NextLink href="/posts/documentation/overview">Resources</NextLink>
+          <NextLink href="/documentation/overview">Resources</NextLink>
         </MainNavigationItem>
         <MainNavigationItem>
-          <NextLink href="/posts/components/overview">Components</NextLink>
+          <NextLink href="/components/overview">Components</NextLink>
         </MainNavigationItem>
         <MainNavigationItem>
-          <NextLink href="/posts/support/overview">Support</NextLink>
+          <NextLink href="/support/overview">Support</NextLink>
         </MainNavigationItem>
 
         <MainNavigationItem className={styles.darkModeSwitch}>
@@ -63,9 +64,10 @@ export default function Navigation() {
               kind="tertiary"
               onClick={(e) => {
                 e.currentTarget.blur();
-                theme.setTheme(theme.actualTheme === 'dark' ? 'light' : 'dark');
-              }}>
-              {theme.actualTheme === 'dark' ? (
+                theme.setTheme(theme.actualTheme === "dark" ? "light" : "dark");
+              }}
+            >
+              {theme.actualTheme === "dark" ? (
                 <FontAwesomeIcon icon={faSun} />
               ) : (
                 <FontAwesomeIcon icon={faMoon} />
@@ -75,10 +77,12 @@ export default function Navigation() {
             <NextLink
               href="https://github.com/un-core/designsystem"
               target="_blank"
-              legacyBehavior>
+              legacyBehavior
+            >
               <Button
                 icon={<FontAwesomeIcon icon={faGithub} />}
-                href="https://github.com/un-core/designsystem">
+                href="https://github.com/un-core/designsystem"
+              >
                 GitHub
               </Button>
             </NextLink>

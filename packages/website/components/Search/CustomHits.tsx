@@ -1,9 +1,9 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { Highlight, Snippet, useHits } from 'react-instantsearch-hooks-web';
-import slugifyWithSlashes from '../../lib/slugifyWithSlashes';
-import styles from './customHits.module.scss';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Highlight, Snippet, useHits } from "react-instantsearch-hooks-web";
+import slugifyWithSlashes from "../../lib/slugifyWithSlashes";
+import styles from "./customHits.module.scss";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function Hit({ hit, setOpen, count, index }: any) {
   const ref = useRef<any>(null);
@@ -12,7 +12,7 @@ function Hit({ hit, setOpen, count, index }: any) {
     if (count === index) {
       ref.current.focus();
       ref.current.scrollIntoViewIfNeeded({
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   }, [count, index]);
@@ -20,11 +20,10 @@ function Hit({ hit, setOpen, count, index }: any) {
   return (
     <Link
       onClick={() => setOpen(false)}
-      href={`/${process.env.NEXT_PUBLIC_BLOG_FOLDER}/${slugifyWithSlashes(
-        hit.slug
-      )}`}
+      href={`/${slugifyWithSlashes(hit.slug)}`}
       className={styles.hit}
-      ref={ref}>
+      ref={ref}
+    >
       <h4>
         <Highlight attribute="title" hit={hit} />
       </h4>
@@ -55,6 +54,7 @@ function Hits(props: any) {
         return value;
       });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setCount]
   );
 
@@ -76,9 +76,10 @@ function Hits(props: any) {
       }
     };
 
-    document.addEventListener('keydown', keyDownCallback);
+    document.addEventListener("keydown", keyDownCallback);
 
-    return () => document.removeEventListener('keydown', keyDownCallback);
+    return () => document.removeEventListener("keydown", keyDownCallback);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [handleUpdateCount]);
 
   return (

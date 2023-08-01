@@ -11,7 +11,7 @@
 
 ### Installation 💾
 
-Information about the installation can be found in the [online documentation](https://www.designsystem.wfp.org/posts/documentation/developing/installation).
+Information about the installation can be found in the [online documentation](https://www.designsystem.wfp.org/documentation/developing/installation).
 
 ### Development 🚧
 
@@ -151,4 +151,4 @@ To publish local changes directly to a alpha release on npm.
 
 ### Credits
 
-[View Credits](https://www.designsystem.wfp.org/posts/support/credits)
+[View Credits](https://www.designsystem.wfp.org/support/credits)

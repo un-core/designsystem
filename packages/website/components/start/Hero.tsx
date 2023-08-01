@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './hero.module.scss';
-import { Button } from '@wfp/react';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import styles from "./hero.module.scss";
+import { Button } from "@wfp/react";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Hero() {
   return (
@@ -26,14 +26,15 @@ export default function Hero() {
         accessible, and robust design systems.
       </h2>
       <div className={styles.buttons}>
-        <Link href="./posts/documentation/overview" legacyBehavior>
-          <Button href="./posts/documentation/overview">Get started</Button>
+        <Link href="./documentation/overview" legacyBehavior>
+          <Button href="./documentation/overview">Get started</Button>
         </Link>
-        <Link href="./posts/components/overview" legacyBehavior>
+        <Link href="./components/overview" legacyBehavior>
           <Button
-            href="./posts/components/overview"
+            href="./components/overview"
             kind="tertiary"
-            icon={<FontAwesomeIcon icon={faArrowRight} />}>
+            icon={<FontAwesomeIcon icon={faArrowRight} />}
+          >
             Components
           </Button>
         </Link>

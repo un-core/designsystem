@@ -29,8 +29,9 @@
     ".next/types/**/*.ts",
     "components/Post/index.tsx.new",
     "tina/database.ts.new",
-    "appnew/postsnew/[...slug]/page.tsx.new",
-    "lib/databaseConnection.ts.new"
+    "appnew/new/[...slug]/page.tsx.new",
+    "lib/databaseConnection.ts.new",
+    "pages/api/gql.ts.new"
   ],
   "exclude": ["node_modules", "*.sitemap.xml.tsx", "**/*.build.tsx"]
 }

@@ -1,18 +1,18 @@
-import React from 'react';
-import styles from './possibilities.module.scss';
-import MoreLink from '../MoreLink';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Wrapper } from '@wfp/react';
+import React from "react";
+import styles from "./possibilities.module.scss";
+import MoreLink from "../MoreLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Wrapper } from "@wfp/react";
 import {
   faFloppyDisk,
   faHandshakeAlt,
   faStar,
   faVectorSquare,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
-import { faReact } from '@fortawesome/free-brands-svg-icons';
+import { faReact } from "@fortawesome/free-brands-svg-icons";
 
-function PossibilitiesContainer({ className = '', title, icon, content }: any) {
+function PossibilitiesContainer({ className = "", title, icon, content }: any) {
   return (
     <div
       className={`${styles.container} ${className}`} /*style={{ background }}*/
@@ -41,9 +41,7 @@ export default function Possiblities() {
               UI libraries
               <br />
               <br />
-              <MoreLink
-                href="./posts/components/overview"
-                className={styles.link}>
+              <MoreLink href="./components/overview" className={styles.link}>
                 Components
               </MoreLink>
             </>

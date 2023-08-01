@@ -1,8 +1,8 @@
 //import Link from 'next/link';
-import React from 'react';
-import styles from './styles.module.scss';
-import { Link, LinksColumn, FooterExternal, FooterMetaLink } from '@wfp/react';
-import NextLink from 'next/link';
+import React from "react";
+import styles from "./styles.module.scss";
+import { Link, LinksColumn, FooterExternal, FooterMetaLink } from "@wfp/react";
+import NextLink from "next/link";
 
 export default function FooterWrapper() {
   return (
@@ -14,11 +14,12 @@ export default function FooterWrapper() {
             Contact
           </FooterMetaLink>
         </>
-      }>
+      }
+    >
       <>
         <LinksColumn title="UN Core">
           <li className={`wfp--links-column-link`}>
-            <NextLink href="/posts" legacyBehavior>
+            <NextLink href="/" legacyBehavior>
               <Link>Documentation</Link>
             </NextLink>
           </li>
@@ -30,12 +31,13 @@ export default function FooterWrapper() {
           <li className={`wfp--links-column-link`}>
             <Link
               href="https://github.com/un-core/designsystem"
-              target="_blank">
+              target="_blank"
+            >
               GitHub Repository
             </Link>
           </li>
           <li className={`wfp--links-column-link`}>
-            <NextLink href="/posts/core/designers/figma" legacyBehavior>
+            <NextLink href="/core/designers/figma" legacyBehavior>
               <Link>Figma library</Link>
             </NextLink>
           </li>

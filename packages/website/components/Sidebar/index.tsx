@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import {
   Link,
@@ -12,22 +12,22 @@ import {
   Text,
   Tabs,
   // Story,
-} from '@wfp/react';
-import { MDXRemote } from 'next-mdx-remote';
-import NextLink from 'next/link';
-import styles from './sidebar.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import slugify from 'slugify';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+} from "@wfp/react";
+import { MDXRemote } from "next-mdx-remote";
+import NextLink from "next/link";
+import styles from "./sidebar.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import slugify from "slugify";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-import components from '../Blog/Mdx';
-import References from '../Blog/References';
-import TableOfContent from '../Blog/References/TableOfContent';
-import slugifyWithSlashes from '../../lib/slugifyWithSlashes';
-import { NextSeo } from 'next-seo';
-import PropTypes from '../PropTypes';
-import NextTab from './NextTab';
+import components from "../Blog/Mdx";
+import References from "../Blog/References";
+import TableOfContent from "../Blog/References/TableOfContent";
+import slugifyWithSlashes from "../../lib/slugifyWithSlashes";
+import { NextSeo } from "next-seo";
+import PropTypes from "../PropTypes";
+import NextTab from "./NextTab";
 
 interface SidebarProps {
   slug: string;
@@ -36,7 +36,7 @@ interface SidebarProps {
 }
 
 function TreeBranch({ slug, split, level }: SidebarProps) {
-  const splitSlug = slugifyWithSlashes(slug).split('/');
+  const splitSlug = slugifyWithSlashes(slug).split("/");
   const found =
     slugify(split.name, { lower: true }) ===
     splitSlug[level - 1]; /* split.children.find(
@@ -55,20 +55,23 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
         open || split.children.length === 0
           ? styles[`level-open`]
           : styles[`level-closed`]
-      }`}>
+      }`}
+    >
       {split?.children && (
         <>
-          {split.name === 'code' ? null : (split.children.length === 0 && // Code Preview
+          {split.name === "code" ? null : (split.children.length === 0 && // Code Preview
               level > 0) ||
-            split.children[0].name === 'code' ? (
+            split.children[0].name === "code" ? (
             // Child level
             <NextLink
               href={`/${slugifyWithSlashes(split.path?.key)}`}
               passHref
-              legacyBehavior>
+              legacyBehavior
+            >
               <Link
                 className={styles.item}
-                onMouseUp={(e: any) => e.target.blur()}>
+                onMouseUp={(e: any) => e.target.blur()}
+              >
                 <div className={styles.icon} />
                 {split.name}
               </Link>
@@ -77,7 +80,8 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
             // Main Level
             <span
               className={styles.sidebarTitle}
-              onClick={() => setOpen(!open)}>
+              onClick={() => setOpen(!open)}
+            >
               <FontAwesomeIcon
                 icon={faChevronRight}
                 className={styles.iconOpen}
@@ -97,15 +101,15 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
 }
 
 export const createPathTree = (paths: any) => {
-  const level = { ['<result>']: [] };
+  const level = { ["<result>"]: [] };
 
   paths.forEach((path) => {
-    path.key.split('/').reduce((currentLevel, name, index, array) => {
+    path.key.split("/").reduce((currentLevel, name, index, array) => {
       if (!currentLevel[name]) {
-        currentLevel[name] = { ['<result>']: [] };
-        currentLevel['<result>'].push({
+        currentLevel[name] = { ["<result>"]: [] };
+        currentLevel["<result>"].push({
           name,
-          children: currentLevel[name]['<result>'],
+          children: currentLevel[name]["<result>"],
           path: index === array.length - 1 ? path : null,
         });
       }
@@ -114,7 +118,7 @@ export const createPathTree = (paths: any) => {
     }, level);
   });
 
-  const finalArray = level['<result>'];
+  const finalArray = level["<result>"];
   return finalArray.length > 0 ? finalArray[0] : null;
 };
 
@@ -142,7 +146,7 @@ export default function SidebarWrapper({
 }: SidebarWrapperProps) {
   const postSplit = posts.map((p) => {
     return {
-      key: 'posts/' + p.slug,
+      key: "/" + p.slug,
       title: p.title,
       directory: false,
     };
@@ -151,7 +155,7 @@ export default function SidebarWrapper({
   const split: any = createPathTree(postSplit) || [];
 
   const splitSidebar = split.children.find(
-    (e) => e.name === post.slug.split('/')[0]
+    (e) => e.name === post.slug.split("/")[0]
   );
 
   return (
@@ -166,10 +170,10 @@ export default function SidebarWrapper({
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_DOMAIN}api/og?title=${post.title}`,
-              alt: 'Foto',
+              alt: "Foto",
             },
           ],
-          type: 'website',
+          type: "website",
           site_name: process.env.NEXT_PUBLIC_DOMAIN,
         }}
       />
@@ -188,7 +192,7 @@ export default function SidebarWrapper({
               </Link>
             </BreadcrumbItem>
             {post.slug
-              .split('/')
+              .split("/")
               .slice(0, -1)
               .map((s, i) => {
                 const overviewLink = `${s}/Overview`;
@@ -218,7 +222,8 @@ export default function SidebarWrapper({
 
           <Tabs>
             <NextTab
-              href={`${slugifyWithSlashes(post.slug).replace('/code', '')}`}>
+              href={`${slugifyWithSlashes(post.slug).replace("/code", "")}`}
+            >
               Usage
             </NextTab>
             <NextTab href={`${slugifyWithSlashes(post.slug)}/code`}>
@@ -240,10 +245,11 @@ export default function SidebarWrapper({
 
           <Link
             href={`https://github.com/un-core/designsystem/tree/content/website-content/packages/website/${
-              post.path.split('packages/website/')[1]
+              post.path.split("packages/website/")[1]
             }`}
             target="_blank"
-            className={styles.editOnGitHub}>
+            className={styles.editOnGitHub}
+          >
             Edit this page on GitHub <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </div>

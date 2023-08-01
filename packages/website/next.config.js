@@ -1,16 +1,16 @@
 const securityHeaders = [
   {
-    key: 'X-Frame-Options',
-    value: 'SAMEORIGIN',
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
   },
 ];
 
-const withMDX = require('@next/mdx')({
+const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
     rehypePlugins: [],
-    providerImportSource: '@mdx-js/react',
+    providerImportSource: "@mdx-js/react",
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",
   },
@@ -21,7 +21,7 @@ module.exports = withMDX({
     return [
       {
         // Apply these headers to all routes in your application.
-        source: '/:path*',
+        source: "/:path*",
         headers: securityHeaders,
       },
     ];
@@ -30,8 +30,8 @@ module.exports = withMDX({
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'figma-alpha-api.s3.us-west-2.amazonaws.com',
+        protocol: "https",
+        hostname: "figma-alpha-api.s3.us-west-2.amazonaws.com",
       },
     ],
   },
@@ -40,9 +40,9 @@ module.exports = withMDX({
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
-        '@fortawesome/pro-regular-svg-icons': false,
-        '@fortawesome/pro-light-svg-icons': false,
-        '@fortawesome/pro-solid-svg-icons': false,
+        "@fortawesome/pro-regular-svg-icons": false,
+        "@fortawesome/pro-light-svg-icons": false,
+        "@fortawesome/pro-solid-svg-icons": false,
         fs: false,
       };
     }
@@ -51,12 +51,8 @@ module.exports = withMDX({
     return config;
   },
   // Append the default value with md extensions
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   env: {
     NEXT_PUBLIC_API: process.env.NEXT_PUBLIC_API,
-  },
-  experimental: {
-    scrollRestoration: true,
-    appDir: true,
   },
 });
