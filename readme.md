@@ -56,6 +56,10 @@ yarn install
 yarn build
 ```
 
+.npmrc
+
+Make sure you have a valid .npmrc for FontAwesome.
+
 For developing on Windows please follow this guide: https://github.com/carbon-design-system/carbon/blob/b5d615e05bc1c062337e8aca3a84e25a6f49b559/docs/guides/setup/windows.md
 
 ### Use Figma extract
@@ -85,16 +89,18 @@ In version 2.0 some paths will change due to the new monorepo architecture which
 
 All packages can be found in `packages/`.
 
-- `figma connect`: Downloading assets and color values from the Figma library
+- `figma connect`: Downloading assets and color values from the Figma library no longer used, now themes!
 - `fonts`: All Fonts used by WFP
 - `humanitarian-icons`: OCHA humanitarian icons customized by the Publications Unit of wfp
-- `layout`: breakpoints, spacings, etc.
+- `layout`: breakpoints, spacings, etc. no longer used, now themes!
 - `pictograms`: pictogram icons
+- `icons` all icons
+- `icons-react` the react package of the icons
 - `colors` no longer used!
 - `styles`: all components styles
-- `themes`: theming (colors, etc.)
-- `type`: typescales
-- `ui`: the "old" react components, TODO: rename to `react`
+- `themes`: theming (colors, etc.) TODO: move to themes-core
+- `type`: typescales no longer used!
+- `react`: the react components
 
 ### UN Core Examples
 

@@ -9,6 +9,8 @@ import {
   BreadcrumbHome,
   // Tabs,
   Tab,
+  Text,
+  Tabs,
   // Story,
 } from '@wfp/react';
 import { MDXRemote } from 'next-mdx-remote';
@@ -25,6 +27,7 @@ import TableOfContent from '../Blog/References/TableOfContent';
 import slugifyWithSlashes from '../../lib/slugifyWithSlashes';
 import { NextSeo } from 'next-seo';
 import PropTypes from '../PropTypes';
+import NextTab from './NextTab';
 
 interface SidebarProps {
   slug: string;
@@ -205,25 +208,23 @@ export default function SidebarWrapper({
                 );
               })}
           </Breadcrumb>
+          <Text kind="story-title">{post?.title}</Text>
           {/*}
           {post.subtitle && (
             <Text kind="story-subtitle" >
               {post.subtitle}
             </Text>
-          )}
-          <Text kind="story-title" >
-            {post?.title}
-          </Text>
+          )} */}
 
           <Tabs>
-            <NextLink
+            <NextTab
               href={`${slugifyWithSlashes(post.slug).replace('/code', '')}`}>
-              <Tab label={`Usage`}></Tab>
-            </NextLink>
-            <NextLink href={`${slugifyWithSlashes(post.slug)}/code`}>
-              <Tab label={`Code`}></Tab>
-            </NextLink>
-          </Tabs>*/}
+              Usage
+            </NextTab>
+            <NextTab href={`${slugifyWithSlashes(post.slug)}/code`}>
+              Code
+            </NextTab>
+          </Tabs>
 
           <div className={styles.excerpt}>
             {post.mdxExcerptSource && (

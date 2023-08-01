@@ -136,7 +136,7 @@ export { default as Story } from './components/Story';
 export { default as Item } from './components/Item';
 export { default as Table, TableSorting } from './components/Table';
 export { default as TablePagination } from './components/TablePagination';
-export { default as Tab } from './components/Tab';
+export { default as Tab, useTab } from './components/Tab';
 export { default as TabContent } from './components/TabContent';
 export { default as Tabs } from './components/Tabs';
 export { default as Tag } from './components/Tag';
