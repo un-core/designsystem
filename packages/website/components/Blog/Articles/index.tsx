@@ -6,7 +6,7 @@ import styles from './article.module.scss';
 import Search from '../../Search';
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faScaleBalanced } from '@fortawesome/free-regular-svg-icons';
+//import { faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
 
 interface articlesProps {
   articles: any;

@@ -5,12 +5,12 @@ import MoreLink from '../MoreLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Wrapper } from '@wfp/react';
 import {
-  faBellPlus,
+  faBell,
   faGlassWaterDroplet,
   faHandshakeAlt,
   faLeaf,
   faSatellite,
-} from '@fortawesome/free-regular-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';
 import { faFigma, faNpm } from '@fortawesome/free-brands-svg-icons';
 
 /* interface PossibilitiesContainerProps {
@@ -100,7 +100,7 @@ export default function Tools() {
           title="Styles"
           content="css and scss implementation of the core components ready to use with the react library or plain html"
           // background="#FFDFDF"
-          icon={faBellPlus}
+          icon={faBell}
           link="https://npmjs.com/package/@wfp/styles"
           npmLink
         />

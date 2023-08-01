@@ -3,7 +3,7 @@ import styles from './hero.module.scss';
 import { Button } from '@wfp/react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-regular-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Hero() {
   return (

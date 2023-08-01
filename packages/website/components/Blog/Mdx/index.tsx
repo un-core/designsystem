@@ -2,7 +2,6 @@ import Flex from './Flex';
 import Image from './Image';
 import Link from './Link';
 import Video from './Video';
-import Contact from './Contact';
 import Colors from './Colors';
 import Logos from './Logos';
 import Figma from './Figma';
@@ -40,7 +39,6 @@ const components = {
   Colors,
   Storybook,
   FaviconsGenerator: FaviconGenerator,
-  Contact,
   //CodeBlockLive,
   DoUse,
   DoNotUse,

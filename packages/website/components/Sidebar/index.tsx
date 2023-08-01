@@ -17,9 +17,9 @@ import { MDXRemote } from 'next-mdx-remote';
 import NextLink from 'next/link';
 import styles from './sidebar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-regular-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import slugify from 'slugify';
-import { faChevronRight } from '@fortawesome/free-regular-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import components from '../Blog/Mdx';
 import References from '../Blog/References';

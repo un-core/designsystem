@@ -1,5 +1,5 @@
 import React from 'react';
-import { faLink } from '@fortawesome/free-regular-svg-icons';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import styles from './headings.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

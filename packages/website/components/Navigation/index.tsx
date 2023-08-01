@@ -13,7 +13,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Search from '../Search';
 
 import styles from './styles.module.scss';
-import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 export default function Navigation() {
   //const { t } = useTranslation('website');
   const theme: any = useTheme();
