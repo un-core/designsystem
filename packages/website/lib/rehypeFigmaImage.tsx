@@ -72,26 +72,32 @@ const rehypeImage = () => async (tree) => {
 
       //www.figma.com/file/wFEEbUEWrlfMhs2a1S2RTp/UN-core-website?node-id=1035%3A357
 
-      const dimensions = await probeImage({
-        document: documentValue,
-        node: nodeValue,
-      });
 
-      const attributes = {
-        //...dimensions,
-        img: dimensions.images[nodeValue],
-        ...dimensions.nodes[nodeValue].document.absoluteBoundingBox,
-      };
+      try {
+        const dimensions = await probeImage({
+          document: documentValue,
+          node: nodeValue,
+        });
 
-      const newAttributes = Object.entries(attributes).map(([i, a]) => {
-        return {
-          type: 'mdxJsxAttribute',
-          name: i,
-          value: a,
+        const attributes = {
+          //...dimensions,
+          img: dimensions.images[nodeValue],
+          ...dimensions.nodes[nodeValue].document.absoluteBoundingBox,
         };
-      });
 
-      node.attributes = [...node.attributes, ...newAttributes];
+        const newAttributes = Object.entries(attributes).map(([i, a]) => {
+          return {
+            type: 'mdxJsxAttribute',
+            name: i,
+            value: a,
+          };
+        });
+
+        node.attributes = [...node.attributes, ...newAttributes];
+      } catch (error) {
+        console.error("Figma token not found: rendering empty image")
+      }
+
     })
   );
 };
