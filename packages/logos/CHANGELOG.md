@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.39 (2023-08-01)
+
+
+### Bug Fixes
+
+* **website:** removed old files ([83e091c](https://dev.azure.com/commits/83e091c04153ac227dbad158e999cb4f247c58ce))
+
+
+
+
+
 ## 0.0.38 (2023-08-01)
 
 **Note:** Version bump only for package @un/logos

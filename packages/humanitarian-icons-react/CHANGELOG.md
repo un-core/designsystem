@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.14.44 (2023-08-01)
+
+
+### Bug Fixes
+
+* **website:** removed old files ([83e091c](https://github.com/carbon-design-system/carbon/commit/83e091c04153ac227dbad158e999cb4f247c58ce))
+
+
+
+
+
 ## 11.14.43 (2023-08-01)
 
 **Note:** Version bump only for package @un/humanitarian-icons-react
