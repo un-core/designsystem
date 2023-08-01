@@ -1,18 +1,13 @@
 import * as React from 'react';
-import type { PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
 
-type AnchorNavigationProps = PropsWithChildren<{
-  /**
-   * The `title` is represented in the header
+interface AnchorNavigationProps extends React.ComponentPropsWithRef<'div'> {
+  /*
+   * The title of the anchor navigation
    */
   title?: string;
-  /**
-   * The CSS class name to be placed on the wrapping element.
-   */
-  className?: string;
-}>;
+}
 
 const AnchorNavigation: React.FC<AnchorNavigationProps> = ({
   title,

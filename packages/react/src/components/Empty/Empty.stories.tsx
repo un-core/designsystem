@@ -25,7 +25,7 @@ Regular.args = {
 };
 
 const emptysourcecode = `
-import { Empty, Button  } from "@un/react";
+import { Empty, Button  } from "@wfp/react";
 import { IllustrationsMovingVanWithBackground } from '@un/pictograms-react';
 
 <Empty

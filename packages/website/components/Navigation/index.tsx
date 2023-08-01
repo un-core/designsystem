@@ -4,17 +4,16 @@ import {
   Button,
   MainNavigationItem,
   BannerNavigation,
+  MainNavigationExternal,
   useTheme,
-  MainNavigation,
-} from '@un/react';
+} from '@wfp/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Search from '../Search';
 
 import styles from './styles.module.scss';
-import { faMoonStars } from '@fortawesome/pro-solid-svg-icons';
-import { faSun } from '@fortawesome/pro-regular-svg-icons';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 export default function Navigation() {
   //const { t } = useTranslation('website');
   const theme: any = useTheme();
@@ -36,12 +35,12 @@ export default function Navigation() {
       <BannerNavigation className={styles.bannerNavigation}>
         <span>🚧 This website is work in progress 👷</span>
       </BannerNavigation>
-      <MainNavigation
+      <MainNavigationExternal
         logo={<NextLink href="./">UN core</NextLink>}
-        // components={{
-        //   // LanguageExternal: () => null,
-        //   UserExternal: () => null,
-        // }}
+        components={{
+          LanguageExternal: () => null,
+          UserExternal: () => null,
+        }}
         className={styles.mainNavigation}
         pageWidth="full">
         <MainNavigationItem>
@@ -69,7 +68,7 @@ export default function Navigation() {
               {theme.actualTheme === 'dark' ? (
                 <FontAwesomeIcon icon={faSun} />
               ) : (
-                <FontAwesomeIcon icon={faMoonStars} />
+                <FontAwesomeIcon icon={faMoon} />
               )}
             </Button>
 
@@ -85,7 +84,7 @@ export default function Navigation() {
             </NextLink>
           </div>
         </MainNavigationItem>
-      </MainNavigation>
+      </MainNavigationExternal>
     </>
   );
 }

@@ -9,47 +9,91 @@ slug: 'Documentation/Developing/Installation'
 >
 > The WFP UI Kit uses [React](https://reactjs.org/) as the underlying JS framework, in line with the [WFP official guidelines for software development](https://newgo.wfp.org/documents/software-solutions-technology-stack). Therefore, **all WFP applications should use it**, together with the UI Kit. The only **exceptions** are off-the-shelf solutions (e.g. Saas) and/or non-apps (e.g. the external corporate website, and/or basic landing pages used for fundraising, etc).
 
-## 1. Create a React app
+## Create a React app
 
-To kickstart your new project with the Kit, we do recommend to **generate a boilerplate React app** with the official [create-react-app](https://github.com/facebook/create-react-app) tool or other bootstraping tools: you will be provided with a solid build setup with zero effort (that is, no configuration needed on your part). An example using the UI-Kit and `create-react-app` can be found [here](https://github.com/wfp/ui/tree/master/examples/create-react-app).
+To kickstart your new project with the Kit, we do recommend to **generate a boilerplate React app** with the official [create-react-app](https://github.com/facebook/create-react-app) tool or other bootstraping tools. An example using the UI-Kit and `create-react-app` can be found [here](https://github.com/wfp/ui/tree/master/examples/create-react-app).
 
 You can use the [Codesandbox template](https://codesandbox.io/s/wfp-ui-template-5bef8) template to try out the Kit without installing anything.
 
 An example implementation using `create-react-app` and `scss` can be found in our [GitHub repository](https://github.com/wfp/ui/tree/master/examples/create-react-app).
 
-## 2. Add the Kit as a dependency
+## 1. Add the Kit as a dependency 📦
 
-The next step is to **add the Kit to your project as a dependency**. You can choose to install it through `npm` or `yarn`: they are both valid package managers and we don't want to recommend one over the other, but once you pick your favourite tool, simply stick with it and avoid using them simultaneously.
+The next step is to **add the Kit to your project as a dependency**. You can choose to install it through a package manager like `npm` or `yarn`.
 
 To install the Kit through `npm`, run:
 
 ```bash
-npm install @un/react @un/icons --save
+npm install @wfp/react @un/style --save
 ```
 
 To install the Kit through `yarn`, run:
 
 ```bash
-yarn add @un/react @un/icons
+yarn add @wfp/react @un/style
 ```
 
-## 3. Load the CSS
+## Install the latest features 🌱
 
-This is a required step in case you want to load the full UI Kit stylesheet. If this is the case, you can choose between **importing it through React** or **through the CDN**. If this is not the case, you may then want to check the guidelines on [how to include only specific parts of the Kit CSS](https://uikit.wfp.org/docs/index.html?path=/story/getting-started-using-the-kit--page).
+<Callout kind="warning">
+  This is not recommended for production environments.
+</Callout>
 
-To import the full CSS through React, first make sure to have a `scss` loader installed, then use the following code:
+Install the packages with the `@alpha` tag to get access to the latest features.
+
+```bash
+npm install @wfp/react@alpha  @un/style@alpha
+```
+
+## 2. Load the Styles 🌈
+
+This is a required step in case you want to load the full UI Kit stylesheet. You can either load the complete stylesheet or the scss files.
+
+### Import the CSS
+
+To import the full CSS through React, first make sure to have a `css` loader installed, then use the following code:
+
+```jsx
+import '@un/styles/styles.css';
+```
+
+### Alternative: Import the SCSS
+
+To import the full SCSS through React, first make sure to have a `sass` loader installed, then use the following code:
+
+```bash
+npm install @un/themes-core--save-dev
+```
+
+In your custom `.scss` file, import the theme and the components you need.
 
 ```jsx
 // Import all stylesheets
-import '@un/react/src/globals/scss/styles.scss';
+import '@wfp/styles';
+
+// Import only the stylesheets you need
+@use "@wfp/styles/scss/themes";
+@use "@wfp/styles/scss/theme";
+@use "@wfp/styles/scss/reset";
+@use "@wfp/styles/scss/components";
+
+
+// Use a theme
+@use "@un/themes-core/dist/scss/default-css-theme" as defaulttheme;
+
+:root {
+  @include defaulttheme.theme-default();
+}
 ```
 
-The css file can be directly embedded in the `<head/>` section of your application.
+### 3. Global Settings
 
-```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://uikit.wfp.org/cdn/X.X.X/css/styles.min.css"
-/>
+Wrap your Application in the [UnCoreProvider](/posts/documentation/developing/themes) to set global settings.
+
+```jsx
+import { UnCoreProvider } from '@un/core';
+
+<UnCoreProvider>
+...content
+<UnCoreProvider>
 ```

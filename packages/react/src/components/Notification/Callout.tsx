@@ -1,15 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 import useSettings from '../../hooks/useSettings';
-import { NotificationIcon, NotificationTextDetails } from './Notification';
+import { NotificationTextDetails } from './NotificationTextDetails';
+import { NotificationIcon } from './NotificationIcon';
 
-export interface BlockNotificationProps
+export interface CalloutProps
   extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> {
   /**
-   * Pass in the action nodes that will be rendered within the InlineNotification
+   * Pass in the action nodes that will be rendered within the Notification
    */
   actions?: React.ReactNode;
-  advancedActions?: React.ReactNode;
+
+  /**
+   * Provide a function that is called when menu is closed
+   */
   onClose?: any;
 
   /**
@@ -18,7 +22,7 @@ export interface BlockNotificationProps
   hideCloseButton?: boolean;
 
   /**
-   * Pass in the icon that will be rendered within the ToastNotification or set icon to false to hide
+   * Pass in the icon that will be rendered within the Notification or set icon to false to hide
    */
   icon?: React.ReactNode | boolean;
 
@@ -33,7 +37,7 @@ export interface BlockNotificationProps
   kind?: 'error' | 'info' | 'success' | 'warning' | 'warning-alt';
 
   /**
-   * Specify whether you are using the low contrast variant of the InlineNotification.
+   * Specify whether you are using the low contrast variant of the Notification.
    */
   lowContrast?: boolean;
 
@@ -46,7 +50,7 @@ export interface BlockNotificationProps
   /**
    * Provide a function that is called when menu is closed
    */
-  onCloseButtonClick?: () => void;
+  onCloseButtonClick?: (e: any) => void;
 
   /**
    * By default, this value is "alert". You can also provide an alternate
@@ -70,15 +74,12 @@ export interface BlockNotificationProps
   title?: React.ReactNode;
 }
 
-export const BlockNotification: React.FC<BlockNotificationProps> =
-  React.forwardRef((props, ref) => {
+export const Callout: React.FC<CalloutProps> = React.forwardRef(
+  (props, ref) => {
     const {
       actions,
-      // advancedActions,
       role = 'alert',
       notificationType = 'inline',
-      // onCloseButtonClick = () => {},
-      //onClose,
       icon,
       //  iconDescription = 'closes notification',
       statusIconDescription,
@@ -101,11 +102,7 @@ export const BlockNotification: React.FC<BlockNotificationProps> =
     });
 
     return (
-      <div
-        {...other}
-        ref={ref}
-        role={role}
-        /* TODO: kind={kind} */ className={containerClassName}>
+      <div {...other} ref={ref} role={role} className={containerClassName}>
         <div className={`${prefix}--inline-notification__details`}>
           {icon === undefined && (
             <NotificationIcon
@@ -134,8 +131,9 @@ export const BlockNotification: React.FC<BlockNotificationProps> =
         </div>
       </div>
     );
-  });
+  }
+);
 
-BlockNotification.displayName = 'BlockNotification';
+Callout.displayName = 'Callout';
 
-export default BlockNotification;
+export default Callout;

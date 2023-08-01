@@ -1,12 +1,12 @@
 import React from 'react';
 import Card from '../Card';
 import styles from './article.module.scss';
-//import { Search } from "@un/react";
+//import { Search } from "@wfp/react";
 
 import Search from '../../Search';
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faScaleBalanced } from '@fortawesome/pro-regular-svg-icons';
+//import { faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
 
 interface articlesProps {
   articles: any;

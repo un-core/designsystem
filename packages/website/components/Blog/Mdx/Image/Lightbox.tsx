@@ -56,9 +56,9 @@ const Lightbox = (props: any) => {
         />
 
         {props.title && (
-          <caption className={styles.lightboxCaption} suppressHydrationWarning>
+          <span className={styles.lightboxCaption} suppressHydrationWarning>
             <span suppressHydrationWarning>{props.title}</span>
-          </caption>
+          </span>
         )}
         <span
           className={styles.closeOverlay}

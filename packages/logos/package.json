@@ -1,6 +1,6 @@
 {
   "name": "@un/logos",
-  "version": "0.0.31",
+  "version": "0.0.37",
   "description": "Logos of the World Food Programme",
   "main": "index.json",
   "scripts": {
@@ -10,9 +10,9 @@
     "semantic-release": "semantic-release"
   },
   "author": "World Food Programme",
-  "gitHead": "7201da36cfb8dad97a91763abc2497f70c239243",
+  "gitHead": "5d9678f4a62413b834d07736413c50ff2f851824",
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@un/icons-core": "^0.0.29"
+    "@un/icons-core": "^0.0.35"
   }
 }

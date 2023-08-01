@@ -1,6 +1,6 @@
 {
-  "name": "@un/react",
-  "version": "1.18.89",
+  "name": "@wfp/react",
+  "version": "1.18.98",
   "description": "WFP UI Kit",
   "license": "Apache-2",
   "main": "lib/index.js",
@@ -84,7 +84,6 @@
     "@carbon/feature-flags": "^0.6.0",
     "@types/jest": "^29.0.3",
     "@types/node": "^18.7.18",
-    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "classnames": "2.2.6",
     "invariant": "^2.2.4",
@@ -113,13 +112,14 @@
     "@storybook/testing-library": "^0.1.0",
     "@tippy.js/react": "^3.1.1",
     "@types/mdx": "^2.0.3",
+    "@types/react": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
-    "@un/babel-preset-wfp": "^0.1.23",
-    "@un/icons-react": "^10.34.48",
-    "@un/pictograms-react": "^11.14.35",
-    "@un/styles": "^10.26.67",
-    "@un/themes-core": "^0.0.28",
+    "@un/babel-preset-wfp": "^0.1.28",
+    "@un/icons-react": "^10.34.54",
+    "@un/pictograms-react": "^11.14.41",
+    "@un/themes-core": "^0.0.33",
+    "@wfp/styles": "^10.26.75",
     "add": "^2.0.6",
     "all-contributors-cli": "^6.17.0",
     "autoprefixer": "^9.8.6",
@@ -293,5 +293,5 @@
     ]
   },
   "bundleSizeThreshold": 80000,
-  "gitHead": "fc5c56e65baccb03fbb9d719856258e16d2814bd"
+  "gitHead": "5d9678f4a62413b834d07736413c50ff2f851824"
 }

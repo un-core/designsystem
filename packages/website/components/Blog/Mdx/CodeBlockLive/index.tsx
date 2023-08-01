@@ -1,7 +1,7 @@
 /* eslint-disable no-irregular-whitespace */
 // src/components/CodeBlock.js
 import React, { useState } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight, themes } from 'prism-react-renderer';
 import stylesModule from './codeBlockLive.module.scss';
 import {
   LiveProvider,
@@ -19,14 +19,13 @@ import classNames from 'classnames';
 //import MDX from '@mdx-js/runtime';
 //import components from '../';
 
-import vsDark from 'prism-react-renderer/themes/vsDark';
 import * as ReactDOMServer from 'react-dom/server';
 
-import * as unComponents from '@un/react';
+import * as unComponents from '@wfp/react';
 import * as unHumanitarianIcons from '@un/humanitarian-icons-react';
 import * as unPictograms from '@un/pictograms-react';
 import * as icons from '@un/icons-react';
-import { Button, Empty } from '@un/react';
+import { Button, Empty } from '@wfp/react';
 import prettier from 'prettier/standalone';
 import babelParser from 'prettier/parser-babel';
 import htmlParser from 'prettier/parser-html';
@@ -187,7 +186,7 @@ const CodeBlockLive = (props: any) => {
         <LiveProvider
           code={formatedCode}
           scope={scope}
-          theme={vsDark}
+          theme={themes.vsDark}
           noInline={noInline || reactHookForm}
           transformCode={cleanCode}>
           {language === 'mdx' || language === 'md' ? (
@@ -215,7 +214,7 @@ const CodeBlockLive = (props: any) => {
                   {showHtml ? 'Hide HTML' : 'Show HTML'}
                 </Button>
                 <h3> Editable Example</h3>
-                <LiveEditor theme={vsDark} />
+                <LiveEditor theme={themes.vsDark} />
               </div>
               {language === 'jsx' && showHtml && <LiveHtmlHoc />}
             </>
@@ -225,17 +224,18 @@ const CodeBlockLive = (props: any) => {
       </div>
     );
   }
+
   return (
     <div
       className={`${stylesModule.code} wfp--code-block ${
         source ? stylesModule.previewWithSource : ''
       }`}>
       {source && <div className={stylesModule.preview}>{children}</div>}
+
       <Highlight
-        {...defaultProps}
         code={code}
-        language={language}
-        theme={vsDark}>
+        language="tsx" //{language}
+        theme={themes.vsDark}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={{ ...style, padding: '20px' }}>
             {tokens.map((line, i) => (
@@ -251,9 +251,7 @@ const CodeBlockLive = (props: any) => {
       <Button
         className={stylesModule.copyButton}
         small
-        onClick={() => handleCopyCode(code)}
-        //style={{ color: `${copiedCode === 'Copied!' ? 'green' : 'red'}` }}
-      >
+        onClick={() => handleCopyCode(code)}>
         {copiedCode}
       </Button>
     </div>
@@ -298,6 +296,7 @@ export function Pre({
   }
   // wfp--story__code
   const childObject: any = children;
+
   return <pre {...props}>{childObject}</pre>;
 }
 

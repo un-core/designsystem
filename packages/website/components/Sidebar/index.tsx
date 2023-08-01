@@ -3,27 +3,31 @@ import React, { useState } from 'react';
 import {
   Link,
   Wrapper,
-  Text,
+  // Text,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbHome,
+  // Tabs,
+  Tab,
+  Text,
+  Tabs,
   // Story,
-} from '@un/react';
+} from '@wfp/react';
 import { MDXRemote } from 'next-mdx-remote';
 import NextLink from 'next/link';
 import styles from './sidebar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/pro-regular-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import slugify from 'slugify';
-import { faChevronRight } from '@fortawesome/pro-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import components from '../Blog/Mdx';
 import References from '../Blog/References';
 import TableOfContent from '../Blog/References/TableOfContent';
 import slugifyWithSlashes from '../../lib/slugifyWithSlashes';
-// import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { NextSeo } from 'next-seo';
 import PropTypes from '../PropTypes';
+import NextTab from './NextTab';
 
 interface SidebarProps {
   slug: string;
@@ -54,7 +58,10 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
       }`}>
       {split?.children && (
         <>
-          {split.children.length === 0 && level > 0 ? (
+          {split.name === 'code' ? null : (split.children.length === 0 && // Code Preview
+              level > 0) ||
+            split.children[0].name === 'code' ? (
+            // Child level
             <NextLink
               href={`/${slugifyWithSlashes(split.path?.key)}`}
               passHref
@@ -63,11 +70,11 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
                 className={styles.item}
                 onMouseUp={(e: any) => e.target.blur()}>
                 <div className={styles.icon} />
-
                 {split.name}
               </Link>
             </NextLink>
           ) : split.children.length > 0 && level > 0 ? (
+            // Main Level
             <span
               className={styles.sidebarTitle}
               onClick={() => setOpen(!open)}>
@@ -116,11 +123,19 @@ interface SidebarWrapperProps {
   post: any;
   posts: any;
   propTypes: any;
-  data?: any;
+  // data?: any;
 }
 
+export const CustomTab = ({ children, ...props }: any) => {
+  return (
+    <Tab {...props}>
+      <div className={styles.tab}>{children}</div>
+    </Tab>
+  );
+};
+
 export default function SidebarWrapper({
-  data,
+  // data,
   post,
   posts,
   propTypes,
@@ -193,26 +208,35 @@ export default function SidebarWrapper({
                 );
               })}
           </Breadcrumb>
-
+          <Text kind="story-title">{post?.title}</Text>
+          {/*}
           {post.subtitle && (
-            <Text kind="story-subtitle" /*className={styles.subTitle}*/>
+            <Text kind="story-subtitle" >
               {post.subtitle}
             </Text>
-          )}
-          <Text kind="story-title" /*className={styles.title}*/>
-            {data?.post?.title}
-          </Text>
+          )} */}
+
+          <Tabs>
+            <NextTab
+              href={`${slugifyWithSlashes(post.slug).replace('/code', '')}`}>
+              Usage
+            </NextTab>
+            <NextTab href={`${slugifyWithSlashes(post.slug)}/code`}>
+              Code
+            </NextTab>
+          </Tabs>
 
           <div className={styles.excerpt}>
-            <MDXRemote {...post.mdxExcerptSource} components={components} />
+            {post.mdxExcerptSource && (
+              <MDXRemote {...post.mdxExcerptSource} components={components} />
+            )}
           </div>
 
           {post.mainComponent && <PropTypes propTypes={propTypes} {...post} />}
 
-          {/* <Story>
-            <TinaMarkdown components={components} content={data?.post?.body} />
-          </Story> */}
-          <MDXRemote {...post.mdxSource} components={components} />
+          {post.mdxSource && (
+            <MDXRemote {...post.mdxSource} components={components} />
+          )}
 
           <Link
             href={`https://github.com/un-core/designsystem/tree/content/website-content/packages/website/${

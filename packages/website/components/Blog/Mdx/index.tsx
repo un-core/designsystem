@@ -2,7 +2,6 @@ import Flex from './Flex';
 import Image from './Image';
 import Link from './Link';
 import Video from './Video';
-import Contact from './Contact';
 import Colors from './Colors';
 import Logos from './Logos';
 import Figma from './Figma';
@@ -16,7 +15,15 @@ import ComponentsList from './ComponentsList';
 import { H1, H2, H3, H4, H5 } from './Headings';
 import IconList from './Icons/IconListNew';
 import PropTypes from '../../PropTypes';
-import { Button, mdxComponents, BlockNotification, TextInput } from '@un/react';
+import {
+  AddonBefore,
+  AddonAfter,
+  Button,
+  mdxComponents,
+  Callout,
+  TextInput,
+  Input,
+} from '@wfp/react';
 
 import FaviconGenerator from '../../../_posts/Favicons/FaviconGenerator';
 
@@ -32,19 +39,23 @@ const components = {
   Colors,
   Storybook,
   FaviconsGenerator: FaviconGenerator,
-  Contact,
   //CodeBlockLive,
   DoUse,
   DoNotUse,
-  //code: code,
+  AddonBefore,
+  AddonAfter,
+  code: code,
   //pre: (e) => <CodeBlock {...e} OrginalCode={code} />,
   //code: CodeBlockLive,
 
   pre: Pre,
-  code: code,
+  /*code: () => {
+    return null;
+  }, // code,*/
   ComponentsList,
   Meta: Flex,
-  BlockNotification,
+  Input: Input,
+  Callout,
   Button,
   PropTypes,
   CodeBlock,

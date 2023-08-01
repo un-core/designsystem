@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight, themes } from 'prism-react-renderer';
 import stylesModule from './codeBlock.module.scss';
-import vsDark from 'prism-react-renderer/themes/vsDark';
-import { Button } from '@un/react';
+
+import { Button } from '@wfp/react';
 
 const CodeBlock = ({ children }: any) => {
   //return <OrginalCode>{children}</OrginalCode>;
@@ -28,11 +28,7 @@ const CodeBlock = ({ children }: any) => {
 
   return (
     <div className={`${stylesModule.code} wfp--code-block`}>
-      <Highlight
-        {...defaultProps}
-        theme={vsDark}
-        code={code.trim()}
-        language={language}>
+      <Highlight theme={themes.vsDark} code={code.trim()} language={language}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
             className={`${className} ${stylesModule.codeBlock}`}

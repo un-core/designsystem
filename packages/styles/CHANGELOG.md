@@ -3,7 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [10.26.63](https://github.com/wfp/designsystem/compare/@un/styles@10.26.62...@un/styles@10.26.63) (2023-04-23)
+## 10.26.75 (2023-07-24)
+
+**Note:** Version bump only for package @wfp/styles
+
+
+
+
+
+## 10.26.72 (2023-07-17)
+
+**Note:** Version bump only for package @wfp/styles
+
+## 10.26.71 (2023-07-17)
+
+### Bug Fixes
+
+- **website:** mdx loader updated ([60c83bb](https://github.com/wfp/designsystem/commit/60c83bba74621ba5a93c9718bc49e4cdfbc807b6))
+
+## 10.26.70 (2023-07-16)
+
+**Note:** Version bump only for package @wfp/styles
+
+## 10.26.69 (2023-07-16)
+
+**Note:** Version bump only for package @wfp/styles
+
+## [10.26.63](https://github.com/wfp/designsystem/compare/@wfp/styles@10.26.62...@wfp/styles@10.26.63) (2023-04-23)
 
 ### Bug Fixes
 
@@ -11,7 +37,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 10.26.51 (2022-12-06)
 
-**Note:** Version bump only for package @un/styles
+**Note:** Version bump only for package @wfp/styles
 
 ## 10.26.50 (2022-12-06)
 
@@ -21,13 +47,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 10.26.49 (2022-12-06)
 
-**Note:** Version bump only for package @un/styles
+**Note:** Version bump only for package @wfp/styles
 
-## [10.26.48](https://github.com/carbon-design-system/carbon/compare/@un/styles@10.26.47...@un/styles@10.26.48) (2022-12-06)
+## [10.26.48](https://github.com/carbon-design-system/carbon/compare/@wfp/styles@10.26.47...@wfp/styles@10.26.48) (2022-12-06)
 
-**Note:** Version bump only for package @un/styles
+**Note:** Version bump only for package @wfp/styles
 
-## [10.26.32](https://github.com/carbon-design-system/carbon/compare/@un/styles@10.26.31...@un/styles@10.26.32) (2022-06-28)
+## [10.26.32](https://github.com/carbon-design-system/carbon/compare/@wfp/styles@10.26.31...@wfp/styles@10.26.32) (2022-06-28)
 
 ### Bug Fixes
 

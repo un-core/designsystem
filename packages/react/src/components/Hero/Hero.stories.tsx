@@ -137,7 +137,7 @@ Splash.args = {
   image: undefined,
 };
 const splashsourcecode = `
-  import { Hero, Button } from "@un/react"; 
+  import { Hero, Button } from "@wfp/react"; 
 
   <Hero
     href="#"
@@ -198,7 +198,7 @@ SplashCompact.args = {
 };
 
 const splashcompactcode = `
-  import { Hero, Button } from "@un/react";
+  import { Hero, Button } from "@wfp/react";
 
   <Hero
   href="#"
@@ -253,7 +253,7 @@ Emergencies.args = {
 };
 
 const sourcecode = `
-import { Hero, Icon } from "@un/react";
+import { Hero, Icon } from "@wfp/react";
 import { iconWfpHumEmergencyResponsePos } from '@un/icons-react';
         
 <Hero
@@ -316,7 +316,7 @@ External.args = {
 };
 
 const externalsourcecode = `
-import { HeroExternal, Button } from "@un/react";
+import { HeroExternal, Button } from "@wfp/react";
         
 
 <HeroExternal

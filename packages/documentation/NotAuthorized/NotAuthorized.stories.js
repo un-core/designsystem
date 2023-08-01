@@ -47,7 +47,7 @@ Regular.story = {
     docs: {
       source: {
         code: `
-import { Wrapper, Story, Icon} from "@un/react";
+import { Wrapper, Story, Icon} from "@wfp/react";
 import { iconWfpHumEmergencyResponsePos } from '@un/icons-react';
 
 <Wrapper pageWidth="lg" spacing="md">

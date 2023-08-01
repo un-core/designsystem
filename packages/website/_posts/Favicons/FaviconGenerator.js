@@ -5,7 +5,7 @@ import {
   Module,
   ModuleBody,
   ReduxFormWrapper,
-} from '@un/react';
+} from '@wfp/react';
 
 import dynamic from 'next/dynamic';
 

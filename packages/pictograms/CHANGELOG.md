@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.14.36 (2023-07-24)
+
+**Note:** Version bump only for package @un/pictograms
+
+
+
+
+
+## 11.14.35 (2023-07-17)
+
+**Note:** Version bump only for package @un/pictograms
+
+
+
+
+
+## 11.14.34 (2023-07-17)
+
+
+### Bug Fixes
+
+* **website:** mdx loader updated ([60c83bb](https://github.com/carbon-design-system/carbon/commit/60c83bba74621ba5a93c9718bc49e4cdfbc807b6))
+
+
+
+
+
+## 11.14.33 (2023-07-16)
+
+**Note:** Version bump only for package @un/pictograms
+
+
+
+
+
+## 11.14.32 (2023-07-16)
+
+**Note:** Version bump only for package @un/pictograms
+
+
+
+
+
 ## 11.14.27 (2022-12-06)
 
 **Note:** Version bump only for package @un/pictograms

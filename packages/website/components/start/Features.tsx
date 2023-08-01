@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './features.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/pro-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import MoreLink from '../MoreLink';
 import { Trans, useTranslation } from 'next-i18next';
 

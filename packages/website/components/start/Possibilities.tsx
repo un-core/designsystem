@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './possibilities.module.scss';
 import MoreLink from '../MoreLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Wrapper } from '@un/react';
+import { Wrapper } from '@wfp/react';
 import {
   faFloppyDisk,
   faHandshakeAlt,
-  faStarShooting,
-  faVectorCircle,
-} from '@fortawesome/pro-light-svg-icons';
+  faStar,
+  faVectorSquare,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { faReact } from '@fortawesome/free-brands-svg-icons';
 
@@ -56,7 +56,7 @@ export default function Possiblities() {
           title="Build & maintain an icon library"
           content="A complete tool box to take advantage of using SVGs in your React applications."
           //background="#E7FFDF"
-          icon={faVectorCircle}
+          icon={faVectorSquare}
         />
         <PossibilitiesContainer
           title="Style once – use everywhere"
@@ -68,7 +68,7 @@ export default function Possiblities() {
           title="Recommendations"
           content="Lorem ipsum dolor sit amet"
           // background="#FFDFDF"
-          icon={faStarShooting}
+          icon={faStar}
         />
         <PossibilitiesContainer
           title="Legacy support"

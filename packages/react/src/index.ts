@@ -55,7 +55,15 @@ export { default as FormLabel } from './components/FormLabel';
 export { default as InfoBar } from './components/InfoBar';
 export { default as Link } from './components/Link';
 export { default as Loading } from './components/Loading';
-export { default as Input, useInput } from './components/Input';
+export {
+  default as Input,
+  useInput,
+  Label,
+  Error,
+  Helper,
+  AddonBefore,
+  AddonAfter,
+} from './components/Input';
 export { default as InlineLoading } from './components/InlineLoading';
 export { List, ListItem } from './components/List';
 export {
@@ -88,12 +96,15 @@ export {
 // export notificationStyle from './components/Notification/Notification.legacy';
 export {
   ToastNotification,
-  InlineNotification,
+  // InlineNotification,
   NotificationActionButton,
   NotificationButton,
   NotificationTextDetails,
-  BlockNotification,
+  Callout,
 } from './components/Notification';
+
+// Legacy export for backwards compatibility
+export { Callout as BlockNotification } from './components/Notification';
 export { default as NumberInput } from './components/NumberInput';
 export { default as Pagination } from './components/Pagination';
 export { default as RadioButton } from './components/RadioButton';
@@ -125,7 +136,7 @@ export { default as Story } from './components/Story';
 export { default as Item } from './components/Item';
 export { default as Table, TableSorting } from './components/Table';
 export { default as TablePagination } from './components/TablePagination';
-export { default as Tab } from './components/Tab';
+export { default as Tab, useTab } from './components/Tab';
 export { default as TabContent } from './components/TabContent';
 export { default as Tabs } from './components/Tabs';
 export { default as Tag } from './components/Tag';

@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.25.36 (2023-07-24)
+
+**Note:** Version bump only for package @un/cli
+
+
+
+
+
+## 10.25.34 (2023-07-17)
+
+**Note:** Version bump only for package @un/cli
+
+
+
+
+
+## 10.25.33 (2023-07-17)
+
+
+### Bug Fixes
+
+* **website:** mdx loader updated ([60c83bb](https://github.com/wfp-design-system/wfp/commit/60c83bba74621ba5a93c9718bc49e4cdfbc807b6))
+
+
+
+
+
+## 10.25.32 (2023-07-16)
+
+**Note:** Version bump only for package @un/cli
+
+
+
+
+
+## 10.25.31 (2023-07-16)
+
+**Note:** Version bump only for package @un/cli
+
+
+
+
+
 ## 10.25.26 (2022-12-06)
 
 **Note:** Version bump only for package @un/cli
