@@ -27,19 +27,17 @@ scripts: {
 
 ```jsx
 // buildTheme.js configuration
-
 const { config } = require('@un/themes-core/config.js');
 
-/* config() can be configured
-
-Source: defines the lookup for finding
+/*
+config() can be configured
+source: defines the lookup for finding
 Example can be found in tokens/design-tokens.tokens.json
-
-source = "tokens/**\/*.json"
-
-BuildPath: Output for the build
-buildPath = "dist"
 */
+const source = 'tokens/**/*.json';
+
+// BuildPath: Output for the build
+const buildPath = 'dist';
 
 config({ source, buildPath });
 ```

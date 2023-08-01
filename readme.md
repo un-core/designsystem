@@ -1,4 +1,4 @@
-# World Food Programme UI Kit (WFP-UI)
+# World Food Programme UI Kit (WFP-UI) 🇺🇳
 
 ## **[Click here to visit: Living Style Guide & Documentation](https://wfp.org/UIGuide)**
 
@@ -7,94 +7,59 @@
 | master | [![Build Status](https://dev.azure.com/worldfoodprogramme/ui/_apis/build/status/wfp.ui?repoName=wfp%2Fdesignsystem&branchName=master)](https://dev.azure.com/worldfoodprogramme/ui/_build/latest?definitionId=242&repoName=wfp%2Fdesignsystem&branchName=master)() |
 | next   | [![Build Status](https://dev.azure.com/worldfoodprogramme/ui/_apis/build/status/wfp.ui?repoName=wfp%2Fdesignsystem&branchName=next)](https://dev.azure.com/worldfoodprogramme/ui/_build/latest?definitionId=242&repoName=wfp%2Fdesignsystem&branchName=next)       |
 
-## ![Usage](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/toolkit.svg 'Usage') Usage
+## ![Usage](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/toolkit.svg "Usage") Usage
 
-### Installation
+### Installation 💾
 
-Run the following command using [npm](https://www.npmjs.com/):
+Information about the installation can be found in the [online documentation](https://www.designsystem.wfp.org/posts/documentation/developing/installation).
 
-```bash
-npm install @wfp/react
-npm install @un/icons
-```
-
-or [yarn](https://yarnpkg.com/lang/en/):
-
-```bash
-yarn add @wfp/react
-yarn add @un/icons
-```
-
-Import a react component
-
-```jsx
-import { Breadcrumb, BreadcrumbItem, BreadcrumbHome } from '@wfp/react';
-```
-
-Import the CSS
-
-```jsx
-import '@wfp/react/assets/css/styles.css';
-```
-
-Additional information about the Usage can be found [here](https://wfp.org/UIGuide).
-
-### Development
+### Development 🚧
 
 #### WARNING: This branch is experimental and in current development. Things could easily break!
 
+### Contribution Guidelines
+
 Please refer to the [Contribution Guidelines](./.github/CONTRIBUTING.md) before starting any work.
+
+### Installing the monorepo
+
+Requirements: `node.js 14.x`, `yarn 1.x`
 Use the `feat/` branches for active development.
 
-Clone the development branch for the un-core monorepo.
+Clone the `develop` branch for the un-core monorepo. TODO: Update Branch naming
 
 The project is using a `lerna/yarn` mono repository for development. Make sure you have [yarn](https://yarnpkg.com/) installed globally on your machine.
 
 ```bash
-git clone --branch un-core-v1 https://github.com/wfp/designsystem.git
+git clone --branch develop https://github.com/wfp/designsystem.git
 yarn install
 yarn build
 ```
 
-.npmrc
+For developing on Windows please use WSL by following this guide: https://github.com/carbon-design-system/carbon/blob/b5d615e05bc1c062337e8aca3a84e25a6f49b559/docs/guides/setup/windows.md
 
-Make sure you have a valid .npmrc for FontAwesome.
+### BREAKING CHANGES: Upgrade to 2.0 for existing solutions
 
-For developing on Windows please follow this guide: https://github.com/carbon-design-system/carbon/blob/b5d615e05bc1c062337e8aca3a84e25a6f49b559/docs/guides/setup/windows.md
+In version 2.0 some paths will change due to the new monorepo architecture.
 
-### Use Figma extract
-
-Use figma-connect to extract svgs and tokens from Figma. The documentation to set it up can be found in /packages/figma-connect.
-TODO: improve documentation
-
-### Usage of alpha versions in your project
-
-Install the latest alpha versions to use the Design System Alpha within your project
-
-```bash
-npm install @wfp/react@alpha @un/icons-react@alpha @un/layout@alpha @wfp/styles@alpha @un/themes-core@alpha @un/type@alpha
-```
-
-### Upgrade to 2.0 for existing solutions
-
-In version 2.0 some paths will change due to the new monorepo architecture which is inline with Carbon Design System.
-
-- `<Icon icon={iconName} />` becomes `<IconName />` imported from `import { IconName } from @un/icons-react``
+- `<Icon icon={iconName} />` becomes `<IconName />` imported from `import { IconName } from @wfp/icons-react``
 - `import { Component } from "@wfp/react"` becomes `import { Component } from "@wfp/react"`
-- `@import '@wfp/react/scss/globals/scss/styles.scss';` becomes `@import '@un/TODO:DEFINEPACKAGENAME';"`
+- `@import '@wfp/react/scss/globals/scss/styles.scss';` becomes `@import '@wfp/TODO:DEFINEPACKAGENAME';"`
 - Multiple variables like `$ui-01` becomes `$layer` to provide better readability. A full list can be found here. TODO:ENTERURLTOCOLOURS
 - `inputRef` is deprecated. Use `ref` instead.
 
 ### Packages
 
-All packages can be found in `packages/`.
+All packages can be found inside `packages/`.
 
 - `figma connect`: Downloading assets and color values from the Figma library no longer used, now themes!
 - `fonts`: All Fonts used by WFP
 - `humanitarian-icons`: OCHA humanitarian icons customized by the Publications Unit of wfp
+- `humanitarian-icons-react`: React package of the humanitarian icons
 - `layout`: breakpoints, spacings, etc. no longer used, now themes!
 - `pictograms`: pictogram icons
 - `icons` all icons
+- `icons-core` tools to generate `icons`, `pictograms` and `humanitarian-icons`
 - `icons-react` the react package of the icons
 - `colors` no longer used!
 - `styles`: all components styles
@@ -110,13 +75,13 @@ All Examples can be found in `wfp/`.
 
 View available Components [here](https://wfp.org/UIGuide). Usage information is available when you click the blue **Show Info** icon in the top right corner of the selected component.
 
-## ![About](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/branding.svg 'About') About the WFP UI Guidelines
+## ![About](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/branding.svg "About") About the WFP UI Guidelines
 
 The new WFP UI Kit is based on the [World Food Programme’s Branding Guidance](http://brand.manuals.wfp.org/) WFP's new branding was launched in early 2018 and will be implemented across the organization, strengthening WFP’s brand image through consistent representation.
 
 Building on this initiative, the World Food Programme’s User Interface Style Guide emphasizes WFP’s commitment to establish and build the brand.
 
-## ![Purpose](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/usability.svg 'Purpose') Purpose
+## ![Purpose](https://cdn.wfp.org/guides/ui/v1.2.0/assets/internal/usability.svg "Purpose") Purpose
 
 The purpose of this project is to create a unified toolkit that is used by UX-designers and developers alike on their projects to ensure all WFP-branded projects are accessible, appealing, and have a consistent look and feel across the board by following WFP’s design and implementation guidelines.
 
@@ -125,44 +90,6 @@ The guidelines contained in this guide are to be applied to all WFP digital prod
 By unifiying design elements into reusable components, development will simplify and accelerate the development of these digital products.
 
 The Guide is a living document created to meet the needs of WFP’s front-end developers and designers. If there is a Component or Pattern that you need, or you have any other feedback, question or comment please contact us.
-
-## Credits
-
-The UI Kit is based on:
-
-- [Carbon Components](https://github.com/carbon-design-system/carbon-components)
-
-* [U.S. Webdesign System](https://designsystem.digital.gov/page-templates/#landing-page)
-
-- [Sketch Favicon Exporter Template](https://github.com/frederik-jacques/sketch-favicon-exporter-template)
-
-* [Appnexus Lucid](https://github.com/appnexus/lucid)
-
-- [FontAwesome](http://fontawesome.io)
-
-## Assets
-
-All the logo files can be found in the [UI Assets repository on GitHub](https://github.com/wfp/ui-assets).
-
-### Logos
-
-Currently the logo is available in
-
-- **Colours:** blue, white and black
-
-* **Fileformat:** svg, png in different sizes
-
-- **Languages:** arabic, english, spanish, french
-
-The Source files can be found in https://github.com/wfp/ui-assets.
-
-## Favicons
-
-All the logo files can be found in https://github.com/wfp/ui-assets.
-
-## For Designers: Sketch Library
-
-COMING SOON
 
 ### Using the server
 
@@ -194,14 +121,6 @@ Make sure your commit does not produce any errors while checking:
 - jest tests
 - correct commit message
 
-### Installing the monorepo
-
-Requirements: `node.js 14.x`, `yarn`
-
-After cloning the repository to your local machine run `yarn` inside the main directory.
-
-Running `yarn build` will compile all the existing packages.
-
 ### Testing
 
 Use jest for testing the components. Once commited the branches will be also tested on [Travis CI](https://travis-ci.org/wfp/ui).
@@ -219,7 +138,7 @@ The UN Core uses Azure Devops, yarn, lerna and [semver](https://github.com/lerna
 - Commits on the `master` branch will be released as `@lastest` if a relevant commit is included (e.g. feat, fix, perf, breaking)
 - Commits on `next` branch will be released as `@next` if a relevant commit is included
 
-### Generate alpha release from a local machine
+### Generate and release an alpha from a local machine
 
 ```
 yarn publish:alpha-cli
@@ -230,20 +149,6 @@ git push --follow-tags origin next && npm publish --tag alpha
 
 To publish local changes directly to a alpha release on npm.
 
-### Releasing Storybook (documentation) to AWS S3
+### Credits
 
-Create a new build for the documentation and copy the `assets` and `docs` folder manually to [WFP`s AWS S3 instance](https://cdn.wfp.org/guides/ui/) following the naming scheme (for example: v1.2.1).
-
-```
-npm run build:storybook
-```
-
-Edit the `website-redirect-location` meta tag of `index.html` to point [wfp.org/UIGuide](https://wfp.org/UIGuide) to the latest documentation folder. This can be done with [MountainDuck](https://mountainduck.io/).
-
-Edit the first line of `assets/depreciation-warning.html` to point to the latest version of the UI Kit.
-
-Clear the Server cache with [Cloudfront Purge Tool](https://chrome.google.com/webstore/detail/cloudfront-purge-tool).
-
-```
-
-```
+[View Credits](https://www.designsystem.wfp.org/posts/support/credits)
