@@ -1,7 +1,7 @@
 {
   "name": "@wfp/styles",
   "description": "Styles for the WFP Design System",
-  "version": "10.26.75",
+  "version": "10.26.76",
   "license": "Apache-2.0",
   "author": "Robert Gühne <wfp.org>",
   "homepage": "https://www.wfp.org",
@@ -32,7 +32,7 @@
     "@carbon/motion": "^10.22.0",
     "@un/layout": "^10.26.15",
     "@un/themes": "^10.40.14",
-    "@un/themes-core": "^0.0.33",
+    "@un/themes-core": "^0.0.34",
     "@un/type": "^10.30.16"
   },
   "devDependencies": {
