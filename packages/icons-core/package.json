@@ -46,11 +46,11 @@
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^11.1.1",
+    "@rollup/plugin-commonjs": "^25.0.3",
     "@svgr/core": "^7.0.0",
     "@svgr/plugin-jsx": "^7.0.0",
     "@svgr/plugin-prettier": "^7.0.0",
     "@svgr/plugin-svgo": "^7.0.0",
-    "@un/cli": "^10.25.37",
     "babel-cli": "^6.26.0",
     "camelcase": "^6.3.0",
     "change-case": "^4.1.2",
