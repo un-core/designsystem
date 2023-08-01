@@ -14,13 +14,11 @@
   "bugs": "https://github.com/carbon-design-system/carbon/issues",
   "keywords": [
     "pictograms",
-    "ibm",
+    "wfp",
     "elements",
-    "carbon",
-    "carbon-elements",
-    "carbon-design-system",
-    "components",
-    "react"
+    "un",
+    "icons",
+    "world food programme",
   ],
   "publishConfig": {
     "access": "public"
