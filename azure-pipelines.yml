@@ -12,6 +12,7 @@ trigger:
   - alpha/*
   - feat/*
   - un-core-v1
+  - main-bridge-website
 
 jobs:
   - job: WFP_Design_System_publish
