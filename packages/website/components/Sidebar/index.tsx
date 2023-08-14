@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Link,
@@ -39,11 +39,16 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
   const splitSlug = slugifyWithSlashes(slug).split("/");
   const found =
     slugify(split.name, { lower: true }) ===
-    splitSlug[level - 1]; /* split.children.find(
+    splitSlug[level]; /* split.children.find(
     (e) => e.name === splitSlug[splitSlug.length - 1]
   )*/
 
   const [open, setOpen] = useState(level === 0 || found);
+
+  useEffect(() => {
+    const found = slugify(split.name, { lower: true }) === splitSlug[level];
+    setOpen(found);
+  }, [slug]);
 
   return (
     <li
