@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import * as React from "react";
+import { useState, useEffect } from "react";
 
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import { ButtonKind } from '../../utils';
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import { ButtonKind } from "../../utils";
 
 interface ButtonBaseProps {
   /**
@@ -45,7 +45,7 @@ interface ButtonBaseProps {
    * Optional prop to specify the tabIndex of the Button
    */
   tabIndex?: number;
-  target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
+  target?: React.AnchorHTMLAttributes<HTMLAnchorElement>["target"];
   // type?: 'button' | 'reset' | 'submit';
   useFlexbox?: boolean;
   id?: string;
@@ -53,11 +53,11 @@ interface ButtonBaseProps {
 
 interface ButtonButtonProps
   extends ButtonBaseProps,
-    React.ComponentPropsWithoutRef<'button'> {}
+    React.ComponentPropsWithoutRef<"button"> {}
 
 interface ButtonLinkProps
   extends ButtonBaseProps,
-    React.ComponentPropsWithoutRef<'a'> {}
+    React.ComponentPropsWithoutRef<"a"> {}
 
 type ConditionalProps<T> = T extends { href: string }
   ? ButtonLinkProps
@@ -67,7 +67,7 @@ type ConditionalProps<T> = T extends { href: string }
  * Buttons express what action will occur when the user clicks or touches it. Buttons are used to initialize an action, either in the background or foreground of an experience. */
 
 export type ButtonRef<T extends React.ElementType> =
-  React.ComponentPropsWithRef<T>['ref'];
+  React.ComponentPropsWithRef<T>["ref"];
 
 export const Button = React.forwardRef(
   <T extends { href?: string }>(
@@ -82,11 +82,11 @@ export const Button = React.forwardRef(
       disabled,
       small,
       large,
-      kind = 'primary',
+      kind = "primary",
       iconReverse,
       tabIndex,
       useFlexbox,
-      type = 'button',
+      type = "button",
       icon,
       iconDescription,
       onClick,
@@ -157,7 +157,8 @@ export const Button = React.forwardRef(
           role="button"
           onClick={onClickAnimation}
           ref={ref as React.Ref<HTMLAnchorElement>}
-          id={id}>
+          id={id}
+        >
           {iconReverse && buttonImage}
           {children}
           {!iconReverse && buttonImage}
@@ -178,7 +179,8 @@ export const Button = React.forwardRef(
         type={type}
         onClick={onClickAnimation}
         ref={ref as React.Ref<HTMLButtonElement>}
-        id={id}>
+        id={id}
+      >
         {iconReverse && buttonImage}
         {children}
         {!iconReverse && buttonImage}
@@ -187,6 +189,6 @@ export const Button = React.forwardRef(
   }
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export default Button;

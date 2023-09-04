@@ -1,16 +1,16 @@
-import React, { ComponentType, useState } from 'react';
-import classNames from 'classnames';
+import React, { ComponentType, useState } from "react";
+import classNames from "classnames";
 
-import WrapperDefault from '../Wrapper';
-import useSettings from '../../hooks/useSettings';
-import { ScreenSize } from '../../utils';
-import MainNavigationContext from './MainNavigationContext';
-import MobileButtonDefault, { MobileButtonProps } from './MobileButton';
-import { WrapperProps } from '../Wrapper/Wrapper';
+import WrapperDefault from "../Wrapper";
+import useSettings from "../../hooks/useSettings";
+import { ScreenSize } from "../../utils";
+import MainNavigationContext from "./MainNavigationContext";
+import MobileButtonDefault, { MobileButtonProps } from "./MobileButton";
+import { WrapperProps } from "../Wrapper/Wrapper";
 
 /** The Main Navigation is a Horizontal Menu which consists of multiple clickable items placed at the top of the page. The navigation stays unchanged when browswing through the site and is present on every page. The currently selected item is usually highlighted. */
 
-interface MainNavigationProps extends React.ComponentPropsWithRef<'div'> {
+interface MainNavigationProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * The Logo can be either a string or a component
    */
@@ -31,6 +31,10 @@ interface MainNavigationProps extends React.ComponentPropsWithRef<'div'> {
    */
   mobilePageWidth?: ScreenSize;
   /**
+   * A line will be placed above the navigation
+   */
+  line: boolean;
+  /**
    * Additional className for the `Wrapper`
    */
   wrapperClassName?: string;
@@ -50,6 +54,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   className,
   id,
   logo,
+  line = true,
   mobilePageWidth,
   pageWidth,
 }) => {
@@ -60,9 +65,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const onChangeSub = (action: string, i?: string, e?: any) => {
     if (e) e.preventDefault();
 
-    if (action === 'close') {
+    if (action === "close") {
       setActiveMenuItem(null);
-    } else if (action === 'toggle') {
+    } else if (action === "toggle") {
       const newI = activeMenuItem === null || activeMenuItem !== i ? i : null;
       if (newI !== undefined) setActiveMenuItem(newI);
     }
@@ -80,7 +85,11 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   //   setActiveMenuItem(undefined);
   // };
 
-  const wrapperClasses = classNames(`${prefix}--main-navigation`, className);
+  const wrapperClasses = classNames(
+    `${prefix}--main-navigation`,
+    { [`${prefix}--main-navigation--line`]: line },
+    className
+  );
 
   const listClasses = classNames(`${prefix}--main-navigation__list`, {
     [`${prefix}--main-navigation__list--open`]: openMobileMenu,
@@ -98,16 +107,19 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   return (
     <div id={id} className={wrapperClasses}>
       <MainNavigationContext.Provider
-        value={{ activeMenuItem, openMobileMenu, toggleMenu, onChangeSub }}>
+        value={{ activeMenuItem, openMobileMenu, toggleMenu, onChangeSub }}
+      >
         <Wrapper
           pageWidth={pageWidth}
           mobilePageWidth={mobilePageWidth}
-          className={`${prefix}--main-navigation__wrapper`}>
+          className={`${prefix}--main-navigation__wrapper`}
+        >
           <div className={`${prefix}--main-navigation__logo-wrapper`}>
             <MobileButton
               toggleMenu={toggleMenu}
               prefix={prefix}
-              openMobileMenu={openMobileMenu}>
+              openMobileMenu={openMobileMenu}
+            >
               Menu
             </MobileButton>
             <div className={`${prefix}--main-navigation__logo`}>{logo}</div>
@@ -119,6 +131,6 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   );
 };
 
-MainNavigation.displayName = 'MainNavigation';
+MainNavigation.displayName = "MainNavigation";
 
 export default MainNavigation;

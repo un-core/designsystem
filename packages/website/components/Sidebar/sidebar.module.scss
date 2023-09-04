@@ -1,4 +1,4 @@
-@use 'scss/meta' as *;
+@use "scss/meta" as *;
 
 .hero {
   width: 100%;
@@ -124,78 +124,6 @@
   width: 15em;
 }
 
-.sidebarList {
-  li {
-    margin: 1em 0.3em;
-  }
-  .level-1 {
-    //margin-left: 0;
-    margin-inline-start: 0;
-  }
-  .level-2 {
-    font-size: 0.95em;
-    //margin-left: 0.6em;
-    margin-inline-start: 0.6em;
-  }
-  .level-3 {
-    font-size: 0.95em;
-    //margin-left: 0.6em;
-    margin-inline-start: 0.6em;
-  }
-}
-
-.level-closed {
-  ul {
-    display: none;
-  }
-}
-
-.level-open {
-  > .sidebarTitle {
-    > .iconOpen {
-      transform: rotate(90deg);
-    }
-  }
-}
-.item {
-  display: flex;
-}
-.sidebarTitle {
-  font-weight: 600;
-  display: flex;
-  cursor: pointer;
-  margin: 1.5em 0;
-  display: block;
-  user-select: none;
-}
-
-.sidebarTitleText {
-  // margin-right: 0.3em;
-  margin-inline-end: 0.3em;
-}
-
-.icon {
-  color: $interactive;
-  font-size: 0.8em;
-  margin-top: 0.1em;
-  //margin-right: 1em;
-  margin-inline-end: 1em;
-  width: 1px;
-  height: 3em;
-  margin-top: -1em;
-  margin-bottom: -1em;
-  background: $border-strong;
-}
-
-.iconOpen {
-  color: $interactive;
-  font-size: 0.8em;
-  margin-top: 0.1em;
-  margin-left: 0;
-  //margin-right: 0.7em;
-  margin-inline-end: 0.7em;
-}
-
 .sidebarWrapper {
   display: flex;
   align-items: flex-start;
@@ -213,7 +141,7 @@
   .metaTitle {
     font-weight: bold;
     &:after {
-      content: ':';
+      content: ":";
     }
   }
   .metaContent {
@@ -239,15 +167,4 @@
   font-size: 1.1em;
   color: $text-secondary;
   font-style: italic;
-}
-
-.lastLevel {
-  &.active {
-    a {
-      font-weight: 600;
-    }
-    .icon {
-      background: $interactive;
-    }
-  }
 }

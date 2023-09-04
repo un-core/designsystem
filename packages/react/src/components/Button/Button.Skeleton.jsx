@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
 
 const ButtonSkeleton = ({ small, href }) => {
   const buttonClasses = classNames({
-    'wfp--skeleton': true,
-    'wfp--btn': true,
-    'wfp--btn--sm': small,
+    "wfp--skeleton": true,
+    "wfp--btn": true,
+    "wfp--btn--sm": small,
   });
 
   const commonProps = {

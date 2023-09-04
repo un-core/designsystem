@@ -1,33 +1,14 @@
-import React, { FC } from 'react';
-//import { addParameters } from '@storybook/react';
-import './storybook.scss';
-import theme from './theme';
-import { UNCoreProvider } from '../src/components/UNCoreSettings';
-//import mdxComponents from '../src/components/mdxComponents';
+import React, { FC } from "react";
+import "./storybook.scss";
+import theme from "./theme";
+import { UNCoreProvider } from "../src/components/UNCoreSettings";
 
-/*import {
-  Title,
-  Primary,
-  Props,
-  Stories,
-  types,
-} from '@storybook/addon-docs/blocks';*/
-
-import { themes, ensure } from '@storybook/theming';
+import { themes, ensure } from "@storybook/theming";
 
 //import 'iframe-resizer';
 
-require('iframe-resizer/js/iframeResizer.contentWindow');
+// require("iframe-resizer/js/iframeResizer.contentWindow");
 
-/*
-addParameters({
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-  },
-  viewMode: 'docs',
-}); // or global addParameters
-*/
 export const parameters = {
   controls: { expanded: true },
   docs: {
@@ -37,30 +18,30 @@ export const parameters = {
     //page: DocsPage,
   },
   previewTabs: {
-    'storybook/docs/panel': {
+    "storybook/docs/panel": {
       index: -1,
-      title: 'Documentation',
+      title: "Documentation",
     },
-    canvas: { title: 'Code', hidden: false },
+    canvas: { title: "Code", hidden: false },
   },
   options: {
     storySort: {
       order: [
-        'Getting started',
+        "Getting started",
         [
-          'Intro',
-          'Installing the Kit',
-          'Using the Kit',
-          'Recommended libraries',
-          'Design resources',
-          'Browser support',
+          "Intro",
+          "Installing the Kit",
+          "Using the Kit",
+          "Recommended libraries",
+          "Design resources",
+          "Browser support",
           "What's new",
-          'Support and Feedback',
-          'Credits',
+          "Support and Feedback",
+          "Credits",
         ],
-        'Documentation',
-        'Templates',
-        'Components',
+        "Documentation",
+        "Templates",
+        "Components",
       ],
     },
   },
@@ -94,13 +75,14 @@ export const globalTypes = {
 const withThemeProvider = (Story, context) => {
   const { locale, theme } = context.globals;
   document.body.classList.remove(
-    `wfp--theme-${theme === 'light' ? 'dark' : 'light'}`
+    `wfp--theme-${theme === "light" ? "dark" : "light"}`
   );
   document.body.classList.add(`wfp--theme-${theme}`);
   return (
     <div
       className={`wfp--theme-${theme} wfp--theme-${locale}`}
-      dir={locale === 'rtl' ? 'rtl' : null}>
+      dir={locale === "rtl" ? "rtl" : null}
+    >
       <Story {...context} />
     </div>
   );

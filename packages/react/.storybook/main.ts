@@ -1,11 +1,19 @@
-import type { StorybookConfig } from '@storybook/react';
+import type { StorybookConfig } from "@storybook/react";
 const config: StorybookConfig = {
-  stories: ['../src/**/*stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/blocks', '@storybook/addon-links', '@storybook/addon-essentials', '@storybook/preset-create-react-app', '@storybook/addon-interactions', '@storybook/addon-mdx-gfm'],
+  stories: ["../src/**/*stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  core: {
+    builder: "@storybook/builder-vite", // 👈 The builder enabled here.
+  },
+  addons: [
+    "@storybook/blocks",
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/preset-create-react-app",
+    "@storybook/addon-interactions",
+  ],
   framework: {
-    name: '@storybook/react-webpack5',
-    options: {}
-  }
+    name: "@storybook/react-vite",
+  },
   /* typescript: {
     check: false,
     checkOptions: {},
@@ -22,9 +30,8 @@ const config: StorybookConfig = {
     );
     config.plugins.splice(tsConfigIndex, 1);
     return config;
-  },*/,
-  docs: {
-    autodocs: true
-  }
+  },*/ docs: {
+    autodocs: true,
+  },
 };
 export default config;

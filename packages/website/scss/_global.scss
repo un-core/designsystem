@@ -2,22 +2,22 @@ $css--reset: true;
 $css--body: true;
 //@use "./meta" as meta;
 
-@use './intern.scss';
+@use "./intern.scss";
 
-@use '@wfp/styles/scss/themes';
-@use '@wfp/styles/scss/theme' /*with (
+@use "@wfp/styles/scss/themes";
+@use "@wfp/styles/scss/theme" /*with (
   $theme: meta.$carbon--theme--memo
 )*/;
 
-@use '@un/themes-core/dist/scss/default-css-theme' as defaulttheme;
-@use '@un/themes-core/distDark/scss/default-css-theme' as darkTheme;
+@use "@un/themes-core/dist/scss/default-css-theme" as defaulttheme;
+@use "@un/themes-core/distDark/scss/default-css-theme" as darkTheme;
 
 //@use "./dist/scss/default-css-theme" as memotheme;
 
-@use '@wfp/styles/scss/reset';
-@use '@wfp/styles/scss/components';
+@use "@wfp/styles/scss/reset";
+@use "@wfp/styles/scss/components";
 
-@use 'scss/meta' as *;
+@use "scss/meta" as *;
 
 //@import "./global.scss";
 
@@ -26,9 +26,9 @@ $css--body: true;
 //@import "~@wfp/react/src/globals/scss/layout";
 //@import "~@wfp/react/src/globals/scss/_typography";
 
-@import '@un/type/scss/font-face/mono';
-@import '@un/type/scss/font-face/sans';
-@import '@un/type/scss/font-face/serif';
+@import "@un/type/scss/font-face/mono";
+@import "@un/type/scss/font-face/sans";
+@import "@un/type/scss/font-face/serif";
 
 @include open-sans-font-face();
 
@@ -98,16 +98,17 @@ html {
 @include breakpoint-down(md) {
   .wfp--main-navigation__trigger {
     border: none;
-    background: $background-main !important;
+    // background: $background-main !important;
   }
 
   .wfp--main-navigation__list {
     position: absolute;
     left: 0;
-    padding: 0.5em 0 !important;
+    /* // padding: 0.5em 0 !important;
     height: auto;
     background: $background-main !important;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    */
   }
 
   .wfp--main-navigation__list--open {
@@ -127,8 +128,8 @@ html {
 }
 
 .prism-code {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace !important;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace !important;
   border-radius: 6px;
   font-size: 0.9em;
   line-height: 1.6em;

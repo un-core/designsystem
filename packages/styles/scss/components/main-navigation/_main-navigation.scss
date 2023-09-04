@@ -4,22 +4,22 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 
-@use '../../config' as *;
-@use '../../colors' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../breakpoint' as *;
-@use '../../spacing' as *;
-@use '../../motion' as *;
-@use '../../utilities/box-shadow' as *;
-@use '../../utilities/component-reset';
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/rtl' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/z-index' as *;
+@use "../../config" as *;
+@use "../../colors" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../breakpoint" as *;
+@use "../../spacing" as *;
+@use "../../motion" as *;
+@use "../../utilities/box-shadow" as *;
+@use "../../utilities/component-reset";
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/rtl" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/z-index" as *;
 
-@import '../form';
+@import "../form";
 
 /// @type Number
 /// @access public
@@ -48,8 +48,10 @@ $main-navigation-menu-width: rem(300px);
   // The overall container element for a `main-navigation`. Has two variants,
   // `disabled` and `inline`.
   .#{$prefix}--main-navigation {
-    color: $text-on-color;
-    background: $background-brand;
+    color: $text-primary;
+    // background: $background-brand;
+    background: $background-main;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
     @include reset;
     //display: flex;
     @media print {
@@ -58,9 +60,13 @@ $main-navigation-menu-width: rem(300px);
     // @include font-smoothing;
   }
 
+  .#{$prefix}--main-navigation--line {
+    border-top: 4px solid #0d295c;
+  }
+
   .#{$prefix}--main-navigation__item {
-    @include type-style('body-short-02');
-    @include font-family('sans');
+    @include type-style("body-short-02");
+    @include font-family("sans");
     font-weight: 600;
     &:last-child {
       padding-right: 0;
@@ -79,8 +85,8 @@ $main-navigation-menu-width: rem(300px);
       white-space: nowrap;
 
       > a {
-        color: $text-on-color; // TODO change to $link_on_color token
-        @include type-style('body-short-02');
+        color: $link-primary; // TODO change to $link_on_color token
+        @include type-style("body-short-02");
         text-decoration: none;
         &.active {
           border-bottom: 3px solid rgba(var(--ui-01), 0.5);
@@ -88,11 +94,11 @@ $main-navigation-menu-width: rem(300px);
         &:hover,
         &:visited,
         &:active {
-          color: $text-on-color;
+          color: $link-primary;
           text-decoration: underline;
         }
         &:focus {
-          color: $text-on-color;
+          color: $link-primary;
         }
       }
     }
@@ -131,26 +137,26 @@ $main-navigation-menu-width: rem(300px);
 
   .#{$prefix}--main-navigation__logo {
     a {
-      color: $text-on-color;
+      color: $text-primary;
       text-decoration: none;
       &:hover,
       &:visited,
       &:active {
-        color: $text-on-color;
+        color: $text-primary;
         text-decoration: underline;
       }
       &:focus {
-        color: $text-on-color;
+        color: $text-primary;
       }
     }
   }
 
-  @include breakpoint-down('md') {
+  @include breakpoint-down("md") {
     .#{$prefix}--main-navigation__wrapper {
       padding: 0;
     }
   }
-  @include breakpoint('md') {
+  @include breakpoint("md") {
     .#{$prefix}--main-navigation__logo-wrapper {
       flex-grow: 1;
     }
@@ -206,9 +212,9 @@ $main-navigation-menu-width: rem(300px);
       max-height: 80vh;
       overflow: auto;
       overflow-x: hidden;
-      z-index: z('modal');
-      color: var(--text-01);
-      background: var(--ui-01);
+      z-index: z("modal");
+      color: $text-primary; // TODO: Replace
+      background: $background-main;
       box-shadow: rgba(desaturate(#0b77c2, 50%), 0.15) 0 3px 12px,
         //TODO - convert raw color hex into color token in figma
         rgba(desaturate(#0b77c2, 40%), 0.15) 0 32px 78px;
@@ -230,7 +236,7 @@ $main-navigation-menu-width: rem(300px);
     }
   }
 
-  @include breakpoint-down('md') {
+  @include breakpoint-down("md") {
     .#{$prefix}--main-navigation__logo-wrapper {
       display: flex;
       align-items: center;
@@ -256,7 +262,7 @@ $main-navigation-menu-width: rem(300px);
 
     .#{$prefix}--main-navigation__sub--open {
       display: block;
-      color: $text-on-color;
+      color: $text-primary;
       background: $background-main;
     }
 
@@ -266,8 +272,8 @@ $main-navigation-menu-width: rem(300px);
         width: 100%;
       }
       padding: $spacing-05 1em;
-      background-color: #005e8d; // TODO create a token for this color
-      border-bottom: 1px solid lighten(#085387, 5); //TODO create color in figma
+      //background-color: #005e8d; // TODO create a token for this color
+      //border-bottom: 1px solid lighten(#085387, 5); //TODO create color in figma
     }
   }
 }

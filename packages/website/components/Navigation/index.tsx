@@ -4,7 +4,7 @@ import {
   Button,
   MainNavigationItem,
   BannerNavigation,
-  MainNavigationExternal,
+  MainNavigation,
   useTheme,
 } from "@wfp/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +14,7 @@ import Search from "../Search";
 
 import styles from "./styles.module.scss";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import SidebarNavigation from "../Sidebar/SidebarNavigation";
 export default function Navigation() {
   //const { t } = useTranslation('website');
   const theme: any = useTheme();
@@ -35,7 +36,7 @@ export default function Navigation() {
       <BannerNavigation className={styles.bannerNavigation}>
         <span>🚧 This website is work in progress 👷</span>
       </BannerNavigation>
-      <MainNavigationExternal
+      <MainNavigation
         logo={<NextLink href="./">UN core</NextLink>}
         components={{
           LanguageExternal: () => null,
@@ -49,6 +50,7 @@ export default function Navigation() {
         </MainNavigationItem>
         <MainNavigationItem>
           <NextLink href="/documentation/overview">Resources</NextLink>
+          {/* <SidebarNavigation path="documentation" /> */}
         </MainNavigationItem>
         <MainNavigationItem>
           <NextLink href="/components/overview">Components</NextLink>
@@ -88,7 +90,7 @@ export default function Navigation() {
             </NextLink>
           </div>
         </MainNavigationItem>
-      </MainNavigationExternal>
+      </MainNavigation>
     </>
   );
 }

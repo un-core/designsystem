@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { ComponentType } from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import FormItem from '../FormItem/FormItem';
-import { WarningSolid } from '@un/icons-react';
-import * as HookForm from 'react-hook-form';
+import * as React from "react";
+import { ComponentType } from "react";
+import type { PropsWithChildren } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import FormItem from "../FormItem/FormItem";
+import { WarningSolid } from "@un/icons-react";
+import * as HookForm from "react-hook-form";
 
 /**
    * Optionally provide the default value of the input @design
@@ -119,7 +119,7 @@ export interface InputProps {
 
 export interface InputPropsForReplacementComponents
   extends InputProps,
-    React.ComponentPropsWithRef<'div'> {
+    React.ComponentPropsWithRef<"div"> {
   /**
    * The classes for the label
    */
@@ -183,15 +183,15 @@ export function Error({
     const errorIcon = <WarningSolid fill="#c5192d" />;
     return (
       <div className={errorClasses} id={errorId}>
-        {errorIcon}{' '}
+        {errorIcon}{" "}
         <span>
-          {typeof invalid === 'object' && invalid.message
+          {typeof invalid === "object" && invalid.message
             ? invalid.message
-            : typeof invalid === 'string'
+            : typeof invalid === "string"
             ? invalid
             : invalidText
             ? invalidText
-            : 'required'}
+            : "required"}
         </span>
       </div>
     );
@@ -212,7 +212,7 @@ export function Label({
   return (
     <label htmlFor={calculatedId} className={labelClasses}>
       {labelText && labelText}
-      {required && '*'}
+      {required && "*"}
     </label>
   );
 }
@@ -227,7 +227,7 @@ export function Helper({
   return null;
 }
 
-interface InputPropsI extends InputProps, React.ComponentPropsWithRef<'div'> {
+interface InputPropsI extends InputProps, React.ComponentPropsWithRef<"div"> {
   /**
    * Provide a children to the input
    */
@@ -279,7 +279,7 @@ const Input: React.FC<PropsWithChildren<InputPropsI>> = ({
     type,
   };*/
 
-  const errorId = calculatedId + '-error-msg';
+  const errorId = calculatedId + "-error-msg";
 
   const labelClasses = classNames(`${prefix}--label`, {
     // [`${prefix}--input--light`]: light,
@@ -348,6 +348,6 @@ const Input: React.FC<PropsWithChildren<InputPropsI>> = ({
     </FormItem>
   );
 };
-Input.displayName = 'Input';
+Input.displayName = "Input";
 
 export default Input;

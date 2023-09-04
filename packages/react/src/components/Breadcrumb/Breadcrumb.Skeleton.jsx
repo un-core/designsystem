@@ -1,5 +1,5 @@
-import * as React from 'react';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import useSettings from "../../hooks/useSettings";
 
 const BreadcrumbSkeleton = () => {
   const { prefix } = useSettings();

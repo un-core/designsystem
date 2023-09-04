@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Invalid } from './InvalidUnit';
-import StringUnit from './StringUnit';
-import SvgUnit from './SvgUnit';
+import * as React from "react";
+import { Invalid } from "./InvalidUnit";
+import StringUnit from "./StringUnit";
+import SvgUnit from "./SvgUnit";
 
 export const percentageCalc = (props, after, before) => {
   const {
@@ -17,7 +17,7 @@ export const percentageCalc = (props, after, before) => {
 
   // Remove commas
   var value =
-    typeof children === 'string' ? children.replace(/,/g, '') : children;
+    typeof children === "string" ? children.replace(/,/g, "") : children;
 
   // Parse as float
   value = parseFloat(value);
@@ -29,7 +29,7 @@ export const percentageCalc = (props, after, before) => {
   }
 
   // Convert to Locale String
-  value = value.toLocaleString('en-EN', {
+  value = value.toLocaleString("en-EN", {
     minimumFractionDigits: maximumSignificantDigits
       ? maximumSignificantDigits
       : 0,
@@ -44,7 +44,7 @@ export const percentageCalc = (props, after, before) => {
     after: after,
     output: undefined,
   };
-  if ((!value || value === 'NaN' || parseFloat(value) === 0) && hideZero)
+  if ((!value || value === "NaN" || parseFloat(value) === 0) && hideZero)
     return false;
   else if (calcOnly) return calcObject;
   else if (svg) return SvgUnit(calcObject, props);

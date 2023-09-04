@@ -1,0 +1,47 @@
+---
+category: "Core"
+title: "Toggle"
+excerpt: "**Toggles** are controls that are used to quickly switch between two possible states."
+coverImage: "../sample-image.jpg"
+slug: "Components/Form/Toggle/code"
+storybook: true
+mainComponent: "Toggle"
+defaultProps:
+  labelText: "Toggle label"
+  helperText: "Optional helper text."
+  defaultValue: "false"
+  labelA: "Off"
+  labelB: "On"
+---
+
+### react-hook-form example
+
+```jsx live reactHookForm
+<>
+  <Toggle
+    labelText="The uncontrolled Input"
+    helperText="Optional helperText"
+    labelA="Off"
+    labelB="On"
+    {...register("inputname")}
+  />
+
+  <Controller
+    name="inputnameB"
+    control={control}
+    render={({ field }) => {
+      return (
+        <Toggle
+          labelText="The controlled Input"
+          helperText="Optional helperText"
+          labelA="Off"
+          labelB="On"
+          {...field}
+          onChange={(e) => field.onChange(e.target.checked)}
+          checked={field.value === true}
+        />
+      );
+    }}
+  />
+</>
+```

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import { createPathTree } from "../../../Sidebar";
+import { createPathTree } from "../../../Sidebar/SidebarNavigation";
 import slugifyWithSlashes from "../../../../lib/slugifyWithSlashes";
 import Link from "next/link";
 

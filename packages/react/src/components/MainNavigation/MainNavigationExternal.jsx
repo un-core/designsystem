@@ -1,14 +1,14 @@
-import React from 'react';
-import { useEffect, useRef } from 'react';
-import { WfpLogoVerticalEn } from '@un/pictograms-react';
-import { ChevronDown, ChevronUp } from '@un/icons-react';
+import React from "react";
+import { useEffect, useRef } from "react";
+import { WfpLogoVerticalEn } from "@un/pictograms-react";
+import { ChevronDown, ChevronUp } from "@un/icons-react";
 
-import Button from '../Button';
-import User from '../User';
-import Wrapper from '../Wrapper';
-import PropTypes from 'prop-types';
-import { useTogglable } from '../../hooks';
-import useSettings from '../../hooks/useSettings';
+import Button from "../Button";
+import User from "../User";
+import Wrapper from "../Wrapper";
+import PropTypes from "prop-types";
+import { useTogglable } from "../../hooks";
+import useSettings from "../../hooks/useSettings";
 
 const LanguageExternal = ({ children, primaryLanguage }) => {
   const { prefix } = useSettings();
@@ -27,10 +27,10 @@ const LanguageExternal = ({ children, primaryLanguage }) => {
         languageTogglable.close();
       }
     };
-    document.addEventListener('mousedown', checkIfClickedOutside);
+    document.addEventListener("mousedown", checkIfClickedOutside);
     return () => {
       // Cleanup the event listener
-      document.removeEventListener('mousedown', checkIfClickedOutside);
+      document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [languageTogglable.isOpen]);
 
@@ -43,7 +43,8 @@ const LanguageExternal = ({ children, primaryLanguage }) => {
           languageTogglable.isOpen
             ? languageTogglable.close()
             : languageTogglable.open()
-        }>
+        }
+      >
         <span>{primaryLanguage}</span>
         {languageTogglable.isOpen ? <ChevronUp /> : <ChevronDown />}
       </div>
@@ -51,8 +52,9 @@ const LanguageExternal = ({ children, primaryLanguage }) => {
         className={`${prefix}--language-ext__dropdown ${
           languageTogglable.isOpen
             ? `${prefix}--language-ext__dropdown--is-shown`
-            : ''
-        }`}>
+            : ""
+        }`}
+      >
         {children}
       </ul>
     </div>
@@ -77,10 +79,10 @@ const UserExternal = ({ username, children, userImage }) => {
         userTogglable.close();
       }
     };
-    document.addEventListener('mousedown', checkIfClickedOutside);
+    document.addEventListener("mousedown", checkIfClickedOutside);
     return () => {
       // Cleanup the event listener
-      document.removeEventListener('mousedown', checkIfClickedOutside);
+      document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [userTogglable.isOpen]);
 
@@ -91,14 +93,16 @@ const UserExternal = ({ username, children, userImage }) => {
         role="presentation"
         onClick={() =>
           userTogglable.isOpen ? userTogglable.close() : userTogglable.open()
-        }>
+        }
+      >
         <User alt="User avatar" name={username} image={userImage} />
         {userTogglable.isOpen ? <ChevronUp /> : <ChevronDown />}
       </div>
       <ul
         className={`${prefix}--user-ext__dropdown ${
-          userTogglable.isOpen ? `${prefix}--user-ext__dropdown--is-shown` : ''
-        }`}>
+          userTogglable.isOpen ? `${prefix}--user-ext__dropdown--is-shown` : ""
+        }`}
+      >
         {children}
       </ul>
     </div>
@@ -110,7 +114,7 @@ const MainNavigationExternal = ({
   primaryLanguage,
   languageList,
   username,
-  pageWidth = 'full',
+  pageWidth = "full",
   components = {},
   userImage,
   userDetails,
@@ -132,10 +136,10 @@ const MainNavigationExternal = ({
         navTogglable.close();
       }
     };
-    document.addEventListener('mousedown', checkIfClickedOutside);
+    document.addEventListener("mousedown", checkIfClickedOutside);
     return () => {
       // Cleanup the event listener
-      document.removeEventListener('mousedown', checkIfClickedOutside);
+      document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [navTogglable.isOpen]);
 
@@ -150,7 +154,8 @@ const MainNavigationExternal = ({
     <header className={`${prefix}--main-navigation-ext`}>
       <Wrapper
         pageWidth={pageWidth}
-        className={`${prefix}--main-navigation-ext__wrapper`}>
+        className={`${prefix}--main-navigation-ext__wrapper`}
+      >
         <div className={`${prefix}--main-navigation-ext__branding`}>
           <div className={`${prefix}--main-navigation-ext__wfp-logo`}>
             <WfpLogoVerticalEn
@@ -174,7 +179,8 @@ const MainNavigationExternal = ({
           </div>
           <div className={`${prefix}--main-navigation-ext__nav`} ref={ref}>
             <div
-              className={`${prefix}--main-navigation-ext__mobile-menu-button`}>
+              className={`${prefix}--main-navigation-ext__mobile-menu-button`}
+            >
               <Button
                 kind="tertiary"
                 small
@@ -182,26 +188,28 @@ const MainNavigationExternal = ({
                   navTogglable.isOpen
                     ? navTogglable.close()
                     : navTogglable.open()
-                }>
+                }
+              >
                 Menu
               </Button>
             </div>
             <div
               className={`${prefix}--main-navigation-ext__nav-wrapper
-            ${
-              navTogglable.isOpen ? 'wfp--main-navigation-ext--is-shown' : ''
-            }`}>
+            ${navTogglable.isOpen ? "wfp--main-navigation-ext--is-shown" : ""}`}
+            >
               {/* This nav can include both links and buttons */}
               <nav
                 className={`${prefix}--main-navigation-ext__site-nav ${
                   navTogglable.isOpen
-                    ? 'wfp--main-navigation-ext--is-shown'
-                    : ''
-                }`}>
+                    ? "wfp--main-navigation-ext--is-shown"
+                    : ""
+                }`}
+              >
                 <ul className={`${prefix}--main-navigation-ext__site-nav-list`}>
                   {children}
                   <div
-                    className={`${prefix}--main-navigation-ext__mobile-settings`}>
+                    className={`${prefix}--main-navigation-ext__mobile-settings`}
+                  >
                     <li className={`${prefix}--main-navigation-ext__site-link`}>
                       <LanguageExternal primaryLanguage={primaryLanguage}>
                         {languageList}
@@ -276,7 +284,7 @@ MainNavigationExternal.propTypes = {
 };
 
 MainNavigationExternal.defaultProps = {
-  primaryLanguage: 'English',
+  primaryLanguage: "English",
 };
 
 export default MainNavigationExternal;

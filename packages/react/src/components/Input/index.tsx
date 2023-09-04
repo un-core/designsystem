@@ -1,10 +1,11 @@
 export {
   default,
-  InputProps,
   AddonBefore,
   AddonAfter,
   Label,
   Helper,
   Error,
-} from './Input';
-export { useInput } from './useInput';
+  // TODO: Check how to make the Types avaliable InputProps,
+} from "./Input";
+
+export { useInput } from "./useInput";

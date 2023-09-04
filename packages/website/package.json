@@ -13,7 +13,7 @@
     "ts:watch": "yarn ts --watch"
   },
   "devDependencies": {
-    "eslint": "8.19.0",
+    "eslint": "^8.47.0",
     "typescript": "^5.0.4"
   },
   "optionalDependencies": {
