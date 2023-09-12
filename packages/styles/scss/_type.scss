@@ -1,5 +1,5 @@
-@use '@un/themes-core/dist/scss/tokensMapDeep' as *;
-@use './breakpoint' as *;
+@use "@un/themes-core/dist/scss/tokensMapDeep" as *;
+@use "./breakpoint" as *;
 
 @mixin reset() {
 }
@@ -12,36 +12,36 @@
 }
 
 $code-font-family: var(--code-font-family);
-$primary-font-family: var(--primary-font-family);
+$font-family-primary: var(--font-family-primary);
 
 @mixin font-family($family) {
-  @if $family == 'code' {
+  @if $family == "code" {
     /* font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace;*/
     font-family: $code-font-family;
   } @else {
-    font-family: $primary-font-family;
+    font-family: $font-family-primary;
     //font-family: 'Open Sans', Arial, sans-serif;
   }
 }
 
 @mixin type-style($style) {
-  $maped: map-deep-get($tokens, 'typography', $style);
+  $maped: map-deep-get($tokens, "typography", $style);
 
   //@warn 'This is  a step of the WFP Type Scale!', $maped;
-  @if map-deep-get($tokens, 'typography', $style) {
-    $typographyMap: map-get($tokens, 'typography', $style);
-    font-size: map-get($typographyMap, 'fontSize');
-    font-weight: map-get($typographyMap, 'fontWeight');
-    letter-spacing: map-get($typographyMap, 'letterSpacing');
-    text-transform: map-get($typographyMap, 'textTransform');
+  @if map-deep-get($tokens, "typography", $style) {
+    $typographyMap: map-get($tokens, "typography", $style);
+    font-size: map-get($typographyMap, "fontSize");
+    font-weight: map-get($typographyMap, "fontWeight");
+    letter-spacing: map-get($typographyMap, "letterSpacing");
+    text-transform: map-get($typographyMap, "textTransform");
 
-    @if map-deep-get($tokens, 'typography', $style, 'md') {
-      @include breakpoint-up('md') {
-        $typographyMapMd: map-get($tokens, 'typography', $style, 'md');
-        font-weight: map-get($typographyMapMd, 'fontWeight');
-        letter-spacing: map-get($typographyMapMd, 'letterSpacing');
-        text-transform: map-get($typographyMapMd, 'textTransform');
+    @if map-deep-get($tokens, "typography", $style, "md") {
+      @include breakpoint-up("md") {
+        $typographyMapMd: map-get($tokens, "typography", $style, "md");
+        font-weight: map-get($typographyMapMd, "fontWeight");
+        letter-spacing: map-get($typographyMapMd, "letterSpacing");
+        text-transform: map-get($typographyMapMd, "textTransform");
       }
     }
   }
@@ -61,18 +61,18 @@ $primary-font-family: var(--primary-font-family);
 
 // TODO: Temporary type scale
 $typescale-map: (
-  'giga': 4.625rem,
-  'mega': 3.625rem,
-  'alpha': 2.25rem,
-  'beta': 1.75rem,
-  'omicron': 1.5625rem,
-  'sigma': 1.375rem,
-  'gamma': 1.25rem,
-  'delta': 1.125rem,
-  'epsilon': 1rem,
-  'zeta': 0.875rem,
-  'omega': 0.75rem,
-  'theta': 0.6875rem,
+  "giga": 4.625rem,
+  "mega": 3.625rem,
+  "alpha": 2.25rem,
+  "beta": 1.75rem,
+  "omicron": 1.5625rem,
+  "sigma": 1.375rem,
+  "gamma": 1.25rem,
+  "delta": 1.125rem,
+  "epsilon": 1rem,
+  "zeta": 0.875rem,
+  "omega": 0.75rem,
+  "theta": 0.6875rem,
 );
 
 @mixin typescale($size) {

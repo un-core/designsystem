@@ -3232,6 +3232,11 @@
   resolved "https://registry.yarnpkg.com/@fluent/syntax/-/syntax-0.15.0.tgz#4b05bc16e6d620a9b230f37cca269a4d56e35553"
   integrity sha512-NIObEPekXiaDDO10NQSOeylOETaI2Ns/ymKJNvgkM6FcBARS+t3NVGyLPPIl/pqHDUB9v7bWeEmuVMJQjnpNeg==
 
+"@fontsource-variable/open-sans@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/open-sans/-/open-sans-5.0.13.tgz#5416b06d1cd74df938753538e9a2f0dfd17edad5"
+  integrity sha512-G/lTR5vVBcwRU0vkeYqFfX1UEqHfCG52ccdVgcjwSOcDvi5jQEL3ta212qA2rKwSdhmdei600yNburmYoT1wsg==
+
 "@fontsource/open-sans@^4.4.5":
   version "4.5.14"
   resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.14.tgz#b3e1665c0b3fdfc1f030ded2843749e3cf3a5900"

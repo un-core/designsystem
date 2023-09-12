@@ -5,6 +5,8 @@ import { UNCoreProvider } from "../src/components/UNCoreSettings";
 
 import { themes, ensure } from "@storybook/theming";
 
+import "@fontsource-variable/open-sans/wdth.css";
+
 //import 'iframe-resizer';
 
 // require("iframe-resizer/js/iframeResizer.contentWindow");
@@ -89,7 +91,7 @@ const withThemeProvider = (Story, context) => {
 };
 
 const withUNCoreProvider = (Story) => (
-  <UNCoreProvider>
+  <UNCoreProvider prefix="wfp">
     <Story />
   </UNCoreProvider>
 );

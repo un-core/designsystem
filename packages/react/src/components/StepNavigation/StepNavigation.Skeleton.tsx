@@ -1,5 +1,5 @@
-import React from 'react';
-import useSettings from '../../hooks/useSettings';
+import React from "react";
+import useSettings from "../../hooks/useSettings";
 
 const TabsSkeleton = () => {
   const { prefix } = useSettings();
@@ -18,7 +18,8 @@ const TabsSkeleton = () => {
       </div>
       <ul className={`${prefix}--tabs__nav ${prefix}--tabs__nav--hidden`}>
         <li
-          className={`${prefix}--tabs__nav-item ${prefix}--tabs__nav-item--selected`}>
+          className={`${prefix}--tabs__nav-item ${prefix}--tabs__nav-item--selected`}
+        >
           <div className={`${prefix}--tabs__nav-link`}> &nbsp;</div>
         </li>
         {tab}

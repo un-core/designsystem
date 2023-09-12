@@ -11,6 +11,12 @@
       "4xl": { "value": "48px" },
       "5xl": { "value": "60px" },
       "6xl": { "value": "72px" }
+    },
+    "family": {
+      "primary": {
+        "value": "'Open Sans Variable', sans-serif",
+        "comment": "The primary font used in the application."
+      }
     }
   }
 }
