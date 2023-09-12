@@ -12,7 +12,7 @@ import useSettings from "../../hooks/useSettings";
 
 const LanguageExternal = ({ children, primaryLanguage }) => {
   const { prefix } = useSettings();
-  const ref = useRef();
+  const ref = useRef<HTMLInputElement>(null);
   const languageTogglable = useTogglable();
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const LanguageExternal = ({ children, primaryLanguage }) => {
 const UserExternal = ({ username, children, userImage }) => {
   const { prefix } = useSettings();
 
-  const ref = useRef();
+  const ref = useRef<HTMLInputElement>(null);
   const userTogglable = useTogglable();
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const UserExternal = ({ username, children, userImage }) => {
       // then close the menu
       if (
         userTogglable.isOpen &&
-        ref.current &&
+        ref?.current &&
         !ref.current.contains(e.target)
       ) {
         userTogglable.close();
@@ -109,6 +109,54 @@ const UserExternal = ({ username, children, userImage }) => {
   );
 };
 
+interface MainNavigationExternalProps {
+  /**
+   * The name of your product can be applied to this prop
+   */
+  productName?: string;
+
+  /**
+   * The CSS class name to be placed on the wrapping element.
+   */
+  className?: string;
+
+  /**
+   * List of laguages your site support
+   */
+  languageList?: React.ReactNode;
+
+  /**
+   * The name of signed in user can be applied to this prop
+   */
+  username?: string;
+
+  /**
+   * The image of signed in user can be applied to this prop
+   */
+  userImage?: string;
+
+  /**
+   * The dropdown details of user can be applied to this prop
+   */
+  userDetails?: React.ReactNode;
+
+  /**
+   * This prop accepts the first language your website is in. Default: English
+   */
+  primaryLanguage?: string;
+  components?: any;
+  children?: React.ReactNode;
+  pageWidth?:
+    | "sm"
+    | "md"
+    | "lg"
+    | "full"
+    | "xs"
+    | "narrow"
+    | "narrower"
+    | "narrowest";
+}
+
 const MainNavigationExternal = ({
   productName,
   primaryLanguage,
@@ -119,9 +167,9 @@ const MainNavigationExternal = ({
   userImage,
   userDetails,
   children,
-}) => {
+}: MainNavigationExternalProps) => {
   const { prefix } = useSettings();
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement | null>(null);
   const navTogglable = useTogglable();
 
   useEffect(() => {

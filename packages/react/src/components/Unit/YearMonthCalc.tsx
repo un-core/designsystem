@@ -1,15 +1,15 @@
-import * as React from 'react';
-import SvgUnit from './SvgUnit';
-import StringUnit from './StringUnit';
+import * as React from "react";
+import SvgUnit from "./SvgUnit";
+import StringUnit from "./StringUnit";
 
 const YearMonthGen = (props) => {
   const { children } = props;
 
-  let value = children;
+  const value = children;
 
-  var newDate;
+  let newDate;
   /* Generate Date from Date */
-  if (typeof value === 'number' && value.length >= 7) {
+  if (typeof value === "number" && value.toString().length >= 7) {
     newDate = new Date(value, props);
   } else if (value.getMonth) {
     /* Use Date Object */
@@ -20,8 +20,8 @@ const YearMonthGen = (props) => {
     const month = parseInt(value.toString().substring(4, 7), 10) - 1;
     newDate = new Date(year, month, 1);
   }
-  const monthName = newDate.toLocaleString('en-us', { month: 'short' });
-  const monthNameFull = newDate.toLocaleString('en-us', { month: 'long' });
+  const monthName = newDate.toLocaleString("en-us", { month: "short" });
+  const monthNameFull = newDate.toLocaleString("en-us", { month: "long" });
   return {
     monthName: monthName,
     monthNameFull: monthNameFull,
@@ -43,16 +43,16 @@ export const YearMonthCalc = (props) => {
   const YearMonthgenerated = YearMonthGen(props);
 
   const calcObject = {
-    value: YearMonthgenerated.monthName + ' ' + YearMonthgenerated.year,
-    before: '',
-    after: '',
+    value: YearMonthgenerated.monthName + " " + YearMonthgenerated.year,
+    before: "",
+    after: "",
     output: undefined,
   };
 
   if (calcOnly) return calcObject;
   else if (svg) return SvgUnit(calcObject, props);
-  else if (string) return StringUnit(calcObject, props);
-  else if (calcObject !== false)
+  else if (string) return StringUnit(calcObject /*, props*/);
+  else if (calcObject?.value)
     return <span className={className}>{calcObject.value}</span>;
 };
 

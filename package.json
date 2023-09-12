@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start:react": "cd packages/react && yarn start",
-    "build": "lerna run build --stream --prefix --npm-client yarn",
+    "build": "lerna run build --stream --prefix",
     "publish:alpha": "lerna publish --dist-tag alpha",
     "publish:alpha-cli": "lerna publish --dist-tag alpha --no-verify-access --conventional-commits --yes",
     "publish:alpha-recover": "lerna exec -- \"npm publish --tag alpha || exit 0\"",

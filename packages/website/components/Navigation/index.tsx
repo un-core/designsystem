@@ -14,7 +14,7 @@ import Search from "../Search";
 
 import styles from "./styles.module.scss";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import SidebarNavigation from "../Sidebar/SidebarNavigation";
+// import SidebarNavigation from "../Sidebar/SidebarNavigation";
 export default function Navigation() {
   //const { t } = useTranslation('website');
   const theme: any = useTheme();

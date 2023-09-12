@@ -1,21 +1,22 @@
-('use strict');
+("use strict");
 
-import { babel } from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
-import stripBanner from 'rollup-plugin-strip-banner';
-import { terser } from 'rollup-plugin-terser';
-import packageJson from './package.json';
-import typescript from '@rollup/plugin-typescript';
+import { babel } from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import replace from "@rollup/plugin-replace";
+import stripBanner from "rollup-plugin-strip-banner";
+// TODO; Check terser
+import { terser } from "rollup-plugin-terser";
+import packageJson from "./package.json";
+import typescript from "@rollup/plugin-typescript";
 
 const baseConfig = {
-  input: './src/index.ts',
+  input: "./src/index.ts",
 
   external: [
     ...Object.keys(packageJson.peerDependencies),
     ...Object.keys(packageJson.dependencies),
-    'prop-types',
+    "prop-types",
   ],
   plugins: [
     nodeResolve(),
@@ -27,33 +28,33 @@ const baseConfig = {
       compilerOptions: {
         declaration: true,
       },
-      exclude: ['**/__tests__', '**/*.test.ts', '**/*.stories.tsx'],
+      exclude: ["**/__tests__", "**/*.test.ts", "**/*.stories.tsx"],
     }),
     babel({
       babelrc: false,
-      exclude: ['node_modules/**'],
+      exclude: ["node_modules/**"],
       presets: [
         [
-          '@babel/preset-env',
+          "@babel/preset-env",
           {
             modules: false,
             targets: {
-              browsers: ['extends browserslist-config-carbon'],
+              browsers: ["extends browserslist-config-carbon"],
             },
           },
         ],
-        '@babel/preset-react',
-        '@babel/preset-typescript',
+        "@babel/preset-react",
+        "@babel/preset-typescript",
       ],
       plugins: [
-        'dev-expression',
-        '@babel/plugin-syntax-dynamic-import',
-        '@babel/plugin-syntax-import-meta',
-        '@babel/plugin-proposal-class-properties',
-        '@babel/plugin-proposal-export-namespace-from',
-        '@babel/plugin-proposal-export-default-from',
+        "dev-expression",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-import-meta",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-export-namespace-from",
+        "@babel/plugin-proposal-export-default-from",
       ],
-      babelHelpers: 'bundled',
+      babelHelpers: "bundled",
     }),
     stripBanner(),
   ],
@@ -61,19 +62,19 @@ const baseConfig = {
 
 const umdExternalDependencies = Object.keys(
   packageJson.peerDependencies
-).filter((dependency) => dependency !== 'carbon-components');
+).filter((dependency) => dependency !== "carbon-components");
 
 const umdBundleConfig = {
   input: baseConfig.input,
   treeshake: {
     propertyReadSideEffects: false,
-    moduleSideEffects: 'no-external',
+    moduleSideEffects: "no-external",
   },
-  external: [...umdExternalDependencies, 'prop-types'],
+  external: [...umdExternalDependencies, "prop-types"],
   output: {
-    file: 'es/index.js',
-    format: 'es',
-    exports: 'named',
+    file: "es/index.js",
+    format: "es",
+    exports: "named",
     sourcemap: true,
   },
   /*{
@@ -104,8 +105,8 @@ module.exports = [
         file: 'es/index.js',
       },*/
       {
-        format: 'cjs',
-        file: 'lib/index.js',
+        format: "cjs",
+        file: "lib/index.js",
       },
     ],
   },
@@ -118,13 +119,13 @@ module.exports = [
       ...baseConfig.plugins,
       replace({
         preventAssignment: true,
-        'process.env.NODE_ENV': JSON.stringify('development'),
+        "process.env.NODE_ENV": JSON.stringify("development"),
       }),
     ],
     output: {
       ...umdBundleConfig.output,
-      format: 'esm',
-      file: 'es/index.js',
+      format: "esm",
+      file: "es/index.js",
     },
   },
   {
@@ -133,12 +134,12 @@ module.exports = [
       ...baseConfig.plugins,
       replace({
         preventAssignment: true,
-        'process.env.NODE_ENV': JSON.stringify('development'),
+        "process.env.NODE_ENV": JSON.stringify("development"),
       }),
     ],
     output: {
       ...umdBundleConfig.output,
-      file: 'umd/index.js',
+      file: "umd/index.js",
     },
   },
 
@@ -150,13 +151,13 @@ module.exports = [
       ...baseConfig.plugins,
       replace({
         preventAssignment: true,
-        'process.env.NODE_ENV': JSON.stringify('production'),
+        "process.env.NODE_ENV": JSON.stringify("production"),
       }),
       terser(),
     ],
     output: {
       ...umdBundleConfig.output,
-      file: 'umd/index.min.js',
+      file: "umd/index.min.js",
     },
   },
 ];

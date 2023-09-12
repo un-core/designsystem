@@ -1,41 +1,43 @@
-import React from 'react';
-import Tooltip from './Tooltip';
-import markdown from './README.mdx';
-import { OverflowMenu, Menu } from '@un/icons-react';
+import React from "react";
+import Tooltip from "./Tooltip";
+import markdown from "./README.mdx";
+import { OverflowMenu, Menu } from "@un/icons-react";
 
 export default {
-  title: 'Components/UI Elements/Tooltip',
+  title: "Components/UI Elements/Tooltip",
   component: Tooltip,
   parameters: {
-    status: 'released',
+    status: "released",
     mdx: markdown,
   },
 };
 export const Regular = (args) => (
   <Tooltip
     // options
-    {...args}>
+    {...args}
+  >
     Hover here to show tooltip
   </Tooltip>
 );
 
 Regular.args = {
-  content: 'Label text',
-  children: 'This is a helper text',
+  content: "Label text",
+  children: "This is a helper text",
 };
 
 export const Dark = (args) => (
   <Tooltip
     // options
     {...args}
-    trigger="click">
+    trigger="click"
+  >
     <span>Click here to show tooltip</span>
   </Tooltip>
 );
 
 Dark.args = {
-  content: 'Label text',
-  children: 'This is a helper text',
+  content: "Label text",
+  children: "This is a helper text",
   dark: true,
 };
 
@@ -51,9 +53,10 @@ export const WithIcon = (args) => (
   <Tooltip
     {...args}
     trigger="click"
-    placement={'bottom'}
+    placement={"bottom"}
     createRefWrapper={true}
-    content="Label Text">
+    content="Label Text"
+  >
     <Menu description="options" />
   </Tooltip>
 );
@@ -67,8 +70,8 @@ WithIcon.story = {
 };
 
 WithIcon.args = {
-  content: 'Label text',
-  children: 'This is a helper text',
+  content: "Label text",
+  children: "This is a helper text",
 };
 
 const withiconsourcecode = `

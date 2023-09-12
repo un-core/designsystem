@@ -1,9 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Tag from '../Tag';
+import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Tag from "../Tag";
 
-import useSettings from '../../hooks/useSettings';
+import useSettings from "../../hooks/useSettings";
+
+interface CardExternalProps {
+  label?: string;
+  labelStatus?: boolean;
+  interactive?: boolean;
+  image?: string;
+  heading?: string;
+  subHeading?: string;
+  caption?: string;
+  tag?: string;
+  children?: React.ReactNode;
+  className?: string;
+  truncated?: boolean;
+}
 
 const CardExternal = ({
   label,
@@ -17,9 +31,9 @@ const CardExternal = ({
   children,
   className,
   ...other
-}) => {
+}: CardExternalProps) => {
   const { prefix } = useSettings();
-  const myRef = useRef();
+  const ref = useRef<HTMLInputElement>(null);
   const supportiveTextFontSize = 14;
   const supportiveTextLineHeight = 1.5;
 
@@ -57,8 +71,9 @@ const CardExternal = ({
    *
    */
   useEffect(() => {
-    setsupportiveTextHeight(myRef.current.offsetHeight);
-  }, [myRef]);
+    if (!ref.current) return;
+    setsupportiveTextHeight(ref.current.offsetHeight);
+  }, [ref]);
 
   return (
     /* Also expose a custom classname prop */
@@ -75,12 +90,13 @@ const CardExternal = ({
        */}
       {label && (
         <div
-          className={`${prefix}--card-ext__label ${prefix}--card-ext__label--${statusStyle}`}>
+          className={`${prefix}--card-ext__label ${prefix}--card-ext__label--${statusStyle}`}
+        >
           {label}
         </div>
       )}
       <figure className={`${prefix}--card-ext__media`}>
-        <image
+        <img
           className={`${prefix}--card-ext__image`}
           src={image}
           alt="Card picture"
@@ -88,7 +104,8 @@ const CardExternal = ({
       </figure>
       {/* If card has actions, show a divider by adding a dedicated modifier handled with a boolean prop */}
       <div
-        className={`${prefix}--card-ext__info-wrapper ${prefix}--card-ext__info-wrapper--with-divider`}>
+        className={`${prefix}--card-ext__info-wrapper ${prefix}--card-ext__info-wrapper--with-divider`}
+      >
         <div className={`${prefix}--card-ext__primary-title`}>
           {/* Subheading is optional */}
           {subHeading && (
@@ -105,7 +122,8 @@ const CardExternal = ({
               ? `${prefix}--card-ext__supportive-text ${prefix}--card-ext__supportive-text--truncated`
               : `${prefix}--card-ext__supportive-text`
           }
-          ref={myRef}>
+          ref={ref}
+        >
           <p
             style={{
               WebkitLineClamp: Math.floor(
@@ -113,7 +131,8 @@ const CardExternal = ({
                   supportiveTextLineHeight /
                   supportiveTextFontSize
               ),
-            }}>
+            }}
+          >
             {caption}
           </p>
         </div>

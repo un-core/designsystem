@@ -1,10 +1,7 @@
 {
   "version": "independent",
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--frozen-lockfile"
-  ],
-  "useWorkspaces": true,
+  "npmClientArgs": ["--frozen-lockfile"],
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org",

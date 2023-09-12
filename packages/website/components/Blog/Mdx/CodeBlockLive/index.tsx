@@ -1,49 +1,49 @@
 /* eslint-disable no-irregular-whitespace */
 // src/components/CodeBlock.js
-import React, { useState } from 'react';
-import { Highlight, themes } from 'prism-react-renderer';
-import stylesModule from './codeBlockLive.module.scss';
+import React, { useState } from "react";
+import { Highlight, themes } from "prism-react-renderer";
+import stylesModule from "./codeBlockLive.module.scss";
 import {
   LiveProvider,
   LiveEditor,
   LiveError,
   LivePreview,
   withLive,
-} from 'react-live';
-import Storybook from '../Storybook';
-import { DoUse, DoNotUse } from '../DoUse';
+} from "react-live";
+import Storybook from "../Storybook";
+import { DoUse, DoNotUse } from "../DoUse";
 //import { MDXProvider } from '@mdx-js/react';
-import { Controller, useForm } from 'react-hook-form';
-import classNames from 'classnames';
+import { Controller, useForm } from "react-hook-form";
+import classNames from "classnames";
 
 //import MDX from '@mdx-js/runtime';
 //import components from '../';
 
-import * as ReactDOMServer from 'react-dom/server';
+import * as ReactDOMServer from "react-dom/server";
 
-import * as unComponents from '@wfp/react';
-import * as unHumanitarianIcons from '@un/humanitarian-icons-react';
-import * as unPictograms from '@un/pictograms-react';
-import * as icons from '@un/icons-react';
-import { Button, Empty } from '@wfp/react';
-import prettier from 'prettier/standalone';
-import babelParser from 'prettier/parser-babel';
-import htmlParser from 'prettier/parser-html';
+import * as unComponents from "@wfp/react";
+import * as unHumanitarianIcons from "@un/humanitarian-icons-react";
+import * as unPictograms from "@un/pictograms-react";
+import * as icons from "@un/icons-react";
+import { Button, Empty } from "@wfp/react";
+import prettier from "prettier/standalone";
+import babelParser from "prettier/parser-babel";
+import htmlParser from "prettier/parser-html";
 
 function LiveHtml({ live }: any /* { live?: Record<string, unknown> } */) {
-  const Result = live.element as React.ComponentType;
+  const Result = live.element as React.FunctionComponent | React.ComponentClass;
   if (!Result) return null;
   let htmlString = ReactDOMServer.renderToStaticMarkup(<Result />);
 
   htmlString = htmlString.replace(
     /<svg.*?>(.*?)<\/svg>/gm,
-    '<YOUR SVG IMAGE />'
+    "<YOUR SVG IMAGE />"
   ); // $1p
 
   let formatedHtmlString = htmlString;
   try {
     formatedHtmlString = prettier.format(htmlString, {
-      parser: 'html',
+      parser: "html",
       plugins: [htmlParser],
     });
   } catch (e) {
@@ -57,7 +57,7 @@ const LiveHtmlHoc = withLive(LiveHtml);
 const CodeBlockLive = (props: any) => {
   const {
     children,
-    className = '',
+    className = "",
     live,
     center,
     forceFullWidth,
@@ -69,7 +69,7 @@ const CodeBlockLive = (props: any) => {
     reactHookForm,
   } = props;
   const [showHtml, setShowHtml] = useState(false);
-  let code = source ? source : children ? children.trim() : '';
+  let code = source ? source : children ? children.trim() : "";
 
   if (reactHookForm)
     code = `
@@ -118,39 +118,39 @@ const CodeBlockLive = (props: any) => {
   render(<Counter />)`;
 
   const language =
-    props.language || className.replace(/language-/, '') || 'jsx';
+    props.language || className.replace(/language-/, "") || "jsx";
 
-  const [copiedCode, setCopiedCode] = useState('Copy code');
+  const [copiedCode, setCopiedCode] = useState("Copy code");
 
   const cleanCode = (code) => {
     return `${code}` // don't modify the original value
-      .replaceAll(/^import \{[^{]+\} from .+$\n/gm, '') // import { x, y } from "z"
-      .replaceAll(/^import \* as \S+ from .+$\n/gm, '') // import * as abc from "z"
-      .replaceAll(/: \S+ = /g, ' = '); // let a: string = "something"
+      .replaceAll(/^import \{[^{]+\} from .+$\n/gm, "") // import { x, y } from "z"
+      .replaceAll(/^import \* as \S+ from .+$\n/gm, "") // import * as abc from "z"
+      .replaceAll(/: \S+ = /g, " = "); // let a: string = "something"
   };
 
   let formatedCode = code;
 
   try {
     formatedCode =
-      language === 'jsx'
+      language === "jsx"
         ? prettier.format(code, {
-            parser: 'babel',
+            parser: "babel",
             plugins: [babelParser],
             printWidth: 80,
           })
         : code;
   } catch (error) {
-    console.log('prettier not working');
+    console.log("prettier not working");
   }
 
   const handleCopyCode = (textToCopy) => {
     navigator.clipboard.writeText(textToCopy);
 
-    setCopiedCode('Copied!');
+    setCopiedCode("Copied!");
 
     setTimeout(() => {
-      setCopiedCode('Copy code');
+      setCopiedCode("Copy code");
     }, 2000);
   };
 
@@ -188,8 +188,9 @@ const CodeBlockLive = (props: any) => {
           scope={scope}
           theme={themes.vsDark}
           noInline={noInline || reactHookForm}
-          transformCode={cleanCode}>
-          {language === 'mdx' || language === 'md' ? (
+          transformCode={cleanCode}
+        >
+          {language === "mdx" || language === "md" ? (
             <div className={stylesModule.preview}>
               {/*<MDXProvider components={components}>
                 <MDX>{code}</MDX>
@@ -210,13 +211,14 @@ const CodeBlockLive = (props: any) => {
                   className={stylesModule.htmlButton}
                   small
                   kind="ghost"
-                  onClick={() => setShowHtml(!showHtml)}>
-                  {showHtml ? 'Hide HTML' : 'Show HTML'}
+                  onClick={() => setShowHtml(!showHtml)}
+                >
+                  {showHtml ? "Hide HTML" : "Show HTML"}
                 </Button>
                 <h3> Editable Example</h3>
                 <LiveEditor theme={themes.vsDark} />
               </div>
-              {language === 'jsx' && showHtml && <LiveHtmlHoc />}
+              {language === "jsx" && showHtml && <LiveHtmlHoc />}
             </>
           )}
           <LiveError />
@@ -228,16 +230,18 @@ const CodeBlockLive = (props: any) => {
   return (
     <div
       className={`${stylesModule.code} wfp--code-block ${
-        source ? stylesModule.previewWithSource : ''
-      }`}>
+        source ? stylesModule.previewWithSource : ""
+      }`}
+    >
       {source && <div className={stylesModule.preview}>{children}</div>}
 
       <Highlight
         code={code}
         language="tsx" //{language}
-        theme={themes.vsDark}>
+        theme={themes.vsDark}
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={{ ...style, padding: '20px' }}>
+          <pre className={className} style={{ ...style, padding: "20px" }}>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
@@ -251,7 +255,8 @@ const CodeBlockLive = (props: any) => {
       <Button
         className={stylesModule.copyButton}
         small
-        onClick={() => handleCopyCode(code)}>
+        onClick={() => handleCopyCode(code)}
+      >
         {copiedCode}
       </Button>
     </div>

@@ -1,15 +1,31 @@
-import * as React from 'react';
-import scaleLookup from './scaleLookup';
-import { Invalid } from './InvalidUnit';
-import StringUnit from './StringUnit';
-import SvgUnit from './SvgUnit';
+import * as React from "react";
+import scaleLookup from "./scaleLookup";
+import { Invalid } from "./InvalidUnit";
+import StringUnit from "./StringUnit";
+import SvgUnit from "./SvgUnit";
+
+type currencyCalcProps = {
+  calcOnly?: boolean;
+  children?: any;
+  input?: any;
+  output?: any;
+  string?: boolean;
+  svg?: boolean;
+  hideZero?: boolean;
+  maximumSignificantDigits?: number;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+  className?: string;
+
+  localeStringLanguage?: string;
+};
 
 export const currencyCalc = (
-  props,
-  after,
-  before,
-  afterSingular,
-  isAbsolute
+  props: currencyCalcProps,
+  after?: string,
+  before?: string,
+  afterSingular?: any,
+  isAbsolute?: any
 ) => {
   const {
     children,
@@ -18,7 +34,7 @@ export const currencyCalc = (
     /* maximumSignificantDigits, */
     minimumFractionDigits,
     maximumFractionDigits,
-    localeStringLanguage = 'en-EN',
+    localeStringLanguage = "en-EN",
     calcOnly,
     string,
     svg,
@@ -27,7 +43,7 @@ export const currencyCalc = (
 
   // Remove commas
   var value =
-    typeof children === 'string' ? children.replace(/,/g, '') : children;
+    typeof children === "string" ? children.replace(/,/g, "") : children;
 
   // Parse as float
   value = parseFloat(value);
@@ -49,7 +65,7 @@ export const currencyCalc = (
       ? minimumFractionDigits === 0
       : /*: maximumFractionDigits === 0
       ? 0*/
-      typeof minimumFractionDigits === 'number'
+      typeof minimumFractionDigits === "number"
       ? minimumFractionDigits
       : outputCalc && outputCalc.defaultmaximumFractionDigits
       ? outputCalc.defaultmaximumFractionDigits
@@ -66,7 +82,7 @@ export const currencyCalc = (
       ? 2
       : maximumFractionDigits === 0
       ? 0
-      : typeof maximumFractionDigits === 'number'
+      : typeof maximumFractionDigits === "number"
       ? maximumFractionDigits
       : outputCalc && outputCalc.defaultmaximumFractionDigits
       ? outputCalc.defaultmaximumFractionDigits
@@ -92,15 +108,15 @@ export const currencyCalc = (
   };
 
   let className = props.className;
-  if (value === '1' && afterSingular) {
-    className = className + ' wfp--unit--singular';
+  if (value === "1" && afterSingular) {
+    className = className + " wfp--unit--singular";
   }
 
-  if ((!value || value === 'NaN' || parseFloat(value) === 0) && hideZero)
+  if ((!value || value === "NaN" || parseFloat(value) === 0) && hideZero)
     return false;
   else if (calcOnly) return calcObject;
   else if (svg) return SvgUnit(calcObject, props);
-  else if (string) return StringUnit(calcObject, props);
+  else if (string) return StringUnit(calcObject /*, props*/);
   else if (value !== false) return <span className={className}>{value}</span>;
   else return <Invalid className={props.className} />;
 };

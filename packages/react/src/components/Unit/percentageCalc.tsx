@@ -3,7 +3,23 @@ import { Invalid } from "./InvalidUnit";
 import StringUnit from "./StringUnit";
 import SvgUnit from "./SvgUnit";
 
-export const percentageCalc = (props, after, before) => {
+type percentageCalcProps = {
+  calcOnly?: boolean;
+  children?: any;
+  from?: any;
+  string?: boolean;
+  svg?: boolean;
+  hideZero?: boolean;
+  maximumSignificantDigits?: number;
+  maximumFractionDigits?: number;
+  className?: string;
+};
+
+export const percentageCalc = (
+  props: percentageCalcProps,
+  after?: string,
+  before?: string
+) => {
   const {
     calcOnly,
     children,
@@ -48,7 +64,7 @@ export const percentageCalc = (props, after, before) => {
     return false;
   else if (calcOnly) return calcObject;
   else if (svg) return SvgUnit(calcObject, props);
-  else if (string) return StringUnit(calcObject, props);
+  else if (string) return StringUnit(calcObject /*, props*/);
   else if (value !== false)
     return <span className={props.className}>{value}</span>;
   else return <Invalid className={props.className} />;
