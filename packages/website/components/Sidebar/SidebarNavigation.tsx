@@ -118,8 +118,6 @@ export default function SidebarNavigation({ post, posts, slug }: any) {
     };
   });
 
-  console.log("splitSidebar", posts);
-
   const split: any = createPathTree(postSplit) || [];
 
   const splitSidebar = split.children.find(

@@ -24,13 +24,13 @@ The next step is to **add the Kit to your project as a dependency**. You can cho
 To install the Kit through `npm`, run:
 
 ```bash
-npm install @wfp/react @un/style --save
+npm install @wfp/react @wfp/styles --save
 ```
 
 To install the Kit through `yarn`, run:
 
 ```bash
-yarn add @wfp/react @un/style
+yarn add @wfp/react @wfp/styles
 ```
 
 ## Install the latest features 🌱
@@ -42,7 +42,7 @@ yarn add @wfp/react @un/style
 Install the packages with the `@alpha` tag to get access to the latest features.
 
 ```bash
-npm install @wfp/react@alpha  @un/style@alpha
+npm install @wfp/react@alpha  @wfp/styles@alpha
 ```
 
 ## 2. Load the Styles 🌈
@@ -54,7 +54,7 @@ This is a required step in case you want to load the full UI Kit stylesheet. You
 To import the full CSS through React, first make sure to have a `css` loader installed, then use the following code:
 
 ```jsx
-import "@un/styles/styles.css";
+import "@wfp/styles/styles.css";
 ```
 
 ### Alternative: Import the SCSS
@@ -62,7 +62,7 @@ import "@un/styles/styles.css";
 To import the full SCSS through React, first make sure to have a `sass` loader installed, then use the following code:
 
 ```bash
-npm install @un/themes-core--save-dev
+npm install @un/themes-core --save-dev
 ```
 
 In your custom `.scss` file, import the theme and the components you need.
@@ -91,7 +91,7 @@ import '@wfp/styles';
 Wrap your Application in the [UnCoreProvider](/documentation/developing/themes) to set global settings.
 
 ```jsx
-import { UnCoreProvider } from '@un/core';
+import { UnCoreProvider } from '@wfp/react';
 
 <UnCoreProvider>
 ...content
