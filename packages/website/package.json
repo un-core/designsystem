@@ -1,6 +1,6 @@
 {
   "name": "@un/core-website",
-  "version": "0.1.63",
+  "version": "0.1.64",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -37,12 +37,12 @@
     "@un/logos": "^0.0.42",
     "@un/pictograms-react": "^11.14.46",
     "@un/themes": "^10.40.13",
-    "@un/themes-core": "^0.0.38",
+    "@un/themes-core": "^0.0.39",
     "@un/type": "^10.30.16",
     "@vcarl/remark-headings": "^0.1.0",
     "@vercel/og": "^0.5.0",
-    "@wfp/react": "^1.18.103",
-    "@wfp/styles": "^10.26.80",
+    "@wfp/react": "^1.18.104",
+    "@wfp/styles": "^10.26.81",
     "@zeit/next-sass": "^1.0.1",
     "algoliasearch": "^4.13.1",
     "angular-html-parser": "^4.0.1",
