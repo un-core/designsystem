@@ -1,29 +1,27 @@
+@use "../../breakpoint" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../theme" as *;
+@use "../../spacing" as *;
+@use "../../type" as *;
+@use "../../utilities/convert";
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/skeleton" as *;
 
-@use '../../breakpoint' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../theme' as *;
-@use '../../spacing' as *;
-@use '../../type' as *;
-@use '../../utilities/convert';
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/skeleton' as *;
-
-
-@mixin step-navigation{
+@mixin step-navigation {
   .#{$prefix}--step-navigation {
-    @include type-style('caption-02');
-    @include font-family('sans');
+    @include type-style("caption-02");
+    @include font-family("sans");
     color: $text-primary;
     font-weight: 600;
     height: auto;
     width: 100%;
     position: relative;
 
-    @include breakpoint('md') {
+    @include breakpoint("md") {
       background: none;
-      min-height: rem(49px);
+      min-height: calcRem(49px);
     }
   }
 
@@ -42,7 +40,7 @@
       fill: $interactive;
     }
 
-    @include breakpoint('md') {
+    @include breakpoint("md") {
       display: none;
     }
   }
@@ -52,7 +50,7 @@
     font-weight: 600;
     color: $text-primary;
     &:focus {
-      @include focus-outline('border');
+      @include focus-outline("border");
     }
   }
 
@@ -88,7 +86,7 @@
   .#{$prefix}--step-navigation__nav--hidden {
     display: none;
 
-    @include breakpoint('md') {
+    @include breakpoint("md") {
       display: flex;
     }
   }
@@ -120,14 +118,14 @@
   .#{$prefix}--step-navigation.#{$prefix}--skeleton
     .#{$prefix}--step-navigation__nav-link {
     @include skeleton;
-    width: rem(75px);
-    height: rem(12px);
+    width: calcRem(75px);
+    height: calcRem(12px);
   }
 
   .#{$prefix}--step-navigation.#{$prefix}--skeleton
     .#{$prefix}--step-navigation-trigger {
     @include skeleton;
-    width: rem(100px);
+    width: calcRem(100px);
   }
 
   .#{$prefix}--step-navigation.#{$prefix}--skeleton
@@ -136,4 +134,3 @@
     @include visually-hidden;
   }
 }
-

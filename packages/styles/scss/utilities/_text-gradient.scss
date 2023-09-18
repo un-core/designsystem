@@ -8,8 +8,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    content: '';
-    height: rem(70px);
+    content: "";
+    height: calcRem(70px);
     width: 100%;
     background: linear-gradient(
       to bottom,

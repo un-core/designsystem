@@ -5,17 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use 'mixins' as *;
-@use 'vars' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/text-overflow' as *;
+@use "mixins" as *;
+@use "vars" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/text-overflow" as *;
 
 /// Data table core styles
 /// @access public
@@ -43,13 +43,13 @@
   }
 
   .#{$prefix}--data-table-header__title {
-    @include type-style('productive-heading-03');
+    @include type-style("productive-heading-03");
 
     color: $text-primary;
   }
 
   .#{$prefix}--data-table-header__description {
-    @include type-style('body-short');
+    @include type-style("body-short");
 
     color: $text-secondary;
   }
@@ -64,13 +64,13 @@
   }
 
   .#{$prefix}--data-table thead {
-    @include type-style('productive-heading-01');
+    @include type-style("productive-heading-01");
 
     background-color: $layer-accent;
   }
 
   .#{$prefix}--data-table tbody {
-    @include type-style('body-short');
+    @include type-style("body-short");
 
     width: 100%;
     background-color: $layer-primary;
@@ -151,11 +151,11 @@
 
   // Form Control Overrides
 
-  .#{$prefix}--data-table .#{$prefix}--list-box input[role='combobox'],
-  .#{$prefix}--data-table .#{$prefix}--list-box input[type='text'],
+  .#{$prefix}--data-table .#{$prefix}--list-box input[role="combobox"],
+  .#{$prefix}--data-table .#{$prefix}--list-box input[type="text"],
   .#{$prefix}--data-table .#{$prefix}--dropdown,
   .#{$prefix}--data-table .#{$prefix}--list-box,
-  .#{$prefix}--data-table .#{$prefix}--number input[type='number'],
+  .#{$prefix}--data-table .#{$prefix}--number input[type="number"],
   .#{$prefix}--data-table .#{$prefix}--number__control-btn::before,
   .#{$prefix}--data-table .#{$prefix}--number__control-btn::after,
   .#{$prefix}--data-table .#{$prefix}--text-input,
@@ -166,13 +166,13 @@
   // Overflow Menu Overrides
   .#{$prefix}--data-table
     td.#{$prefix}--table-column-menu
-    .#{$prefix}--overflow-menu[aria-expanded='false']:focus {
-    @include focus-outline('outline');
+    .#{$prefix}--overflow-menu[aria-expanded="false"]:focus {
+    @include focus-outline("outline");
   }
 
   .#{$prefix}--data-table
     td.#{$prefix}--table-column-menu
-    .#{$prefix}--overflow-menu[aria-expanded='true']:focus {
+    .#{$prefix}--overflow-menu[aria-expanded="true"]:focus {
     outline: none;
   }
 
@@ -220,7 +220,7 @@
     svg {
     position: relative;
     // Used to center svg without setting display flex //display block needed for overflow text truncation
-    top: rem(3px);
+    top: calcRem(3px);
     margin-right: $spacing-03;
   }
 
@@ -247,7 +247,7 @@
   .#{$prefix}--data-table--xs td.#{$prefix}--table-column-menu,
   .#{$prefix}--data-table--short td.#{$prefix}--table-column-menu,
   .#{$prefix}--data-table--sm td.#{$prefix}--table-column-menu {
-    height: rem(24px);
+    height: calcRem(24px);
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -255,11 +255,11 @@
   // V11: Remove short styles
   .#{$prefix}--data-table--short td.#{$prefix}--table-column-menu,
   .#{$prefix}--data-table--sm td.#{$prefix}--table-column-menu {
-    height: rem(32px);
+    height: calcRem(32px);
   }
 
   .#{$prefix}--data-table--md td.#{$prefix}--table-column-menu {
-    height: rem(40px);
+    height: calcRem(40px);
   }
 
   // V11: Remove tall styles
@@ -307,7 +307,7 @@
   .#{$prefix}--data-table th.#{$prefix}--table-column-checkbox {
     // Do not use `position: relative`, as its behavior is undefined for many table elements: https://www.w3.org/TR/CSS21/visuren.html#propdef-position
     position: static;
-    width: rem(32px);
+    width: calcRem(32px);
     background: $layer-accent;
     transition: background-color $duration-fast-01 motion(entrance, productive);
   }
@@ -317,7 +317,7 @@
     .#{$prefix}--checkbox:focus
     + .#{$prefix}--checkbox-label::before {
     //make checkbox focus larger to match expansion btn focus
-    outline-offset: rem(6px);
+    outline-offset: calcRem(6px);
   }
 
   .#{$prefix}--data-table--compact
@@ -329,7 +329,7 @@
     .#{$prefix}--checkbox:focus
     + .#{$prefix}--checkbox-label::before {
     //make checkbox match expansion button focus size
-    outline-offset: rem(2px);
+    outline-offset: calcRem(2px);
   }
 
   .#{$prefix}--data-table thead th.#{$prefix}--table-column-checkbox,
@@ -342,14 +342,14 @@
   .#{$prefix}--data-table thead th.#{$prefix}--table-column-checkbox,
   .#{$prefix}--data-table tbody td.#{$prefix}--table-column-checkbox {
     // spacing between checkbox / chevron and next cell should be 8px / 0.5rem
-    padding-right: rem(4px);
+    padding-right: calcRem(4px);
     padding-left: 1rem;
   }
 
   .#{$prefix}--data-table thead th.#{$prefix}--table-expand,
   .#{$prefix}--data-table tbody td.#{$prefix}--table-expand {
-    width: rem(32px);
-    height: rem(32px);
+    width: calcRem(32px);
+    height: calcRem(32px);
   }
 
   // V11: Remove compact
@@ -357,8 +357,8 @@
   .#{$prefix}--data-table--compact tbody td.#{$prefix}--table-expand,
   .#{$prefix}--data-table--xs thead th.#{$prefix}--table-expand,
   .#{$prefix}--data-table--xs tbody td.#{$prefix}--table-expand {
-    width: rem(24px);
-    height: rem(24px);
+    width: calcRem(24px);
+    height: calcRem(24px);
     padding: 0 0 0 0.5rem;
   }
 
@@ -367,17 +367,17 @@
   .#{$prefix}--data-table--short tbody td.#{$prefix}--table-expand,
   .#{$prefix}--data-table--sm thead th.#{$prefix}--table-expand,
   .#{$prefix}--data-table--sm tbody td.#{$prefix}--table-expand {
-    width: rem(32px);
-    height: rem(32px);
+    width: calcRem(32px);
+    height: calcRem(32px);
     padding: 0;
     padding-left: 0.5rem;
   }
 
   .#{$prefix}--data-table--md thead th.#{$prefix}--table-expand,
   .#{$prefix}--data-table--md tbody td.#{$prefix}--table-expand {
-    width: rem(40px);
-    height: rem(40px);
-    padding: rem(4px) 0 rem(4px) rem(8px);
+    width: calcRem(40px);
+    height: calcRem(40px);
+    padding: calcRem(4px) 0 calcRem(4px) calcRem(8px);
   }
 
   // V11: remove tall
@@ -385,15 +385,15 @@
   .#{$prefix}--data-table--tall tbody td.#{$prefix}--table-expand,
   .#{$prefix}--data-table--xl thead th.#{$prefix}--table-expand,
   .#{$prefix}--data-table--xl tbody td.#{$prefix}--table-expand {
-    height: rem(64px);
-    padding-top: rem(10px);
-    padding-bottom: rem(22px);
+    height: calcRem(64px);
+    padding-top: calcRem(10px);
+    padding-bottom: calcRem(22px);
   }
 
   // V11: remove tall
   .#{$prefix}--data-table--tall .#{$prefix}--table-column-checkbox,
   .#{$prefix}--data-table--xl .#{$prefix}--table-column-checkbox {
-    padding-top: rem(13px);
+    padding-top: calcRem(13px);
   }
 
   // V11: remove tall
@@ -414,7 +414,7 @@
   }
 
   .#{$prefix}--table-column-radio .#{$prefix}--radio-button__appearance {
-    margin-right: rem(-2px);
+    margin-right: calcRem(-2px);
   }
 
   // default selected row + zebra select - even child
@@ -496,22 +496,22 @@
   .#{$prefix}--data-table--compact thead tr,
   .#{$prefix}--data-table--compact tbody tr,
   .#{$prefix}--data-table--compact tbody tr th {
-    height: rem(24px);
+    height: calcRem(24px);
   }
 
   .#{$prefix}--data-table--compact .#{$prefix}--table-header-label {
-    padding-top: rem(2px);
-    padding-bottom: rem(2px);
+    padding-top: calcRem(2px);
+    padding-bottom: calcRem(2px);
   }
 
   .#{$prefix}--data-table--compact td,
   .#{$prefix}--data-table--compact tbody tr th {
-    padding-top: rem(2px);
-    padding-bottom: rem(2px);
+    padding-top: calcRem(2px);
+    padding-bottom: calcRem(2px);
   }
 
   .#{$prefix}--data-table--compact .#{$prefix}--overflow-menu {
-    width: rem(32px);
+    width: calcRem(32px);
     height: 100%;
   }
 
@@ -524,9 +524,9 @@
   .#{$prefix}--data-table.#{$prefix}--data-table--compact
     .#{$prefix}--table-column-checkbox
     .#{$prefix}--checkbox-label {
-    height: rem(23px);
+    height: calcRem(23px);
     // 24px row - 1px border
-    min-height: rem(23px);
+    min-height: calcRem(23px);
   }
 
   //----------------------------------------------------------------------------
@@ -535,22 +535,22 @@
   .#{$prefix}--data-table--xs thead tr,
   .#{$prefix}--data-table--xs tbody tr,
   .#{$prefix}--data-table--xs tbody tr th {
-    height: rem(24px);
+    height: calcRem(24px);
   }
 
   .#{$prefix}--data-table--xs .#{$prefix}--table-header-label {
-    padding-top: rem(2px);
-    padding-bottom: rem(2px);
+    padding-top: calcRem(2px);
+    padding-bottom: calcRem(2px);
   }
 
   .#{$prefix}--data-table--xs td,
   .#{$prefix}--data-table--xs tbody tr th {
-    padding-top: rem(2px);
-    padding-bottom: rem(2px);
+    padding-top: calcRem(2px);
+    padding-bottom: calcRem(2px);
   }
 
   .#{$prefix}--data-table--xs .#{$prefix}--overflow-menu {
-    width: rem(32px);
+    width: calcRem(32px);
     height: calc(100% + 1px);
   }
 
@@ -563,9 +563,9 @@
   .#{$prefix}--data-table.#{$prefix}--data-table--xs
     .#{$prefix}--table-column-checkbox
     .#{$prefix}--checkbox-label {
-    height: rem(23px);
+    height: calcRem(23px);
     // 24px row - 1px border
-    min-height: rem(23px);
+    min-height: calcRem(23px);
   }
 
   // V11: Remove this short block
@@ -575,24 +575,24 @@
   .#{$prefix}--data-table--short thead tr,
   .#{$prefix}--data-table--short tbody tr,
   .#{$prefix}--data-table--short tbody tr th {
-    height: rem(32px);
+    height: calcRem(32px);
   }
 
   .#{$prefix}--data-table--short .#{$prefix}--table-header-label {
-    padding-top: rem(7px);
-    padding-bottom: rem(7px);
+    padding-top: calcRem(7px);
+    padding-bottom: calcRem(7px);
   }
 
   .#{$prefix}--data-table--short td,
   .#{$prefix}--data-table--short tbody tr th {
-    padding-top: rem(7px);
-    padding-bottom: rem(6px);
+    padding-top: calcRem(7px);
+    padding-bottom: calcRem(6px);
   }
 
   .#{$prefix}--data-table.#{$prefix}--data-table--short
     .#{$prefix}--table-column-checkbox {
-    padding-top: rem(3px);
-    padding-bottom: rem(3px);
+    padding-top: calcRem(3px);
+    padding-bottom: calcRem(3px);
   }
 
   .#{$prefix}--data-table--short .#{$prefix}--overflow-menu {
@@ -605,24 +605,24 @@
   .#{$prefix}--data-table--sm thead tr,
   .#{$prefix}--data-table--sm tbody tr,
   .#{$prefix}--data-table--sm tbody tr th {
-    height: rem(32px);
+    height: calcRem(32px);
   }
 
   .#{$prefix}--data-table--sm .#{$prefix}--table-header-label {
-    padding-top: rem(7px);
-    padding-bottom: rem(7px);
+    padding-top: calcRem(7px);
+    padding-bottom: calcRem(7px);
   }
 
   .#{$prefix}--data-table--sm td,
   .#{$prefix}--data-table--sm tbody tr th {
-    padding-top: rem(7px);
-    padding-bottom: rem(6px);
+    padding-top: calcRem(7px);
+    padding-bottom: calcRem(6px);
   }
 
   .#{$prefix}--data-table.#{$prefix}--data-table--sm
     .#{$prefix}--table-column-checkbox {
-    padding-top: rem(3px);
-    padding-bottom: rem(3px);
+    padding-top: calcRem(3px);
+    padding-bottom: calcRem(3px);
   }
 
   .#{$prefix}--data-table--sm .#{$prefix}--overflow-menu {
@@ -635,29 +635,29 @@
   .#{$prefix}--data-table--md thead tr,
   .#{$prefix}--data-table--md tbody tr,
   .#{$prefix}--data-table--md tbody tr th {
-    height: rem(40px);
+    height: calcRem(40px);
   }
 
   .#{$prefix}--data-table--md .#{$prefix}--table-header-label {
-    padding-top: rem(7px);
-    padding-bottom: rem(7px);
+    padding-top: calcRem(7px);
+    padding-bottom: calcRem(7px);
   }
 
   .#{$prefix}--data-table--md td,
   .#{$prefix}--data-table--md tbody tr th {
-    padding-top: rem(7px);
-    padding-bottom: rem(6px);
+    padding-top: calcRem(7px);
+    padding-bottom: calcRem(6px);
   }
 
   .#{$prefix}--data-table.#{$prefix}--data-table--md
     .#{$prefix}--table-column-checkbox {
-    padding-top: rem(3px);
-    padding-bottom: rem(3px);
+    padding-top: calcRem(3px);
+    padding-bottom: calcRem(3px);
   }
 
   .#{$prefix}--data-table--md .#{$prefix}--table-column-menu {
-    padding-top: rem(3px);
-    padding-bottom: rem(3px);
+    padding-top: calcRem(3px);
+    padding-bottom: calcRem(3px);
   }
 
   // V11: remove this tall block
@@ -667,7 +667,7 @@
   .#{$prefix}--data-table--tall thead tr,
   .#{$prefix}--data-table--tall tbody tr,
   .#{$prefix}--data-table--tall tbody tr th {
-    height: rem(64px);
+    height: calcRem(64px);
   }
 
   .#{$prefix}--data-table--tall .#{$prefix}--table-header-label {
@@ -686,7 +686,7 @@
   }
 
   .#{$prefix}--data-table--tall .#{$prefix}--data-table--cell-secondary-text {
-    @include type-style('label');
+    @include type-style("label");
   }
 
   //----------------------------------------------------------------------------
@@ -695,7 +695,7 @@
   .#{$prefix}--data-table--xl thead tr,
   .#{$prefix}--data-table--xl tbody tr,
   .#{$prefix}--data-table--xl tbody tr th {
-    height: rem(64px);
+    height: calcRem(64px);
   }
 
   .#{$prefix}--data-table--xl .#{$prefix}--table-header-label {
@@ -714,7 +714,7 @@
   }
 
   .#{$prefix}--data-table--xl .#{$prefix}--data-table--cell-secondary-text {
-    @include type-style('label');
+    @include type-style("label");
   }
 
   //----------------------------------------------------------------------------
@@ -777,7 +777,7 @@
     }
 
     .#{$prefix}--table-expand {
-      max-width: rem(48px);
+      max-width: calcRem(48px);
     }
 
     thead .#{$prefix}--table-expand {
@@ -789,9 +789,15 @@
     }
 
     // V11: remove compact, tall, and short
-    &:not(.#{$prefix}--data-table--compact):not(.#{$prefix}--data-table--xs):not(.#{$prefix}--data-table--tall):not(.#{$prefix}--data-table--xl):not(.#{$prefix}--data-table--short):not(.#{$prefix}--data-table--sm)
-      td:not(.#{$prefix}--table-column-menu):not(.#{$prefix}--table-column-checkbox) {
-      padding-top: rem(14px);
+    &:not(.#{$prefix}--data-table--compact):not(
+        .#{$prefix}--data-table--xs
+      ):not(.#{$prefix}--data-table--tall):not(.#{$prefix}--data-table--xl):not(
+        .#{$prefix}--data-table--short
+      ):not(.#{$prefix}--data-table--sm)
+      td:not(.#{$prefix}--table-column-menu):not(
+        .#{$prefix}--table-column-checkbox
+      ) {
+      padding-top: calcRem(14px);
     }
 
     // Taken from L125 _data-table-expandable
@@ -813,8 +819,8 @@
     // Selectable fix
     thead th.#{$prefix}--table-column-checkbox,
     tbody tr td.#{$prefix}--table-column-checkbox {
-      width: rem(36px);
-      min-width: rem(36px);
+      width: calcRem(36px);
+      min-width: calcRem(36px);
       align-items: center;
     }
 
@@ -829,7 +835,7 @@
     // Overflow fix
     /* When using sticky header, with a selection element in the first column, we need to set the last item to a fixed width to match the table body. We only want this to happen when the last table header does not have any text */
     th.#{$prefix}--table-column-checkbox ~ th:last-of-type:empty {
-      max-width: rem(64px);
+      max-width: calcRem(64px);
     }
 
     th:empty:not(.#{$prefix}--table-expand) {
@@ -860,8 +866,12 @@
       border-bottom: 0;
     }
 
-    th:not(.#{$prefix}--table-column-checkbox):not(.#{$prefix}--table-column-menu):not(.#{$prefix}--table-expand):not(.#{$prefix}--table-column-icon),
-    td:not(.#{$prefix}--table-column-checkbox):not(.#{$prefix}--table-column-menu):not(.#{$prefix}--table-expand):not(.#{$prefix}--table-column-icon) {
+    th:not(.#{$prefix}--table-column-checkbox):not(
+        .#{$prefix}--table-column-menu
+      ):not(.#{$prefix}--table-expand):not(.#{$prefix}--table-column-icon),
+    td:not(.#{$prefix}--table-column-checkbox):not(
+        .#{$prefix}--table-column-menu
+      ):not(.#{$prefix}--table-expand):not(.#{$prefix}--table-column-icon) {
       width: 100%;
       min-width: 0;
     }
@@ -880,34 +890,34 @@
     // V11: remove compact
     &.#{$prefix}--data-table--compact tr:not(.#{$prefix}--expandable-row),
     &.#{$prefix}--data-table--xs tr:not(.#{$prefix}--expandable-row) {
-      min-height: rem(24px);
+      min-height: calcRem(24px);
     }
 
     // Short
     // V11: remove short
     &.#{$prefix}--data-table--short tr:not(.#{$prefix}--expandable-row),
     &.#{$prefix}--data-table--sm tr:not(.#{$prefix}--expandable-row) {
-      min-height: rem(32px);
+      min-height: calcRem(32px);
     }
 
     // Tall
     // V11: remove tall
     &.#{$prefix}--data-table--tall tr:not(.#{$prefix}--expandable-row),
     &.#{$prefix}--data-table--xl tr:not(.#{$prefix}--expandable-row) {
-      min-height: rem(64px);
+      min-height: calcRem(64px);
     }
 
     // Expansion overrides
     // V11: remove compact
     &.#{$prefix}--data-table--compact tr td.#{$prefix}--table-expand,
     &.#{$prefix}--data-table--xs tr td.#{$prefix}--table-expand {
-      padding-top: rem(4px);
+      padding-top: calcRem(4px);
     }
 
     // V11: remove short
     &.#{$prefix}--data-table--short tr td.#{$prefix}--table-expand,
     &.#{$prefix}--data-table--sm tr td.#{$prefix}--table-expand {
-      padding-top: rem(8px);
+      padding-top: calcRem(8px);
     }
 
     .#{$prefix}--table-header-label {
@@ -915,7 +925,7 @@
 
       max-width: calc(100% - 10px);
       // Needed to reduce 1px jump when toggling between variations
-      padding-top: rem(15px);
+      padding-top: calcRem(15px);
       padding-bottom: 1rem;
       overflow-y: hidden;
     }
@@ -923,14 +933,14 @@
     // V11: remove compact
     &.#{$prefix}--data-table--compact th .#{$prefix}--table-header-label,
     &.#{$prefix}--data-table--xs th .#{$prefix}--table-header-label {
-      padding-top: rem(3px);
+      padding-top: calcRem(3px);
       padding-bottom: 0;
     }
 
     // V11: remove short
     &.#{$prefix}--data-table--short th .#{$prefix}--table-header-label,
     &.#{$prefix}--data-table--sm th .#{$prefix}--table-header-label {
-      padding-top: rem(8px);
+      padding-top: calcRem(8px);
       padding-bottom: 0;
     }
 
@@ -984,12 +994,12 @@
     .#{$prefix}--form-item.#{$prefix}--checkbox-wrapper:last-of-type,
   .#{$prefix}--data-table--sm
     .#{$prefix}--form-item.#{$prefix}--checkbox-wrapper:last-of-type {
-    margin: rem(-3px) 0;
+    margin: calcRem(-3px) 0;
   }
 
   // Windows HCM fix
   // stylelint-disable-next-line no-duplicate-selectors
   .#{$prefix}--data-table-content {
-    @include high-contrast-mode('outline');
+    @include high-contrast-mode("outline");
   }
 }

@@ -5,18 +5,18 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type';
-@use '../../breakpoint' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/component-reset';
-@use '../../utilities/layer' as *;
-@use '../../utilities/text-gradient' as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type";
+@use "../../breakpoint" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/component-reset";
+@use "../../utilities/layer" as *;
+@use "../../utilities/text-gradient" as *;
 
 @mixin hero {
   .#{$prefix}--photo-card {
@@ -25,9 +25,9 @@
     display: block;
     width: 100%;
     text-decoration: none;
-    height: rem(200px);
-    @include breakpoint('lg') {
-      height: rem(260px);
+    height: calcRem(200px);
+    @include breakpoint("lg") {
+      height: calcRem(260px);
     }
     transition: all 0.1s;
     @include layer(pop-out);
@@ -79,19 +79,19 @@
   .#{$prefix}--photo-card__info__metadata {
     margin: 0;
     margin-bottom: $spacing-02;
-    @include type.typescale('omega');
+    @include type.typescale("omega");
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   .#{$prefix}--photo-card__info__subtitle {
     margin: 0;
-    @include type.typescale('zeta');
+    @include type.typescale("zeta");
   }
 
   .#{$prefix}--photo-card__info__title {
     margin: 0;
-    @include type.typescale('beta');
+    @include type.typescale("beta");
     /*text-transform: uppercase;
     letter-spacing: 0.05em; */
     & + .#{$prefix}--photo-card__info__subtitle {
@@ -120,12 +120,12 @@
       background-size: cover;
       transform: scale(1.05);
       z-index: -1;
-      height: rem(200px);
-      @include breakpoint('lg') {
-        height: rem(260px);
+      height: calcRem(200px);
+      @include breakpoint("lg") {
+        height: calcRem(260px);
       }
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -150,9 +150,9 @@
   }
 
   .#{$prefix}--photo-card--hero {
-    height: rem(300px);
-    @include breakpoint('lg') {
-      height: rem(500px);
+    height: calcRem(300px);
+    @include breakpoint("lg") {
+      height: calcRem(500px);
     }
     box-shadow: none;
     &.#{$prefix}--photo-card--link:hover {
@@ -162,9 +162,9 @@
       padding: $spacing-06;
     }
     .#{$prefix}--photo-card__info__background {
-      height: rem(300px);
-      @include breakpoint('lg') {
-        height: rem(500px);
+      height: calcRem(300px);
+      @include breakpoint("lg") {
+        height: calcRem(500px);
       }
     }
   }
@@ -173,15 +173,15 @@
   .#{$prefix}--photo-card--splash,
   .#{$prefix}--photo-card--splash-image,
   .#{$prefix}--photo-card--splash-compact {
-    height: rem(300px);
+    height: calcRem(300px);
     display: flex;
     align-items: center;
     color: $text-on-color;
     a {
       color: $text-on-color;
     }
-    @include breakpoint('lg') {
-      height: rem(500px);
+    @include breakpoint("lg") {
+      height: calcRem(500px);
     }
     box-shadow: none;
     &.#{$prefix}--photo-card--link:hover {
@@ -191,7 +191,7 @@
       position: relative;
       text-align: center;
       padding: $spacing-08;
-      @include breakpoint('lg') {
+      @include breakpoint("lg") {
         padding: $spacing-10;
       }
     }
@@ -199,7 +199,7 @@
 
   .#{$prefix}--photo-card--splash {
     .#{$prefix}--photo-card__info__title {
-      @include type.type-style('productive-heading-04');
+      @include type.type-style("productive-heading-04");
     }
   }
 
@@ -214,7 +214,7 @@
     }
     .#{$prefix}--photo-card__background {
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         bottom: 0;
@@ -231,7 +231,7 @@
 
   .#{$prefix}--photo-card--splash-compact,
   .#{$prefix}--photo-card--emergencies {
-    height: rem(70px);
+    height: calcRem(70px);
     .#{$prefix}--photo-card__info {
       justify-content: center;
     }
@@ -249,7 +249,7 @@
     background: $support-error;
     .#{$prefix}--photo-card__info__title {
       font-weight: normal;
-      @include type.type-style('heading-02');
+      @include type.type-style("heading-02");
     }
   }
 
@@ -279,13 +279,13 @@
   .#{$prefix}--photo-card--split {
     .#{$prefix}--photo-card__background {
       width: 30%;
-      @include breakpoint('md') {
+      @include breakpoint("md") {
         width: 50%;
       }
     }
     .#{$prefix}--photo-card__info {
       width: 70%;
-      @include breakpoint('md') {
+      @include breakpoint("md") {
         width: 50%;
       }
       left: inherit;

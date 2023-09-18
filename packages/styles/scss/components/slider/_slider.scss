@@ -9,27 +9,27 @@
 // Slider
 //-----------------------------
 
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
 
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/convert' as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/convert" as *;
 
-@use '../input';
-@use '../text-input';
+@use "../input";
+@use "../text-input";
 
 /// Slider styles
 /// @access public
 /// @group slider
 @mixin slider {
   .#{$prefix}--slider-container {
-    max-width: rem(600px);
-    min-width: rem(200px);
+    max-width: calcRem(600px);
+    min-width: calcRem(200px);
     order: 3;
     display: flex;
     align-items: center;
@@ -91,13 +91,13 @@
     }
 
     &::-moz-range-progress {
-      height: rem(4px);
+      height: calcRem(4px);
       background: $interactive;
     }
 
     /* IE*/
     &::-ms-fill-lower {
-      height: rem(4px);
+      height: calcRem(4px);
       background: $interactive;
     }
 
@@ -111,11 +111,11 @@
     }
     &:hover:focus {
       &::-webkit-slider-thumb {
-        @include focus-outline('blurred');
+        @include focus-outline("blurred");
         transform: scale(1.25);
       }
       &::-moz-range-thumb {
-        @include focus-outline('blurred');
+        @include focus-outline("blurred");
         transform: scale(1.25);
       }
     }
@@ -180,7 +180,7 @@
   }
 
   .#{$prefix}--slider__range-label {
-    @include type-style('label-02');
+    @include type-style("label-02");
     color: $text-secondary;
 
     &:last-of-type {
@@ -204,7 +204,7 @@
   .#{$prefix}--slider__track {
     position: absolute;
     width: 100%;
-    height: rem(4px);
+    height: calcRem(4px);
     background: var(--ui-05);
     cursor: pointer;
     transform: translate(0%, -50%);
@@ -213,7 +213,7 @@
   .#{$prefix}--slider__filled-track {
     position: absolute;
     width: 100%;
-    height: rem(4px);
+    height: calcRem(4px);
     background: var(--interactive-01);
     transform-origin: left;
     pointer-events: none;
@@ -222,8 +222,8 @@
 
   .#{$prefix}--slider__thumb {
     position: absolute;
-    height: rem(24px);
-    width: rem(24px);
+    height: calcRem(24px);
+    width: calcRem(24px);
     background: $interactive;
     border-radius: 50%;
     top: 0;
@@ -241,7 +241,7 @@
       transform: translate(-50%, -50%) scale(1.05);
     }
     &:focus {
-      @include focus-outline('blurred');
+      @include focus-outline("blurred");
     }
     &:active {
       background: $link-visited;
@@ -254,7 +254,7 @@
   }
 
   .#{$prefix}--slider-text-input {
-    width: rem(60px);
+    width: calcRem(60px);
     min-width: 0;
     height: 2rem;
     padding: 0;

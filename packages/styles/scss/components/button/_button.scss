@@ -5,19 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use 'vars' as *;
-@use 'mixins' as *;
-@use '../../config' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline';
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/rtl' as *;
-@use '../../utilities/tooltip' as *;
-@use '../../utilities/visually-hidden' as *;
+@use "vars" as *;
+@use "mixins" as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline";
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/rtl" as *;
+@use "../../utilities/tooltip" as *;
+@use "../../utilities/visually-hidden" as *;
 //@use 'tokens' as *;
 
 @mixin button {
@@ -352,7 +352,7 @@
 
   .#{$prefix}--btn--sm {
     padding: $button-padding-sm;
-    @include type-style('body-short');
+    @include type-style("body-short");
     letter-spacing: 0;
     font-weight: 700;
     height: 1.8rem;
@@ -360,7 +360,7 @@
 
   .#{$prefix}--btn--lg {
     height: 3.25rem;
-    font-size: rem(18px); //TODO
+    font-size: calcRem(18px); //TODO
   }
 
   .#{$prefix}--btn--all-caps {
@@ -380,7 +380,7 @@
   // Skeleton State
   .#{$prefix}--btn.#{$prefix}--skeleton {
     @include skeleton;
-    width: rem(150px);
+    width: calcRem(150px);
   }
 }
 

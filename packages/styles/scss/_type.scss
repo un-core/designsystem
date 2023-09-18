@@ -12,7 +12,7 @@
 }
 
 $code-font-family: var(--code-font-family);
-$font-family-primary: var(--font-family-primary);
+// TODO: $font-family-primary: var(--font-family-primary);
 
 @mixin font-family($family) {
   @if $family == "code" {
@@ -20,7 +20,7 @@ $font-family-primary: var(--font-family-primary);
       'Courier New', monospace;*/
     font-family: $code-font-family;
   } @else {
-    font-family: $font-family-primary;
+    //font-family: $font-family-primary;
     //font-family: 'Open Sans', Arial, sans-serif;
   }
 }

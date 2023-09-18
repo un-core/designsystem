@@ -5,17 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../button/tokens' as button;
-@use '../../utilities/box-shadow' as *;
-@use '../../utilities/button-reset';
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/convert' as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../button/tokens" as button;
+@use "../../utilities/box-shadow" as *;
+@use "../../utilities/button-reset";
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/convert" as *;
 
 /// Overflow menu styles
 /// @access public
@@ -25,12 +25,12 @@
   .#{$prefix}--overflow-menu__trigger {
     @include button-reset.reset;
     @include reset;
-    @include focus-outline('reset');
+    @include focus-outline("reset");
 
     position: relative;
     display: flex;
-    width: rem(40px);
-    height: rem(40px);
+    width: calcRem(40px);
+    height: calcRem(40px);
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -38,7 +38,7 @@
       background-color $duration-fast-02 motion(entrance, productive);
 
     &:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
     }
 
     &:hover {
@@ -47,20 +47,20 @@
   }
 
   .#{$prefix}--overflow-menu--sm {
-    width: rem(32px);
-    height: rem(32px);
+    width: calcRem(32px);
+    height: calcRem(32px);
   }
 
   // TODO V11: Remove xl selector
   .#{$prefix}--overflow-menu--xl,
   .#{$prefix}--overflow-menu--lg {
-    width: rem(48px);
-    height: rem(48px);
+    width: calcRem(48px);
+    height: calcRem(48px);
   }
 
   // Overwrite Icon Tooltip focus styles
   .#{$prefix}--overflow-menu__trigger.#{$prefix}--tooltip--a11y.#{$prefix}--tooltip__trigger:focus {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
 
     svg {
       outline: none;
@@ -83,8 +83,8 @@
   }
 
   .#{$prefix}--overflow-menu__icon {
-    width: rem(16px);
-    height: rem(16px);
+    width: calcRem(16px);
+    height: calcRem(16px);
     fill: $icon-primary;
   }
 
@@ -93,11 +93,11 @@
     @include box-shadow;
 
     position: absolute;
-    z-index: z('floating');
+    z-index: z("floating");
     top: 32px;
     left: 0;
     display: none;
-    width: rem(160px);
+    width: calcRem(160px);
     flex-direction: column;
     align-items: flex-start;
     background-color: $layer-primary;
@@ -107,7 +107,7 @@
       position: absolute;
       display: block;
       background-color: $layer-primary;
-      content: '';
+      content: "";
       transition: background-color $duration-fast-02
         motion(entrance, productive);
     }
@@ -128,66 +128,66 @@
     //TODO: background-color: $field-02;
   }
 
-  .#{$prefix}--overflow-menu-options[data-floating-menu-direction='bottom']::after {
-    top: rem(-3px);
+  .#{$prefix}--overflow-menu-options[data-floating-menu-direction="bottom"]::after {
+    top: calcRem(-3px);
     left: 0;
-    width: rem(40px);
-    height: rem(3px);
+    width: calcRem(40px);
+    height: calcRem(3px);
   }
 
-  .#{$prefix}--overflow-menu-options[data-floating-menu-direction='top']::after {
-    bottom: rem(-8px);
+  .#{$prefix}--overflow-menu-options[data-floating-menu-direction="top"]::after {
+    bottom: calcRem(-8px);
     left: 0;
-    width: rem(40px);
-    height: rem(8px);
+    width: calcRem(40px);
+    height: calcRem(8px);
   }
 
-  .#{$prefix}--overflow-menu-options[data-floating-menu-direction='left']::after {
+  .#{$prefix}--overflow-menu-options[data-floating-menu-direction="left"]::after {
     top: 0;
-    right: rem(-6px);
-    width: rem(6px);
-    height: rem(40px);
+    right: calcRem(-6px);
+    width: calcRem(6px);
+    height: calcRem(40px);
   }
 
-  .#{$prefix}--overflow-menu-options[data-floating-menu-direction='right']::after {
+  .#{$prefix}--overflow-menu-options[data-floating-menu-direction="right"]::after {
     top: 0;
-    left: rem(-6px);
-    width: rem(6px);
-    height: rem(40px);
+    left: calcRem(-6px);
+    width: calcRem(6px);
+    height: calcRem(40px);
   }
 
   .#{$prefix}--overflow-menu-options--sm.#{$prefix}--overflow-menu-options {
-    &[data-floating-menu-direction='bottom']::after,
-    &[data-floating-menu-direction='top']::after {
-      width: rem(32px);
+    &[data-floating-menu-direction="bottom"]::after,
+    &[data-floating-menu-direction="top"]::after {
+      width: calcRem(32px);
     }
-    &[data-floating-menu-direction='left']::after,
-    &[data-floating-menu-direction='right']::after {
-      height: rem(32px);
+    &[data-floating-menu-direction="left"]::after,
+    &[data-floating-menu-direction="right"]::after {
+      height: calcRem(32px);
     }
   }
 
   // TODO V11: Remove xl selector
   .#{$prefix}--overflow-menu-options--xl.#{$prefix}--overflow-menu-options,
   .#{$prefix}--overflow-menu-options--lg.#{$prefix}--overflow-menu-options {
-    &[data-floating-menu-direction='bottom']::after,
-    &[data-floating-menu-direction='top']::after {
-      width: rem(48px);
+    &[data-floating-menu-direction="bottom"]::after,
+    &[data-floating-menu-direction="top"]::after {
+      width: calcRem(48px);
     }
-    &[data-floating-menu-direction='left']::after,
-    &[data-floating-menu-direction='right']::after {
-      height: rem(48px);
+    &[data-floating-menu-direction="left"]::after,
+    &[data-floating-menu-direction="right"]::after {
+      height: calcRem(48px);
     }
   }
 
-  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction='top']::after,
-  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction='bottom']::after {
+  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction="top"]::after,
+  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction="bottom"]::after {
     right: 0;
     left: auto;
   }
 
-  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction='left']::after,
-  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction='right']::after {
+  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction="left"]::after,
+  .#{$prefix}--overflow-menu--flip.#{$prefix}--overflow-menu-options[data-floating-menu-direction="right"]::after {
     top: auto;
     bottom: 0;
   }
@@ -205,7 +205,7 @@
 
     display: flex;
     width: 100%;
-    height: rem(40px);
+    height: calcRem(40px);
     align-items: center;
     padding: 0;
     background-color: transparent;
@@ -214,7 +214,7 @@
 
   .#{$prefix}--overflow-menu-options--sm
     .#{$prefix}--overflow-menu-options__option {
-    height: rem(32px);
+    height: calcRem(32px);
   }
 
   // TODO V11: Remove xl selector
@@ -222,7 +222,7 @@
     .#{$prefix}--overflow-menu-options__option,
   .#{$prefix}--overflow-menu-options--lg
     .#{$prefix}--overflow-menu-options__option {
-    height: rem(48px);
+    height: calcRem(48px);
   }
 
   .#{$prefix}--overflow-menu--divider {
@@ -236,13 +236,13 @@
   a.#{$prefix}--overflow-menu-options__btn::before {
     display: inline-block;
     height: 100%;
-    content: '';
+    content: "";
     vertical-align: middle;
   }
 
   .#{$prefix}--overflow-menu-options__btn {
-    @include type-style('body-short');
-    @include focus-outline('reset');
+    @include type-style("body-short");
+    @include focus-outline("reset");
 
     display: inline-flex;
     width: 100%;
@@ -266,7 +266,7 @@
     }
 
     &:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
     }
 
     &::-moz-focus-inner {
@@ -317,7 +317,7 @@
     &:hover,
     &:active,
     &:focus {
-      @include focus-outline('reset');
+      @include focus-outline("reset");
 
       background-color: $layer-primary;
     }
@@ -341,11 +341,11 @@
   /* stylelint-disable */
   .#{$prefix}--overflow-menu:focus,
   .#{$prefix}--overflow-menu-options__btn:focus {
-    @include high-contrast-mode('focus');
+    @include high-contrast-mode("focus");
   }
 
   .#{$prefix}--overflow-menu svg {
-    @include high-contrast-mode('icon-fill');
+    @include high-contrast-mode("icon-fill");
   }
   /*stylelint-enable */
 }

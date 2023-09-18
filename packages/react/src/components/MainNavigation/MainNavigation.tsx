@@ -33,7 +33,7 @@ interface MainNavigationProps extends React.ComponentPropsWithRef<"div"> {
   /**
    * A line will be placed above the navigation
    */
-  line: boolean;
+  line?: boolean;
   /**
    * Additional className for the `Wrapper`
    */

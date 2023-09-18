@@ -5,11 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../config' as *;
-@use '../../../spacing' as *;
-@use '../../../theme' as *;
-@use '../../../utilities/convert' as *;
-@use '../../../utilities/skeleton' as *;
+@use "../../../config" as *;
+@use "../../../spacing" as *;
+@use "../../../theme" as *;
+@use "../../../utilities/convert" as *;
+@use "../../../utilities/skeleton" as *;
 
 /// Data table skeleton styles
 /// @access public
@@ -26,8 +26,8 @@
 
     display: block;
 
-    width: rem(64px);
-    height: rem(16px);
+    width: calcRem(64px);
+    height: calcRem(16px);
   }
 
   .#{$prefix}--data-table.#{$prefix}--skeleton tr:hover td {
@@ -56,16 +56,16 @@
     .#{$prefix}--data-table-header__title {
     @include skeleton;
 
-    width: rem(120px);
-    height: rem(24px);
+    width: calcRem(120px);
+    height: calcRem(24px);
   }
 
   .#{$prefix}--data-table-container.#{$prefix}--skeleton
     .#{$prefix}--data-table-header__description {
     @include skeleton;
 
-    width: rem(160px);
-    height: rem(16px);
+    width: calcRem(160px);
+    height: calcRem(16px);
 
     margin-top: $spacing-03;
   }

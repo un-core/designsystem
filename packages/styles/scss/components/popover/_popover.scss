@@ -5,14 +5,14 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../theme' as *;
-@use '../../config' as *;
-@use '../../theme' as *;
-@use '../../utilities/box-shadow' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/' as *;
-@use '../../utilities/convert' as *;
+@use "../../theme" as *;
+@use "../../config" as *;
+@use "../../theme" as *;
+@use "../../utilities/box-shadow" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/" as *;
+@use "../../utilities/convert" as *;
 
 /// Popover component
 /// @access private
@@ -33,7 +33,7 @@
     --cds-popover-caret-offset: 1rem;
 
     position: absolute;
-    z-index: z('floating');
+    z-index: z("floating");
     display: none;
   }
 
@@ -44,7 +44,7 @@
   .#{$prefix}--popover::before {
     position: absolute;
     display: block;
-    content: '';
+    content: "";
   }
 
   .#{$prefix}--popover--open {
@@ -56,7 +56,7 @@
 
     position: relative;
     width: max-content;
-    max-width: rem(368px);
+    max-width: calcRem(368px);
     background-color: $ui-01;
     border-radius: 2px;
     color: $popover-text-color;
@@ -79,10 +79,10 @@
   .#{$prefix}--popover--caret .#{$prefix}--popover-contents::after {
     position: absolute;
     display: inline-block;
-    width: rem(8px);
-    height: rem(8px);
+    width: calcRem(8px);
+    height: calcRem(8px);
     background-color: inherit;
-    content: '';
+    content: "";
   }
 
   .#{$prefix}--popover--caret .#{$prefix}--popover-contents::before {

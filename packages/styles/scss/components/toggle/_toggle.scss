@@ -5,17 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //3
 
-@use '../../config' as *;
-@use '../../feature-flags' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/focus-outline' as *;
-@import '../form';
+@use "../../config" as *;
+@use "../../feature-flags" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/focus-outline" as *;
+@import "../form";
 
 /// Toggle styles
 /// @access public
@@ -26,7 +26,7 @@
   }
 
   .#{$prefix}--toggle__label {
-    @include font-family('sans');
+    @include font-family("sans");
     position: relative;
     display: flex;
     align-items: center;
@@ -38,16 +38,16 @@
 
   .#{$prefix}--toggle__appearance {
     position: relative;
-    width: rem(48px);
+    width: calcRem(48px);
 
     &:before {
       position: absolute;
       display: block;
-      content: '';
+      content: "";
       width: 100%;
-      height: rem(28px);
-      top: rem(-14px);
-      border-radius: rem(28px);
+      height: calcRem(28px);
+      top: calcRem(-14px);
+      border-radius: calcRem(28px);
       background-color: $border-inverse; //TODO create token for ui-05 to cater for background
       transition: $transition--base $standard-easing;
       cursor: pointer;
@@ -60,29 +60,29 @@
       border: 3px solid $border-inverse;
       cursor: pointer;
       top: -14px;
-      width: rem(28px);
-      height: rem(28px);
+      width: calcRem(28px);
+      height: calcRem(28px);
       background-color: $background-main;
       border-radius: 50%;
-      content: '';
+      content: "";
       transition: $transition--base $standard-easing;
     }
   }
 
   .#{$prefix}--toggle--small + .#{$prefix}--toggle__label {
-    width: rem(32px);
+    width: calcRem(32px);
   }
 
   .#{$prefix}--toggle--small
     + .#{$prefix}--toggle__label
     .#{$prefix}--toggle__appearance {
-    width: rem(32px);
-    height: rem(16px);
+    width: calcRem(32px);
+    height: calcRem(16px);
 
     &:before {
       box-sizing: border-box;
-      height: rem(16px);
-      width: rem(32px);
+      height: calcRem(16px);
+      width: calcRem(32px);
       border-radius: 0.9375rem;
       background-color: transparent;
       border: 2px solid $border-inverse;
@@ -90,8 +90,8 @@
     }
 
     &:after {
-      width: rem(10px);
-      height: rem(10px);
+      width: calcRem(10px);
+      height: calcRem(10px);
       background-color: $border-inverse; //TODO create token for ui-05 to cater for background
       border: none;
       top: 3px;
@@ -118,7 +118,7 @@
 
   .#{$prefix}--toggle__text--left,
   .#{$prefix}--toggle__text--right {
-    @include type-style('body-short');
+    @include type-style("body-short");
     position: relative;
   }
 
@@ -167,13 +167,13 @@
     }
 
     .#{$prefix}--toggle__appearance:after {
-      @include focus-outline('blurred');
+      @include focus-outline("blurred");
     }
   }
 
   .#{$prefix}--toggle--small:focus + .#{$prefix}--toggle__label {
     .#{$prefix}--toggle__appearance:before {
-      @include focus-outline('blurred');
+      @include focus-outline("blurred");
     }
 
     .#{$prefix}--toggle__appearance:after {

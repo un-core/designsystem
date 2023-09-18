@@ -5,15 +5,15 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../config' as *;
-@use '../../../motion' as *;
-@use '../../../spacing' as *;
-@use '../../../theme' as *;
-@use '../../../type' as *;
-@use '../../../utilities/button-reset';
-@use '../../../utilities/convert' as *;
-@use '../../../utilities/focus-outline' as *;
-@use '../../button/vars' as *;
+@use "../../../config" as *;
+@use "../../../motion" as *;
+@use "../../../spacing" as *;
+@use "../../../theme" as *;
+@use "../../../type" as *;
+@use "../../../utilities/button-reset";
+@use "../../../utilities/convert" as *;
+@use "../../../utilities/focus-outline" as *;
+@use "../../button/vars" as *;
 
 /// Data table action styles
 /// @access public
@@ -115,7 +115,7 @@
     height: $spacing-09;
 
     &::before {
-      top: rem(2px);
+      top: calcRem(2px);
       height: calc(100% - #{rem(4px)});
       background-color: $field-hover;
     }
@@ -215,7 +215,7 @@
     background-color: $field-hover;
   }
 
-  .#{$prefix}--toolbar-action:hover[aria-expanded='true'] {
+  .#{$prefix}--toolbar-action:hover[aria-expanded="true"] {
     background-color: $layer-primary;
   }
 
@@ -230,7 +230,7 @@
 
   .#{$prefix}--toolbar-action:focus:not([disabled]),
   .#{$prefix}--toolbar-action:active:not([disabled]) {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
 
     &.#{$prefix}--toolbar-search-container-expandable {
       // The focus style is handled by search input in it, need to avoid duplicate animation
@@ -291,7 +291,7 @@
 
   .#{$prefix}--toolbar-search-container-persistent
     .#{$prefix}--search-input:focus:not([disabled]) {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
   }
 
   .#{$prefix}--toolbar-search-container-persistent
@@ -382,7 +382,7 @@
 
   .#{$prefix}--batch-download {
     //makes it smaller to match other icons
-    padding: rem(1px);
+    padding: calcRem(1px);
   }
 
   // Override btn styles
@@ -395,7 +395,7 @@
 
   .#{$prefix}--action-list .#{$prefix}--btn--primary:focus {
     outline: 2px solid $layer-primary;
-    outline-offset: rem(-2px);
+    outline-offset: calcRem(-2px);
   }
 
   // cancel btn pseudo element
@@ -411,14 +411,14 @@
   .#{$prefix}--btn--primary.#{$prefix}--batch-summary__cancel::before {
     position: absolute;
     //visually 16px spacing is 1px too low
-    top: rem(15px);
+    top: calcRem(15px);
     left: 0;
     display: block;
-    width: rem(1px);
+    width: calcRem(1px);
     height: $spacing-05;
     border: none;
     background-color: $text-on-color;
-    content: '';
+    content: "";
     opacity: 1;
     transition: opacity $duration-fast-02 motion(standard, productive);
   }
@@ -445,7 +445,7 @@
   }
 
   .#{$prefix}--batch-summary__para {
-    @include type-style('body-short');
+    @include type-style("body-short");
   }
 
   //-------------------------------------------------
@@ -454,30 +454,30 @@
   // V11: remove --small
   .#{$prefix}--table-toolbar--small,
   .#{$prefix}--table-toolbar--sm {
-    height: rem(32px);
+    height: calcRem(32px);
 
     .#{$prefix}--toolbar-search-container-expandable,
     .#{$prefix}--toolbar-search-container-persistent {
-      height: rem(32px);
+      height: calcRem(32px);
     }
 
     .#{$prefix}--toolbar-search-container-expandable .#{$prefix}--search-input,
     .#{$prefix}--toolbar-search-container-persistent .#{$prefix}--search-input {
-      height: rem(32px);
+      height: calcRem(32px);
     }
 
     .#{$prefix}--toolbar-search-container-expandable .#{$prefix}--search-close,
     .#{$prefix}--toolbar-search-container-persistent .#{$prefix}--search-close {
-      width: rem(32px);
-      height: rem(32px);
+      width: calcRem(32px);
+      height: calcRem(32px);
     }
 
     .#{$prefix}--toolbar-search-container-expandable
       .#{$prefix}--search-magnifier-icon,
     .#{$prefix}--toolbar-search-container-persistent
       .#{$prefix}--search-magnifier-icon {
-      width: rem(32px);
-      height: rem(32px);
+      width: calcRem(32px);
+      height: calcRem(32px);
       padding: $spacing-03;
     }
 
@@ -487,7 +487,7 @@
 
     //hidden
     .#{$prefix}--toolbar-search-container-expandable {
-      width: rem(32px);
+      width: calcRem(32px);
     }
 
     .#{$prefix}--toolbar-search-container-expandable
@@ -508,7 +508,7 @@
 
     .#{$prefix}--toolbar-search-container-active
       .#{$prefix}--search-input:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
 
       background-color: $field-hover;
     }
@@ -526,7 +526,7 @@
       .#{$prefix}--search-magnifier-icon:active,
     .#{$prefix}--toolbar-search-container-active
       .#{$prefix}--search-magnifier-icon:hover {
-      @include focus-outline('reset');
+      @include focus-outline("reset");
 
       background-color: transparent;
     }
@@ -546,21 +546,21 @@
   .#{$prefix}--table-toolbar--sm
     .#{$prefix}--batch-actions
     .#{$prefix}--action-list {
-    height: rem(32px);
+    height: calcRem(32px);
   }
 
   // V11: remove --small selector block
   .#{$prefix}--table-toolbar--small .#{$prefix}--toolbar-action,
   .#{$prefix}--table-toolbar--sm .#{$prefix}--toolbar-action {
-    width: rem(32px);
-    height: rem(32px);
+    width: calcRem(32px);
+    height: calcRem(32px);
     padding: $spacing-03 0;
   }
 
   // V11: remove --small selector block
   .#{$prefix}--table-toolbar--small .#{$prefix}--btn--primary,
   .#{$prefix}--table-toolbar--sm .#{$prefix}--btn--primary {
-    height: rem(32px);
+    height: calcRem(32px);
     min-height: auto;
     padding-top: calc(0.375rem - 3px);
     padding-bottom: calc(0.375rem - 3px);
@@ -571,7 +571,7 @@
     .#{$prefix}--btn--primary.#{$prefix}--batch-summary__cancel::before,
   .#{$prefix}--table-toolbar--sm
     .#{$prefix}--btn--primary.#{$prefix}--batch-summary__cancel::before {
-    top: rem(8px);
+    top: calcRem(8px);
   }
 
   // V11: remove --small selector block
@@ -582,6 +582,6 @@
     .#{$prefix}--toolbar-action
     ~ .#{$prefix}--btn {
     overflow: hidden;
-    height: rem(32px);
+    height: calcRem(32px);
   }
 }

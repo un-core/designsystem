@@ -5,19 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../breakpoint' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline';
-@use '../../utilities/rtl' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/tooltip' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/z-index' as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../breakpoint" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline";
+@use "../../utilities/rtl" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/tooltip" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/z-index" as *;
 
 @mixin footer {
   .#{$prefix}--footer--bottom-fixed {
@@ -28,12 +28,12 @@
 
   .#{$prefix}--footer {
     @include reset;
-    @include font-family('sans');
+    @include font-family("sans");
     border-top: 2px solid $border-subtle;
     color: $text-primary;
     background-color: $background-main;
-    z-index: z('footer');
-    padding: rem(20px) 0;
+    z-index: z("footer");
+    padding: calcRem(20px) 0;
     @media print {
       display: none;
     }
@@ -63,8 +63,8 @@
   }
 
   .#{$prefix}--footer__meta {
-    @include type-style('body-short');
-    margin-top: rem(20px);
+    @include type-style("body-short");
+    margin-top: calcRem(20px);
     font-style: italic;
     @include breakpoint-down(lg) {
       display: none;
@@ -76,9 +76,9 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    margin-right: rem(64px);
+    margin-right: calcRem(64px);
     @include rtl {
-      margin-left: rem(64px);
+      margin-left: calcRem(64px);
       margin-right: 0;
     }
   }
@@ -90,7 +90,7 @@
   .#{$prefix}--footer__info__item > .#{$prefix}--footer__label {
     // @include typescale('zeta');
     // @include line-height('body');
-    @include type-style('label-02');
+    @include type-style("label-02");
     font-weight: 600;
     margin: 0;
 
@@ -117,7 +117,7 @@
     }
   }
 
-  @include breakpoint-down('md') {
+  @include breakpoint-down("md") {
     .#{$prefix}--footer__cta-logo {
       display: none;
     }
@@ -128,7 +128,7 @@
 
   //breakpoint
 
-  @include breakpoint('md') {
+  @include breakpoint("md") {
     .#{$prefix}--footer__cta-logo-small {
       display: none;
     }
@@ -139,13 +139,13 @@
   }
 
   .#{$prefix}--footer__info__item {
-    margin-right: rem(20px);
+    margin-right: calcRem(20px);
   }
 
   /* External */
 
   .#{$prefix}--footer--external {
-    @include breakpoint-down('md') {
+    @include breakpoint-down("md") {
       .#{$prefix}--footer__content {
         flex-direction: column;
       }
@@ -153,7 +153,7 @@
 
     .#{$prefix}--footer__info {
       order: 1;
-      @include breakpoint('md') {
+      @include breakpoint("md") {
         width: 40%;
       }
       // @include line-height('body');
@@ -162,36 +162,36 @@
 
     .#{$prefix}--footer__cta {
       margin-left: inherit;
-      @include breakpoint-down('md') {
+      @include breakpoint-down("md") {
         display: flex;
         width: 100%;
-        margin-bottom: rem(20px);
+        margin-bottom: calcRem(20px);
         justify-content: space-between;
         > img {
-          margin-right: rem(30px);
+          margin-right: calcRem(30px);
         }
       }
-      @include breakpoint('md') {
+      @include breakpoint("md") {
         margin-right: auto;
       }
     }
 
     .#{$prefix}--footer__info__item {
-      @include typescale('delta');
+      @include typescale("delta");
       // @include line-height('body');
       line-height: 1.5;
       display: block;
       margin: 0;
-      margin-right: rem(64px);
+      margin-right: calcRem(64px);
       @include rtl {
-        margin-left: rem(64px);
+        margin-left: calcRem(64px);
         margin-right: 0;
       }
     }
 
     .#{$prefix}--footer__info__item > .#{$prefix}--link {
       font-weight: 600;
-      margin-right: rem(10px);
+      margin-right: calcRem(10px);
       // @include typescale('zeta');
       @include breakpoint-down(lg) {
         display: block;
@@ -199,17 +199,17 @@
     }
 
     .#{$prefix}--footer__secondary {
-      margin-top: rem(20px);
+      margin-top: calcRem(20px);
       font-weight: 600 !important;
-      @include type-style('caption-01');
+      @include type-style("caption-01");
       @include breakpoint(lg) {
         width: 100%;
       }
     }
 
     .#{$prefix}--footer__meta {
-      @include typescale('zeta');
-      font-size: rem(12px);
+      @include typescale("zeta");
+      font-size: calcRem(12px);
       // border-top: 1px solid $color__navy-gray-8;
       margin-top: $spacing-03;
       padding-top: $spacing-03;

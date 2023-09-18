@@ -5,16 +5,16 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../mixins' as *;
-@use '../functions' as *;
-@use '../../../breakpoint' as *;
-@use '../../../config' as *;
-@use '../../../motion' as *;
-@use '../../../theme' as *;
-@use '../../../type' as *;
-@use '../../../utilities/button-reset';
-@use '../../../utilities/convert' as *;
-@use '../../../utilities/z-index' as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+@use "../../../breakpoint" as *;
+@use "../../../config" as *;
+@use "../../../motion" as *;
+@use "../../../theme" as *;
+@use "../../../type" as *;
+@use "../../../utilities/button-reset";
+@use "../../../utilities/convert" as *;
+@use "../../../utilities/z-index" as *;
 
 /// UI shell header
 /// @access private
@@ -22,7 +22,7 @@
 @mixin header {
   .#{$prefix}--header {
     position: fixed;
-    z-index: z('header');
+    z-index: z("header");
     top: 0;
     right: 0;
     left: 0;
@@ -38,7 +38,7 @@
 
     width: mini-units(6);
     height: mini-units(6);
-    border: rem(2px) solid transparent;
+    border: calcRem(2px) solid transparent;
     transition: background-color $duration-fast-02,
       border-color $duration-fast-02;
   }
@@ -113,7 +113,7 @@
   }
 
   .#{$prefix}--header__menu-toggle__hidden {
-    @include breakpoint('lg') {
+    @include breakpoint("lg") {
       display: none;
     }
   }
@@ -122,13 +122,13 @@
   // Header - Name
   //--------------------------------------------------------------------------
   a.#{$prefix}--header__name {
-    @include type-style('body-short');
+    @include type-style("body-short");
 
     display: flex;
     height: 100%;
     align-items: center;
     padding: 0 mini-units(4) 0 mini-units(2);
-    border: rem(2px) solid transparent;
+    border: calcRem(2px) solid transparent;
     font-weight: 600;
     letter-spacing: 0.1px;
     line-height: 1.25rem;
@@ -154,7 +154,7 @@
 
   .#{$prefix}--header__menu-toggle:not(.#{$prefix}--header__menu-toggle__hidden)
     ~ .#{$prefix}--header__name {
-    padding-left: rem(8px);
+    padding-left: calcRem(8px);
   }
 
   //--------------------------------------------------------------------------
@@ -166,7 +166,7 @@
     height: 100%;
     padding-left: mini-units(2);
 
-    @include breakpoint('lg') {
+    @include breakpoint("lg") {
       display: block;
     }
 
@@ -176,10 +176,10 @@
       top: 50%;
       left: 0;
       display: block;
-      width: rem(1px);
-      height: rem(24px);
+      width: calcRem(1px);
+      height: calcRem(24px);
       background-color: $border-subtle;
-      content: '';
+      content: "";
       transform: translateY(-50%);
     }
   }
@@ -204,7 +204,7 @@
     background-color: $background-main;
     color: $text-secondary;
     // Text styles
-    font-size: rem(14px);
+    font-size: calcRem(14px);
     font-weight: 400;
     letter-spacing: 0;
     line-height: 1.125rem;
@@ -238,12 +238,12 @@
 
   // Styles for selected state
 
-  a.#{$prefix}--header__menu-item[aria-current='page'],
+  a.#{$prefix}--header__menu-item[aria-current="page"],
   .#{$prefix}--header__menu-item--current {
     color: $text-primary;
   }
 
-  a.#{$prefix}--header__menu-item[aria-current='page']::after,
+  a.#{$prefix}--header__menu-item[aria-current="page"]::after,
   .#{$prefix}--header__menu-item--current::after {
     position: absolute;
     top: 0;
@@ -252,15 +252,15 @@
     left: 0;
     width: 100%;
     border-bottom: 3px solid $border-interactive;
-    content: '';
+    content: "";
   }
 
-  a.#{$prefix}--header__menu-item[aria-current='page']:focus::after,
+  a.#{$prefix}--header__menu-item[aria-current="page"]:focus::after,
   .#{$prefix}--header__menu-item--current:focus::after {
     border: 0;
   }
 
-  a.#{$prefix}--header__menu-item[aria-current='page']:focus,
+  a.#{$prefix}--header__menu-item[aria-current="page"]:focus,
   a.#{$prefix}--header__menu-item.#{$prefix}--header__menu-item--current:focus {
     border: 2px solid $focus;
   }
@@ -269,19 +269,19 @@
     position: relative;
   }
 
-  .#{$prefix}--header__menu-title[aria-haspopup='true'] {
+  .#{$prefix}--header__menu-title[aria-haspopup="true"] {
     position: relative;
   }
 
-  .#{$prefix}--header__menu-title[aria-expanded='true'] {
+  .#{$prefix}--header__menu-title[aria-expanded="true"] {
     // Note: needs to be higher than menu. Adding 1 here instead of moving to
     // the next level.
-    z-index: #{z('header') + 1};
+    z-index: #{z("header") + 1};
     background-color: $layer-primary;
     color: $text-secondary;
   }
 
-  .#{$prefix}--header__menu-title[aria-expanded='true']
+  .#{$prefix}--header__menu-title[aria-expanded="true"]
     > .#{$prefix}--header__menu-arrow {
     transform: rotate(180deg);
   }
@@ -293,10 +293,10 @@
     list-style: none;
   }
 
-  .#{$prefix}--header__menu-title[aria-expanded='true']
+  .#{$prefix}--header__menu-title[aria-expanded="true"]
     + .#{$prefix}--header__menu {
     position: absolute;
-    z-index: z('header');
+    z-index: z("header");
     bottom: 0;
     left: 0;
     display: flex;
@@ -307,20 +307,20 @@
     transform: translateY(100%);
   }
 
-  .#{$prefix}--header__menu-title[aria-expanded='true']
+  .#{$prefix}--header__menu-title[aria-expanded="true"]
     + .#{$prefix}--header__menu
     .#{$prefix}--header__menu-item {
     background-color: $layer-primary;
   }
 
-  .#{$prefix}--header__menu-title[aria-expanded='true']
+  .#{$prefix}--header__menu-title[aria-expanded="true"]
     + .#{$prefix}--header__menu
     .#{$prefix}--header__menu-item:hover {
     background-color: $layer-hover;
     color: $text-primary;
   }
 
-  .#{$prefix}--header__menu-title[aria-expanded='true']
+  .#{$prefix}--header__menu-title[aria-expanded="true"]
     + .#{$prefix}--header__menu
     .#{$prefix}--header__menu-item:active {
     background-color: $layer-active;

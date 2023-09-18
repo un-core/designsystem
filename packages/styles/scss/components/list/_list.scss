@@ -9,13 +9,13 @@
 // List
 //-----------------------------
 
-@use '../../config' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../breakpoint' as *;
-@use '../../utilities/rtl' as *;
-@use '../../utilities/convert' as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../breakpoint" as *;
+@use "../../utilities/rtl" as *;
+@use "../../utilities/convert" as *;
 
 /// List styles
 /// @access public
@@ -23,7 +23,7 @@
 @mixin list {
   .#{$prefix}--list {
     @include reset;
-    @include font-family('sans');
+    @include font-family("sans");
     color: $text-primary;
     .#{$prefix}--list-item--checkmark,
     .#{$prefix}--list-item--cross {
@@ -52,7 +52,7 @@
   .#{$prefix}--list--colon {
     .#{$prefix}--list__element__title {
       &:after {
-        content: ':';
+        content: ":";
       }
     }
   }
@@ -68,7 +68,7 @@
 
     .#{$prefix}--list__element__title {
       font-weight: 700;
-      margin-inline-end: rem(5px);
+      margin-inline-end: calcRem(5px);
     }
   }
 
@@ -80,7 +80,7 @@
     margin-inline-start: 1.5em;
     .#{$prefix}--list__element__title {
       font-weight: 700;
-      margin-inline-end: rem(5px);
+      margin-inline-end: calcRem(5px);
     }
     li {
       margin-bottom: 0.4em;
@@ -113,7 +113,7 @@
 
     .#{$prefix}--list__element__title {
       font-weight: 700;
-      margin-inline-end: rem(5px);
+      margin-inline-end: calcRem(5px);
     }
   }
 
@@ -133,12 +133,12 @@
     .#{$prefix}--list__element__title {
       font-weight: 600;
       display: block;
-      @include type-style('heading-02'); //TODO previous font was 18,
+      @include type-style("heading-02"); //TODO previous font was 18,
       margin-bottom: $spacing-03;
     }
 
     .#{$prefix}--list__element__content {
-      @include type-style('body-short-02');
+      @include type-style("body-short-02");
       display: block;
     }
     .#{$prefix}--list__element {

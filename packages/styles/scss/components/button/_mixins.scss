@@ -5,19 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use 'vars' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/component-reset';
-@use '../../utilities/convert' as *;
-@use '../../utilities/rtl' as *;
+@use "vars" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/component-reset";
+@use "../../utilities/convert" as *;
+@use "../../utilities/rtl" as *;
 
 @mixin button-base {
   @include reset;
-  @include font-family('sans');
+  @include font-family("sans");
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -42,8 +42,8 @@
   }
 
   .#{$prefix}--btn__icon {
-    //width: rem(16px);
-    //height: rem(16px);
+    //width: calcRem(16px);
+    //height: calcRem(16px);
     margin-left: 0.5em;
     @include rtl {
       margin-left: initial;
@@ -69,7 +69,7 @@
   color: $font-color;
 
   // TODO: Check if link override is still needed
-  &[role='button'] {
+  &[role="button"] {
     color: $font-color;
   }
   /* @at-root a {

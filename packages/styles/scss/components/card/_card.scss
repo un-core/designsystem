@@ -5,15 +5,15 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../breakpoint' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/focus-outline' as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../breakpoint" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/focus-outline" as *;
 
 @mixin card {
   .#{$prefix}--card-box {
@@ -51,7 +51,7 @@
   .#{$prefix}--photo-cardnew__info__metadata {
     margin: 0;
     margin-bottom: $spacing-03;
-    @include type-style('caption');
+    @include type-style("caption");
     text-transform: uppercase;
     letter-spacing: 0.05em;
     // color: $text-primary;
@@ -59,7 +59,7 @@
 
   .#{$prefix}--photo-cardnew__info__subtitle {
     margin: 0;
-    @include type-style('body-short');
+    @include type-style("body-short");
   }
 
   .#{$prefix}--photo-cardnew__info__title {
@@ -108,12 +108,12 @@
       background-size: cover;
       transform: scale(1.05);
       z-index: -1;
-      height: rem(200px);
-      @include breakpoint('lg') {
-        height: rem(260px);
+      height: calcRem(200px);
+      @include breakpoint("lg") {
+        height: calcRem(260px);
       }
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -127,18 +127,18 @@
   }
 
   .#{$prefix}--photo-cardnew--overlay {
-    height: rem(300px);
-    @include breakpoint('lg') {
-      height: rem(500px);
+    height: calcRem(300px);
+    @include breakpoint("lg") {
+      height: calcRem(500px);
     }
     box-shadow: none;
     .#{$prefix}--photo-cardnew__info {
       padding: $spacing-06;
     }
     .#{$prefix}--photo-cardnew__info__background {
-      height: rem(300px);
-      @include breakpoint('lg') {
-        height: rem(500px);
+      height: calcRem(300px);
+      @include breakpoint("lg") {
+        height: calcRem(500px);
       }
     }
   }
