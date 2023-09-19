@@ -4,20 +4,20 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-@use 'mixins' as *;
-@use '../../breakpoint' as *;
-@use '../../colors' as *;
-@use '../../config' as *;
-@use '../../feature-flags' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../themes' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/component-tokens' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/focus-outline' as *;
+@use "mixins" as *;
+@use "../../breakpoint" as *;
+@use "../../colors" as *;
+@use "../../config" as *;
+@use "../../feature-flags" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../themes" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/component-tokens" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/focus-outline" as *;
 
 /// Inline notification styles
 /// @access public
@@ -29,26 +29,26 @@
     position: relative;
     display: flex;
     width: 100%;
-    min-width: rem(288px);
-    max-width: rem(288px);
+    min-width: calcRem(288px);
+    max-width: calcRem(288px);
     height: auto;
-    min-height: rem(48px);
+    min-height: calcRem(48px);
     flex-wrap: wrap;
     margin-top: $spacing-05;
     margin-bottom: $spacing-05;
     color: $text-inverse;
 
     @include breakpoint(md) {
-      max-width: rem(608px);
+      max-width: calcRem(608px);
       flex-wrap: nowrap;
     }
 
     @include breakpoint(lg) {
-      max-width: rem(736px);
+      max-width: calcRem(736px);
     }
 
     @include breakpoint(max) {
-      max-width: rem(832px);
+      max-width: calcRem(832px);
     }
   }
 
@@ -88,7 +88,7 @@
       box-sizing: border-box;
       //border-width: 1px 1px 1px 0;
       border-style: solid;
-      content: '';
+      content: "";
       filter: opacity(0.4);
       pointer-events: none;
     }
@@ -172,7 +172,7 @@
 
   .#{$prefix}--inline-notification--warning
     .#{$prefix}--inline-notification__icon
-    path[opacity='0'] {
+    path[opacity="0"] {
     fill: $text-primary;
     opacity: 1;
   }
@@ -189,37 +189,37 @@
 
   .#{$prefix}--inline-notification__icon {
     flex-shrink: 0;
-    margin-top: rem(14px);
+    margin-top: calcRem(14px);
     margin-right: $spacing-05;
   }
 
   .#{$prefix}--inline-notification__text-wrapper {
     flex-wrap: wrap;
-    padding: rem(13px) 0;
+    padding: calcRem(13px) 0;
   }
 
-  @if enabled('enable-v11-release') {
+  @if enabled("enable-v11-release") {
     .#{$prefix}--inline-notification__content {
-      @include type-style('body-short');
+      @include type-style("body-short");
 
       word-break: break-word;
     }
   } @else {
     .#{$prefix}--inline-notification__title {
-      @include type-style('productive-heading-01');
+      @include type-style("productive-heading-01");
 
       margin: 0 $spacing-03 0 0;
     }
 
     .#{$prefix}--inline-notification__subtitle {
-      @include type-style('body-short');
+      @include type-style("body-short");
 
       word-break: break-word;
     }
   }
 
   .#{$prefix}--inline-notification__action-button.#{$prefix}--btn--ghost {
-    height: rem(32px);
+    height: calcRem(32px);
     margin-bottom: $spacing-03;
     margin-left: $spacing-08;
 
@@ -265,16 +265,16 @@
   }
 
   .#{$prefix}--inline-notification__close-button {
-    @include focus-outline('reset');
+    @include focus-outline("reset");
 
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
-    width: rem(48px);
-    min-width: rem(48px);
-    max-width: rem(48px);
-    height: rem(48px);
+    width: calcRem(48px);
+    min-width: calcRem(48px);
+    max-width: calcRem(48px);
+    height: calcRem(48px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -301,7 +301,7 @@
 
   .#{$prefix}--inline-notification--low-contrast
     .#{$prefix}--inline-notification__close-button:focus {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
   }
 
   .#{$prefix}--inline-notification--low-contrast
@@ -313,16 +313,16 @@
   // Windows HCM fix
   /* stylelint-disable */
   .#{$prefix}--inline-notification {
-    @include high-contrast-mode('outline');
+    @include high-contrast-mode("outline");
   }
 
   .#{$prefix}--inline-notification__close-button:focus,
   .#{$prefix}--btn.#{$prefix}--btn--ghost.#{$prefix}--inline-notification__action-button:focus {
-    @include high-contrast-mode('focus');
+    @include high-contrast-mode("focus");
   }
 
   .#{$prefix}--inline-notification__icon {
-    @include high-contrast-mode('icon-fill');
+    @include high-contrast-mode("icon-fill");
   }
   /* stylelint-enable */
 }

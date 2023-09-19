@@ -4,9 +4,9 @@ import { createPathTree } from "../../../Sidebar/SidebarNavigation";
 import slugifyWithSlashes from "../../../../lib/slugifyWithSlashes";
 import Link from "next/link";
 
-import PropTypes from "../../../PropTypes";
+//import PropTypes from "../../../PropTypes";
 
-function ComponentPreview({ component, componentsList }: any) {
+/* function ComponentPreview({ component, componentsList }: any) {
   const componentData = componentsList.find(
     (e) => e.slug === component.path.slug
   );
@@ -20,7 +20,7 @@ function ComponentPreview({ component, componentsList }: any) {
       {...componentData}
     />
   );
-}
+} */
 
 export default function ComponentsList(props: any) {
   const componentsList = JSON.parse(props.components) || [];
@@ -53,13 +53,13 @@ export default function ComponentsList(props: any) {
                   <Link
                     className={styles.component}
                     key={i}
-                    href={"/" + slugifyWithSlashes(c.path.key)}
+                    href={"/" + slugifyWithSlashes(c?.path?.key)}
                   >
                     <div className={styles.name}>{c.name}</div>
-                    <ComponentPreview
+                    {/*<ComponentPreview
                       component={c}
                       componentsList={componentsList}
-                    />
+                />*/}
                   </Link>
                 );
               })}

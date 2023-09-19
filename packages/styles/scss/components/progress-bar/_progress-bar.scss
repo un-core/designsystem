@@ -5,19 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
 
 /// Progress Bar styles
 /// @access public
 /// @group progress-bar
 @mixin progress-bar {
   .#{$prefix}--progress-bar__label {
-    @include type-style('body-short');
+    @include type-style("body-short");
 
     display: block;
     margin-bottom: $spacing-03;
@@ -27,7 +27,7 @@
   .#{$prefix}--progress-bar__track {
     position: relative;
     width: 100%;
-    height: rem(8px);
+    height: calcRem(8px);
     background-color: $layer-primary;
   }
 
@@ -59,11 +59,11 @@
     );
     background-position-x: 0%;
     background-size: 200% 100%;
-    content: '';
+    content: "";
   }
 
   .#{$prefix}--progress-bar__helper-text {
-    @include type-style('helper-text');
+    @include type-style("helper-text");
 
     margin-top: $spacing-02;
     color: $text-secondary;

@@ -5,20 +5,20 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use 'mixins' as *;
+@use "mixins" as *;
 //@use 'tokens' as *;
-@use '../../breakpoint' as *;
-@use '../../colors' as *;
-@use '../../config' as *;
-@use '../../feature-flags' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../themes' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/focus-outline' as *;
+@use "../../breakpoint" as *;
+@use "../../colors" as *;
+@use "../../config" as *;
+@use "../../feature-flags" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../themes" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/focus-outline" as *;
 
 /// Toast notification styles
 /// @access public
@@ -27,7 +27,7 @@
   .#{$prefix}--toast-notification {
     @include reset;
     display: flex;
-    width: rem(288px);
+    width: calcRem(288px);
     height: auto;
     padding-left: $spacing-05;
     margin-top: $spacing-03;
@@ -41,7 +41,7 @@
     }
 
     @include breakpoint-up(md) {
-      width: rem(452px);
+      width: calcRem(452px);
     }
   }
 
@@ -135,7 +135,7 @@
 
   .#{$prefix}--toast-notification--warning
     .#{$prefix}--toast-notification__icon
-    path[opacity='0'] {
+    path[opacity="0"] {
     fill: $text-primary;
     opacity: 1;
   }
@@ -146,9 +146,9 @@
     margin-right: $spacing-05;
   }
 
-  @if enabled('enable-v11-release') {
+  @if enabled("enable-v11-release") {
     .#{$prefix}--toast-notification__content {
-      @include type-style('body-short');
+      @include type-style("body-short");
 
       margin-top: $spacing-05;
       margin-right: $spacing-05;
@@ -167,13 +167,13 @@
   }
 
   .#{$prefix}--toast-notification__close-button {
-    @include focus-outline('reset');
+    @include focus-outline("reset");
 
     display: flex;
-    width: rem(48px);
-    min-width: rem(48px);
-    height: rem(48px);
-    min-height: rem(48px);
+    width: calcRem(48px);
+    min-width: calcRem(48px);
+    height: calcRem(48px);
+    min-height: calcRem(48px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -196,7 +196,7 @@
 
   .#{$prefix}--toast-notification--low-contrast
     .#{$prefix}--toast-notification__close-button:focus {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
   }
 
   .#{$prefix}--toast-notification--low-contrast
@@ -205,9 +205,9 @@
     fill: $icon-primary;
   }
 
-  @if not enabled('enable-v11-release') {
+  @if not enabled("enable-v11-release") {
     .#{$prefix}--toast-notification__title {
-      @include type-style('productive-heading-01');
+      @include type-style("productive-heading-01");
 
       margin-top: $spacing-05;
       font-weight: 600;
@@ -215,7 +215,7 @@
     }
 
     .#{$prefix}--toast-notification__subtitle {
-      @include type-style('body-short');
+      @include type-style("body-short");
 
       margin-top: 0;
       margin-bottom: $spacing-05;
@@ -229,7 +229,7 @@
     }
 
     .#{$prefix}--toast-notification__caption {
-      @include type-style('body-short');
+      @include type-style("body-short");
 
       padding-top: $spacing-03;
       margin-bottom: $spacing-05;
@@ -245,13 +245,13 @@
   // Windows HCM fix
   /* stylelint-disable */
   .#{$prefix}--toast-notification {
-    @include high-contrast-mode('outline');
+    @include high-contrast-mode("outline");
   }
   .#{$prefix}--toast-notification__close-button:focus {
-    @include high-contrast-mode('focus');
+    @include high-contrast-mode("focus");
   }
   .#{$prefix}--toast-notification__icon {
-    @include high-contrast-mode('icon-fill');
+    @include high-contrast-mode("icon-fill");
   }
   /* stylelint-enable */
 }

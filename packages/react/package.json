@@ -1,6 +1,6 @@
 {
   "name": "@wfp/react",
-  "version": "1.18.103",
+  "version": "1.18.104",
   "description": "WFP UI Kit",
   "license": "Apache-2",
   "main": "lib/index.js",
@@ -109,8 +109,8 @@
     "@un/babel-preset-wfp": "^0.1.33",
     "@un/icons-react": "^10.34.59",
     "@un/pictograms-react": "^11.14.46",
-    "@un/themes-core": "^0.0.38",
-    "@wfp/styles": "^10.26.80",
+    "@un/themes-core": "^0.0.39",
+    "@wfp/styles": "^10.26.81",
     "all-contributors-cli": "^6.17.0",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",

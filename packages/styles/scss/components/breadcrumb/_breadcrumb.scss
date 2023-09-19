@@ -5,23 +5,23 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../breakpoint' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/rtl' as *;
-@use '../../utilities/skeleton' as *;
+@use "../../breakpoint" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/rtl" as *;
+@use "../../utilities/skeleton" as *;
 
 @mixin breadcrumb {
   .#{$prefix}--breadcrumb {
-    @include type-style('label-02');
-    @include font-family('sans');
+    @include type-style("label-02");
+    @include font-family("sans");
     display: none;
 
-    @include breakpoint('sm') {
+    @include breakpoint("sm") {
       display: flex;
       flex-wrap: wrap;
     }
@@ -38,9 +38,9 @@
   }
 
   .#{$prefix}--breadcrumb-item::after {
-    content: '›';
+    content: "›";
     font-weight: 600;
-    margin-top: rem(-2px);
+    margin-top: calcRem(-2px);
     margin-left: $spacing-04;
 
     @include rtl {
@@ -53,10 +53,9 @@
 
   .#{$prefix}--breadcrumb--no-trailing-slash
     .#{$prefix}--breadcrumb-item:last-child::after {
-    content: '';
+    content: "";
   }
 
- 
   .#{$prefix}--breadcrumb-item:last-child {
     @include ltr {
       margin-right: 0;

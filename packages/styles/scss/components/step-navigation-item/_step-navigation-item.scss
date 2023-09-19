@@ -1,18 +1,18 @@
-@use '../../breakpoint' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../theme' as *;
-@use '../../spacing' as *;
-@use '../../type' as *;
-@use '../../utilities/convert';
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/skeleton' as *;
+@use "../../breakpoint" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../theme" as *;
+@use "../../spacing" as *;
+@use "../../type" as *;
+@use "../../utilities/convert";
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/skeleton" as *;
 
 // TODO review why type-style is not applied line 16
 @mixin step-navigation-item {
   #{$prefix}--step-navigation__nav-item {
-    @include type-style('body-short');
+    @include type-style("body-short");
     margin: 0;
     padding: $spacing-04 0 $spacing-04;
     cursor: pointer;
@@ -40,7 +40,7 @@
   }
 
   .#{$prefix}--step-navigation__nav-item__helper-text {
-    @include type-style('label');
+    @include type-style("label");
     display: block;
     margin-top: $spacing-02;
     text-decoration: none;
@@ -49,9 +49,9 @@
 
   /*
   .#{$prefix}--step-navigation__section {
-    margin-bottom: rem(4px);
+    margin-bottom: calcRem(4px);
     > .#{$prefix}--step-navigation__nav-link {
-      margin-bottom: rem(2px);
+      margin-bottom: calcRem(2px);
     }
   }
 
@@ -60,10 +60,10 @@
     border: 2px solid var(--ui-05);
     border-radius: 30px;
     flex-shrink: 0;
-    width: rem(34px);
-    height: rem(34px);
-    line-height: rem(30px);
-    margin-right: rem(8px);
+    width: calcRem(34px);
+    height: calcRem(34px);
+    line-height: calcRem(30px);
+    margin-right: calcRem(8px);
     text-align: center;
   }*/
 
@@ -134,7 +134,7 @@
 
       left: calc(50% - 0px);
       margin-left: -1px;
-      content: '';
+      content: "";
       background: var(--ui-04);
     }
   }
@@ -153,7 +153,7 @@
       outline: none;
     }
 
-    @include breakpoint('md') {
+    @include breakpoint("md") {
       padding: 0 0.2em;
       width: auto;
 

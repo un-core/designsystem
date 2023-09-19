@@ -5,31 +5,31 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../theme' as *;
-@use '../../utilities/button-reset';
-@use '../../type' as *;
-@use '../../motion' as *;
-@use '../../config' as *;
-@use '../../utilities/component-tokens' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../spacing' as *;
-@use './mixins' as *;
-@use '../../utilities/skeleton';
+@use "../../theme" as *;
+@use "../../utilities/button-reset";
+@use "../../type" as *;
+@use "../../motion" as *;
+@use "../../config" as *;
+@use "../../utilities/component-tokens" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../spacing" as *;
+@use "./mixins" as *;
+@use "../../utilities/skeleton";
 
 /// Tag styles
 /// @access public
 /// @group tag
 @mixin tag {
   .#{$prefix}--tag {
-    @include font-family('sans');
-    @include typescale('zeta');
+    @include font-family("sans");
+    @include typescale("zeta");
     display: inline-flex;
     align-items: center;
     padding: 0 $spacing-03;
     height: 1.5rem;
     margin: $spacing-01;
-    border-radius: rem(15px);
+    border-radius: calcRem(15px);
     white-space: nowrap;
 
     &:not(:first-child) {
@@ -79,12 +79,12 @@
   // Skeleton state
   // .#{$prefix}--tag.#{$prefix}--skeleton {
   //   @include tag-theme($color__gray-1, $color__navy-gray-4);
-  //   width: rem(60px);
+  //   width: calcRem(60px);
 
   //   &:after {
   //     @include skeleton;
   //     content: '';
-  //     height: rem(6px);
+  //     height: calcRem(6px);
   //     width: 100%;
   //   }
   // }
@@ -92,14 +92,14 @@
 
 @mixin tag--x {
   .#{$prefix}--tag {
-    @include font-family('sans');
-    @include typescale('zeta');
+    @include font-family("sans");
+    @include typescale("zeta");
     display: inline-flex;
     align-items: center;
     padding: 0 $spacing-03;
     height: 1.5rem;
     margin: $spacing-02;
-    border-radius: rem(15px);
+    border-radius: calcRem(15px);
 
     &:not(:first-child) {
       margin-left: 0;
@@ -117,12 +117,12 @@
   // Skeleton state TODO
   // .#{$prefix}--tag.#{$prefix}--skeleton {
   //   @include tag-theme--x($color__gray-1, $color__navy-gray-4);
-  //   width: rem(60px);
+  //   width: calcRem(60px);
 
   //   &:after {
   //     @include skeleton;
   //     content: '';
-  //     height: rem(6px);
+  //     height: calcRem(6px);
   //     width: 100%;
   //   }
   // }

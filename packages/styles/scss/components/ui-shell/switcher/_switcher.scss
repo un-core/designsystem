@@ -5,11 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../config' as *;
-@use '../../../spacing' as *;
-@use '../../../theme' as *;
-@use '../../../type' as *;
-@use '../../../utilities/convert' as *;
+@use "../../../config" as *;
+@use "../../../spacing" as *;
+@use "../../../theme" as *;
+@use "../../../type" as *;
+@use "../../../utilities/convert" as *;
 
 /// UI shell side nav
 /// @access private
@@ -37,7 +37,7 @@
 
   .#{$prefix}--switcher__item--divider {
     display: block;
-    width: rem(224px);
+    width: calcRem(224px);
     height: 1px;
     border: none;
     margin: $spacing-03 $spacing-05;
@@ -45,11 +45,11 @@
   }
 
   .#{$prefix}--switcher__item-link {
-    @include type-style('productive-heading-01');
+    @include type-style("productive-heading-01");
 
     display: block;
     height: $spacing-07;
-    padding: rem(6px) $spacing-05;
+    padding: calcRem(6px) $spacing-05;
     color: $text-secondary;
     text-decoration: none;
 

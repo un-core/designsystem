@@ -5,14 +5,14 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../config' as *;
-@use '../../../motion' as *;
-@use '../../../spacing' as *;
-@use '../../../compat/theme' as *;
-@use '../../../utilities/button-reset';
-@use '../../../utilities/convert' as *;
-@use '../../../utilities/focus-outline' as *;
-@use '../../../utilities/high-contrast-mode' as *;
+@use "../../../config" as *;
+@use "../../../motion" as *;
+@use "../../../spacing" as *;
+@use "../../../compat/theme" as *;
+@use "../../../utilities/button-reset";
+@use "../../../utilities/convert" as *;
+@use "../../../utilities/focus-outline" as *;
+@use "../../../utilities/high-contrast-mode" as *;
 
 /// Data table expandable styles
 /// @access public
@@ -175,8 +175,8 @@
   .#{$prefix}--data-table
     td.#{$prefix}--table-expand
     + .#{$prefix}--table-column-checkbox {
-    padding-right: rem(6px);
-    padding-left: rem(6px);
+    padding-right: calcRem(6px);
+    padding-left: calcRem(6px);
   }
 
   .#{$prefix}--data-table
@@ -187,7 +187,7 @@
     td.#{$prefix}--table-expand
     + .#{$prefix}--table-column-checkbox
     + td {
-    padding-left: rem(8px);
+    padding-left: calcRem(8px);
   }
 
   .#{$prefix}--data-table td.#{$prefix}--table-expand,
@@ -197,18 +197,18 @@
   }
 
   .#{$prefix}--data-table
-    td.#{$prefix}--table-expand[data-previous-value='collapsed'] {
+    td.#{$prefix}--table-expand[data-previous-value="collapsed"] {
     border-bottom: 1px solid transparent;
   }
 
-  .#{$prefix}--table-expand[data-previous-value='collapsed']
+  .#{$prefix}--table-expand[data-previous-value="collapsed"]
     .#{$prefix}--table-expand__svg {
     transform: rotate(270deg);
     transition: transform $duration-moderate-01 motion(standard, productive);
   }
 
   .#{$prefix}--table-expand__button {
-    @include button-reset.reset('false');
+    @include button-reset.reset("false");
 
     display: inline-flex;
     width: 100%;
@@ -234,7 +234,7 @@
   // V11: remove tall
   .#{$prefix}--data-table--tall .#{$prefix}--table-expand__button,
   .#{$prefix}--data-table--xl .#{$prefix}--table-expand__button {
-    width: rem(32px);
+    width: calcRem(32px);
     padding: 0;
   }
 
@@ -243,12 +243,12 @@
     td.#{$prefix}--table-expand
     + td::after {
     position: absolute;
-    bottom: rem(-1px);
+    bottom: calcRem(-1px);
     left: 0;
-    width: rem(8px);
-    height: rem(1px);
+    width: calcRem(8px);
+    height: calcRem(1px);
     background: $layer-accent;
-    content: '';
+    content: "";
   }
 
   tr.#{$prefix}--parent-row.#{$prefix}--expandable-row:hover
@@ -336,7 +336,9 @@
   }
 
   // Parent collapsed hover
-  tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expandable-row):hover
+  tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(
+      .#{$prefix}--expandable-row
+    ):hover
     td {
     border-top: 1px solid $layer-selected-hover;
     border-bottom: 1px solid $border-subtle;
@@ -383,7 +385,7 @@
   tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--expandable-row
     + tr[data-child-row]:last-of-type
     td {
-    padding-bottom: rem(24px);
+    padding-bottom: calcRem(24px);
     box-shadow: inset 0 -1px $layer-active;
   }
 
@@ -399,11 +401,11 @@
 
   // Windows HCM fix
   .#{$prefix}--table-expand__button:focus .#{$prefix}--table-expand__svg {
-    @include high-contrast-mode('focus');
+    @include high-contrast-mode("focus");
   }
 
   // stylelint-disable-next-line no-duplicate-selectors
   .#{$prefix}--table-expand__svg {
-    @include high-contrast-mode('icon-fill');
+    @include high-contrast-mode("icon-fill");
   }
 }

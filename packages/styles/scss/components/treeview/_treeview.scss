@@ -5,13 +5,13 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline' as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline" as *;
 @use "../../utilities/skeleton" as *;
 
 /// Treeview styles
@@ -32,7 +32,7 @@
     }
 
     .#{$prefix}--tree-node:focus > .#{$prefix}--tree-node__label {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
     }
 
     .#{$prefix}--tree-node--disabled:focus > .#{$prefix}--tree-node__label {
@@ -66,10 +66,10 @@
     }
 
     .#{$prefix}--tree-node__label {
-      @include type-style('body-short');
+      @include type-style("body-short");
 
       display: flex;
-      min-height: rem(32px);
+      min-height: calcRem(32px);
       flex: 1;
       align-items: center;
 
@@ -163,15 +163,15 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: rem(4px);
+        width: calcRem(4px);
         height: 100%;
         background-color: $interactive-04;
-        content: '';
+        content: "";
       }
     }
   }
 
   .#{$prefix}--tree--compact .#{$prefix}--tree-node__label {
-    min-height: rem(24px);
+    min-height: calcRem(24px);
   }
 }
