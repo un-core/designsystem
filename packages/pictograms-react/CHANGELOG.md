@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.14.48 (2023-09-19)
+
+**Note:** Version bump only for package @un/pictograms-react
+
+
+
+
+
 ## 11.14.47 (2023-09-19)
 
 **Note:** Version bump only for package @un/pictograms-react
