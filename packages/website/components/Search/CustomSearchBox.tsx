@@ -1,15 +1,14 @@
-import { Search } from '@wfp/react';
-import styles from './search.module.scss';
+import { Search } from "@wfp/react";
+import styles from "./search.module.scss";
 
-import { useSearchBox } from 'react-instantsearch-hooks-web';
-import { useEffect, useRef } from 'react';
+import { useSearchBox } from "react-instantsearch-hooks-web";
+import { useEffect, useRef } from "react";
 
 function SearchBox(props: any) {
   const { refine } = useSearchBox(props);
   const searchRef = useRef<HTMLInputElement | null>(null);
 
   const setFocus = () => {
-    console.log('focus', searchRef.current);
     searchRef.current && searchRef.current.focus();
   };
 
@@ -23,7 +22,7 @@ function SearchBox(props: any) {
     //<form action="" role="search">
     <Search
       id="algolia_search"
-      className={props.kind === 'main' ? styles.mainSearch : styles.search}
+      className={props.kind === "main" ? styles.mainSearch : styles.search}
       kind={props.kind}
       placeholder="Search topic..."
       /* onFocus={() => setFocus(true)}

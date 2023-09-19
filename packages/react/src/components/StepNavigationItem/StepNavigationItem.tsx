@@ -15,15 +15,54 @@ import {
 import useSettings from '../../hooks/useSettings';
 
 type StepNavigationItemProps = PropsWithChildren<{
+  /**
+   * Provide a className that is applied to the StepNavigation component
+   *
+   */
   className?: string;
+  /**
+   * Provide text that is used alongside the control label for additional help
+   *
+   */
   helperText?: React.ReactNode;
+  /**
+   * Provide the index of the each item
+   *
+   */
   index?: number;
+  /**
+   * Provide the text that will be read by a screen reader when visiting this control
+   *
+   */
   label?: string;
+  /**
+   * By default, this value is "presentation". You can also provide an alternate
+   * role if it makes sense from the accessibility-side
+   */
   role?: string;
+  /**
+   * Optionally provide an index for the currently selected <Tab>
+   */
   selectedPage?: number;
+  /**
+   * The page number of the step.
+   **/
   page?: number;
+  /**
+   * Provide status one of these status prop type to your step to give more meaning.
+   *
+   */
+
   status?: string;
+  /**
+   * An optional parameter to allow overriding the anchor rendering.
+   * Useful for using Tab along with react-router or other client
+   * side router libraries.
+   */
   renderAnchor?: (p: object) => {};
+  /**
+   * On click handler to change the currently active item.
+   **/
   onClick?: (e: object) => {};
   handleTabClick?: (e?: any, index?: number, label?: string) => {};
 }>;

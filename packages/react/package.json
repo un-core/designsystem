@@ -8,7 +8,7 @@
   "main:scss": "source/globals/styles.scss",
   "types": "es/index.d.ts",
   "scripts": {
-    "build": "yarn rollup -c",
+    "build": "yarn rollup -c --bundleConfigAsCjs",
     "clean": "rimraf es lib umd storybook-static build react-docgen.json",
     "build:rollup": "rollup -c",
     "build:script": "node scripts/build.js",

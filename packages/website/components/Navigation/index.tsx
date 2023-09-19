@@ -38,10 +38,7 @@ export default function Navigation() {
       </BannerNavigation>
       <MainNavigation
         logo={<NextLink href="./">UN core</NextLink>}
-        /*components={{
-          LanguageExternal: () => null,
-          UserExternal: () => null,
-        }}*/
+        line={false}
         className={styles.mainNavigation}
         pageWidth="full"
       >

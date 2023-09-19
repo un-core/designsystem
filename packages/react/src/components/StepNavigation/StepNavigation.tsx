@@ -6,12 +6,37 @@ import useSettings from '../../hooks/useSettings';
 
 /** Step Navigation provide indications to help users reach their destination from their current position */
 type StepNavigationProps = PropsWithChildren<{
+  /**
+   * Provide a className that is applied to the root <nav> component for the
+   * <Tabs>
+   */
   className?: string;
+  /**
+   * Specify whether the StepNavigation will be displayed small
+   */
   small?: boolean;
+  /**
+   * Specify whether the StepNavigation will be displayed vertically
+   */
   vertical?: boolean;
+  /**
+   * Specify whether the StepNavigation will be displayed inline
+   */
   inline?: boolean;
+  /**
+   * By default, this value is "navigation". You can also provide an alternate
+   * role if it makes sense from the accessibility-side
+   */
   role: string;
+  /**
+   * Provide an optional handler that is called whenever the selection
+   * changes. This method is called with the index of the tab that was
+   * selected
+   */
   onSelectionChange?: React.SetStateAction<number>;
+  /**
+   * Optionally provide an index for the currently selected <Tab>
+   */
   selectedPage?: number;
 }>;
 
