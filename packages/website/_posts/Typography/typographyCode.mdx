@@ -9,9 +9,9 @@ Depending on your frontend stack you can use different methods to load the fonts
 
 ### [Vite](https://vitejs.dev/) or [Create React App](https://create-react-app.dev/)
 
-Install the `@fontsource` packages for the fonts you want to use.
+Install the [@fontsource/open-sans](https://www.npmjs.com/package/@fontsource/open-sans) packages for the fonts you want to use.
 
-```
+```shell
 npm install @fontsource/open-sans
 ```
 
@@ -21,9 +21,27 @@ Import the font in your app.
 import "@fontsource/open-sans/latin.css";
 ```
 
+For Noto Sans, you can use [@fontsource/noto-sans](https://www.npmjs.com/package/@fontsource/noto-sans).
+
+```shell
+npm install @fontsource/noto-sans
+```
+
+Import the font in your app.
+
+```jsx
+import "@fontsource/noto-sans/latin.css";
+```
+
 ### [Next.js](https://nextjs.org/)
 
 `next/font` will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
+
+Install the `next/font` package.
+
+```shell
+npm install next/font
+```
 
 Make sure to set the `--font-family-primary` css variable as seen below.
 
@@ -43,6 +61,17 @@ export default function MyApp({ Component, pageProps }) {
     </main>
   );
 }
+```
+
+For Noto Sans use the following import.
+
+```jsx
+import { Noto_Sans } from "next/font/google";
+
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  variable: "--font-family-primary", // CSS variable name used by the Design System
+});
 ```
 
 ### Reference
