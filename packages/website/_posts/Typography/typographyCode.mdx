@@ -7,7 +7,21 @@ slug: "Documentation/Guidelines/Typography/code"
 
 Depending on your frontend stack you can use different methods to load the fonts. The following examples are for React and Next.js. If you are using a different stack, please refer to the [Google Fonts documentation](https://developers.google.com/fonts/docs/getting_started).
 
-### Next.js
+### [Vite](https://vitejs.dev/) or [Create React App](https://create-react-app.dev/)
+
+Install the `@fontsource` packages for the fonts you want to use.
+
+```
+npm install @fontsource/open-sans
+```
+
+Import the font in your app.
+
+```jsx
+import "@fontsource/open-sans/latin.css";
+```
+
+### [Next.js](https://nextjs.org/)
 
 `next/font` will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
 
@@ -30,3 +44,8 @@ export default function MyApp({ Component, pageProps }) {
   );
 }
 ```
+
+### Reference
+
+- [Font Optimization](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts)
+- [FontSource package](https://www.npmjs.com/package/@fontsource/open-sans)
