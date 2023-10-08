@@ -51,7 +51,7 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
             split.children[0].name === "code" ? (
             // Child level
             <NextLink
-              href={`/${slugifyWithSlashes(split.path?.key)}`}
+              href={`${slugifyWithSlashes(split.path?.key)}`}
               passHref
               legacyBehavior
             >
@@ -117,8 +117,6 @@ export default function SidebarNavigation({ post, posts, slug }: any) {
       directory: false,
     };
   });
-
-  console.log("splitSidebar", posts);
 
   const split: any = createPathTree(postSplit) || [];
 
