@@ -116,7 +116,12 @@ export default function SidebarWrapper({
             >
               Usage
             </NextTab>
-            <NextTab href={`${slugifyWithSlashes(post.slug)}/code`}>
+            <NextTab
+              href={`${slugifyWithSlashes(post.slug).replace(
+                "/code",
+                ""
+              )}/code`}
+            >
               Code
             </NextTab>
           </Tabs>

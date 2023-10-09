@@ -2,13 +2,13 @@ import type { StorybookConfig } from "@storybook/react";
 const config: StorybookConfig = {
   stories: ["../src/**/*stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   core: {
-    builder: "@storybook/builder-vite", // 👈 The builder enabled here.
+    builder: "@storybook/builder-vite",
   },
   addons: [
     "@storybook/blocks",
     "@storybook/addon-links",
-    // "@storybook/addon-essentials",
-    "@storybook/preset-create-react-app",
+    "@storybook/addon-essentials",
+    // "@storybook/preset-create-react-app",
     "@storybook/addon-interactions",
   ],
   framework: {
