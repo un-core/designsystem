@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactSelect from 'react-select';
+import React from "react";
+import ReactSelect from "react-select";
 
-import markdown from './README.mdx';
+import markdown from "./README.mdx";
 
 export default {
-  title: 'Components/Forms/Dropdown/react-select',
+  title: "Components/Forms/Dropdown/react-select",
   component: ReactSelect,
-  markdown: 'hello',
+  markdown: "hello",
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     introText: `[React Select](https://react-select.com) is recommended for multiselect, autocomplete or dynamic inputs.`,
     mdx: markdown,
     code: false,
@@ -18,13 +18,13 @@ export default {
 };
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
 ];
 
 export const Default = (args) => (
-  <div className="wfp--form-item" style={{ minWidth: '400px' }}>
+  <div className="wfp--form-item" style={{ minWidth: "400px" }}>
     <label htmlFor="abc" className="wfp--label">
       The Label
     </label>
@@ -39,14 +39,14 @@ export const Default = (args) => (
   </div>
 );
 Default.args = {
-  placeholder: 'Placeholder',
+  placeholder: "Placeholder",
   isSearchable: false,
   isMulti: true,
   isDisabled: false,
 };
 
 Default.story = {
-  name: 'Default',
+  name: "Default",
   parameters: {
     info: {
       source: false,

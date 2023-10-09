@@ -1,6 +1,6 @@
-import React, { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import React, { PropsWithChildren } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
 export interface FormItemProps extends React.AllHTMLAttributes<HTMLDivElement> {
   /**
@@ -11,6 +11,10 @@ export interface FormItemProps extends React.AllHTMLAttributes<HTMLDivElement> {
    * Specify whether the FormItem should be rendered as inline
    */
   inline?: boolean;
+  /**
+   * Provide the contents of your FormItem
+   */
+  children?: React.ReactNode;
 }
 
 const FormItem: React.FC<PropsWithChildren<FormItemProps>> = ({

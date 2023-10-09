@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import Input, { InputProps, useInput } from '../Input';
-import { Search as SearchIcon, Close } from '@un/icons-react';
-import { UseInputProps } from '../Input/useInput';
+import React, { useState, useRef, useEffect } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import Input, { InputProps, useInput } from "../Input";
+import { Search as SearchIcon, Close } from "@un/icons-react";
+import { UseInputProps } from "../Input/useInput";
 
-interface SearchProps extends InputProps, React.ComponentPropsWithRef<'input'> {
+interface SearchProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   defaultValue?: string | number;
   /**
    * Specify an optional className to be applied to the form-item node
@@ -32,7 +32,7 @@ interface SearchProps extends InputProps, React.ComponentPropsWithRef<'input'> {
   /**
    * Specify a style for the search input
    */
-  kind?: 'large' | 'small' | 'main' | 'light' | 'banner';
+  kind?: "large" | "small" | "main" | "light" | "banner";
   /**
    * The new value is available first arg 'searchValue' and evt object if needed is on second arg.
    * i.e.
@@ -66,7 +66,7 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
     hideLabel,
     hideControls,
     labelText,
-    kind = 'large',
+    kind = "large",
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onChange = () => {},
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -96,7 +96,7 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
   };
 
   const clearSearch = () => {
-    const valueState = '';
+    const valueState = "";
     setValue(valueState);
     // onChange(valueState); // TODO: why are we calling onChange
   };
@@ -106,12 +106,12 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
     [`${prefix}--number--helpertext`]: helperText,
     [`${prefix}--number--nolabel`]: hideLabel,
     [`${prefix}--number--nocontrols`]: hideControls,
-    'wfp--search': true,
-    'wfp--search--lg': kind === 'large',
-    'wfp--search--sm': kind === 'small',
-    'wfp--search--main': kind === 'main',
-    'wfp--search--banner': kind === 'banner',
-    'wfp--search--light': kind === 'light',
+    "wfp--search": true,
+    "wfp--search--lg": kind === "large",
+    "wfp--search--sm": kind === "small",
+    "wfp--search--main": kind === "main",
+    "wfp--search--banner": kind === "banner",
+    "wfp--search--light": kind === "light",
   });
 
   /*const newProps = {
@@ -122,8 +122,8 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
   };*/
 
   const clearClasses = classNames({
-    'wfp--search-close': true,
-    'wfp--search-close--hidden': !value,
+    "wfp--search-close": true,
+    "wfp--search-close--hidden": !value,
   });
 
   const useInputProps = props as UseInputProps;
@@ -134,6 +134,7 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
     className: `${prefix}--search-input__wrapper`,
     inputClassName: `${prefix}--search-input`,
   });
+  console.log("wrapperProps", wrapperProps, inputProps);
 
   return (
     <Input {...wrapperProps} inputWrapperClassName={searchInputWrapperClasses}>
@@ -148,13 +149,14 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
         className={clearClasses}
         onClick={clearSearch}
         type="button"
-        aria-label={closeButtonLabelText}>
+        aria-label={closeButtonLabelText}
+      >
         <Close description={closeButtonLabelText} />
       </button>
     </Input>
   );
 });
 
-Search.displayName = 'Search';
+Search.displayName = "Search";
 
 export default Search;

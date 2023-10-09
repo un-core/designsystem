@@ -9,18 +9,38 @@ import stripBanner from "rollup-plugin-strip-banner";
 import { terser } from "rollup-plugin-terser";
 import packageJson from "./package.json";
 import typescript from "@rollup/plugin-typescript";
+// import preserveDirectives from "rollup-plugin-preserve-directives";
 
 const baseConfig = {
   input: "./src/index.ts",
-
+  onwarn(warning, warn) {
+    if (warning.code !== "MODULE_LEVEL_DIRECTIVE") {
+      warn(warning);
+    }
+  },
   external: [
     ...Object.keys(packageJson.peerDependencies),
     ...Object.keys(packageJson.dependencies),
     "prop-types",
   ],
-
+  output: {
+    preserveModules: true,
+    dir: "dist",
+    // file: "es/index.js",
+    format: "es",
+    exports: "named",
+    sourcemap: true,
+    banner: `/*
+    * Rollup Library Starter
+    * {@link https://github.com/mryechkin/rollup-library-starter}
+    * @copyright Mykhaylo Ryechkin (@mryechkin)
+    * @license MIT
+    */
+   'use client';`,
+  },
   plugins: [
     nodeResolve(),
+    //  preserveDirectives(),
     commonjs({
       include: /node_modules/,
     }),
@@ -57,7 +77,11 @@ const baseConfig = {
       ],
       babelHelpers: "bundled",
     }),
-    stripBanner(),
+    //stripBanner(),
+    terser({
+      compress: { directives: false },
+    }),
+    // terser(),
   ],
 };
 
@@ -73,12 +97,17 @@ const umdBundleConfig = {
   },
   external: [...umdExternalDependencies, "prop-types"],
   output: {
-    file: "es/index.js",
+    //preserveModules: true,
+    dir: "dist",
+    // file: "es/index.js",
     format: "es",
     exports: "named",
     sourcemap: true,
     banner: `/*
-    * WFP Design System React.js
+    * Rollup Library Starter
+    * {@link https://github.com/mryechkin/rollup-library-starter}
+    * @copyright Mykhaylo Ryechkin (@mryechkin)
+    * @license MIT
     */
    'use client';`,
   },
@@ -96,27 +125,38 @@ const umdBundleConfig = {
 };
 
 module.exports = [
-  // Generates the following bundles:
-  // ESM:       es/index.js
-  // CommonJS: lib/index.js
-  {
+  /*{
     ...baseConfig,
     output: [
-      /*{
-        format: 'esm',
-        file: 'es/index.js',
-      },*/
+    
       {
         format: "cjs",
         file: "lib/index.js",
       },
     ],
-  },
+  },*/
 
   // Generate the development UMD bundle:
-  // ESM: es/index.js UMD: umd/index.js
   {
-    ...umdBundleConfig,
+    ...baseConfig,
+    plugins: [
+      ...baseConfig.plugins,
+      replace({
+        preventAssignment: true,
+        "process.env.NODE_ENV": JSON.stringify("development"),
+      }),
+    ],
+    output: [
+      {
+        ...baseConfig.output,
+        format: "esm",
+        // dir: "dist",
+        // file: "es/index.js",
+      },
+    ],
+  },
+  /*{
+    ...baseConfig,
     plugins: [
       ...baseConfig.plugins,
       replace({
@@ -125,29 +165,14 @@ module.exports = [
       }),
     ],
     output: {
-      ...umdBundleConfig.output,
-      format: "esm",
-      file: "es/index.js",
+      ...baseConfig.output,
+      //file: "umd/index.js",
+      dir: "dist",
     },
-  },
-  {
-    ...umdBundleConfig,
-    plugins: [
-      ...baseConfig.plugins,
-      replace({
-        preventAssignment: true,
-        "process.env.NODE_ENV": JSON.stringify("development"),
-      }),
-    ],
-    output: {
-      ...umdBundleConfig.output,
-      file: "umd/index.js",
-    },
-  },
+  },*/
 
   // Generate the production UMD bundle:
-  // UMD: umd/index.min.js
-  {
+  /*{
     ...umdBundleConfig,
     plugins: [
       ...baseConfig.plugins,
@@ -159,7 +184,8 @@ module.exports = [
     ],
     output: {
       ...umdBundleConfig.output,
-      file: "umd/index.min.js",
+      dir: "umd",
+      // file: "umd/index.min.js",
     },
-  },
+  },*/
 ];

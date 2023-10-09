@@ -1,19 +1,16 @@
-import React from 'react';
-import Card from '../Card';
-import styles from './article.module.scss';
+import React from "react";
+import Card from "../Card";
+import styles from "./article.module.scss";
 //import { Search } from "@wfp/react";
 
-import Search from '../../Search';
-
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+import Search from "../../Search";
 
 interface articlesProps {
   articles: any;
 }
 const Articles = ({ articles }: articlesProps) => {
   // if (!categories) return null;
-  const categories = [{ name: 'common' }];
+  const categories = [{ name: "common" }];
 
   // const designers = articles.find((a) => a.slug === 'core/designers');
 
