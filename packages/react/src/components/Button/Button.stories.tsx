@@ -1,16 +1,16 @@
-import React from 'react';
-import { buttonKinds } from '../../prop-types/types';
-import { AddCircle } from '@un/icons-react';
-import markdown from './README.mdx';
-import Button from '.';
+import React from "react";
+import { buttonKinds } from "../../prop-types/types";
+import { AddCircle } from "@un/icons-react";
+import markdown from "./README.mdx";
+import Button from ".";
 
 export default {
-  title: 'Components/UI Elements/Button',
+  title: "Components/UI Elements/Button",
   component: Button,
-  markdown: 'hello',
+  markdown: "hello",
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
     // twig: buttonTwig,
   },
@@ -19,25 +19,27 @@ export default {
 export const ButtonRegular = (args) => <Button {...args} />;
 
 ButtonRegular.args = {
-  children: 'Button',
+  children: "Button",
 };
 
 ButtonRegular.parameters = {
   design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/jtKqyyMTOKgUTstiGvPZMl/?node-id=0%3A1',
+    type: "figma",
+    url: "https://www.figma.com/file/jtKqyyMTOKgUTstiGvPZMl/?node-id=0%3A1",
   },
 };
 
 export const ButtonKind = (args) => (
   <>
-    {buttonKinds.map((e) => (
+    {buttonKinds.map((e, i) => (
       <div
+        key={i}
         style={{
-          display: 'inline-block',
-          background: e === 'inverse' || e === 'inverse--primary' ? '#ccc' : '',
-          padding: '0.3rem',
-        }}>
+          display: "inline-block",
+          background: e === "inverse" || e === "inverse--primary" ? "#ccc" : "",
+          padding: "0.3rem",
+        }}
+      >
         <Button {...args} kind={e}>
           {e}
         </Button>
@@ -47,7 +49,7 @@ export const ButtonKind = (args) => (
 );
 
 ButtonKind.args = {
-  children: 'Button',
+  children: "Button",
 };
 
 ButtonKind.parameters = {
@@ -71,10 +73,10 @@ By changing the \`kind\` prop you can use different styles of the button.
 | \`navigation\`| should be only used in the main navigation |
 `;
 
-ButtonKind.storyName = 'Button kinds';
+ButtonKind.storyName = "Button kinds";
 ButtonKind.parameters = {
-  markdown: 'hello',
-  layout: 'centered',
+  markdown: "hello",
+  layout: "centered",
   docs: {
     storyDescription: hello,
   },
@@ -84,15 +86,15 @@ export const ButtonIcon = (args) => (
   <>
     <Button icon={AddCircle} kind="primary">
       Button with icon
-    </Button>{' '}
-    <Button {...args} kind="tertiary" icon={AddCircle}></Button>{' '}
+    </Button>{" "}
+    <Button {...args} kind="tertiary" icon={AddCircle}></Button>{" "}
     <Button {...args} iconReverse kind="tertiary" icon={AddCircle}>
       With iconReverse
-    </Button>{' '}
+    </Button>{" "}
     <Button href="#" icon={AddCircle} kind="primary">
       Button with icon link
-    </Button>{' '}
-    <Button {...args} href="#" kind="tertiary" icon={AddCircle}></Button>{' '}
+    </Button>{" "}
+    <Button {...args} href="#" kind="tertiary" icon={AddCircle}></Button>{" "}
     <Button {...args} href="#" iconReverse kind="tertiary" icon={AddCircle}>
       With iconReverse link
     </Button>
@@ -134,13 +136,13 @@ ButtonIcon.parameters = {
     },
   },
 };
-ButtonIcon.storyName = 'Button with icon';
+ButtonIcon.storyName = "Button with icon";
 
 export const Small = (args) => (
   <>
     <Button kind="primary" small>
       Small button
-    </Button>{' '}
+    </Button>{" "}
     <Button {...args} icon={AddCircle} kind="tertiary" small>
       With icon
     </Button>
@@ -165,7 +167,7 @@ import { AddCircleGlyph } from '@un/icons-react';
   </>
 `;
 
-Small.storyName = 'small Button';
+Small.storyName = "small Button";
 Small.parameters = {
   docs: {
     storyDescription: helloButtonSmall,
@@ -179,7 +181,7 @@ export const Large = (args) => (
   <>
     <Button kind="primary" large>
       Large button
-    </Button>{' '}
+    </Button>{" "}
     <Button {...args} icon={AddCircle} kind="tertiary" large>
       With icon
     </Button>
@@ -204,7 +206,7 @@ import { AddCircleGlyph } from '@un/icons-react';
   </>
 `;
 
-Large.storyName = 'large Button';
+Large.storyName = "large Button";
 Large.parameters = {
   docs: {
     storyDescription: helloButtonLarge,
@@ -230,4 +232,4 @@ export const CustomIcon = () => (
 // or less.
 // `;
 
-CustomIcon.storyName = 'Custom Button';
+CustomIcon.storyName = "Custom Button";

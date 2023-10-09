@@ -1,17 +1,15 @@
+"use client";
 import React from "react";
 
 import {
   Link,
   Wrapper,
-  // Text,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbHome,
-  // Tabs,
   Tab,
   Text,
   Tabs,
-  // Story,
 } from "@wfp/react";
 import { MDXRemote } from "next-mdx-remote";
 import NextLink from "next/link";
@@ -23,7 +21,7 @@ import components from "../Blog/Mdx";
 import References from "../Blog/References";
 import TableOfContent from "../Blog/References/TableOfContent";
 import slugifyWithSlashes from "../../lib/slugifyWithSlashes";
-import { NextSeo } from "next-seo";
+// import { NextSeo } from "next-seo";
 import PropTypes from "../PropTypes";
 import NextTab from "./NextTab";
 import SidebarNavigation from "./SidebarNavigation";
@@ -50,9 +48,10 @@ export default function SidebarWrapper({
   posts,
   propTypes,
 }: SidebarWrapperProps) {
+  if (!post?.slug) return null;
   return (
     <>
-      <NextSeo
+      {/*<NextSeo
         title={post.title}
         description="Digital Design System"
         openGraph={{
@@ -68,7 +67,7 @@ export default function SidebarWrapper({
           type: "website",
           site_name: process.env.NEXT_PUBLIC_DOMAIN,
         }}
-      />
+      /> */}
       <Wrapper className={styles.sidebarWrapper} pageWidth="lg">
         <div className={styles.sidebar}>
           <SidebarNavigation posts={posts} post={post} slug={post.slug} />
@@ -112,11 +111,16 @@ export default function SidebarWrapper({
 
           <Tabs>
             <NextTab
-              href={`${slugifyWithSlashes(post.slug).replace("/code", "")}`}
+              href={`/${slugifyWithSlashes(post.slug).replace("/code", "")}`}
             >
               Usage
             </NextTab>
-            <NextTab href={`${slugifyWithSlashes(post.slug)}/code`}>
+            <NextTab
+              href={`/${slugifyWithSlashes(post.slug).replace(
+                "/code",
+                ""
+              )}/code`}
+            >
               Code
             </NextTab>
           </Tabs>

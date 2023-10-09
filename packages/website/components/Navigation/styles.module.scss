@@ -1,4 +1,4 @@
-@use 'scss/meta' as *;
+@use "scss/meta" as *;
 
 .logo {
   height: 2.3em;
@@ -74,6 +74,7 @@
       }
     }
   }
+  /*
   @include breakpoint-up(md) {
     :global(.wfp--main-navigation__sub--open) {
       left: inherit;
@@ -88,7 +89,7 @@
       margin-left: 0.4em;
       top: 0;
     }
-  }
+  }*/
 }
 
 .language {

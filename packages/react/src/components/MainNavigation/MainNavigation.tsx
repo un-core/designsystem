@@ -54,7 +54,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   className,
   id,
   logo,
-  line = true,
+  line = false,
   mobilePageWidth,
   pageWidth,
 }) => {
@@ -62,7 +62,11 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
   const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
 
-  const onChangeSub = (action: string, i?: string, e?: any) => {
+  const onChangeSub = (
+    action: string,
+    i?: string,
+    e?: React.SyntheticEvent
+  ) => {
     if (e) e.preventDefault();
 
     if (action === "close") {

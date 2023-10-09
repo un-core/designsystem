@@ -1,18 +1,19 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import { User as UserIcon } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import { User as UserIcon } from "@un/icons-react";
+import useSettings from "../../hooks/useSettings";
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
   alt?: string;
   ellipsis?: boolean;
   description?: React.ReactNode;
   extendedDescription?: React.ReactNode;
-  missingImage?: 'avatar' | 'letter';
+  missingImage?: "avatar" | "letter";
   image?: string;
   showName?: boolean;
   small?: boolean;
   name?: string;
+  userIconProps: React.ComponentProps<typeof UserIcon>;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -20,11 +21,12 @@ const Avatar: React.FC<AvatarProps> = ({
   image,
   missingImage,
   name,
+  userIconProps,
   ...other
 }) => {
   const { prefix } = useSettings();
 
-  if (!image && missingImage === 'avatar') {
+  if (!image && missingImage === "avatar") {
     return (
       <UserIcon
         fill="#ffffff"
@@ -32,10 +34,10 @@ const Avatar: React.FC<AvatarProps> = ({
         height="14"
         description={alt}
         className={`${prefix}--user__icon ${prefix}--user__icon--empty`}
-        {...other}
+        {...userIconProps}
       />
     );
-  } else if (image === undefined && missingImage === 'letter') {
+  } else if (image === undefined && missingImage === "letter") {
     return (
       <svg
         id="Layer_1"
@@ -44,7 +46,8 @@ const Avatar: React.FC<AvatarProps> = ({
         y="0px"
         viewBox="0 0 25 25"
         height="25px"
-        width="25px">
+        width="25px"
+      >
         <text x="50%" y="57%" dominantBaseline="middle" textAnchor="middle">
           {name && name.toUpperCase()[0]}
         </text>
@@ -83,7 +86,7 @@ export interface UserProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Selects the generated empty icon if no image is provided.
    * Can be `avatar` or `letter`.
    */
-  missingImage?: 'avatar' | 'letter';
+  missingImage?: "avatar" | "letter";
   /**
    * Url to an avatar image The size of the image is 25px * 25px.
    * Provide at least 50px * 50px to support HiDPI displays.
@@ -112,6 +115,7 @@ const User: React.FC<UserProps> = (props) => {
     showName,
     small,
     name,
+    missingImage,
     ...other
   } = props;
   const { prefix } = useSettings();
@@ -136,7 +140,7 @@ const User: React.FC<UserProps> = (props) => {
 
   return (
     <div className={classes} {...other}>
-      <allComponents.Avatar {...props} />
+      <allComponents.Avatar {...props} missingImage={missingImage} />
       {showName && (
         <span className={titleClasses}>
           <span>{name}</span>
