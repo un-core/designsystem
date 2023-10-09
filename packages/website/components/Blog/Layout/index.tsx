@@ -6,6 +6,7 @@ import Navigation from "../../Navigation";
 import Footer from "../../Footer";
 import SidebarWrapper from "../../Sidebar";
 import { UNCoreProvider } from "@wfp/react";
+import Homepage from "../../Homepage";
 
 interface LayoutProps {
   posts: any;
@@ -19,6 +20,8 @@ const Layout = ({ posts, post, propTypes, head }: LayoutProps) => (
     <Head>{head}</Head>
     <Navigation />
     <div className={styles.layout}>
+      {!post?.slug && <Homepage />}
+
       <article>
         <SidebarWrapper posts={posts} post={post} propTypes={propTypes} />
       </article>

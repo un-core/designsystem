@@ -11,10 +11,12 @@ import Layout from "../../components/Blog/Layout";
 export async function generateStaticParams() {
   const posts = await getAllPosts(["slug"]);
 
-  return posts.map((post) => {
+  const staticParams = posts.map((post) => {
     const slug = post.slug.split("/").map((e) => slugify(e, { lower: true }));
     return { slug: slug };
   });
+
+  return [...staticParams, { slug: ["/"] }];
 }
 
 async function getData({ params }: any, draft: boolean = false) {

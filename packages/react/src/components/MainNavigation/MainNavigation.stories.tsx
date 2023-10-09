@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 //import markdown from './README.mdx';
-import { action } from '@storybook/addon-actions';
-import { MainNavigation, MainNavigationExternal } from '.';
-import MainNavigationItem from '../MainNavigationItem';
+import { action } from "@storybook/addon-actions";
+import { MainNavigation, MainNavigationExternal } from ".";
+import MainNavigationItem from "../MainNavigationItem";
 
 import {
   SubNavigation,
@@ -14,21 +14,21 @@ import {
   SubNavigationLink,
   SubNavigationGroup,
   SubNavigationItem,
-} from '../SubNavigation';
-import Button from '../Button';
-import Search from '../Search';
-import Link from '../Link';
-import User from '../User';
+} from "../SubNavigation";
+import Button from "../Button";
+import Search from "../Search";
+import Link from "../Link";
+import User from "../User";
 
 export default {
-  title: 'Components/Navigation/MainNavigation',
+  title: "Components/Navigation/MainNavigation",
   component: MainNavigation,
   subcomponents: { MainNavigationExternal },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     //mdx: markdown,
-    previewWidth: 'full',
+    previewWidth: "full",
   },
 };
 
@@ -72,7 +72,8 @@ export const Regular = (args) => (
             </SubNavigationList>
           </SubNavigationContent>
         </SubNavigation>
-      }>
+      }
+    >
       <Link href="http://manuals.wfp.org" target="_blank">
         Section 2
       </Link>
@@ -92,7 +93,7 @@ export const Regular = (args) => (
         kind="main"
         id="search-2"
         placeholder="Search"
-        onChange={action('onChange')}
+        onChange={action("onChange")}
       />
     </MainNavigationItem>
     <MainNavigationItem
@@ -110,11 +111,12 @@ export const Regular = (args) => (
           <SubNavigationContent>
             Additional content can be placed here.
             <br />
-            Demo for internal close action:{' '}
+            Demo for internal close action:{" "}
             <Link /*onClick={() => onChangeSub('close')}*/>Close Menu</Link>
           </SubNavigationContent>
         </SubNavigation>
-      }>
+      }
+    >
       <User ellipsis name="Max Mustermann long name" missingImage="letter" />
     </MainNavigationItem>
     <MainNavigationItem
@@ -144,14 +146,15 @@ export const Regular = (args) => (
             </SubNavigationList>
           </SubNavigationContent>
         </SubNavigation>
-      }>
+      }
+    >
       <span>EN</span>
     </MainNavigationItem>
   </MainNavigation>
 );
 
 Regular.args = {
-  logo: 'WFP',
+  logo: "WFP",
 };
 
 const description = `
@@ -330,7 +333,7 @@ export const RegularWithButton = (args) => (
 
             <SubNavigationFilter>
               <Search
-                small
+                kind="small"
                 id="search-2"
                 labelText="Filter"
                 placeholder="Filter list"
@@ -352,7 +355,8 @@ export const RegularWithButton = (args) => (
             </SubNavigationList>
           </SubNavigationContent>
         </SubNavigation>
-      }>
+      }
+    >
       <Link href="http://manuals.wfp.org" target="_blank">
         Section 2
       </Link>
@@ -372,7 +376,7 @@ export const RegularWithButton = (args) => (
         kind="main"
         id="search-2"
         placeholder="Search"
-        onChange={action('onChange')}
+        onChange={action("onChange")}
       />
     </MainNavigationItem>
     <MainNavigationItem
@@ -390,11 +394,12 @@ export const RegularWithButton = (args) => (
           <SubNavigationContent>
             Additional content can be placed here.
             <br />
-            Demo for internal close action:{' '}
+            Demo for internal close action:{" "}
             <Link /*onClick={() => onChangeSub('close')}*/>Close Menu</Link>
           </SubNavigationContent>
         </SubNavigation>
-      }>
+      }
+    >
       <User ellipsis name="Max Mustermann long name" missingImage="letter" />
     </MainNavigationItem>
     <MainNavigationItem
@@ -424,14 +429,15 @@ export const RegularWithButton = (args) => (
             </SubNavigationList>
           </SubNavigationContent>
         </SubNavigation>
-      }>
+      }
+    >
       <span>EN</span>
     </MainNavigationItem>
   </MainNavigation>
 );
 
 RegularWithButton.args = {
-  logo: 'WFP',
+  logo: "WFP",
 };
 
 RegularWithButton.story = {
@@ -520,18 +526,18 @@ External.args = {
   ),
   languageList: <Languages />,
   userDetails: <UserDropdownDetails />,
-  username: 'Max Mustermann',
+  username: "Max Mustermann",
 };
 
 // Increase the size of the story's wrapper to show the mobile menu
 const externalStoryStyles = {
-  height: '400px',
+  height: "400px",
 };
 
 External.story = {
   parameters: {
     docs: {
-      storyDescription: 'Add a description',
+      storyDescription: "Add a description",
     },
   },
   decorators: [
