@@ -1,10 +1,10 @@
-const { readFileSync, writeFileSync } = require('fs');
-const _ = require('lodash');
-const filterDeep = require('deepdash/getFilterDeep')(_);
-const mapValuesDeep = require('deepdash/getMapValuesDeep')(_);
+const { readFileSync, writeFileSync } = require("fs");
+const _ = require("lodash");
+const filterDeep = require("deepdash/getFilterDeep")(_);
+const mapValuesDeep = require("deepdash/getMapValuesDeep")(_);
 
 if (!String.prototype.endsWith) {
-  Object.defineProperty(String.prototype, 'endsWith', {
+  Object.defineProperty(String.prototype, "endsWith", {
     enumerable: false,
     configurable: false,
     writable: false,
@@ -17,15 +17,15 @@ if (!String.prototype.endsWith) {
   });
 }
 
-const json = JSON.parse(readFileSync('./tokens/tokens.json.raw', 'utf8'));
+const json = JSON.parse(readFileSync("./tokens/tokens-new.json.raw", "utf8"));
 
 let filtrate = filterDeep(json, (value, key, parent) => {
   console.log(key);
 
-  if (key == 'description') return true;
-  if (key === 'extensions' || key === 'styleId' || key === 'exportKey')
+  if (key == "description") return true;
+  if (key === "extensions" || key === "styleId" || key === "exportKey")
     return false;
-  if (typeof value !== 'object') {
+  if (typeof value !== "object") {
     return true;
   }
   //return true;
@@ -34,9 +34,9 @@ let filtrate = filterDeep(json, (value, key, parent) => {
 filtrate = mapValuesDeep(
   filtrate,
   (v) =>
-    typeof v === 'string' &&
-    v.endsWith('ff') &&
-    v.substring(0, 1) === '#' &&
+    typeof v === "string" &&
+    v.endsWith("ff") &&
+    v.substring(0, 1) === "#" &&
     v.length === 9
       ? v.slice(0, -2)
       : v,
@@ -46,8 +46,8 @@ filtrate = mapValuesDeep(
 filtrate = mapValuesDeep(
   filtrate,
   (v) => {
-    if (typeof v === 'object' && v.type === 'color')
-      v.attributes = { category: 'color' };
+    if (typeof v === "object" && v.type === "color")
+      v.attributes = { category: "color" };
 
     return v;
   },
@@ -56,4 +56,7 @@ filtrate = mapValuesDeep(
       : v*/ { leavesOnly: false }
 );
 
-writeFileSync('./tokens/design-tokens.tokens.json', JSON.stringify(filtrate));
+writeFileSync(
+  "./tokens/design-tokens.tokens.new.json",
+  JSON.stringify(filtrate)
+);

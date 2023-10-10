@@ -2,8 +2,6 @@ import { Metadata } from "next";
 import { getAllPosts } from "../../lib/getPost";
 import { draftMode } from "next/headers";
 
-import { notFound } from "next/navigation";
-import SidebarWrapper from "../../components/Sidebar";
 import getPostContent from "../../components/Post/getPostContent";
 import slugify from "slugify";
 import Layout from "../../components/Blog/Layout";
