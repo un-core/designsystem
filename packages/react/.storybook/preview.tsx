@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./storybook.scss";
 import theme from "./theme";
-import { UNCoreProvider } from "../src/components/UNCoreSettings";
+import { WFPCoreProvider } from "../src/components/WFPCoreSettings";
 
 import { themes, ensure } from "@storybook/theming";
 
@@ -90,10 +90,10 @@ const withThemeProvider = (Story, context) => {
   );
 };
 
-const withUNCoreProvider = (Story) => (
-  <UNCoreProvider prefix="wfp">
+const withWFPCoreProvider = (Story) => (
+  <WFPCoreProvider prefix="wfp">
     <Story />
-  </UNCoreProvider>
+  </WFPCoreProvider>
 );
 
-export const decorators = [withThemeProvider, withUNCoreProvider];
+export const decorators = [withThemeProvider, withWFPCoreProvider];

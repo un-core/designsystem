@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import uid from '../../tools/uniqueId';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import uid from "../../tools/uniqueId";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 /** Radio buttons represent a group of mutually exclusive choices */
 
@@ -67,7 +67,7 @@ class RadioButton extends React.Component {
 
   render() {
     const wrapperClasses = classNames(
-      'radioButtonWrapper',
+      "radioButtonWrapper",
       this.props.className
     );
 
@@ -98,12 +98,12 @@ class RadioButton extends React.Component {
   }
 }
 
-const WrappedRadioButton = withUNCoreSettings(RadioButton);
+const WrappedRadioButton = withWFPCoreSettings(RadioButton);
 
 export default (() => {
   const forwardRef = (props, ref) => (
     <WrappedRadioButton {...props} inputRef={ref} />
   );
-  forwardRef.displayName = 'RadioButton';
+  forwardRef.displayName = "RadioButton";
   return React.forwardRef(forwardRef);
 })();

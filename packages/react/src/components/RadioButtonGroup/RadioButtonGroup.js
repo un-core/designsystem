@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import RadioButton from '../RadioButton';
-import warning from 'warning';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import RadioButton from "../RadioButton";
+import warning from "warning";
 
 class RadioButtonGroup extends React.Component {
   state = { selected: this.props.valueSelected || this.props.defaultSelected };
@@ -93,7 +92,7 @@ class RadioButtonGroup extends React.Component {
     const children = React.Children.map(this.props.children, (radioButton) => {
       const { value, ...other } = radioButton.props;
       /* istanbul ignore if */
-      if (radioButton.props.hasOwnProperty('checked')) {
+      if (radioButton.props.hasOwnProperty("checked")) {
         warning(
           false,
           `Instead of using the checked property on the RadioButton, set
@@ -153,7 +152,7 @@ class RadioButtonGroup extends React.Component {
     ) : null;
 
     console.warn(
-      'RadioButtonGroup is depreciated and will be removed in the next versions. Use InputGroup instead'
+      "RadioButtonGroup is depreciated and will be removed in the next versions. Use InputGroup instead"
     );
 
     return (

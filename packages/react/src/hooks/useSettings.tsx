@@ -1,19 +1,19 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import { defaultUNContext } from '../components/UNCoreSettings/defaults';
+import { defaultWFPContext } from "../components/WFPCoreSettings/defaults";
 import {
   AppContextInterface,
-  UNCoreContext,
-} from '../components/UNCoreSettings/UNCoreProvider';
+  WFPCoreContext,
+} from "../components/WFPCoreSettings/WFPCoreProvider";
 
 export default function useSettings(): AppContextInterface {
-  const settings = useContext(UNCoreContext);
+  const settings = useContext(WFPCoreContext);
   if (settings?.initialized === false) {
-    console.warn('useSettings: UNCoreContext not initialized');
+    console.warn("useSettings: WFPCoreContext not initialized");
   }
 
   if (settings === undefined) {
-    return defaultUNContext;
+    return defaultWFPContext;
   }
 
   return settings;

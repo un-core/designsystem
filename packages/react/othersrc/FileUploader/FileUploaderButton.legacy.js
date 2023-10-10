@@ -1,10 +1,10 @@
 /* eslint react/no-multi-comp: "off" */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withUNCoreSettings } from '../UNCoreSettings';
-import uid from '../../tools/uniqueId';
-import { ButtonTypes } from '../../prop-types/types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
+import uid from "../../tools/uniqueId";
+import { ButtonTypes } from "../../prop-types/types";
 //import Filename from '../FileUploader/Filename';
 
 class FileUploaderButton extends Component {
@@ -90,8 +90,8 @@ class FileUploaderButton extends Component {
   static defaultProps = {
     tabIndex: 0,
     disableLabelChanges: false,
-    labelText: 'Add file',
-    buttonKind: 'primary',
+    labelText: "Add file",
+    buttonKind: "primary",
     multiple: false,
     onChange: () => {},
     onClick: () => {},
@@ -157,7 +157,8 @@ class FileUploaderButton extends Component {
             }
           }}
           htmlFor={this.uid}
-          {...other}>
+          {...other}
+        >
           {this.state.labelText}
         </label>
         <input
@@ -180,6 +181,6 @@ class FileUploaderButton extends Component {
   }
 }
 
-const FileUploaderButtonWithSettings = withUNCoreSettings(FileUploaderButton);
+const FileUploaderButtonWithSettings = withWFPCoreSettings(FileUploaderButton);
 
 export { FileUploaderButtonWithSettings as FileUploaderButton };
