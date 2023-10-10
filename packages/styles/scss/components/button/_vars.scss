@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../spacing' as *;
+@use "../../spacing" as *;
 
 /// @type Number
 /// @access public
@@ -20,7 +20,7 @@ $button-font-size: 0.875rem !default;
 /// @type Number
 /// @access public
 /// @group button
-$button-border-radius: 4px !default;
+$button-border-radius: 2px !default;
 
 /// @type Number
 /// @access public
