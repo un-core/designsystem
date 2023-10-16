@@ -3,7 +3,7 @@
     "jsx": "react",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "./",
+    "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,

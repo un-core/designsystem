@@ -9,17 +9,17 @@
 // Radio
 //-----------------------------
 
-@use '../../theme' as *;
-@use '../../type';
-@use '../form';
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/component-reset' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/rtl' as *;
-@use '../../config' as *;
-@use '../../spacing' as *;
+@use "../../theme" as *;
+@use "../../type";
+@use "../form";
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/component-reset" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/rtl" as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
 
 /// @type Number
 /// @access public
@@ -71,8 +71,8 @@ $radio-border-width: 2px !default;
   }
 
   .#{$prefix}--radio-button__label {
-    @include type.type-style('body-short');
-    @include type.font-family('sans');
+    @include type.type-style("body-short");
+    @include type.font-family("sans");
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -84,8 +84,8 @@ $radio-border-width: 2px !default;
     border-radius: 50%;
     border: $radio-border-width solid $border-inverse;
     flex-shrink: 0;
-    height: rem(18px);
-    width: rem(18px);
+    height: calcRem(18px);
+    width: calcRem(18px);
     margin-right: $spacing-03;
     @include rtl {
       margin-left: $spacing-03;
@@ -102,7 +102,7 @@ $radio-border-width: 2px !default;
     border-color: $interactive;
 
     &:before {
-      content: '';
+      content: "";
       display: inline-block;
       position: relative;
       width: 0.5rem;
@@ -120,14 +120,14 @@ $radio-border-width: 2px !default;
   .#{$prefix}--radio-button:focus
     + .#{$prefix}--radio-button__label
     .#{$prefix}--radio-button__appearance {
-    @include focus-outline('blurred');
+    @include focus-outline("blurred");
   }
 
   // Skeleton State
   .#{$prefix}--radio-button__label.#{$prefix}--skeleton {
     @include skeleton;
-    width: rem(100px);
-    height: rem(18px);
+    width: calcRem(100px);
+    height: calcRem(18px);
   }
 
   .#{$prefix}--radio-button__label.#{$prefix}--skeleton
@@ -149,8 +149,8 @@ $radio-border-width: 2px !default;
   }
 
   .#{$prefix}--radio-button__label {
-    @include type-style('label-02');
-    @include font-family('sans');
+    @include type-style("label-02");
+    @include font-family("sans");
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -163,8 +163,8 @@ $radio-border-width: 2px !default;
     border-radius: 50%;
     border: $radio-border-width solid $border-inverse;
     flex-shrink: 0;
-    height: rem(18px);
-    width: rem(18px);
+    height: calcRem(18px);
+    width: calcRem(18px);
     margin-right: $spacing-03;
   }
 
@@ -177,7 +177,7 @@ $radio-border-width: 2px !default;
     border-color: $border-inverse;
 
     &:before {
-      content: '';
+      content: "";
       display: inline-block;
       position: relative;
       width: 0.5rem;
@@ -213,14 +213,14 @@ $radio-border-width: 2px !default;
   .#{$prefix}--radio-button:focus
     + .#{$prefix}--radio-button__label
     .#{$prefix}--radio-button__appearance {
-    @include focus-outline('blurred');
+    @include focus-outline("blurred");
   }
 
   // Skeleton State
   .#{$prefix}--radio-button__label.#{$prefix}--skeleton {
     @include skeleton;
-    width: rem(100px);
-    height: rem(18px);
+    width: calcRem(100px);
+    height: calcRem(18px);
   }
 
   .#{$prefix}--radio-button__label.#{$prefix}--skeleton

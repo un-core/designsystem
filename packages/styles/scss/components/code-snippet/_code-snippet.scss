@@ -5,20 +5,20 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../copy-button';
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/keyframes' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/tooltip' as *;
-@use '../../utilities/z-index' as *;
-@use 'mixins' as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../copy-button";
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/keyframes" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/tooltip" as *;
+@use "../../utilities/z-index" as *;
+@use "mixins" as *;
 
 /// @type Color
 /// @access public
@@ -57,7 +57,7 @@ $copy-btn-feedback: $background-inverse !default;
   }
 
   .#{$prefix}--snippet code {
-    @include type-style('code-01');
+    @include type-style("code-01");
   }
 
   // Inline Code Snippet
@@ -93,7 +93,7 @@ $copy-btn-feedback: $background-inverse !default;
     }
 
     .#{$prefix}--copy-btn__feedback {
-      @include tooltip--content('icon');
+      @include tooltip--content("icon");
 
       display: none;
       overflow: visible;
@@ -102,7 +102,7 @@ $copy-btn-feedback: $background-inverse !default;
       clip: auto;
     }
 
-    @include tooltip--placement('icon', 'bottom', 'center');
+    @include tooltip--placement("icon", "bottom", "center");
   }
 
   .#{$prefix}--snippet--inline.#{$prefix}--copy-btn--animating::before,
@@ -168,12 +168,12 @@ $copy-btn-feedback: $background-inverse !default;
     overflow-x: auto;
 
     &:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
     }
   }
 
   .#{$prefix}--snippet--single pre {
-    @include type-style('code-01');
+    @include type-style("code-01");
 
     padding-right: $spacing-03;
   }
@@ -217,7 +217,7 @@ $copy-btn-feedback: $background-inverse !default;
   // collapsed pre
   .#{$prefix}--snippet--multi .#{$prefix}--snippet-container pre {
     padding-right: $spacing-08;
-    padding-bottom: rem(24px);
+    padding-bottom: calcRem(24px);
     overflow-x: auto;
   }
 
@@ -238,11 +238,11 @@ $copy-btn-feedback: $background-inverse !default;
     position: absolute;
     top: 0;
     right: 0;
-    width: rem(16px);
+    width: calcRem(16px);
     height: 100%;
     // Safari interprets `transparent` differently, so make color token value transparent instead:
     background-image: linear-gradient(to right, rgba($field, 0), $field);
-    content: '';
+    content: "";
   }
 
   .#{$prefix}--snippet--multi .#{$prefix}--snippet-container pre code {
@@ -251,8 +251,8 @@ $copy-btn-feedback: $background-inverse !default;
 
   //Copy Button
   .#{$prefix}--snippet__icon {
-    width: rem(16px);
-    height: rem(16px);
+    width: calcRem(16px);
+    height: calcRem(16px);
     fill: $icon-primary;
     transition: all $duration-fast-01 motion(standard, productive);
   }
@@ -276,7 +276,7 @@ $copy-btn-feedback: $background-inverse !default;
     outline: none;
 
     &:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
 
       outline-color: $focus;
     }
@@ -298,10 +298,10 @@ $copy-btn-feedback: $background-inverse !default;
   }
 
   .#{$prefix}--btn--copy__feedback {
-    @include type-style('body-short');
-    @include font-family('sans');
+    @include type-style("body-short");
+    @include font-family("sans");
 
-    z-index: z('overlay');
+    z-index: z("overlay");
     top: 0.75rem;
     right: 1.25rem;
     left: inherit;
@@ -319,7 +319,7 @@ $copy-btn-feedback: $background-inverse !default;
 
   // TODO: remove copy button styles above
   .#{$prefix}--snippet .#{$prefix}--copy-btn {
-    @include font-family('sans');
+    @include font-family("sans");
 
     position: absolute;
     top: 0;
@@ -328,8 +328,8 @@ $copy-btn-feedback: $background-inverse !default;
 
   // Show more / less button
   .#{$prefix}--snippet-btn--expand {
-    @include type-style('body-short');
-    @include font-family('sans');
+    @include type-style("body-short");
+    @include font-family("sans");
 
     position: absolute;
     z-index: 10;
@@ -346,7 +346,7 @@ $copy-btn-feedback: $background-inverse !default;
 
   .#{$prefix}--snippet-btn--expand .#{$prefix}--snippet-btn--text {
     position: relative;
-    top: rem(-1px);
+    top: calcRem(-1px);
   }
 
   .#{$prefix}--snippet-btn--expand--hide.#{$prefix}--snippet-btn--expand {
@@ -370,7 +370,7 @@ $copy-btn-feedback: $background-inverse !default;
   }
 
   .#{$prefix}--snippet-btn--expand:focus {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
 
     border-color: transparent;
   }
@@ -422,7 +422,7 @@ $copy-btn-feedback: $background-inverse !default;
 
   .#{$prefix}--snippet-button .#{$prefix}--btn--copy__feedback {
     // (The height of button) + (The height of the tooltip's triangle) + 4px
-    top: rem(50.8px);
+    top: calcRem(50.8px);
     right: auto;
     left: 50%;
 
@@ -431,7 +431,7 @@ $copy-btn-feedback: $background-inverse !default;
     }
 
     &::after {
-      top: rem(-4px);
+      top: calcRem(-4px);
     }
   }
 
@@ -447,7 +447,7 @@ $copy-btn-feedback: $background-inverse !default;
     .#{$prefix}--snippet-button
     .#{$prefix}--btn--copy__feedback {
     // (The height of button) + (The height of the tooltip's triangle) + 4px
-    top: rem(42.8px);
+    top: calcRem(42.8px);
   }
 
   .#{$prefix}--snippet--inline .#{$prefix}--btn--copy__feedback {
@@ -503,7 +503,7 @@ $copy-btn-feedback: $background-inverse !default;
   .#{$prefix}--snippet--single
     .#{$prefix}--snippet-container:focus
     + .#{$prefix}--snippet__overflow-indicator--left {
-    left: rem(2px);
+    left: calcRem(2px);
   }
 
   .#{$prefix}--snippet--light .#{$prefix}--snippet__overflow-indicator--left {
@@ -530,11 +530,11 @@ $copy-btn-feedback: $background-inverse !default;
   }
 
   .#{$prefix}--snippet--multi.#{$prefix}--skeleton {
-    height: rem(98px);
+    height: calcRem(98px);
   }
 
   .#{$prefix}--snippet--single.#{$prefix}--skeleton {
-    height: rem(56px);
+    height: calcRem(56px);
   }
 
   .#{$prefix}--snippet.#{$prefix}--skeleton span {
@@ -566,16 +566,16 @@ $copy-btn-feedback: $background-inverse !default;
   // Windows HCM fix
   /* stylelint-disable */
   .#{$prefix}--snippet__icon {
-    @include high-contrast-mode('icon-fill');
+    @include high-contrast-mode("icon-fill");
   }
 
   .#{$prefix}--snippet--inline:focus {
-    @include high-contrast-mode('focus');
+    @include high-contrast-mode("focus");
   }
 
   .#{$prefix}--snippet--single,
   .#{$prefix}--snippet--multi {
-    @include high-contrast-mode('outline');
+    @include high-contrast-mode("outline");
   }
   /* stylelint-enable */
 }

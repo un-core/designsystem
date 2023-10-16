@@ -5,14 +5,14 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use 'box-shadow' as *;
-@use 'convert' as *;
-@use 'focus-outline' as *;
-@use 'z-index' as *;
-@use '../config' as *;
-@use '../motion' as *;
-@use '../theme' as *;
-@use '../type';
+@use "box-shadow" as *;
+@use "convert" as *;
+@use "focus-outline" as *;
+@use "z-index" as *;
+@use "../config" as *;
+@use "../motion" as *;
+@use "../theme" as *;
+@use "../type";
 
 // Tooltip
 // Tooltip caret visual styles
@@ -20,11 +20,11 @@
 /// @group tooltip
 @mixin tooltip--caret {
   position: absolute;
-  z-index: z('floating');
+  z-index: z("floating");
   width: 0;
   height: 0;
   border-style: solid;
-  content: '';
+  content: "";
 }
 
 // Tooltip
@@ -32,26 +32,26 @@
 /// @param {String} $tooltip-type ['icon'] - The type, from: `icon`, `definition`
 /// @access public
 /// @group tooltip
-@mixin tooltip--content($tooltip-type: 'icon') {
+@mixin tooltip--content($tooltip-type: "icon") {
   @include box-shadow;
 
-  z-index: z('floating');
+  z-index: z("floating");
   width: max-content;
-  min-width: rem(24px);
-  max-width: rem(208px);
+  min-width: calcRem(24px);
+  max-width: calcRem(208px);
   height: auto;
   padding: if(
-    $tooltip-type == 'definition',
-    rem(8px) rem(16px),
-    rem(3px) rem(16px)
+    $tooltip-type == "definition",
+    calcRem(8px) calcRem(16px),
+    calcRem(3px) calcRem(16px)
   );
   background-color: $background-inverse;
-  border-radius: rem(2px);
+  border-radius: calcRem(2px);
   color: $text-inverse;
   font-weight: 400;
   text-align: left;
   transform: translateX(-50%);
-  @include type.type-style('body-short');
+  @include type.type-style("body-short");
 
   // IE media query
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -77,27 +77,27 @@
 /// @param {String} $position ['bottom'] - The position, from: `top`, `right`, `bottom`, `left`
 /// @access public
 /// @group tooltip
-@mixin tooltip--trigger($tooltip-type: 'icon', $position: 'bottom') {
+@mixin tooltip--trigger($tooltip-type: "icon", $position: "bottom") {
   position: relative;
   display: inline-flex;
   overflow: visible;
   align-items: center;
 
   &:focus {
-    @include focus-outline('border');
+    @include focus-outline("border");
   }
 
-  @if $tooltip-type == 'definition' {
+  @if $tooltip-type == "definition" {
     cursor: default;
   }
 
-  @if $tooltip-type == 'icon' {
+  @if $tooltip-type == "icon" {
     cursor: pointer;
     &:focus {
       outline: 1px solid transparent;
 
       svg {
-        @include focus-outline('border');
+        @include focus-outline("border");
       }
     }
   }
@@ -111,7 +111,7 @@
   .#{$prefix}--assistive-text,
   + .#{$prefix}--assistive-text {
     position: absolute;
-    z-index: z('floating');
+    z-index: z("floating");
     display: flex;
     align-items: center;
     opacity: 0;
@@ -138,7 +138,7 @@
     width: 0;
     height: 0;
     border-style: solid;
-    content: '';
+    content: "";
   }
 
   .#{$prefix}--assistive-text,
@@ -221,48 +221,48 @@
 /// @access public
 /// @group tooltip
 @mixin tooltip--placement(
-  $tooltip-type: 'icon',
-  $position: 'bottom',
-  $align: 'center'
+  $tooltip-type: "icon",
+  $position: "bottom",
+  $align: "center"
 ) {
   // position and alignment
-  $caret-spacing: if($tooltip-type == 'definition', rem(4px), rem(8px));
+  $caret-spacing: if($tooltip-type == "definition", calcRem(4px), calcRem(8px));
 
   // space between caret and trigger button
-  $caret-height: rem(5px);
-  $caret-width: rem(8px);
+  $caret-height: calcRem(5px);
+  $caret-width: calcRem(8px);
   $body-spacing: $caret-spacing + $caret-height;
 
   // Use pseudo element to create invisible hover area to keep tooltip open on hover
   .#{$prefix}--assistive-text::after {
     position: absolute;
     display: block;
-    content: '';
+    content: "";
     // clip-path: polygon(50% 100%, 0 0, 100% 0);
 
-    @if ($position == 'top' or $position == 'bottom') {
+    @if ($position == "top" or $position == "bottom") {
       left: 0;
       width: 100%;
-      height: rem(12px);
+      height: calcRem(12px);
     }
 
-    @if ($position == 'left' or $position == 'right') {
+    @if ($position == "left" or $position == "right") {
       top: 0;
-      width: rem(12px);
+      width: calcRem(12px);
       height: 100%;
     }
 
-    @if ($position == 'top') {
-      bottom: rem(-12px);
+    @if ($position == "top") {
+      bottom: calcRem(-12px);
     }
-    @if ($position == 'right') {
-      left: rem(-12px);
+    @if ($position == "right") {
+      left: calcRem(-12px);
     }
-    @if ($position == 'bottom') {
-      top: rem(-12px);
+    @if ($position == "bottom") {
+      top: calcRem(-12px);
     }
-    @if ($position == 'left') {
-      right: rem(-12px);
+    @if ($position == "left") {
+      right: calcRem(-12px);
     }
   }
 
@@ -271,46 +271,46 @@
   &::after,
   .#{$prefix}--assistive-text,
   + .#{$prefix}--assistive-text {
-    @if ($position == 'top') {
+    @if ($position == "top") {
       top: 0;
       left: 50%;
     }
-    @if ($position == 'right') {
+    @if ($position == "right") {
       top: 50%;
       right: 0;
     }
-    @if ($position == 'bottom') {
+    @if ($position == "bottom") {
       bottom: 0;
       left: 50%;
     }
-    @if ($position == 'left') {
+    @if ($position == "left") {
       top: 50%;
       left: 0;
     }
   }
 
   &::before {
-    @if ($position == 'top') {
+    @if ($position == "top") {
       top: -$caret-spacing;
-      border-width: rem(5px) rem(4px) 0 rem(4px);
+      border-width: calcRem(5px) calcRem(4px) 0 calcRem(4px);
       border-color: $background-inverse transparent transparent transparent;
       transform: translate(-50%, -100%);
     }
-    @if ($position == 'right') {
+    @if ($position == "right") {
       right: -$caret-spacing;
-      border-width: rem(4px) rem(5px) rem(4px) 0;
+      border-width: calcRem(4px) calcRem(5px) calcRem(4px) 0;
       border-color: transparent $background-inverse transparent transparent;
       transform: translate(100%, -50%);
     }
-    @if ($position == 'bottom') {
+    @if ($position == "bottom") {
       bottom: -$caret-spacing;
-      border-width: 0 rem(4px) rem(5px) rem(4px);
+      border-width: 0 calcRem(4px) calcRem(5px) calcRem(4px);
       border-color: transparent transparent $background-inverse transparent;
       transform: translate(-50%, 100%);
     }
-    @if ($position == 'left') {
+    @if ($position == "left") {
       left: -$caret-spacing;
-      border-width: rem(4px) 0 rem(4px) rem(5px);
+      border-width: calcRem(4px) 0 calcRem(4px) calcRem(5px);
       border-color: transparent transparent transparent $background-inverse;
       transform: translate(-100%, -50%);
     }
@@ -321,12 +321,12 @@
   &::after,
   .#{$prefix}--assistive-text,
   + .#{$prefix}--assistive-text {
-    @if ($position == 'top') {
+    @if ($position == "top") {
       top: -$body-spacing;
-      @if ($align == 'start') {
+      @if ($align == "start") {
         left: 0;
         transform: translate(0, -100%);
-      } @else if ($align == 'end') {
+      } @else if ($align == "end") {
         right: 0;
         left: auto;
         transform: translate(0, -100%);
@@ -335,16 +335,16 @@
         transform: translate(-50%, -100%);
       }
     }
-    @if ($position == 'right') {
+    @if ($position == "right") {
       right: -$body-spacing;
       transform: translate(100%, -50%);
     }
-    @if ($position == 'bottom') {
+    @if ($position == "bottom") {
       bottom: -$body-spacing;
-      @if ($align == 'start') {
+      @if ($align == "start") {
         left: 0;
         transform: translate(0, 100%);
-      } @else if ($align == 'end') {
+      } @else if ($align == "end") {
         right: 0;
         left: auto;
         transform: translate(0, 100%);
@@ -352,19 +352,19 @@
         transform: translate(-50%, 100%);
       }
     }
-    @if ($position == 'left') {
+    @if ($position == "left") {
       left: -$body-spacing;
       transform: translate(-100%, -50%);
     }
   }
 
   // @todo simplify on next major release to move the ::before pseudo element within the tooltip instead of the trigger
-  @if $tooltip-type == 'definition' {
+  @if $tooltip-type == "definition" {
     &.#{$prefix}--tooltip--a11y + .#{$prefix}--assistive-text {
-      @if ($position == 'bottom') {
+      @if ($position == "bottom") {
         // carryover from https://github.com/carbon-design-system/carbon/pull/3151/files#diff-93734be0784e9530b6d14a7b03b0d352R261-R265
-        bottom: -($body-spacing - rem(1px));
-        @if ($align == 'start' or $align == 'end') {
+        bottom: -($body-spacing - calcRem(1px));
+        @if ($align == "start" or $align == "end") {
           transform: translate(0, 100%);
         } @else {
           transform: translate(-50%, 100%);

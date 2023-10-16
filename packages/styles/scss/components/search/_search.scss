@@ -1,18 +1,18 @@
-@use '../../theme' as *;
-@use '../../config' as *;
-@use '../../type';
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../utilities/placeholder-colors' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/component-reset' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/rtl' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/convert' as *;
-@use '../../breakpoint' as *;
-@use '../../utilities/button-reset';
+@use "../../theme" as *;
+@use "../../config" as *;
+@use "../../type";
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../utilities/placeholder-colors" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/component-reset" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/rtl" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/convert" as *;
+@use "../../breakpoint" as *;
+@use "../../utilities/button-reset";
 
 $input-height: 40px !default;
 $input-border: 1px solid $field-border;
@@ -34,8 +34,8 @@ $input-border: 1px solid $field-border;
 
   .#{$prefix}--search-input {
     @include reset;
-    @include type.type-style('body-short-02');
-    @include focus-outline('reset');
+    @include type.type-style("body-short-02");
+    @include focus-outline("reset");
 
     width: 100%;
     order: 1;
@@ -61,7 +61,7 @@ $input-border: 1px solid $field-border;
       outline $duration-fast-02 motion(standard, productive);
 
     &:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
     }
 
     &::placeholder {
@@ -95,13 +95,13 @@ $input-border: 1px solid $field-border;
   .#{$prefix}--search--sm .#{$prefix}--search-input,
   .#{$prefix}--search--sm.#{$prefix}--search--expandable.#{$prefix}--search--expanded
     .#{$prefix}--search-input {
-    height: rem(32px);
+    height: calcRem(32px);
     // 8px padding on either side of icon + 16px icon (32px)
     padding: 0 $spacing-07;
   }
 
   .#{$prefix}--search--sm .#{$prefix}--search-magnifier-icon {
-    left: rem(8px);
+    left: calcRem(8px);
   }
 
   // Large styles
@@ -109,21 +109,21 @@ $input-border: 1px solid $field-border;
   .#{$prefix}--search--lg .#{$prefix}--search-input,
   .#{$prefix}--search--lg.#{$prefix}--search--expandable.#{$prefix}--search--expanded
     .#{$prefix}--search-input {
-    height: rem(40px);
+    height: calcRem(40px);
     // 12px padding on either side of icon + 16px icon (40px)
     padding: 0 $spacing-08;
   }
 
   // V11: change lg to md
   .#{$prefix}--search--lg .#{$prefix}--search-magnifier-icon {
-    left: rem(12px);
+    left: calcRem(12px);
   }
 
   // V11: change xl to lg
   .#{$prefix}--search--xl .#{$prefix}--search-input,
   .#{$prefix}--search--xl.#{$prefix}--search--expandable.#{$prefix}--search--expanded
     .#{$prefix}--search-input {
-    height: rem(48px);
+    height: calcRem(48px);
     // 16px padding on either side of icon + 16px icon (48px)
     padding: 0 $spacing-09;
   }
@@ -137,8 +137,8 @@ $input-border: 1px solid $field-border;
       left: inherit;
       right: $spacing-05;
     }
-    width: rem(16px);
-    height: rem(16px);
+    width: calcRem(16px);
+    height: calcRem(16px);
     fill: $icon-secondary;
     pointer-events: none;
     transform: translateY(-50%);
@@ -146,7 +146,7 @@ $input-border: 1px solid $field-border;
 
   .#{$prefix}--search-close {
     @include button-reset.reset(false);
-    @include focus-outline('reset');
+    @include focus-outline("reset");
 
     position: absolute;
     top: 0;
@@ -154,13 +154,13 @@ $input-border: 1px solid $field-border;
 
     &::before {
       position: absolute;
-      top: rem(1px);
+      top: calcRem(1px);
       left: 0;
       display: block;
       width: 2px;
       height: calc(100% - 2px);
       background-color: $field;
-      content: '';
+      content: "";
       transition: background-color $duration-fast-02
         motion(standard, productive);
     }
@@ -192,8 +192,8 @@ $input-border: 1px solid $field-border;
   .#{$prefix}--search-close,
   .#{$prefix}--search-button {
     display: flex;
-    //width: rem(40px);
-    // height: rem(40px);
+    //width: calcRem(40px);
+    // height: calcRem(40px);
     align-items: center;
     justify-content: center;
     border-width: 1px 0;
@@ -213,11 +213,11 @@ $input-border: 1px solid $field-border;
     }
 
     &:focus {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
     }
 
     &:active {
-      @include focus-outline('outline');
+      @include focus-outline("outline");
 
       background-color: $background-selected;
     }
@@ -251,7 +251,7 @@ $input-border: 1px solid $field-border;
   }
 
   .#{$prefix}--search-input:focus ~ .#{$prefix}--search-close:hover {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
   }
 
   .#{$prefix}--search--sm {
@@ -259,12 +259,12 @@ $input-border: 1px solid $field-border;
     ~ .#{$prefix}--search-button,
     &.#{$prefix}--search--expandable,
     &.#{$prefix}--search--expandable .#{$prefix}--search-magnifier {
-      width: rem(32px);
-      height: rem(32px);
+      width: calcRem(32px);
+      height: calcRem(32px);
     }
 
     &.#{$prefix}--search--expandable .#{$prefix}--search-input::placeholder {
-      padding: 0 rem(32px);
+      padding: 0 calcRem(32px);
     }
   }
 
@@ -274,12 +274,12 @@ $input-border: 1px solid $field-border;
     ~ .#{$prefix}--search-button,
     &.#{$prefix}--search--expandable,
     &.#{$prefix}--search--expandable .#{$prefix}--search-magnifier {
-      width: rem(40px);
-      height: rem(40px);
+      width: calcRem(40px);
+      height: calcRem(40px);
     }
 
     &.#{$prefix}--search--expandable .#{$prefix}--search-input::placeholder {
-      padding: 0 rem(40px);
+      padding: 0 calcRem(40px);
     }
   }
 
@@ -289,12 +289,12 @@ $input-border: 1px solid $field-border;
     ~ .#{$prefix}--search-button,
     &.#{$prefix}--search--expandable,
     &.#{$prefix}--search--expandable .#{$prefix}--search-magnifier {
-      width: rem(48px);
-      height: rem(48px);
+      width: calcRem(48px);
+      height: calcRem(48px);
     }
 
     &.#{$prefix}--search--expandable .#{$prefix}--search-input::placeholder {
-      padding: 0 rem(48px);
+      padding: 0 calcRem(48px);
     }
   }
 
@@ -377,22 +377,22 @@ $input-border: 1px solid $field-border;
   // Windows HCM fix
   .#{$prefix}--search-close svg,
   .#{$prefix}--search-magnifier-icon {
-    @include high-contrast-mode('icon-fill');
+    @include high-contrast-mode("icon-fill");
   }
 
   // MainNavigation styles
 
   .#{$prefix}--search--main .#{$prefix}--search-input {
-    border-radius: rem(4px);
+    border-radius: calcRem(4px);
     width: 100%;
-    height: rem(30px);
+    height: calcRem(30px);
     padding: 0 $spacing-07; //xl
-    @include type.type-style('body-short-02');
+    @include type.type-style("body-short-02");
     transition: max-width 0.2s;
     @include breakpoint(lg) {
-      max-width: rem(150px);
+      max-width: calcRem(150px);
       &:focus {
-        max-width: rem(230px);
+        max-width: calcRem(230px);
       }
     }
   }
@@ -401,10 +401,10 @@ $input-border: 1px solid $field-border;
   .#{$prefix}--search--main .#{$prefix}--search-input,
   .#{$prefix}--search--main.#{$prefix}--search--expandable.#{$prefix}--search--expanded
     .#{$prefix}--search-input {
-    height: rem(32px);
+    height: calcRem(32px);
     border: none;
     &:hover {
-      @include focus-outline('reset');
+      @include focus-outline("reset");
     }
 
     // 8px padding on either side of icon + 16px icon (32px)
@@ -412,7 +412,7 @@ $input-border: 1px solid $field-border;
   }
 
   .#{$prefix}--search--main .#{$prefix}--search-magnifier-icon {
-    left: rem(8px);
+    left: calcRem(8px);
   }
 
   .#{$prefix}--search--main {
@@ -421,12 +421,12 @@ $input-border: 1px solid $field-border;
     ~ .#{$prefix}--search-button,
     &.#{$prefix}--search--expandable,
     &.#{$prefix}--search--expandable .#{$prefix}--search-magnifier {
-      width: rem(32px);
-      height: rem(32px);
+      width: calcRem(32px);
+      height: calcRem(32px);
     }
 
     &.#{$prefix}--search--expandable .#{$prefix}--search-input::placeholder {
-      padding: 0 rem(32px);
+      padding: 0 calcRem(32px);
     }
   }
 }

@@ -5,16 +5,16 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../config' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/focus-outline' as *;
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/focus-outline" as *;
 
-@use '../form';
+@use "../form";
 
 @mixin checkbox {
   .#{$prefix}--form-item.#{$prefix}--checkbox-wrapper {
@@ -35,25 +35,25 @@
 
   .#{$prefix}--checkbox-label {
     @include reset;
-    @include font-family('sans');
+    @include font-family("sans");
     // @include font-smoothing;
-    @include type-style('label-02');
+    @include type-style("label-02");
     display: flex;
     align-items: center;
     cursor: pointer;
     position: relative;
     padding-left: $spacing-06 + 0.1;
-    min-height: rem(18px);
+    min-height: calcRem(18px);
   }
 
   .#{$prefix}--checkbox-label::before {
     box-sizing: border-box;
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: calc(50% - 9px);
-    height: rem(18px);
-    width: rem(18px);
+    height: calcRem(18px);
+    width: calcRem(18px);
     border: 2px solid $border-inverse;
     border-radius: 4px;
     background-color: $background-main;
@@ -61,7 +61,7 @@
 
   // Checkmark
   .#{$prefix}--checkbox-label::after {
-    content: '';
+    content: "";
     width: 10px;
     height: 5px;
     background: none;
@@ -69,22 +69,22 @@
     border-bottom: 2px solid $background-main;
     transform: scale(0) rotate(-45deg);
     position: absolute;
-    left: rem(3px);
+    left: calcRem(3px);
     top: 50%;
-    margin-top: rem(-5px);
+    margin-top: calcRem(-5px);
     box-sizing: content-box;
   }
 
   .#{$prefix}--checkbox:checked + .#{$prefix}--checkbox-label::before,
   .#{$prefix}--checkbox:indeterminate + .#{$prefix}--checkbox-label::before,
-  .#{$prefix}--checkbox-label[data-contained-checkbox-state='true']::before,
-  .#{$prefix}--checkbox-label[data-contained-checkbox-state='mixed']::before {
+  .#{$prefix}--checkbox-label[data-contained-checkbox-state="true"]::before,
+  .#{$prefix}--checkbox-label[data-contained-checkbox-state="mixed"]::before {
     background-color: $background-brand;
     border-color: $interactive;
   }
 
   .#{$prefix}--checkbox:checked + .#{$prefix}--checkbox-label::after,
-  .#{$prefix}--checkbox-label[data-contained-checkbox-state='true']::after {
+  .#{$prefix}--checkbox-label[data-contained-checkbox-state="true"]::after {
     opacity: 1;
     transform: scale(1) rotate(-45deg);
   }
@@ -96,24 +96,24 @@
 
   .#{$prefix}--checkbox:focus + .#{$prefix}--checkbox-label::before,
   .#{$prefix}--checkbox-label__focus::before {
-    @include focus-outline('blurred');
+    @include focus-outline("blurred");
   }
 
   // Indeterminate dash
   .#{$prefix}--checkbox:indeterminate + .#{$prefix}--checkbox-label::after,
-  .#{$prefix}--checkbox-label[data-contained-checkbox-state='mixed']::after {
+  .#{$prefix}--checkbox-label[data-contained-checkbox-state="mixed"]::after {
     transform: scale(1) rotate(0deg);
     border-left: 0 solid $background-main;
     border-bottom: 2px solid $background-main;
     opacity: 1;
-    width: rem(12px);
-    margin-top: rem(-6px);
+    width: calcRem(12px);
+    margin-top: calcRem(-6px);
   }
 
   //Disabled
   .#{$prefix}--checkbox:disabled + .#{$prefix}--checkbox-label,
   .#{$prefix}--checkbox:disabled ~ .#{$prefix}--checkbox-label-text,
-  .#{$prefix}--checkbox-label[data-contained-checkbox-disabled='true'] {
+  .#{$prefix}--checkbox-label[data-contained-checkbox-disabled="true"] {
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -123,19 +123,19 @@
     left: 0;
     top: calc(50% - 9px);
     display: inline-block;
-    height: rem(18px);
-    width: rem(18px);
+    height: calcRem(18px);
+    width: calcRem(18px);
     margin-right: $spacing-03;
     background-color: $field;
     border: 2px solid $border-inverse;
-    min-width: rem(18px);
+    min-width: calcRem(18px);
   }
 
   // Backwards compatibilty for old checkbox html using .#{$prefix}--checkbox-appearance
   .#{$prefix}--checkbox:checked
     + .#{$prefix}--checkbox-label
     .#{$prefix}--checkbox-appearance {
-    top: rem(-1px);
+    top: calcRem(-1px);
   }
 
   .#{$prefix}--checkbox:checked + .#{$prefix}--checkbox-appearance,
@@ -152,7 +152,7 @@
     + .#{$prefix}--checkbox-label
     .#{$prefix}--checkbox-appearance,
   .#{$prefix}--checkbox:focus + .#{$prefix}--checkbox-appearance {
-    @include focus-outline('blurred');
+    @include focus-outline("blurred");
   }
 
   .#{$prefix}--checkbox:disabled + .#{$prefix}--checkbox-appearance {

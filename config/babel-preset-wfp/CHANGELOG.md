@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.36 (2023-10-09)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
+## 0.1.35 (2023-09-19)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
+## 0.1.34 (2023-09-19)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
 ## 0.1.33 (2023-08-07)
 
 **Note:** Version bump only for package @un/babel-preset-wfp

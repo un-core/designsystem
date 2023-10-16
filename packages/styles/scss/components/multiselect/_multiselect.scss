@@ -5,13 +5,13 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../list-box';
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/focus-outline' as *;
+@use "../list-box";
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/focus-outline" as *;
 
 /// Multi select styles
 /// @access public
@@ -45,7 +45,7 @@
     display: inline-block;
     overflow: hidden;
     width: 100%;
-    padding-left: rem(28px);
+    padding-left: calcRem(28px);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -70,13 +70,13 @@
 
   .#{$prefix}--multi-select--filterable.#{$prefix}--combo-box
     .#{$prefix}--text-input {
-    border: rem(2px) solid transparent;
+    border: calcRem(2px) solid transparent;
     background-clip: padding-box;
     outline: none;
   }
 
   .#{$prefix}--multi-select--filterable--input-focused {
-    @include focus-outline('outline');
+    @include focus-outline("outline");
   }
 
   .#{$prefix}--multi-select--filterable.#{$prefix}--multi-select--selected

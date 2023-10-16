@@ -19,6 +19,7 @@ $css--reset: true;
 // Use the WFP theme
 :root {
   @include defaulttheme.theme-default();
+  //font-family: var(--font-family-primary);
 
   /*@include carbon--theme($carbon--theme--wfp, true) {
     // @include emit-component-tokens($tag-colors);

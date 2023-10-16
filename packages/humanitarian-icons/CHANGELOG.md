@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.14.41 (2023-10-09)
+
+**Note:** Version bump only for package @un/humanitarian-icons
+
+
+
+
+
+## 11.14.40 (2023-09-19)
+
+**Note:** Version bump only for package @un/humanitarian-icons
+
+
+
+
+
+## 11.14.39 (2023-09-19)
+
+**Note:** Version bump only for package @un/humanitarian-icons
+
+
+
+
+
 ## 11.14.38 (2023-08-07)
 
 **Note:** Version bump only for package @un/humanitarian-icons

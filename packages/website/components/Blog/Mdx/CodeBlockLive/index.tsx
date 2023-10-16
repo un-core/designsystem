@@ -31,9 +31,11 @@ import babelParser from "prettier/parser-babel";
 import htmlParser from "prettier/parser-html";
 
 function LiveHtml({ live }: any /* { live?: Record<string, unknown> } */) {
-  const Result = live.element as React.FunctionComponent | React.ComponentClass;
-  if (!Result) return null;
-  let htmlString = ReactDOMServer.renderToStaticMarkup(<Result />);
+  // const Result = live.element as React.FunctionComponent | React.ComponentClass;
+  //const Result = live.element as React.ElementType;
+  //if (!Result) return null;
+  // let htmlString = ReactDOMServer.renderToStaticMarkup(<Result />);
+  let htmlString = ReactDOMServer.renderToStaticMarkup(<live.element />);
 
   htmlString = htmlString.replace(
     /<svg.*?>(.*?)<\/svg>/gm,

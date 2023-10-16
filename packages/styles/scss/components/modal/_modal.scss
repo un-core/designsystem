@@ -4,21 +4,21 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-@use 'mixins' as *;
-@use '../../breakpoint' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../spacing' as *;
-@use '../../theme' as *;
-@use '../../type' as *;
-@use '../../utilities/convert' as *;
-@use '../../utilities/component-reset';
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/z-index' as *;
-@use '../../utilities/layer' as *;
+@use "mixins" as *;
+@use "../../breakpoint" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../spacing" as *;
+@use "../../theme" as *;
+@use "../../type" as *;
+@use "../../utilities/convert" as *;
+@use "../../utilities/component-reset";
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/z-index" as *;
+@use "../../utilities/layer" as *;
 
-@use '../button';
+@use "../button";
 
 /// Modal styles
 /// @access public
@@ -32,18 +32,18 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
 @mixin modal {
   .#{$prefix}--modal {
     @include component-reset.reset;
-    @include font-family('sans');
+    @include font-family("sans");
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: z('hidden');
+    z-index: z("hidden");
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: auto;
-    content: '';
+    content: "";
     opacity: 0;
     //background-color: rgba(var(--ui-07), 0.5);
     background-color: rgba(#0b1923, 0.8); // using current token of $overlay
@@ -55,7 +55,7 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
     }*/
 
     &.is-visible {
-      z-index: z('modal');
+      z-index: z("modal");
       opacity: 1;
       transition: opacity 200ms;
       visibility: visible;
@@ -79,7 +79,7 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
 
   .#{$prefix}--modal-container {
     @include reset;
-    @include layer('pop-out');
+    @include layer("pop-out");
     //box-shadow: 0 20px 30px -10px $box-shadow;
     position: relative;
     margin: auto;
@@ -93,7 +93,7 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
       left: 0;
       right: 0;
       height: 4px;
-      content: '';
+      content: "";
       background: $interactive;
     }
     //border-top: $modal-border-top;
@@ -103,7 +103,7 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
     height: 100%;
     padding: $spacing-08 $spacing-05 0rem $spacing-05;
 
-    @include breakpoint('md') {
+    @include breakpoint("md") {
       height: auto;
       min-width: 500px;
       max-width: 75%;
@@ -150,7 +150,7 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
 
   .#{$prefix}--modal-header__label {
     @include reset;
-    @include type-style('label');
+    @include type-style("label");
     color: $text-secondary;
     font-weight: 600;
     text-transform: uppercase;
@@ -160,7 +160,7 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
 
   .#{$prefix}--modal-header__heading {
     @include reset;
-    @include type-style('productive-heading-04');
+    @include type-style("productive-heading-04");
     font-weight: 600;
     color: $text-primary;
   }
@@ -179,25 +179,25 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
     margin-top: auto;
     text-align: right;
     background-color: $modal-footer-background-color;
-    margin-left: -$spacing-05; // rem(-24px);
-    margin-right: -$spacing-05; // rem(-24px);
+    margin-left: -$spacing-05; // calcRem(-24px);
+    margin-right: -$spacing-05; // calcRem(-24px);
     padding: $spacing-05 $spacing-05;
     border-radius: 0 0 $modal-border-radius $modal-border-radius;
     .#{$prefix}--link + .#{$prefix}--btn {
       margin-left: $spacing-05;
     }
 
-    @include breakpoint('md') {
-      margin-left: rem(-48px);
-      margin-right: rem(-48px);
+    @include breakpoint("md") {
+      margin-left: calcRem(-48px);
+      margin-right: calcRem(-48px);
       padding: $spacing-07 $spacing-09;
     }
   }
 
   .#{$prefix}--modal-close {
     position: absolute;
-    top: rem(16px);
-    right: rem(16px);
+    top: calcRem(16px);
+    right: calcRem(16px);
     padding: 0;
     overflow: hidden;
     cursor: pointer;
@@ -206,15 +206,15 @@ $modal-footer-background-color: $layer-primary !default; //TODO use $layer token
     padding: 0.25rem 0.25rem 0.125rem;
 
     &:focus {
-      @include focus-outline('border');
+      @include focus-outline("border");
     }
   }
 
   .#{$prefix}--modal-close__icon {
     transition: 200ms;
     // fill: var(--ui-05); // TODO change $field-border
-    width: rem(12px);
-    height: rem(12px);
+    width: calcRem(12px);
+    height: calcRem(12px);
     color: $text-primary;
   }
 

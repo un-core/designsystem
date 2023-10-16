@@ -9,32 +9,32 @@
 // Tabs
 //-----------------------------
 
-@use 'vars' as *;
+@use "vars" as *;
 
-@use '../../config' as *;
-@use '../../theme' as *;
-@use '../../colors' as *;
-@use '../../type' as *;
-@use '../../breakpoint' as *;
-@use '../../spacing' as *;
-@use '../../motion' as *;
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/rotate' as *;
-@use '../../utilities/box-shadow' as *;
-@use '../../utilities/component-tokens' as *;
-@use '../../utilities/layer' as *;
-@use '../../utilities/skeleton' as *;
-@use '../../utilities/visually-hidden' as *;
-@use '../../utilities/high-contrast-mode' as *;
-@use '../../utilities/convert' as *;
+@use "../../config" as *;
+@use "../../theme" as *;
+@use "../../colors" as *;
+@use "../../type" as *;
+@use "../../breakpoint" as *;
+@use "../../spacing" as *;
+@use "../../motion" as *;
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/rotate" as *;
+@use "../../utilities/box-shadow" as *;
+@use "../../utilities/component-tokens" as *;
+@use "../../utilities/layer" as *;
+@use "../../utilities/skeleton" as *;
+@use "../../utilities/visually-hidden" as *;
+@use "../../utilities/high-contrast-mode" as *;
+@use "../../utilities/convert" as *;
 
 /// Tabs styles
 /// @access public
 /// @group tabs
 @mixin tabs {
   .#{$prefix}--tabs {
-    @include type-style('body-short');
-    @include font-family('sans');
+    @include type-style("body-short");
+    @include font-family("sans");
     color: $text-primary;
     font-weight: 600;
     height: auto;
@@ -64,23 +64,23 @@
   }
 
   .#{$prefix}--tabs__nav {
-    @include layer('overlay');
+    @include layer("overlay");
     margin: 0;
     padding: 0;
     width: 100%;
     list-style: none;
     display: flex;
     flex-direction: column;
-    z-index: z('dropdown');
+    z-index: z("dropdown");
     a {
       text-decoration: none;
     }
-    @include type-style('body-short-02');
+    @include type-style("body-short-02");
     flex-direction: row;
     box-shadow: none;
     z-index: auto;
 
-    @include breakpoint('xlg') {
+    @include breakpoint("xlg") {
       margin-left: 0;
     }
   }
@@ -92,7 +92,7 @@
   }
 
   .#{$prefix}--tabs__nav-item {
-    @include type-style('body-short');
+    @include type-style("body-short");
     padding: 0;
     cursor: pointer;
     white-space: nowrap;
@@ -124,7 +124,7 @@
     .#{$prefix}--tabs__nav-item--selected {
       position: relative;
       &:after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         background: $interactive;
@@ -174,13 +174,13 @@
 
   .#{$prefix}--tabs.#{$prefix}--skeleton .#{$prefix}--tabs__nav-link {
     @include skeleton;
-    width: rem(75px);
-    height: rem(12px);
+    width: calcRem(75px);
+    height: calcRem(12px);
   }
 
   .#{$prefix}--tabs.#{$prefix}--skeleton .#{$prefix}--tabs-trigger {
     @include skeleton;
-    width: rem(100px);
+    width: calcRem(100px);
   }
 
   .#{$prefix}--tabs.#{$prefix}--skeleton .#{$prefix}--tabs-trigger svg {

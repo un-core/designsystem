@@ -65,7 +65,7 @@ body {
 }
 
 .wfp--main-navigation__list {
-  height: 5em;
+  //height: 5em;
 }
 
 html {
@@ -89,10 +89,6 @@ html {
     @include breakpoint-up(lg) {
       display: flex;
     }
-    /*justify-content: center;
-    align-items: center;
-    height: 4rem;
-    line-height: 4rem;*/
   }
 }
 @include breakpoint-down(md) {
