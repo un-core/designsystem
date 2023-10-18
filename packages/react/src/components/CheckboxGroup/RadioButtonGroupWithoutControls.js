@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 class FormWizard extends React.Component {
   static propTypes = {
@@ -29,7 +29,7 @@ class FormWizard extends React.Component {
     const { className, children, sidebar } = this.props;
 
     const classes = {
-      formControls: classNames('wfp--form-wizard', className),
+      formControls: classNames("wfp--form-wizard", className),
     };
 
     const { prefix } = this.props;
@@ -43,4 +43,4 @@ class FormWizard extends React.Component {
   }
 }
 
-export default withUNCoreSettings(FormWizard);
+export default withWFPCoreSettings(FormWizard);

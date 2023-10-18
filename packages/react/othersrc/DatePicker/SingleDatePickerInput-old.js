@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import { withUNCoreSettings } from '../UNCoreSettings';
-import useSettings from '../../hooks/useSettings';
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import classNames from "classnames";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
+import useSettings from "../../hooks/useSettings";
 
 const SingleDatePickerInput = ({
   controlled,
@@ -42,7 +42,7 @@ const SingleDatePickerInput = ({
   };
 
   const handleFocusChange = (focusedInput) => {
-    if (!focusedInput && typeof onBlur === 'function') {
+    if (!focusedInput && typeof onBlur === "function") {
       onBlur();
     }
     setFocusedInput(focusedInput);

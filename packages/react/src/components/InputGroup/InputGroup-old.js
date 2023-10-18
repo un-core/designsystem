@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import RadioButton from '../RadioButton';
-import warning from 'warning';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import RadioButton from "../RadioButton";
+import warning from "warning";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 /**
  * InputGroup allows you to organize and arange multiple input elements.
@@ -88,7 +88,7 @@ class InputGroup extends React.Component {
     const children = React.Children.map(this.props.children, (radioButton) => {
       const { value, ...other } = radioButton.props;
       /* istanbul ignore if */
-      if (radioButton.props.hasOwnProperty('checked')) {
+      if (radioButton.props.hasOwnProperty("checked")) {
         warning(
           false,
           `Instead of using the checked property on the RadioButton, set
@@ -163,4 +163,4 @@ class InputGroup extends React.Component {
   }
 }
 
-export default withUNCoreSettings(InputGroup);
+export default withWFPCoreSettings(InputGroup);

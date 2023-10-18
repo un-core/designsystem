@@ -1,9 +1,9 @@
 /* eslint react/no-multi-comp: "off" */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../Icon';
-import { iconClose, iconCheckmark } from '@un/icons-react';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Icon from "../Icon";
+import { iconClose, iconCheckmark } from "@un/icons-react";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 class Filename extends Component {
   static propTypes = {
@@ -16,7 +16,7 @@ class Filename extends Component {
     /**
      * Specify the status of the File Upload
      */
-    status: PropTypes.oneOf(['edit', 'complete', 'uploading']),
+    status: PropTypes.oneOf(["edit", "complete", "uploading"]),
 
     /**
      * Provide a description for the complete/close icon that can be read by screen readers
@@ -26,7 +26,7 @@ class Filename extends Component {
 
   static defaultProps = {
     onKeyDown: () => {},
-    status: 'uploading',
+    status: "uploading",
     style: {},
     tabIndex: 0,
   };
@@ -34,18 +34,19 @@ class Filename extends Component {
   render() {
     const { prefix, iconDescription, status, style, ...other } = this.props;
 
-    if (status === 'uploading') {
+    if (status === "uploading") {
       return (
         <div
           className={`${prefix}--loading`}
-          style={{ ...style, width: '1rem', height: '1rem' }}
-          {...other}>
+          style={{ ...style, width: "1rem", height: "1rem" }}
+          {...other}
+        >
           <svg className={`${prefix}--loading__svg`} viewBox="-42 -42 84 84">
             <circle cx="0" cy="0" r="37.5" />
           </svg>
         </div>
       );
-    } else if (status === 'edit') {
+    } else if (status === "edit") {
       return (
         <Icon
           description={iconDescription}
@@ -55,7 +56,7 @@ class Filename extends Component {
           {...other}
         />
       );
-    } else if (status === 'complete') {
+    } else if (status === "complete") {
       return (
         <Icon
           description={iconDescription}
@@ -71,4 +72,4 @@ class Filename extends Component {
   }
 }
 
-export default withUNCoreSettings(Filename);
+export default withWFPCoreSettings(Filename);

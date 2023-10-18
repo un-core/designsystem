@@ -159,11 +159,11 @@ export { default as Wrapper, pageWidths } from "./components/Wrapper";
 // export { default as useDetectPrint } from './internal/useDetectPrint.js.legacy';
 export { uniqueId } from "./tools/uniqueId";
 export {
-  UNCoreProvider,
-  UNCoreContext,
-  withUNCoreSettings,
+  WFPCoreProvider,
+  WFPCoreContext,
+  withWFPCoreSettings,
   useTheme,
-} from "./components/UNCoreSettings";
+} from "./components/WFPCoreSettings";
 
 export { default as SkeletonText } from "./components/SkeletonText";
 

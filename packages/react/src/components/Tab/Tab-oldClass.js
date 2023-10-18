@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 class Tab extends React.Component {
   static propTypes = {
@@ -93,10 +93,10 @@ class Tab extends React.Component {
   };
 
   static defaultProps = {
-    role: 'presentation',
-    label: 'provide a label',
+    role: "presentation",
+    label: "provide a label",
     tabIndex: 0,
-    href: '#',
+    href: "#",
     selected: false,
     onClick: () => {},
     onKeyDown: () => {},
@@ -148,12 +148,12 @@ class Tab extends React.Component {
     );
 
     const anchorProps = {
-      className: 'wfp--tabs__nav-link',
+      className: "wfp--tabs__nav-link",
       href: disabled ? undefined : href,
       label,
-      role: 'tab',
+      role: "tab",
       tabIndex,
-      'aria-selected': selected,
+      "aria-selected": selected,
       ref: (e) => {
         this.tabAnchor = e;
       },
@@ -176,7 +176,7 @@ class Tab extends React.Component {
           onKeyDown(evt);
         }
       },
-      role: 'presentation',
+      role: "presentation",
       selected: selected,
       ...other,
     };
@@ -206,4 +206,4 @@ class Tab extends React.Component {
   }
 }
 
-export default withUNCoreSettings(Tab);
+export default withWFPCoreSettings(Tab);

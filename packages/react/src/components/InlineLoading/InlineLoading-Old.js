@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import Loading from '../Loading';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import Loading from "../Loading";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 class InlineLoading extends React.Component {
   static propTypes = {
@@ -71,7 +71,8 @@ class InlineLoading extends React.Component {
           <svg
             className={`${prefix}--inline-loading__checkmark-container ${prefix}--inline-loading__svg`}
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 10 10">
+            viewBox="0 0 10 10"
+          >
             <polyline
               className={`${prefix}--inline-loading__checkmark`}
               points="0.74 3.4 3.67 6.34 9.24 0.74"
@@ -98,4 +99,4 @@ class InlineLoading extends React.Component {
   }
 }
 
-export default withUNCoreSettings(InlineLoading);
+export default withWFPCoreSettings(InlineLoading);

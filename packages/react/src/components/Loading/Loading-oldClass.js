@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import { componentsX } from '../../internal/FeatureFlags';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import { componentsX } from "../../internal/FeatureFlags";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 /** Loading spinners are used when retrieving data or performing slow computations, and help to notify users that loading is underway. */
 
@@ -59,8 +59,9 @@ class Loading extends React.Component {
     const loading = (
       <div
         {...other}
-        aria-live={active ? 'assertive' : 'off'}
-        className={loadingClasses}>
+        aria-live={active ? "assertive" : "off"}
+        className={loadingClasses}
+      >
         <svg className={`${prefix}--loading__svg`} viewBox="-75 -75 150 150">
           <title>Loading</title>
           {componentsX && small ? (
@@ -89,4 +90,4 @@ class Loading extends React.Component {
   }
 }
 
-export default withUNCoreSettings(Loading);
+export default withWFPCoreSettings(Loading);

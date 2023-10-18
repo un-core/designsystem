@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { sliderValuePropSync } from '../../internal/FeatureFlags';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import isEqual from 'lodash.isequal';
-import TextInput from '../TextInput';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import React, { Component } from "react";
+import { sliderValuePropSync } from "../../internal/FeatureFlags";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import isEqual from "lodash.isequal";
+import TextInput from "../TextInput";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 const defaultFormatLabel = (value, label) => {
-  return typeof label === 'function' ? label(value) : `${value}${label}`;
+  return typeof label === "function" ? label(value) : `${value}${label}`;
 };
 
 /** Sliders provide a visual indication of adjustable content, where the user can move the handle along a horizontal track to increase or decrease the value. */
@@ -119,10 +119,10 @@ class Slider extends Component {
     step: 1,
     stepMuliplier: 4,
     disabled: false,
-    minLabel: '',
-    maxLabel: '',
-    inputType: 'number',
-    ariaLabelInput: 'Slider number input',
+    minLabel: "",
+    maxLabel: "",
+    inputType: "number",
+    ariaLabelInput: "Slider number input",
     light: false,
   };
 
@@ -187,7 +187,7 @@ class Slider extends Component {
           evt &&
           evt.target &&
           evt.target.classList &&
-          evt.target.classList.contains('wfp-slider-text-input');
+          evt.target.classList.contains("wfp-slider-text-input");
         const { left, newValue: newSliderValue } = this.calcValue(
           evt,
           prevState,
@@ -197,7 +197,7 @@ class Slider extends Component {
         if (prevState.left === left && prevState.value === newValue) {
           return { dragging: false };
         }
-        if (typeof props.onChange === 'function') {
+        if (typeof props.onChange === "function") {
           props.onChange(newValue);
         }
         return {
@@ -225,7 +225,7 @@ class Slider extends Component {
     if (evt) {
       const { type } = evt;
 
-      if (type === 'keydown') {
+      if (type === "keydown") {
         const direction = {
           40: -1, // decreasing
           37: -1, // decreasing
@@ -242,7 +242,7 @@ class Slider extends Component {
           newValue = Number(value) + stepMultiplied * direction;
         }
       }
-      if (type === 'mousemove' || type === 'click' || type === 'touchmove') {
+      if (type === "mousemove" || type === "click" || type === "touchmove") {
         const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
         const track = this.track.getBoundingClientRect();
         const ratio = (clientX - track.left) / track.width;
@@ -266,54 +266,54 @@ class Slider extends Component {
 
   handleMouseStart = () => {
     this.element.ownerDocument.addEventListener(
-      'mousemove',
+      "mousemove",
       this.updatePosition
     );
-    this.element.ownerDocument.addEventListener('mouseup', this.handleMouseEnd);
+    this.element.ownerDocument.addEventListener("mouseup", this.handleMouseEnd);
   };
 
   handleMouseEnd = () => {
     this.element.ownerDocument.removeEventListener(
-      'mousemove',
+      "mousemove",
       this.updatePosition
     );
     this.element.ownerDocument.removeEventListener(
-      'mouseup',
+      "mouseup",
       this.handleMouseEnd
     );
   };
 
   handleTouchStart = () => {
     this.element.ownerDocument.addEventListener(
-      'touchmove',
+      "touchmove",
       this.updatePosition
     );
-    this.element.ownerDocument.addEventListener('touchup', this.handleTouchEnd);
+    this.element.ownerDocument.addEventListener("touchup", this.handleTouchEnd);
     this.element.ownerDocument.addEventListener(
-      'touchend',
+      "touchend",
       this.handleTouchEnd
     );
     this.element.ownerDocument.addEventListener(
-      'touchcancel',
+      "touchcancel",
       this.handleTouchEnd
     );
   };
 
   handleTouchEnd = () => {
     this.element.ownerDocument.removeEventListener(
-      'touchmove',
+      "touchmove",
       this.updatePosition
     );
     this.element.ownerDocument.removeEventListener(
-      'touchup',
+      "touchup",
       this.handleTouchEnd
     );
     this.element.ownerDocument.removeEventListener(
-      'touchend',
+      "touchend",
       this.handleTouchEnd
     );
     this.element.ownerDocument.removeEventListener(
-      'touchcancel',
+      "touchcancel",
       this.handleTouchEnd
     );
   };
@@ -355,17 +355,17 @@ class Slider extends Component {
     const { value, left } = this.state;
 
     const sliderClasses = classNames(
-      'wfp--slider',
-      { 'wfp--slider--disabled': disabled },
+      "wfp--slider",
+      { "wfp--slider--disabled": disabled },
       className
     );
 
-    const sliderContainerClasses = classNames('wfp--slider-container', {
-      'wfp--slider-container--full-width': fullWidth,
+    const sliderContainerClasses = classNames("wfp--slider-container", {
+      "wfp--slider-container--full-width": fullWidth,
     });
 
-    const inputClasses = classNames('wfp--slider-text-input', {
-      'wfp--text-input--light': light,
+    const inputClasses = classNames("wfp--slider-text-input", {
+      "wfp--text-input--light": light,
     });
 
     const filledTrackStyle = {
@@ -375,7 +375,7 @@ class Slider extends Component {
       left: `${left}%`,
     };
 
-    const errorId = id + '-error-msg';
+    const errorId = id + "-error-msg";
 
     const labelClasses = classNames(`${prefix}--label`, {
       [`${prefix}--visually-hidden`]: hideLabel,
@@ -415,7 +415,8 @@ class Slider extends Component {
             onKeyPress={this.updatePosition}
             role="presentation"
             tabIndex={-1}
-            {...other}>
+            {...other}
+          >
             <div
               className="wfp--slider__track"
               ref={(node) => {
@@ -472,4 +473,4 @@ class Slider extends Component {
   }
 }
 
-export default withUNCoreSettings(Slider);
+export default withWFPCoreSettings(Slider);

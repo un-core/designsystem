@@ -6,16 +6,16 @@
  */
 
 /* eslint react/no-multi-comp: "off" */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Checkmark, Close, WarningSolid } from '@un/icons-react';
-import { withUNCoreSettings } from '../UNCoreSettings';
-import useSettings from '../../hooks/useSettings';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { Checkmark, Close, WarningSolid } from "@un/icons-react";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
+import useSettings from "../../hooks/useSettings";
 
-import Loading from '../Loading';
-import uid from '../../tools/uniqueId';
-import { ButtonTypes } from '../../prop-types/types';
+import Loading from "../Loading";
+import uid from "../../tools/uniqueId";
+import { ButtonTypes } from "../../prop-types/types";
 
 class FileUploaderButton extends Component {
   state = {};
@@ -100,14 +100,14 @@ class FileUploaderButton extends Component {
   static defaultProps = {
     tabIndex: 0,
     disableLabelChanges: false,
-    labelText: 'Add file',
-    buttonKind: 'primary',
+    labelText: "Add file",
+    buttonKind: "primary",
     multiple: false,
     onChange: () => {},
     onClick: () => {},
     accept: [],
     disabled: false,
-    role: 'button',
+    role: "button",
   };
 
   static getDerivedStateFromProps({ labelText }, state) {
@@ -167,7 +167,8 @@ class FileUploaderButton extends Component {
             }
           }}
           htmlFor={this.uid}
-          {...other}>
+          {...other}
+        >
           <span role={role}>{this.state.labelText}</span>
         </label>
         <input
@@ -190,16 +191,16 @@ class FileUploaderButton extends Component {
   }
 }
 
-const FileUploaderButtonWithSettings = withUNCoreSettings(FileUploaderButton);
+const FileUploaderButtonWithSettings = withWFPCoreSettings(FileUploaderButton);
 
 function Filename({ iconDescription, status, invalid, ...other }) {
   const { prefix } = useSettings();
   switch (status) {
-    case 'uploading':
+    case "uploading":
       return (
         <Loading description={iconDescription} withOverlay={false} small />
       );
-    case 'edit':
+    case "edit":
       return (
         <>
           {invalid && <WarningSolid className={`${prefix}--file-invalid`} />}
@@ -216,7 +217,7 @@ function Filename({ iconDescription, status, invalid, ...other }) {
           </Close16>*/}
         </>
       );
-    case 'complete':
+    case "complete":
       return (
         <Checkmark
           className={`${prefix}--file-complete`}
@@ -238,7 +239,7 @@ Filename.propTypes = {
   /**
    * Status of the file upload
    */
-  status: PropTypes.oneOf(['edit', 'complete', 'uploading']),
+  status: PropTypes.oneOf(["edit", "complete", "uploading"]),
 
   /**
    * Provide a custom tabIndex value for the <Filename>
@@ -247,9 +248,9 @@ Filename.propTypes = {
 };
 
 Filename.defaultProps = {
-  iconDescription: 'Uploading file',
-  status: 'uploading',
-  tabIndex: '0',
+  iconDescription: "Uploading file",
+  status: "uploading",
+  tabIndex: "0",
 };
 
 class FileUploader extends Component {
@@ -320,10 +321,10 @@ class FileUploader extends Component {
   };
 
   static defaultProps = {
-    iconDescription: 'Provide icon description',
-    filenameStatus: 'uploading',
-    buttonLabel: '',
-    buttonKind: 'primary',
+    iconDescription: "Provide icon description",
+    filenameStatus: "uploading",
+    buttonLabel: "",
+    buttonKind: "primary",
     multiple: false,
     onClick: () => {},
     accept: [],
@@ -412,7 +413,8 @@ class FileUploader extends Component {
                   key={index}
                   className={`${prefix}--file__selected-file`}
                   ref={(node) => (this.nodes[index] = node)} // eslint-disable-line
-                  {...other}>
+                  {...other}
+                >
                   <p className={`${prefix}--file-filename`}>{name}</p>
                   <span className={`${prefix}--file__state-container`}>
                     <Filename
@@ -424,7 +426,7 @@ class FileUploader extends Component {
                         }
                       }}
                       onClick={(evt) => {
-                        if (filenameStatus === 'edit') {
+                        if (filenameStatus === "edit") {
                           this.handleClick(evt, index);
                         }
                       }}
@@ -438,7 +440,7 @@ class FileUploader extends Component {
   }
 }
 
-const FileUploaderWithSettings = withUNCoreSettings(FileUploader);
+const FileUploaderWithSettings = withWFPCoreSettings(FileUploader);
 
 export {
   FileUploaderButtonWithSettings as FileUploaderButton,
