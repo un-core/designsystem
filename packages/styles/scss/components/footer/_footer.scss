@@ -29,9 +29,8 @@
   .#{$prefix}--footer {
     @include reset;
     @include font-family("sans");
-    border-top: 2px solid $border-subtle;
-    color: $text-primary;
-    background-color: $background-main;
+    color: $text-on-color; // TODO: use new text color white token $text-primary(old);
+    background-color: #0d295c; // use new color token $background-main(old);
     z-index: z("footer");
     padding: calcRem(20px) 0;
     @media print {
@@ -45,6 +44,7 @@
     align-items: center;
     min-height: 3.5rem;
     width: 100%;
+    border-bottom: 1px solid $border-subtle;
   }
 
   .#{$prefix}--footer__info {
@@ -64,8 +64,10 @@
 
   .#{$prefix}--footer__meta {
     @include type-style("body-short");
-    margin-top: calcRem(20px);
-    font-style: italic;
+    font-size: calcRem(12px);
+    margin-top: calcRem(10px);
+    // font-style: italic;
+    font-weight: 600;
     @include breakpoint-down(lg) {
       display: none;
     }
@@ -104,9 +106,15 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
     @include rtl {
       margin-left: 0;
       margin-right: auto;
+    }
+    .#{$prefix}--footer__cta-logo {
+      fill: $text-on-color; // TODO: use new text color white token;
+      width: calcRem(90px);
+      height: calcRem(90px);
     }
   }
 

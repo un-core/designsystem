@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import markdown from './README.mdx';
+import markdown from "./README.mdx";
 
-import { Footer } from '../Footer';
+import { Footer } from "../Footer";
 
-import { FooterExternal, FooterMetaLink, LinksColumn } from './FooterExternal';
+import { FooterExternal, FooterMetaLink, LinksColumn } from "./FooterExternal";
 
-import Link from '../Link';
+import Link from "../Link";
 
 export default {
-  title: 'Components/UI Elements/Footer',
+  title: "Components/UI Elements/Footer",
   component: Footer,
   subcomponents: { FooterExternal, FooterMetaLink, LinksColumn },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
-    previewWidth: 'full',
+    previewWidth: "full",
   },
 };
 
@@ -25,26 +25,10 @@ export const Regular = (args) => {
     <Footer {...args}>
       <div className="wfp--footer__info">
         <div className="wfp--footer__info__item">
-          <p className="wfp--footer__label">A label</p>
-          <ul className="wfp--footer__list">
-            <li>
-              <Link href="http://www.wfp.org">First Link</Link>
-            </li>
-            <li>
-              <Link href="http://www.wfp.org">Second Link</Link>
-            </li>
-          </ul>
+          <p className="wfp--footer__label">Label 1</p>
         </div>
         <div className="wfp--footer__info__item">
-          <p className="wfp--footer__label">Another label</p>
-          <ul className="wfp--footer__list">
-            <li>
-              <Link href="http://www.wfp.org">First Link</Link>
-            </li>
-            <li>
-              <Link href="http://www.wfp.org">Second Link</Link>
-            </li>
-          </ul>
+          <p className="wfp--footer__label">Label 2</p>
         </div>
       </div>
     </Footer>
@@ -53,46 +37,19 @@ export const Regular = (args) => {
 
 Regular.args = {
   external: false,
+  metaContent: "2023 © World Food Programme",
 };
 
 const regularsourcecode = `
-import { Footer, Link  } from "@wfp/react";
+import { Footer } from "@wfp/react";
         
-<Footer>
+<Footer metaContent="2023 © World Food Programme">
   <div className="wfp--footer__info">
     <div className="wfp--footer__info__item">
-      <p className="wfp--footer__label">
-        A label
-      </p>
-      <ul className="wfp--footer__list">
-        <li>
-          <Link href="http://www.wfp.org">
-            First Link
-          </Link>
-        </li>
-        <li>
-          <Link href="http://www.wfp.org">
-            Second Link
-          </Link>
-        </li>
-      </ul>
+      <p className="wfp--footer__label">Label 1</p>
     </div>
     <div className="wfp--footer__info__item">
-      <p className="wfp--footer__label">
-        Another label
-      </p>
-      <ul className="wfp--footer__list">
-        <li>
-          <Link href="http://www.wfp.org">
-            First Link
-          </Link>
-        </li>
-        <li>
-          <Link href="http://www.wfp.org">
-            Second Link
-          </Link>
-        </li>
-      </ul>
+      <p className="wfp--footer__label">Label 2</p>
     </div>
   </div>
 </Footer>
@@ -116,7 +73,8 @@ export const External = (args) => (
         <FooterMetaLink href="hh.com">First legal link</FooterMetaLink>
         <FooterMetaLink href="hh.com">Second legal link</FooterMetaLink>
       </>
-    }>
+    }
+  >
     <>
       <LinksColumn title="Title">
         <li className={`wfp--links-column-link`}>
@@ -163,7 +121,7 @@ External.args = {
       Service <br /> Marketplace
     </span>
   ),
-  metaContent: 'Via C. G. Viola 68 Parco dei Medici, 00148 Rome, Italy',
+  metaContent: "Via C. G. Viola 68 Parco dei Medici, 00148 Rome, Italy",
 };
 
 const externalsourcecode = `
@@ -223,7 +181,7 @@ External.story = {
   parameters: {
     docs: {
       storyDescription:
-        'External Footer is used for external applications facing the public audience. It should contain WFP logo, HQ address and metadata like copyright.',
+        "External Footer is used for external applications facing the public audience. It should contain WFP logo, HQ address and metadata like copyright.",
       source: {
         code: externalsourcecode,
       },
@@ -295,7 +253,7 @@ Internal.story = {
   parameters: {
     docs: {
       storyDescription:
-        'Internal Footer is used in applications that are for internal purposes and not available for external users. In the left section you can add links',
+        "Internal Footer is used in applications that are for internal purposes and not available for external users. In the left section you can add links",
       source: {
         code: intersourcecode,
       },
@@ -307,7 +265,8 @@ export const OverrideLogos = (args) => (
   <Footer
     {...args}
     logo={<div>Logo</div>}
-    logoExtended={<div>LogoExtended</div>}>
+    logoExtended={<div>LogoExtended</div>}
+  >
     <div className="wfp--footer__info">
       <div className="wfp--footer__info__item">
         <p className="wfp--footer__label">A label</p>
@@ -339,7 +298,7 @@ OverrideLogos.story = {
   parameters: {
     docs: {
       storyDescription:
-        'The logos for `logo`, `logoExtended`  can be replaced by a custom react component.',
+        "The logos for `logo`, `logoExtended`  can be replaced by a custom react component.",
     },
   },
 };
