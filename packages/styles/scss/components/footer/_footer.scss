@@ -69,7 +69,7 @@
     // font-style: italic;
     font-weight: 600;
     @include breakpoint-down(lg) {
-      display: none;
+      // display: none;
     }
   }
 
@@ -97,7 +97,7 @@
     margin: 0;
 
     @media screen and (max-width: 600px) {
-      display: none;
+      // display: none;
     }
   }
 
@@ -126,7 +126,16 @@
   }
 
   @include breakpoint-down("md") {
-    .#{$prefix}--footer__cta-logo {
+    .#{$prefix}--footer__content {
+      flex-direction: column;
+    }
+    .#{$prefix}--footer__cta {
+      margin: auto;
+    }
+    .#{$prefix}--footer__meta {
+      text-align: center;
+    }
+    .#{$prefix}--footer__cta-logo-small {
       display: none;
     }
     .#{$prefix}--footer__sdg {
