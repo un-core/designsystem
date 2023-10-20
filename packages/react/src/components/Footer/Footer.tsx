@@ -1,13 +1,13 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import Link from '../Link';
-import Wrapper from '../Wrapper';
-import { ScreenSize } from '../../utils';
+import * as React from "react";
+import classNames from "classnames";
+import Link from "../Link";
+import Wrapper from "../Wrapper";
+import { ScreenSize } from "../../utils";
 import {
   WfpLogoStandardBlackEn,
   WfpLogoVerticalEn,
-} from '@un/pictograms-react';
-import useSettings from '../../hooks/useSettings';
+} from "@un/pictograms-react";
+import useSettings from "../../hooks/useSettings";
 
 /** A Footer is a section at the bottom of each page. It typically contains basic site information, copyright data or links to related pages. */
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -67,7 +67,7 @@ const Footer: React.FC<FooterProps> = ({
   metaContent,
   metaLinks,
   secondary,
-  pageWidth = 'lg',
+  pageWidth = "lg",
 }) => {
   const { prefix } = useSettings();
 
@@ -101,7 +101,7 @@ const Footer: React.FC<FooterProps> = ({
             </div>
           )}
           <div className={`${prefix}--footer__cta`}>
-            {logoExtended && typeof logoExtended === 'string' ? (
+            {logoExtended && typeof logoExtended === "string" ? (
               <img
                 className={`${prefix}--footer__cta-logo`}
                 src={logoExtended}
@@ -116,7 +116,7 @@ const Footer: React.FC<FooterProps> = ({
               />
             )}
 
-            {logo && typeof logo === 'string' ? (
+            {logo && typeof logo === "string" ? (
               <img
                 className={`${prefix}--footer__cta-logo-small`}
                 src={logo}
@@ -151,6 +151,6 @@ const Footer: React.FC<FooterProps> = ({
   );
 };
 
-Footer.displayName = 'Footer';
+Footer.displayName = "Footer";
 
 export default Footer;

@@ -52,6 +52,7 @@
 
     @media screen and (max-width: 600px) {
       flex-direction: column;
+      text-align: center;
     }
   }
 
@@ -83,6 +84,11 @@
       margin-left: calcRem(64px);
       margin-right: 0;
     }
+
+    @media screen and (max-width: 600px) {
+      margin-right: 0;
+      margin-bottom: calcRem(20px);
+    }
   }
 
   .#{$prefix}--footer__info__item > .#{$prefix}--link {
@@ -95,15 +101,12 @@
     @include type-style("label-02");
     font-weight: 600;
     margin: 0;
-
-    @media screen and (max-width: 600px) {
-      // display: none;
-    }
   }
 
   .#{$prefix}--footer__cta {
     margin-left: auto;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
 
@@ -115,6 +118,19 @@
       fill: $text-on-color; // TODO: use new text color white token;
       width: calcRem(90px);
       height: calcRem(90px);
+
+      @media screen and (max-width: 600px) {
+        width: calcRem(120px);
+      }
+    }
+  }
+
+  .#{$prefix}--footer__secondary {
+    display: none;
+    @media screen and (max-width: 600px) {
+      margin-bottom: calcRem(10px);
+      display: inline;
+      font-size: calc(10px);
     }
   }
 
@@ -153,10 +169,6 @@
 
   .#{$prefix}--footer__info {
     display: flex;
-  }
-
-  .#{$prefix}--footer__info__item {
-    margin-right: calcRem(20px);
   }
 
   /* External */

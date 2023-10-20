@@ -190,7 +190,12 @@ External.story = {
 };
 
 export const Internal = (args) => (
-  <Footer {...args}>
+  <Footer
+    {...args}
+    metaContent="2023 © World Food Programme"
+    secondary="Via C. G. Viola 68 Parco dei Medici
+    00148 Rome, Italy"
+  >
     <div className="wfp--footer__info">
       <div className="wfp--footer__info__item">
         <p className="wfp--footer__label">A label</p>
