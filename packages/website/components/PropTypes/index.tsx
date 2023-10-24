@@ -129,7 +129,7 @@ export default function PropTypes({
   if (!MyComponent) return null;
 
   let propsAsList: any = [];
-  console.log("propList", propList);
+
   if (propList) {
     propsAsList =
       /*= showAllProps
