@@ -83,5 +83,8 @@
       "enzyme-to-json/serializer"
     ]
   },
+  "engines" : { 
+    "node" : ">=18.0.0"
+  },
   "bundleSizeThreshold": 80000
 }
