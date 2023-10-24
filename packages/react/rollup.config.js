@@ -29,7 +29,12 @@ const baseConfig = {
       compilerOptions: {
         declaration: true,
       },
-      exclude: ["**/__tests__", "**/*.test.ts", "**/*.stories.tsx"],
+      exclude: [
+        "**/__tests__",
+        "**/*.test.ts",
+        "**/*.stories.tsx",
+        "**/indexStories.ts",
+      ],
     }),
     babel({
       babelrc: false,

@@ -1,33 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import { Close, CaretDown } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
-import useMainNavigation from '../MainNavigation/useMainNavigation';
+import React, { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
+import { Close, CaretDown } from "@un/icons-react";
+import useSettings from "../../hooks/useSettings";
+import useMainNavigation from "../MainNavigation/useMainNavigation";
 
-interface MainNavigationItemProps {
+/**
+ * MainNavigationItem component for use with MainNavigation. This component is a wrapper for the `a` element.
+ */
+interface MainNavigationItemProps extends React.ComponentPropsWithRef<"a"> {
   /**
    * If defined the `MainNaviationItem` will have a toggleable
    * SubNavigation. See the `SubNavigation` component for details on usage
    */
   subNavigation?: React.ReactNode;
-  activeMenuItem?: string;
-  menuItem?: string;
-  subNavWideAsContent?: boolean;
-  onChangeSub?: (action: string, id?: number, e?: any) => void;
   /**
-   * The CSS class name to be placed on the wrapping element.
+   * If the subNavigation is open, the subNavigation will be as wide as the content
    */
-  className?: string;
+  subNavWideAsContent?: boolean;
+  /**
+   * Specify a callback that will be called when the subNavigation is opened or closed
+   */
+  onChangeSub?: (action: string, id?: number, e?: any) => void;
   /**
    * Specify if you want to use the external version of the component
    */
   external?: boolean;
 }
 
-const MainNavigationItem: React.FC<
-  PropsWithChildren<MainNavigationItemProps>
-> = ({ className, children, subNavigation, subNavWideAsContent }) => {
+const MainNavigationItem = ({
+  className,
+  children,
+  subNavigation,
+  subNavWideAsContent,
+}: MainNavigationItemProps) => {
   const { prefix } = useSettings();
 
   const { onChangeSub, activeMenuItem /*menuItem */ } = useMainNavigation();
@@ -39,19 +44,19 @@ const MainNavigationItem: React.FC<
 
   useEffect(() => {
     if (menuItemId === activeMenuItem) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [activeMenuItem]);
 
   const handleClickOutside = (e) => {
     if (wrapperRef?.current && !wrapperRef.current.contains(e.target)) {
-      onChangeSub('close');
+      onChangeSub("close");
     }
   };
 
@@ -70,22 +75,6 @@ const MainNavigationItem: React.FC<
 
   const Icon = menuItemId === activeMenuItem ? Close : CaretDown;
 
-  /*const childrenWithProps = subNavigation
-    ? React.cloneElement(children, {
-        children: (
-          <React.Fragment>
-            {children.props.children}
-            <Icon
-              className={`${prefix}--main-navigation__trigger__icon`}
-              fill="#FFFFFF"
-              description="expand icon"
-            />
-          </React.Fragment>
-        ),
-        onClick: (e) => onChangeSub('toggle', menuItem, e),
-      })
-    : children;*/
-
   const subClasses = classNames({
     [`${prefix}--main-navigation__sub`]: true,
     [`${prefix}--main-navigation__sub--open`]: menuItemId === activeMenuItem,
@@ -95,7 +84,8 @@ const MainNavigationItem: React.FC<
     <li className={wrapperClasses} ref={wrapperRef as React.Ref<HTMLLIElement>}>
       <div
         className={triggerClasses}
-        onClick={() => onChangeSub('toggle', menuItemId)}>
+        onClick={() => onChangeSub("toggle", menuItemId)}
+      >
         {children}
         {subNavigation && (
           <Icon
@@ -109,18 +99,5 @@ const MainNavigationItem: React.FC<
     </li>
   );
 };
-
-// MainNavigationItem.propTypes = {
-//   /**
-//    * The CSS class name to be placed on the wrapping element.
-//    */
-//   className: PropTypes.string,
-//   children: PropTypes.element.isRequired,
-//   /**
-//    * If defined the `MainNaviationItem` will have a toggleable
-//    * SubNavigation. See the `SubNavigation` component for details on usage
-//    */
-//   subNavigation: PropTypes.node,
-// };
 
 export default MainNavigationItem;

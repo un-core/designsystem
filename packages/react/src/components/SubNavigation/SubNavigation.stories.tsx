@@ -1,5 +1,5 @@
-import React from 'react';
-import markdown from './README.mdx';
+import React from "react";
+import markdown from "./README.mdx";
 import {
   SubNavigation,
   SubNavigationHeader,
@@ -10,13 +10,13 @@ import {
   SubNavigationList,
   SubNavigationGroup,
   SubNavigationItem,
-} from './SubNavigation';
-import Search from '../Search';
-import Button from '../Button';
-import Link from '../Link';
+} from "./SubNavigation";
+import Search from "../Search";
+import Button from "../Button";
+import Link from "../Link";
 
 export default {
-  title: 'Components/Navigation/SubNavigation',
+  title: "Components/Navigation/SubNavigation",
   component: SubNavigation,
   subcomponents: {
     SubNavigationHeader,
@@ -29,15 +29,14 @@ export default {
     SubNavigationItem,
   },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
 export const RegularSubNavigation = (args) => (
   <SubNavigation {...args}>
-    {' '}
     <SubNavigationHeader>
       <SubNavigationTitle>The Title</SubNavigationTitle>
       <SubNavigationLink>
@@ -52,7 +51,7 @@ export const RegularSubNavigation = (args) => (
           labelText="Filter"
           placeholder="Filter"
           onChange={() => {
-            alert('Apply Filter');
+            alert("Apply Filter");
           }}
         />
       </SubNavigationFilter>
@@ -239,7 +238,7 @@ import {
 `;
 
 RegularSubNavigation.story = {
-  name: 'Regular',
+  name: "Regular",
   parameters: {
     docs: {
       source: {

@@ -1,8 +1,8 @@
-import { rm, stat, readdir, writeFile, mkdir } from 'fs/promises';
-import path from 'path';
-import { parse } from 'react-docgen-typescript';
+import { rm, stat, readdir, writeFile, mkdir } from "fs/promises";
+import path from "path";
+import { parse } from "react-docgen-typescript";
 
-const distUrl = path.resolve(__dirname, '../../website/types/');
+const distUrl = path.resolve(__dirname, "../../website/types/");
 
 const options = {
   savePropValueAsString: true,
@@ -10,7 +10,7 @@ const options = {
     if (prop.declarations !== undefined && prop.declarations.length > 0) {
       const hasPropAdditionalDescription = prop.declarations.find(
         (declaration) => {
-          return !declaration.fileName.includes('node_modules');
+          return !declaration.fileName.includes("node_modules");
         }
       );
 
@@ -35,7 +35,10 @@ export default async function walk(directory: string) {
   }
 
   const tsxFileList = fileList.filter(
-    (file) => file.endsWith('.tsx') && !file.includes('stories')
+    (file) =>
+      file.endsWith(".tsx") &&
+      !file.includes("stories") &&
+      !file.includes("indexStories")
   );
 
   await Promise.all(
@@ -47,15 +50,11 @@ export default async function walk(directory: string) {
           recursive: true,
         });
       } catch (error) {
-        console.log('collectTypes error', error);
+        console.log("collectTypes error", error);
       }
 
-      console.log(
-        'propTypes',
-        path.join(distUrl, file.replace('.tsx', '.json'))
-      );
       await writeFile(
-        path.join(distUrl, file.replace('.tsx', '.json')),
+        path.join(distUrl, file.replace(".tsx", ".json")),
         JSON.stringify(propTypes, null, 2)
       );
       return null;
@@ -68,7 +67,7 @@ export default async function walk(directory: string) {
 async function startGenerateTypes() {
   await rm(distUrl, { recursive: true, force: true });
 
-  await walk('./src');
+  await walk("./src/components");
   process.exit();
 }
 

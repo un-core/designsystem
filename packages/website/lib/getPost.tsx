@@ -23,14 +23,19 @@ export async function getPostSlugs() {
 
   const filesFiltered = files.filter(el => extname(el) === '.mdx');
 
- const results = filesFiltered.map(f => {
+  const results = filesFiltered.map(f => {
+    const fileContents = fs.readFileSync(f, 'utf8');
+    const { data } = matter(fileContents);
+    return {slug: data.slug, path: f};
+  });
 
-  const fileContents = fs.readFileSync(f, 'utf8');
-  const { data } = matter(fileContents);
 
-  return {slug: data.slug, path: f};
- });
- return results;
+  const resultsWithCode = filesFiltered.map(f => {
+    const fileContents = fs.readFileSync(f, 'utf8');
+    const { data } = matter(fileContents);
+    return {slug: data.slug + "/props", path: f};
+  });
+ return [...results, ...resultsWithCode];
 }
 
 
@@ -63,6 +68,6 @@ export async function getAllPosts(fields :any= []) {
   const slugs = await getPostSlugs();
   const posts = slugs
     .map((slug) => getPostByPath(slug.path, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .sort((post1: any, post2:any) => (post1.date > post2.date ? -1 : 1))
   return posts
 }

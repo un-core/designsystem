@@ -97,16 +97,28 @@ export default async function getPostContent(params: any) {
     // components,
   });
 
-  let propTypes = null;
+  const propTypes: any = [];
 
   if (post.mainComponent) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const file = require(`../../types/src/components/${post.mainComponent}/${post.mainComponent}.json`);
-      propTypes = file;
+      propTypes.push(file[0]);
     } catch (e) {
       console.log("Can't load typescript definitions!");
     }
+  }
+
+  if (post.components) {
+    post.components.forEach((component) => {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const file = require(`../../types/src/components/${component}/${component}.json`);
+        propTypes.push(file[0]);
+      } catch (e) {
+        console.log("Can't load typescript definitions!");
+      }
+    });
   }
 
   //let data = {};

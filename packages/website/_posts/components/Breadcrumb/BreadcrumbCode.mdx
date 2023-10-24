@@ -1,0 +1,79 @@
+---
+category: "Core"
+title: "Breadcrumb"
+excerpt: "The breadcrumb is a secondary navigation pattern that helps a user understand the hierarchy among levels and navigate back through them."
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/Breadcrumb/code"
+storybook: true
+mainComponent: "Breadcrumb"
+previewScale: 0.8
+components: ["BreadcrumbItem", "BreadcrumbHome"]
+---
+
+### Usage
+
+```jsx live
+<Breadcrumb>
+  <BreadcrumbItem>
+    <a href="/#">
+      <BreadcrumbHome />
+    </a>
+  </BreadcrumbItem>
+  <BreadcrumbItem href="#">Breadcrumb 2</BreadcrumbItem>
+  <BreadcrumbItem disableLink>Breadcrumb 3</BreadcrumbItem>
+</Breadcrumb>
+```
+
+The `BreadcrumbHome` component offers an intuitive way to represent the home location within a breadcrumb trail, using an icon. With its integration from `@wfp/icons-react`, it provides a visual representation for the start of a breadcrumb path.
+
+### Usage
+
+Import the `BreadcrumbHome` component:
+
+```jsx
+import BreadcrumbHome from "@wfp/react";
+```
+
+Here's a basic example of how to use the `BreadcrumbHome`:
+
+```jsx
+<BreadcrumbHome hometext="Back to Home" className="custom-home-class" />
+```
+
+In this example, the `BreadcrumbHome` displays a home icon. If hovered (or on focus), it should ideally display a tooltip or provide an accessibility description saying "Back to Home". The icon also gets an additional custom CSS class `custom-home-class` for further styling.
+
+### Notes
+
+- It's always a good practice to provide a meaningful `hometext` for better accessibility.
+
+The `BreadcrumbItem` component is a versatile piece of a breadcrumb trail, offering flexibility in rendering items as text, links, or custom elements. It plays a crucial role in guiding users to navigate and understand their position in an application or website.
+
+### Usage
+
+Import the `BreadcrumbItem` component:
+
+```jsx
+import BreadcrumbItem from "@wfp/react";
+```
+
+Here's an example showcasing the different ways you can use the `BreadcrumbItem`:
+
+```jsx
+<BreadcrumbItem href="/home">Home</BreadcrumbItem>
+<BreadcrumbItem disableLink={true}>Settings</BreadcrumbItem>
+<BreadcrumbItem>
+  <Link href="/profile">Profile</Link>
+</BreadcrumbItem>
+```
+
+In this example:
+
+1. The first `BreadcrumbItem` is a clickable link leading to `/home`.
+2. The second one is non-clickable, displaying the text "Settings".
+3. The third one uses a custom `Link` component as its child, leading to `/profile`.
+
+### Notes
+
+- The internal `newChild` function manages the rendering of the breadcrumb's child content based on the provided props. For instance, it will render a simple text if `disableLink` is true or use the `Link` component if an `href` is given with a string child.
+
+- It's always a good practice to use descriptive breadcrumb items that give clear clues to users about their navigation trail.
