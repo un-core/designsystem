@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.34.67 (2023-10-24)
+
+**Note:** Version bump only for package @un/icons-react
+
+
+
+
+
 ## 10.34.66 (2023-10-24)
 
 **Note:** Version bump only for package @un/icons-react
