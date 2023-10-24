@@ -56,10 +56,12 @@ export default function PropTypes({
   });
 
   const componentsSourceText =
-    componentsSource[mainComponent].default[`${propTypes.displayName}Default`];
+    componentsSource[mainComponent]?.default[
+      `${propTypes?.displayName}Default`
+    ];
   const sampleCode = extractJSX(componentsSourceText);
 
-  console.log("sampleCode", componentsSource[mainComponent].default);
+  console.log("sampleCode", componentsSource[mainComponent]?.default);
   /*     children?.props?.children?.props?.children || sampleCodeInput */ //if (!propTypes?.[0]) return null;
   const propList = propTypes?.props;
 
