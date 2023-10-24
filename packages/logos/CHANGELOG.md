@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.48 (2023-10-24)
+
+**Note:** Version bump only for package @un/logos
+
+
+
+
+
 ## 0.0.47 (2023-10-24)
 
 **Note:** Version bump only for package @un/logos
