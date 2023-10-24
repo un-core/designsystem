@@ -48,7 +48,7 @@ interface MainNavigationProps extends React.ComponentPropsWithRef<"div"> {
   id?: string;
 }
 
-const MainNavigation: React.FC<MainNavigationProps> = ({
+const MainNavigation = ({
   children,
   components: componentsOverride = {},
   className,
@@ -57,7 +57,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   line = false,
   mobilePageWidth,
   pageWidth,
-}) => {
+}: MainNavigationProps) => {
   const { prefix } = useSettings();
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
   const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);

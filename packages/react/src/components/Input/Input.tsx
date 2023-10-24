@@ -97,16 +97,7 @@ export interface InputProps {
    */
   addonAfter?: string | React.ReactNode;
   /**
-   * Replacement component: supports AddonBefore and AddonAfter as replacement components
-   * @example
-   * ```jsx
-   * <Input
-   *  components={{
-   *   AddonBefore: <div>€</div>,
-   *  AddonAfter: <div>EUR</div>,
-   * }}
-   * />
-   * ```
+   * Supports replacement components
    */
   components?: {
     AddonBefore?: ComponentType<InputPropsForReplacementComponents>;

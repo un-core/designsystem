@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import Input, { InputProps, useInput } from '../Input';
-import TextInput from '../TextInput';
-import { UseInputProps } from '../Input/useInput';
+import React, { useState, useRef, useEffect } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import Input, { InputProps, useInput } from "../Input";
+import TextInput from "../TextInput";
+import { UseInputProps } from "../Input/useInput";
 
 /** Sliders provide a visual indication of adjustable content, where the user can move the handle along a horizontal track to increase or decrease the value. */
 
-interface SliderProps extends InputProps, React.ComponentPropsWithRef<'input'> {
+interface SliderProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   /**
    * Specify an optional className to be applied to the form-item node
    */
@@ -59,7 +59,7 @@ interface SliderProps extends InputProps, React.ComponentPropsWithRef<'input'> {
   /**
    * Specify the value of the input, if undefined or null the value is empty
    */
-  value?: number | '';
+  value?: number | "";
   /**
    * `true` to hide the number input box.
    */
@@ -76,7 +76,7 @@ interface SliderProps extends InputProps, React.ComponentPropsWithRef<'input'> {
 }
 
 const defaultFormatLabel = (value, label) => {
-  return typeof label === 'function' ? label(value) : `${value}${label}`;
+  return typeof label === "function" ? label(value) : `${value}${label}`;
 };
 
 const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
@@ -220,6 +220,6 @@ const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
   );
 });
 
-Slider.displayName = 'Slider';
+Slider.displayName = "Slider";
 
 export default Slider;

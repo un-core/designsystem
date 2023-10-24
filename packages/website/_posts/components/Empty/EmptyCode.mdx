@@ -1,0 +1,68 @@
+---
+category: "Core"
+title: "Empty"
+excerpt: "Empty states are a way to improve the user experience of your product, from onboarding to encouraging users to interact with your app."
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/Empty/code"
+mainComponent: "Empty"
+previewScale: 0.4
+storybook: true
+defaultProps:
+  title: "No results"
+  kind: "large"
+  children: "There are no results for your search"
+sampleCode: >
+  <Empty
+    title="No results"
+    button={<Button>Do something</Button>}
+    icon={<MovingVanBoxesWithBackground style={{ width: '3em' }} />} 
+    PROPS_HERE>
+    There are no results for your search
+  </Empty>
+---
+
+```jsx live
+<Empty
+  title="No results"
+  kind="large"
+  icon={<NutritionClusterPositive style={{ width: "3em" }} />}
+>
+  There are no results for your search
+</Empty>
+```
+
+### Usage
+
+Import the `Empty` component:
+
+```jsx
+import Empty from "@wfp/react";
+```
+
+Basic usage:
+
+```jsx
+<Empty title="No Data Available" kind="large">
+  We couldn’t find any results based on your search criteria.
+</Empty>
+```
+
+Advanced usage with an icon and a button:
+
+```jsx
+import { MyCustomIcon, MyButton } from "./MyComponents";
+
+<Empty
+  title="No Data Found"
+  icon={<MyCustomIcon />}
+  button={<MyButton onClick={() => doSomething()}>Retry</MyButton>}
+>
+  Please check your filters or try searching with different keywords.
+</Empty>;
+```
+
+### Notes
+
+- The component internally provides default `Icon` and `Text` components, but these can be replaced with custom components via the `components` prop. This allows for a greater degree of flexibility and customization.
+
+- Always ensure that the text and iconography used are clear and provide meaningful hints to users about the next possible steps.

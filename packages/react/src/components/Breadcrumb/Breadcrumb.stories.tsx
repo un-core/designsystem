@@ -1,19 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import markdown from './README.mdx';
-
-import Breadcrumb from '.';
-import BreadcrumbHome from '../BreadcrumbHome';
-import BreadcrumbItem from '../BreadcrumbItem';
+import Breadcrumb from ".";
+import BreadcrumbHome from "../BreadcrumbHome";
+//import { BreadcrumbHome, BreadcrumbItem } from "@wfp/react";
+import BreadcrumbItem from "../BreadcrumbItem";
 
 export default {
-  title: 'Components/Navigation/Breadcrumb',
+  title: "Components/Navigation/Breadcrumb",
   component: Breadcrumb,
   subcomponents: { BreadcrumbHome, BreadcrumbItem },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
-    mdx: markdown,
+    componentSubtitle: "Component",
+    status: "released",
   },
 };
 
@@ -27,4 +25,12 @@ export const BreadcrumbRegular = (args) => (
     <BreadcrumbItem href="#">Breadcrumb 2</BreadcrumbItem>
     <BreadcrumbItem disableLink>Breadcrumb 3</BreadcrumbItem>
   </Breadcrumb>
+);
+
+export const BreadcrumbHomeRegular = (args) => <BreadcrumbHome {...args} />;
+
+export const BreadcrumbItemRegular = (args) => (
+  <BreadcrumbItem {...args}>
+    <a>Breadcrumb Item</a>
+  </BreadcrumbItem>
 );

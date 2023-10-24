@@ -32,7 +32,7 @@ export default {
   },
 };
 
-export const Regular = (args) => (
+export const MainNavigationDefault = (args) => (
   <MainNavigation {...args}>
     <MainNavigationItem>
       <Link href="http://communities.wfp.org" target="_blank">
@@ -314,6 +314,110 @@ Regular.story = {
     },
   },
 };
+
+export const MainNavigationItemDefault = (args) => (
+  <MainNavigationItem {...args}>
+    <Link href="http://communities.wfp.org" target="_blank">
+      Section 1
+    </Link>
+  </MainNavigationItem>
+);
+
+export const SubNavigationDefault = (args) => (
+  <SubNavigation {...args}>
+    <SubNavigationHeader>
+      <SubNavigationTitle>The Title</SubNavigationTitle>
+      <SubNavigationLink>
+        <Button small>The SubPage Link</Button>
+      </SubNavigationLink>
+
+      <SubNavigationFilter>
+        <Search
+          kind="small"
+          id="search-2"
+          labelText="Filter"
+          placeholder="Filter list"
+        />
+        {/* onChange={() => {
+                alert('Apply Filter');
+              }} */}
+      </SubNavigationFilter>
+    </SubNavigationHeader>
+    <SubNavigationContent>
+      <SubNavigationList>
+        <SubNavigationGroup title="First List" columns={1}>
+          <SubNavigationItem>
+            <Link href="https://go.docs.wfp.org" target="_blank">
+              Lorem Ipsum et jomen
+            </Link>
+          </SubNavigationItem>
+        </SubNavigationGroup>
+      </SubNavigationList>
+    </SubNavigationContent>
+  </SubNavigation>
+);
+
+export const SubNavigationHeaderDefault = (args) => (
+  <SubNavigationHeader {...args}>
+    <SubNavigationTitle>The Title</SubNavigationTitle>
+    <SubNavigationLink>
+      <Button small>The SubPage Link</Button>
+    </SubNavigationLink>
+
+    <SubNavigationFilter>
+      <Search
+        kind="small"
+        id="search-2"
+        labelText="Filter"
+        placeholder="Filter list"
+      />
+    </SubNavigationFilter>
+  </SubNavigationHeader>
+);
+
+export const SubNavigationTitleDefault = (args) => (
+  <SubNavigationTitle {...args}>The Title</SubNavigationTitle>
+);
+
+export const SubNavigationFilterDefault = (args) => (
+  <SubNavigationFilter {...args}>The Title</SubNavigationFilter>
+);
+
+export const SubNavigationContentDefault = (args) => (
+  <SubNavigationContent {...args}>The Title</SubNavigationContent>
+);
+
+export const SubNavigationListDefault = (args) => (
+  <SubNavigationList {...args}>
+    <SubNavigationGroup title="First List" columns={1}>
+      <SubNavigationItem>
+        <Link href="https://wfp.org">First link</Link>
+      </SubNavigationItem>
+      <SubNavigationItem>
+        <Link href="https://go.docs.wfp.org">second link</Link>
+      </SubNavigationItem>
+    </SubNavigationGroup>
+  </SubNavigationList>
+);
+
+export const SubNavigationGroupDefault = (args) => (
+  <SubNavigationGroup {...args}>
+    <SubNavigationItem>
+      <Link href="https://wfp.org">First link</Link>
+    </SubNavigationItem>
+    <SubNavigationItem {...args}>
+      <Link href="https://go.docs.wfp.org">second link</Link>
+    </SubNavigationItem>
+  </SubNavigationGroup>
+);
+
+export const SubNavigationItemDefault = (args) => (
+  <SubNavigationItem {...args}>
+    <Link href="https://go.docs.wfp.org" target="_blank">
+      Lorem Ipsum et jomen
+    </Link>
+  </SubNavigationItem>
+);
 
 export const RegularWithButton = (args) => (
   <MainNavigation {...args}>

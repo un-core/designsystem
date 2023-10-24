@@ -12,7 +12,7 @@ interface LayoutProps {
   posts: any;
   post: any;
   propTypes: any;
-  head: any;
+  head?: any;
 }
 
 const Layout = ({ posts, post, propTypes, head }: LayoutProps) => (

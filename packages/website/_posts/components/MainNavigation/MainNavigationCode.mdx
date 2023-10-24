@@ -1,0 +1,168 @@
+---
+category: "Core"
+title: "MainNavigation"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/MainNavigation/MainNavigation/code"
+previewScale: 0.3
+storybook: true
+mainComponent: "MainNavigation"
+components: ["MainNavigationItem"]
+---
+
+### Import
+
+```jsx
+import { MainNavigation, MainNavigationItem } from "@wfp/react";
+```
+
+### Usage
+
+```jsx
+<MainNavigation>
+  <MainNavigationItem>
+    <Link href="https://go.docs.wfp.org" target="_blank">
+      Section 3
+    </Link>
+  </MainNavigationItem>
+  <MainNavigationItem>
+    <Link href="http://opweb.wfp.org" target="_blank">
+      Section 4
+    </Link>
+  </MainNavigationItem>
+</MainNavigation>
+```
+
+### Logo
+
+Display the logo by adding the `showLogo` prop to the MainNavigation component.
+
+```jsx
+<MainNavigation showLogo>{/* Content of the MainNavigation */}</MainNavigation>
+```
+
+The `MainNavigation` can be used with a custom logo. The logo can be passed as a `ReactNode` to the `logo` prop.
+
+```jsx
+<MainNavigation logo={<img src={logo} alt="Logo" />}>
+  {/* Content of the MainNavigation */}
+</MainNavigation>
+```
+
+### MainNavigationItem
+
+The `MainNavigationItem` are the main components of the `MainNavigation`. It can be used to create a link to a page or to open a `SubNavigation`.
+
+```jsx
+import { MainNavigation, MainNavigationItem } from "@wfp/react";
+
+() => (
+  <MainNavigation>
+    {/* ...otherComponents */}
+    <MainNavigationItem>
+      <Link href="http://communities.wfp.org" target="_blank">
+        Section 1
+      </Link>
+    </MainNavigationItem>
+  </MainNavigation>
+);
+```
+
+### SubNavigation
+
+The `SubNavigation` is a component that can be used inside a `MainNavigationItem` to create a dropdown menu.
+
+```jsx
+// TODO: Add imports directly from Test
+
+<MainNavigationItem
+  subNavigation={<SubNavigation>{/* Content here*/}</SubNavigation>}
+>
+  Title
+</MainNavigationItem>
+```
+
+#### Building a SubNavigation
+
+```jsx
+import {
+  SubNavigation,
+  SubNavigationHeader,
+  SubNavigationTitle,
+  SubNavigationFilter,
+  SubNavigationContent,
+  SubNavigationList,
+  SubNavigationGroup,
+  SubNavigationItem,
+} from "@wfp/react";
+```
+
+#### SubNavigation for the User
+
+An `User` `MainNavigationItem` consists out of the `User` component and a `SubNavigation`.
+
+```jsx
+<MainNavigationItem
+  className="wfp--main-navigation__user"
+  subNavigation={
+    <SubNavigation>
+      <SubNavigationHeader>
+        <SubNavigationTitle>Welcome Max!</SubNavigationTitle>
+        <SubNavigationLink>
+          <Button secondary small>
+            Logout
+          </Button>
+        </SubNavigationLink>
+      </SubNavigationHeader>
+      <SubNavigationContent>{/* Additional content */}</SubNavigationContent>
+    </SubNavigation>
+  }
+>
+  <User ellipsis title="Max Mustermann" />
+</MainNavigationItem>
+```
+
+### useMainNavigation() hook
+
+The `useMainNavigation` hook can be used inside the `MainNavigation` to access and control the state of the Navigation.
+
+### Usage
+
+```jsx
+import { useMainNavigation } from "@wfp/react";
+
+function ComponentInsideMainNavigation() {
+  const { onChangeSub, activeMenuItem, openMobileMenu, toggleMenu } =
+    useMainNavigation();
+
+  return <Button onClick={() => toggleMenu()}>Toggle Menu</Button>;
+}
+```
+
+### Definition
+
+```jsx
+export interface MainNavigationContextType {
+  /**
+   * Callback when the user clicks on a sub menu item
+   */
+  onChangeSub: (action: string, i?: string, e?: any) => void;
+  /**
+   * The active menu item
+   */
+  activeMenuItem?: string | null;
+  /**
+   * Whether the mobile menu is open
+   */
+  openMobileMenu: boolean;
+  /**
+   * Toggle the mobile menu
+   */
+  toggleMenu: () => void;
+}
+```
+
+### Usage with vanilla Java-Script
+
+Using the `MainNavigation` in applications not using `react.js` requires a custom implementation. An example can be found at [Codesandbox](https://codesandbox.io/s/mainnavigation-vanillajs-en5r4).
+
+[Source code of vanilla.js implementation on GitHub](https://github.com/wfp/ui/blob/master/src/components/MainNavigation/main-navigation.js)

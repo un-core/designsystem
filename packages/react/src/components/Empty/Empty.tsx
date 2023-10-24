@@ -1,10 +1,9 @@
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 // import { IIcon } from '../../utils';
 
-type EmptyProps = PropsWithChildren<{
+interface EmptyProps extends React.ComponentPropsWithoutRef<"div"> {
   /**
    * The content to be rendered in the empty state. @design
    */
@@ -16,7 +15,7 @@ type EmptyProps = PropsWithChildren<{
   /**
    * The kind of empty state to be rendered. @design
    */
-  kind?: 'undefined' | 'large';
+  kind?: "undefined" | "large";
   icon?: React.ReactNode;
   /**
    * The button to be rendered in the empty state. @design
@@ -27,15 +26,15 @@ type EmptyProps = PropsWithChildren<{
    * The replaceable components to be used for the empty state.
    */
   components?: { Icon: React.ReactNode; Text: React.ReactNode };
-}>;
+}
 
-const Icon: React.FC<EmptyProps> = ({ icon }) => {
+const Icon = ({ icon }: EmptyProps) => {
   const { prefix } = useSettings();
   if (!icon) return null;
   return <div className={`${prefix}--empty__icon`}>{icon}</div>;
 };
 
-const Text: React.FC<EmptyProps> = ({ title, children }) => {
+const Text = ({ title, children }: EmptyProps) => {
   const { prefix } = useSettings();
   return (
     <div className={`${prefix}--empty__text`}>
@@ -46,16 +45,16 @@ const Text: React.FC<EmptyProps> = ({ title, children }) => {
 };
 
 /** The Empty component can be used whenever a section should indicate that there is no content available. This can be the case for a empty list table or search results. */
-const Empty: React.FC<EmptyProps> = ({
+const Empty = ({
   button,
   children,
   className,
   components,
   icon,
   title,
-  kind = 'large',
+  kind = "large",
   ...other
-}) => {
+}: EmptyProps) => {
   const { prefix } = useSettings();
 
   const classes = classNames(
@@ -85,6 +84,6 @@ const Empty: React.FC<EmptyProps> = ({
   );
 };
 
-Empty.displayName = 'Empty';
+Empty.displayName = "Empty";
 
 export default Empty;

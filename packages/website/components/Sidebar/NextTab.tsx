@@ -1,17 +1,21 @@
-import { useTab } from '@wfp/react';
-import Link from 'next/link';
-import React from 'react';
+import { useTab } from "@wfp/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
 
 export default function NextTab(props: any) {
   const { children, href } = props;
-  const { anchorProps, liProps /*selectedClasses */ } = useTab(props);
+  const { anchorProps, liProps, selectedClasses } = useTab(props);
+
+  const pathName = usePathname();
+
+  const isActive = pathName === href;
+
   return (
-    <div>
-      <li {...liProps}>
-        <Link {...anchorProps} href={href}>
-          {children}
-        </Link>
-      </li>
-    </div>
+    <li {...liProps} className={isActive ? selectedClasses : liProps.className}>
+      <Link {...anchorProps} href={href}>
+        {children}
+      </Link>
+    </li>
   );
 }

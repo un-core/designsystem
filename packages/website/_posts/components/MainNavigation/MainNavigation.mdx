@@ -1,0 +1,109 @@
+---
+category: "Core"
+title: "MainNavigation"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/MainNavigation/MainNavigation"
+previewScale: 0.3
+storybook: true
+mainComponent: "MainNavigation"
+components:
+  [
+    "MainNavigationItem",
+    "SubNavigation",
+    "SubNavigationHeader",
+    "SubNavigationTitle",
+    "SubNavigationFilter",
+    "SubNavigationContent",
+    "SubNavigationList",
+    "SubNavigationGroup",
+    "SubNavigationItem",
+  ]
+---
+
+### Usage
+
+The MainNavigation is used across all applications, it is the starting point of the application and offers the top level navigation items.
+
+<DoUse>
+
+- Internal and external applications
+- The MainNavigation can be used for both internal and external websites.
+
+</DoUse>
+<DoNotUse>
+
+- External websites (wfp.org, etc.): The header might not be the right solution for external websites. Please consult the #ux-ui channel on Slack.
+- Do not use WFP's logo inside the MainNavigation.
+
+</DoNotUse>
+
+### Internal applications
+
+<FigmaImage url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?node-id=608%3A22582" />
+
+Internal applications are required to use the `MainNavigation` in combination with the `BannerNavigation`. The `BannerNavigation` is used to navigate between the different applications.
+
+### External applications
+
+<FigmaImage url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?node-id=608%3A22582" />
+
+External applications should use the big ribbon logo.
+
+### Mobile view
+
+<FigmaImage url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?node-id=612%3A21349" />
+
+On smartphones, the MainNavigation is collapsed and the user can open it by clicking on the hamburger icon.
+
+TODO: There is also the possiblility to place icon buttons next to the hamburger icon for accessing the most important features of the application.
+
+### SubNavigation
+
+The `MainNavigation` can contain `MainNavigationItem`'s with a `SubNavigation` component. The `SubNavigation` component is used to display additional content.
+
+The maximum number of items is 6 to 8 items depending on the average word length.
+
+The `SubNavigation` component provides a toggleable part of the `MainNavigation`. It consists of various sub-components that allow for the creation of headers, items, links, titles, filters, content areas, lists, and groups.
+
+```jsx
+import {
+  SubNavigation,
+  SubNavigationHeader,
+  SubNavigationTitle,
+  SubNavigationLink,
+  SubNavigationFilter,
+  SubNavigationContent,
+  SubNavigationList,
+  SubNavigationGroup,
+  SubNavigationItem,
+} from "@wfp/react";
+
+() => (
+  <SubNavigation>
+    <SubNavigationHeader>SubNav Header</SubNavigationHeader>
+    <SubNavigationItem>
+      <SubNavigationLink href="http://communities.wfp.org" target="_blank">
+        SubNav Link
+      </SubNavigationLink>
+    </SubNavigationItem>
+  </SubNavigation>
+);
+```
+
+### Components:
+
+- **SubNavigation**: This is the main wrapper for the sub-navigation.
+- **SubNavigationHeader**: Use this component to set a header for your sub-navigation.
+- **SubNavigationTitle**: This component sets a title for your sub-navigation.
+- **SubNavigationLink**: This component creates links within the sub-navigation. They can be used similar to the traditional anchor links.
+- **SubNavigationFilter**: This is used to integrate a filter mechanism within your sub-navigation.
+- **SubNavigationContent**: This is a wrapper for the content that should be displayed within the sub-navigation.
+- **SubNavigationList**: This component wraps a list of items or links within the sub-navigation.
+- **SubNavigationGroup**: This allows you to group multiple items or links under a single heading. The group can have a title and is ideal for categorizing sub-navigation elements.
+- **SubNavigationItem**: These are individual items within the sub-navigation.
+
+Each of these components can accept a `className` prop to override or add additional classes. They also spread other properties to their root element, allowing you to pass other props like `id`, `style`, etc.
+
+### Figma
+
+<Figma url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?type=design&node-id=608%3A22626&mode=design&t=feddPucRGOVtVdBa-1" />

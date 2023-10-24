@@ -21,16 +21,21 @@
     "build": "node --stack-size=9900 runTheme.js",
     "build:legacy": "style-dictionary build --config ./config.js",
     "generate-theme": "node config.js",
-    "filter-theme": "node filterJson.js"
+    "filter-theme": "node filterJson.js",
+    "token-transform": "node ../../node_modules/token-transformer tokens/tokens-new.json.raw tokens/design-tokens.tokens.new.json"
   },
   "publishConfig": {
     "access": "public"
   },
+  "devDependencies": {
+     "token-transformer": "^0.0.33"
+    },
   "dependencies": {
     "change-case": "^4.1.2",
     "deepdash": "^5.3.9",
     "lodash": "^4.17.21",
-    "style-dictionary": "^3.7.0"
+    "style-dictionary": "^3.8.0"
+
   },
   "gitHead": "7201da36cfb8dad97a91763abc2497f70c239243"
 }

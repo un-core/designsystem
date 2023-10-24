@@ -66,7 +66,7 @@ const CodeBlockLive = (props: any) => {
     hideWrapper,
     noInline,
     showEditor = true,
-    smallPreview,
+    view,
     source,
     reactHookForm,
   } = props;
@@ -179,8 +179,7 @@ const CodeBlockLive = (props: any) => {
       [stylesModule.notCenter]: !center,
       [stylesModule.fullWidth]: forceFullWidth,
       [stylesModule.normalWidth]: !forceFullWidth,
-      [stylesModule.smallPreview]: smallPreview,
-      [stylesModule.normalPreview]: !smallPreview,
+      [`${stylesModule[view]}`]: view,
     });
 
     return (

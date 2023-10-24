@@ -1,23 +1,24 @@
-const StyleDictionary = require('style-dictionary');
-const { formatHelpers } = require('style-dictionary');
-const ChangeCase = require('change-case');
+const StyleDictionary = require("style-dictionary");
+const { formatHelpers } = require("style-dictionary");
+const ChangeCase = require("change-case");
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 
 const config = ({
   source = `tokens/**/*.json`,
   buildPath = `dist`,
-  themeName = 'default',
+  themeName = "default",
 } = {}) => {
+  /* CSS Variables */
   StyleDictionary.registerFormat({
-    name: 'css/variables-theme',
+    name: "css/variables-theme",
     formatter: function ({ dictionary, file, options }) {
       const { outputReferences, theme } = options;
       return (
         fileHeader({ file }) +
         `@mixin theme-${theme} () {\n` +
-        formattedVariables({ format: 'css', dictionary, outputReferences }) +
-        '\n}\n'
+        formattedVariables({ format: "css", dictionary, outputReferences }) +
+        "\n}\n"
       );
     },
   });
@@ -27,7 +28,7 @@ const config = ({
     formatter: function ({ dictionary }) {
       return dictionary.allTokens
         .map((token) => {
-          if (typeof token.value === 'object') {
+          if (typeof token.value === "object") {
             return null;
           }
           let value = JSON.stringify(token.value);
@@ -55,42 +56,42 @@ const config = ({
   const scssTokenName = (token, options) => {
     const tokenPath = token.path.filter(function (item, i) {
       return !(
-        item === 'color' ||
+        item === "color" ||
         //(item === 'primary' && i === 1) ||
-        (item === 'form' && i === 1)
+        (item === "form" && i === 1)
       );
     });
 
-    return ChangeCase.paramCase([options.prefix].concat(tokenPath).join(' '));
+    return ChangeCase.paramCase([options.prefix].concat(tokenPath).join(" "));
   };
 
   StyleDictionary.registerTransform({
-    type: 'name',
+    type: "name",
     transitive: true,
     name: `name/scss`,
     transformer: (token, options) => scssTokenName(token, options),
   });
 
   StyleDictionary.registerTransform({
-    type: 'name',
+    type: "name",
     transitive: true,
     name: `name/scssDarkName`,
     transformer: (token, options) =>
-      scssTokenName(token, options).replace('dark-', ''),
+      scssTokenName(token, options).replace("dark-", ""),
   });
 
   StyleDictionary.registerTransform({
     type: `value`,
     name: `value/fontSizePxToRem`,
-    matcher: (token) => token.type === 'dimension',
-    transformer: (token) => token.value / 16 + 'em',
+    matcher: (token) => token.type === "dimension",
+    transformer: (token) => token.value / 16 + "em",
   });
 
   StyleDictionary.registerTransform({
     type: `value`,
     name: `value/spacingPxToRem`,
-    matcher: (token) => token.type === 'spacing',
-    transformer: (token) => parseInt(token.value.replace('px', '')) / 16 + 'em',
+    matcher: (token) => token.type === "spacing",
+    transformer: (token) => parseInt(token.value.replace("px", "")) / 16 + "em",
   });
 
   StyleDictionary.registerTransform({
@@ -110,12 +111,12 @@ const config = ({
         parse: ({ contents, filePath }) => {
           var content = JSON.parse(contents);
 
-          console.log(content);
+          // console.log(content);
           //return content;
           if (content.color) {
             const { color, typography, ...other } = content;
             let { primary, form, background, dark, ...otherColors } = color;
-            console.log('color', color);
+            //console.log('color', color);
             //console.log(JSON.parse(color.background));
             /*let {
               primary: primaryDark,
@@ -147,32 +148,32 @@ const config = ({
     source: [source],
     platforms: {
       figma: {
-        buildPath: buildPath + '/json/',
+        buildPath: buildPath + "/json/",
         transforms: [
           ///  'attribute/cti',
-          'attribute/color',
-          'attribute/variablenames',
-          'value/spacingPxToRem',
+          "attribute/color",
+          "attribute/variablenames",
+          "value/spacingPxToRem",
         ],
         files: [
           {
-            destination: 'variables-full.json',
-            format: 'json',
+            destination: "variables-full.json",
+            format: "json",
           },
         ],
       },
       scss: {
-        transformGroup: 'scss',
-        buildPath: buildPath + '/scss/',
+        transformGroup: "scss",
+        buildPath: buildPath + "/scss/",
         transforms: [
-          'name/scss',
-          'value/fontSizePxToRem',
-          'value/spacingPxToRem',
+          "name/scss",
+          "value/fontSizePxToRem",
+          "value/spacingPxToRem",
         ],
         files: [
           {
-            destination: 'tokens.scss',
-            format: 'scss/variables',
+            destination: "tokens.scss",
+            format: "scss/variables",
             options: {
               themeable: true,
             },
@@ -180,17 +181,17 @@ const config = ({
         ],
       },
       scssMapFlat: {
-        transformGroup: 'scss',
-        buildPath: buildPath + '/scss/',
+        transformGroup: "scss",
+        buildPath: buildPath + "/scss/",
         transforms: [
-          'name/scss',
-          'value/fontSizePxToRem',
-          'value/spacingPxToRem',
+          "name/scss",
+          "value/fontSizePxToRem",
+          "value/spacingPxToRem",
         ],
         files: [
           {
-            destination: 'tokensMapFlat.scss',
-            format: 'scss/map-flat',
+            destination: "tokensMapFlat.scss",
+            format: "scss/map-flat",
             options: {
               themeable: true,
             },
@@ -198,17 +199,17 @@ const config = ({
         ],
       },
       scssMapDeep: {
-        transformGroup: 'scss',
-        buildPath: buildPath + '/scss/',
+        transformGroup: "scss",
+        buildPath: buildPath + "/scss/",
         transforms: [
-          'name/scss',
-          'value/fontSizePxToRem',
-          'value/spacingPxToRem',
+          "name/scss",
+          "value/fontSizePxToRem",
+          "value/spacingPxToRem",
         ],
         files: [
           {
-            destination: 'tokensMapDeep.scss',
-            format: 'scss/map-deep',
+            destination: "tokensMapDeep.scss",
+            format: "scss/map-deep",
             options: {
               themeable: true,
             },
@@ -216,17 +217,17 @@ const config = ({
         ],
       },
       scssDefaultTheme: {
-        transformGroup: 'css',
-        buildPath: buildPath + '/scss/',
+        transformGroup: "css",
+        buildPath: buildPath + "/scss/",
         transforms: [
-          'name/scss',
-          'value/fontSizePxToRem',
-          'value/spacingPxToRem',
+          "name/scss",
+          "value/fontSizePxToRem",
+          "value/spacingPxToRem",
         ],
         files: [
           {
-            destination: 'default-css-theme.scss',
-            format: 'css/variables-theme',
+            destination: "default-css-theme.scss",
+            format: "css/variables-theme",
             options: {
               outputReferences: true,
               theme: themeName,
