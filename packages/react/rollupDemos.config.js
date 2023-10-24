@@ -74,7 +74,7 @@ const umdBundleConfig = {
   //external: [...umdExternalDependencies, "prop-types"],
   external: baseConfig.external,
   output: {
-    file: "demo/es/index.js",
+    file: "../website/demoCode/es/index.js",
     format: "es",
     exports: "named",
     sourcemap: true,
@@ -100,7 +100,7 @@ module.exports = [
   {
     input: "src/indexStories.ts",
     output: {
-      file: "demo/dist/bundle.js",
+      file: "../website/demoCode/dist/bundle.js",
       format: "esm",
     },
     plugins: [

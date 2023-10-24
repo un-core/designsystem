@@ -5,7 +5,7 @@ import styles from "./layout.module.scss";
 import Navigation from "../../Navigation";
 import Footer from "../../Footer";
 import SidebarWrapper from "../../Sidebar";
-import { UNCoreProvider } from "@wfp/react";
+import { WFPCoreProvider } from "@wfp/react";
 import Homepage from "../../Homepage";
 
 interface LayoutProps {
@@ -16,7 +16,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ posts, post, propTypes, head }: LayoutProps) => (
-  <UNCoreProvider>
+  <WFPCoreProvider>
     <Head>{head}</Head>
     <Navigation />
     <div className={styles.layout}>
@@ -27,7 +27,7 @@ const Layout = ({ posts, post, propTypes, head }: LayoutProps) => (
       </article>
     </div>
     <Footer />
-  </UNCoreProvider>
+  </WFPCoreProvider>
 );
 
 export default Layout;

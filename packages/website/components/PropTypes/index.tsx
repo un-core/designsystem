@@ -17,7 +17,7 @@ import CodeBlockLive from "../Blog/Mdx/CodeBlockLive";
 import Markdown from "react-markdown";
 import formatTypes from "./formatTypes";
 
-import * as componentsSource from "@wfp/react/demo/dist/bundle";
+import * as componentsSource from "@../../../demoCode/dist/bundle";
 
 /*
 const clean = (obj) => {
@@ -56,10 +56,11 @@ export default function PropTypes({
   });
 
   const componentsSourceText =
-    componentsSource[mainComponent].default[`${propTypes.displayName}Default`];
+    componentsSource[mainComponent]?.default[
+      `${propTypes?.displayName}Default`
+    ];
   const sampleCode = extractJSX(componentsSourceText);
 
-  console.log("sampleCode", componentsSource[mainComponent].default);
   /*     children?.props?.children?.props?.children || sampleCodeInput */ //if (!propTypes?.[0]) return null;
   const propList = propTypes?.props;
 

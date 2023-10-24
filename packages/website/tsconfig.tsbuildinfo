@@ -426,7 +426,7 @@
       "../react/es/components/col/index.d.ts",
       "../react/es/globals/js/settings.d.ts",
       "../react/es/components/uncoresettings/defaults.d.ts",
-      "../react/es/components/uncoresettings/uncoreprovider.d.ts",
+      "../react/es/components/uncoresettings/WfpCoreProvider.d.ts",
       "../react/es/components/uncoresettings/withuncoresettings.d.ts",
       "../react/es/components/uncoresettings/usetheme.d.ts",
       "../react/es/components/uncoresettings/index.d.ts",
