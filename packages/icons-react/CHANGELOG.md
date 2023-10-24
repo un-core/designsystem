@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.34.63 (2023-10-24)
+
+
+### Bug Fixes
+
+* **website:** no longer commit types ([13b98ca](https://github.com/carbon-design-system/carbon/commit/13b98ca873487caa77dbc0828da85c9c136ce6a5))
+
+
+
+
+
 ## 10.34.62 (2023-10-09)
 
 **Note:** Version bump only for package @un/icons-react
