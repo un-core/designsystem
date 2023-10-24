@@ -8,7 +8,7 @@
     "props": {
       "id": {
         "defaultValue": null,
-        "description": "",
+        "description": "The ID of the related input which will be used as `htmlFor`",
         "name": "id",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional `class` attributes",
         "name": "className",
         "declarations": [
           {

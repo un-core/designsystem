@@ -1,1 +1,87 @@
-[]
+[
+  {
+    "tags": {},
+    "filePath": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+    "description": "",
+    "displayName": "BreadcrumbItem",
+    "methods": [],
+    "props": {
+      "href": {
+        "defaultValue": null,
+        "description": "Specify an link for the `BreadcrumbItem`",
+        "name": "href",
+        "parent": {
+          "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+          "name": "BreadcrumbItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+            "name": "BreadcrumbItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "children": {
+        "defaultValue": null,
+        "description": "The children elements, usually a link",
+        "name": "children",
+        "parent": {
+          "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+          "name": "BreadcrumbItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+            "name": "BreadcrumbItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "disableLink": {
+        "defaultValue": null,
+        "description": "Specify `BreadcrumbItem` to be interactive/enabled or non-interactive/disabled",
+        "name": "disableLink",
+        "parent": {
+          "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+          "name": "BreadcrumbItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+            "name": "BreadcrumbItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "Specify an optional className to be added to the `BreadcrumbItem` Icon",
+        "name": "className",
+        "parent": {
+          "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+          "name": "BreadcrumbItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/BreadcrumbItem/BreadcrumbItem.tsx",
+            "name": "BreadcrumbItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+]

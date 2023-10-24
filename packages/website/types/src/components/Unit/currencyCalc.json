@@ -1,0 +1,176 @@
+[
+  {
+    "tags": {},
+    "filePath": "src/components/Unit/currencyCalc.tsx",
+    "description": "",
+    "displayName": "currencyCalc",
+    "methods": [],
+    "props": {
+      "calcOnly": {
+        "defaultValue": null,
+        "description": "",
+        "name": "calcOnly",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "input": {
+        "defaultValue": null,
+        "description": "",
+        "name": "input",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "output": {
+        "defaultValue": null,
+        "description": "",
+        "name": "output",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "string": {
+        "defaultValue": null,
+        "description": "",
+        "name": "string",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "svg": {
+        "defaultValue": null,
+        "description": "",
+        "name": "svg",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "hideZero": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hideZero",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "maximumSignificantDigits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maximumSignificantDigits",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "minimumFractionDigits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "minimumFractionDigits",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "maximumFractionDigits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maximumFractionDigits",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "localeStringLanguage": {
+        "defaultValue": null,
+        "description": "",
+        "name": "localeStringLanguage",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/currencyCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+]

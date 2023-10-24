@@ -8,7 +8,7 @@
     "props": {
       "active": {
         "defaultValue": null,
-        "description": "",
+        "description": "The `active` prop show the content section when an item is clicked. It's useful in mobile view",
         "name": "active",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "sidebar": {
         "defaultValue": null,
-        "description": "",
+        "description": "The Sidebar is usually where the sidebar items will be. \n`<SidebarHeader/>` can be called in `Sidebar` and example search can be used in here",
         "name": "sidebar",
         "declarations": [
           {
@@ -38,7 +38,7 @@
       },
       "sidebarMobileHeader": {
         "defaultValue": null,
-        "description": "",
+        "description": "The sidebarMobileHeader is shwon when view is in mobile version. \n`<SidebarBackButton/>` can used in the `sidebarMobileHeader` prop",
         "name": "sidebarMobileHeader",
         "declarations": [
           {
@@ -77,12 +77,16 @@
     "props": {
       "noPadding": {
         "defaultValue": null,
-        "description": "",
+        "description": "Disable the default padding of the SidebarHeader",
         "name": "noPadding",
+        "parent": {
+          "fileName": "src/components/Sidebar/Sidebar.tsx",
+          "name": "SidebarHeaderProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Sidebar/Sidebar.tsx",
-            "name": "TypeLiteral"
+            "name": "SidebarHeaderProps"
           }
         ],
         "required": false,
@@ -94,10 +98,14 @@
         "defaultValue": null,
         "description": "",
         "name": "className",
+        "parent": {
+          "fileName": "src/components/Sidebar/Sidebar.tsx",
+          "name": "SidebarHeaderProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Sidebar/Sidebar.tsx",
-            "name": "TypeLiteral"
+            "name": "SidebarHeaderProps"
           }
         ],
         "required": false,

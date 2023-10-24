@@ -8,7 +8,7 @@
     "props": {
       "children": {
         "defaultValue": null,
-        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "description": "Provide a children to the input",
         "name": "children",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -20,7 +20,7 @@
             "name": "InputPropsI"
           },
           {
-            "fileName": "un-core-v1/node_modules/@types/react/index.d.ts",
+            "fileName": "un-core-v1/node_modules/@types/react/ts5.0/index.d.ts",
             "name": "TypeLiteral"
           }
         ],
@@ -140,7 +140,7 @@
         ],
         "required": false,
         "type": {
-          "name": "boolean | FieldError"
+          "name": "any"
         }
       },
       "invalidText": {
@@ -159,7 +159,7 @@
         ],
         "required": false,
         "type": {
-          "name": "ReactNode"
+          "name": "any"
         }
       },
       "additional": {
@@ -259,7 +259,7 @@
       },
       "required": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
         "name": "required",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -278,7 +278,7 @@
       },
       "disabled": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
         "name": "disabled",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -297,7 +297,7 @@
       },
       "readOnly": {
         "defaultValue": null,
-        "description": "",
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
         "name": "readOnly",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -316,7 +316,7 @@
       },
       "inline": {
         "defaultValue": null,
-        "description": "",
+        "description": "Renders the input as inline element for horizontal forms",
         "name": "inline",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -335,7 +335,7 @@
       },
       "addonBefore": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonBefore",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -354,7 +354,7 @@
       },
       "addonAfter": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonAfter",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -373,7 +373,7 @@
       },
       "components": {
         "defaultValue": null,
-        "description": "",
+        "description": "Supports replacement components",
         "name": "components",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -387,7 +387,2427 @@
         ],
         "required": false,
         "type": {
-          "name": "{ AddonBefore?: ReactNode; AddonAfter?: ReactNode; }"
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
+        }
+      }
+    }
+  },
+  {
+    "tags": {},
+    "filePath": "src/components/Input/index.tsx",
+    "description": "",
+    "displayName": "AddonBefore",
+    "methods": [],
+    "props": {
+      "labelClasses": {
+        "defaultValue": null,
+        "description": "The classes for the label",
+        "name": "labelClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "calculatedId": {
+        "defaultValue": null,
+        "description": "The the ID of the element, uses the `name` prop if no `id` is provided. Make sure it is unique on the page.",
+        "name": "calculatedId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "helperTextClasses": {
+        "defaultValue": null,
+        "description": "The classes for the helper element",
+        "name": "helperTextClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorClasses": {
+        "defaultValue": null,
+        "description": "The classes for the error element",
+        "name": "errorClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorId": {
+        "defaultValue": null,
+        "description": "The id of the error. calculatedId + '-error-msg'",
+        "name": "errorId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorIcon": {
+        "defaultValue": null,
+        "description": "An icon for the error element",
+        "name": "errorIcon",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "helperText": {
+        "defaultValue": null,
+        "description": "Provide text that is used alongside the control label for additional help",
+        "name": "helperText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "labelText": {
+        "defaultValue": null,
+        "description": "Provide the text that will be read by a screen reader when visiting this\ncontrol @design",
+        "name": "labelText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "formItemClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "formItemClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "inputWrapperClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "inputWrapperClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hideLabel": {
+        "defaultValue": null,
+        "description": "Specify whether you want the underlying label to be visually hidden",
+        "name": "hideLabel",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "invalid": {
+        "defaultValue": null,
+        "description": "Specify whether the control is currently invalid.\nEither a boolean in combination with `invalidText` or an `object`( eg. { message: \"Message\", …otherErrorProperties }) can be passed.",
+        "name": "invalid",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "invalidText": {
+        "defaultValue": null,
+        "description": "Provide the text that is displayed when the control is in an invalid state @design",
+        "name": "invalidText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "additional": {
+        "defaultValue": null,
+        "description": "Provide the content that will be shown in addition to the label\n(e.g. units, currency, etc.)\nThis content will be placed after the label @design",
+        "name": "additional",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "light": {
+        "defaultValue": null,
+        "description": "",
+        "name": "light",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "Specify the placeholder attribute for the input @design",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "Provide a unique identifier for the control",
+        "name": "id",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "Provide a name for the control",
+        "name": "name",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
+        "name": "required",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "readOnly": {
+        "defaultValue": null,
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
+        "name": "readOnly",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "inline": {
+        "defaultValue": null,
+        "description": "Renders the input as inline element for horizontal forms",
+        "name": "inline",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "addonBefore": {
+        "defaultValue": null,
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonBefore",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "addonAfter": {
+        "defaultValue": null,
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonAfter",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "components": {
+        "defaultValue": null,
+        "description": "Supports replacement components",
+        "name": "components",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
+        }
+      }
+    }
+  },
+  {
+    "tags": {},
+    "filePath": "src/components/Input/index.tsx",
+    "description": "",
+    "displayName": "AddonAfter",
+    "methods": [],
+    "props": {
+      "labelClasses": {
+        "defaultValue": null,
+        "description": "The classes for the label",
+        "name": "labelClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "calculatedId": {
+        "defaultValue": null,
+        "description": "The the ID of the element, uses the `name` prop if no `id` is provided. Make sure it is unique on the page.",
+        "name": "calculatedId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "helperTextClasses": {
+        "defaultValue": null,
+        "description": "The classes for the helper element",
+        "name": "helperTextClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorClasses": {
+        "defaultValue": null,
+        "description": "The classes for the error element",
+        "name": "errorClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorId": {
+        "defaultValue": null,
+        "description": "The id of the error. calculatedId + '-error-msg'",
+        "name": "errorId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorIcon": {
+        "defaultValue": null,
+        "description": "An icon for the error element",
+        "name": "errorIcon",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "helperText": {
+        "defaultValue": null,
+        "description": "Provide text that is used alongside the control label for additional help",
+        "name": "helperText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "labelText": {
+        "defaultValue": null,
+        "description": "Provide the text that will be read by a screen reader when visiting this\ncontrol @design",
+        "name": "labelText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "formItemClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "formItemClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "inputWrapperClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "inputWrapperClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hideLabel": {
+        "defaultValue": null,
+        "description": "Specify whether you want the underlying label to be visually hidden",
+        "name": "hideLabel",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "invalid": {
+        "defaultValue": null,
+        "description": "Specify whether the control is currently invalid.\nEither a boolean in combination with `invalidText` or an `object`( eg. { message: \"Message\", …otherErrorProperties }) can be passed.",
+        "name": "invalid",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "invalidText": {
+        "defaultValue": null,
+        "description": "Provide the text that is displayed when the control is in an invalid state @design",
+        "name": "invalidText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "additional": {
+        "defaultValue": null,
+        "description": "Provide the content that will be shown in addition to the label\n(e.g. units, currency, etc.)\nThis content will be placed after the label @design",
+        "name": "additional",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "light": {
+        "defaultValue": null,
+        "description": "",
+        "name": "light",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "Specify the placeholder attribute for the input @design",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "Provide a unique identifier for the control",
+        "name": "id",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "Provide a name for the control",
+        "name": "name",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
+        "name": "required",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "readOnly": {
+        "defaultValue": null,
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
+        "name": "readOnly",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "inline": {
+        "defaultValue": null,
+        "description": "Renders the input as inline element for horizontal forms",
+        "name": "inline",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "addonBefore": {
+        "defaultValue": null,
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonBefore",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "addonAfter": {
+        "defaultValue": null,
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonAfter",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "components": {
+        "defaultValue": null,
+        "description": "Supports replacement components",
+        "name": "components",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
+        }
+      }
+    }
+  },
+  {
+    "tags": {},
+    "filePath": "src/components/Input/index.tsx",
+    "description": "Shows a helper text under the label",
+    "displayName": "Label",
+    "methods": [],
+    "props": {
+      "labelClasses": {
+        "defaultValue": null,
+        "description": "The classes for the label",
+        "name": "labelClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "calculatedId": {
+        "defaultValue": null,
+        "description": "The the ID of the element, uses the `name` prop if no `id` is provided. Make sure it is unique on the page.",
+        "name": "calculatedId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "helperTextClasses": {
+        "defaultValue": null,
+        "description": "The classes for the helper element",
+        "name": "helperTextClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorClasses": {
+        "defaultValue": null,
+        "description": "The classes for the error element",
+        "name": "errorClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorId": {
+        "defaultValue": null,
+        "description": "The id of the error. calculatedId + '-error-msg'",
+        "name": "errorId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorIcon": {
+        "defaultValue": null,
+        "description": "An icon for the error element",
+        "name": "errorIcon",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "helperText": {
+        "defaultValue": null,
+        "description": "Provide text that is used alongside the control label for additional help",
+        "name": "helperText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "labelText": {
+        "defaultValue": null,
+        "description": "Provide the text that will be read by a screen reader when visiting this\ncontrol @design",
+        "name": "labelText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "formItemClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "formItemClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "inputWrapperClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "inputWrapperClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hideLabel": {
+        "defaultValue": null,
+        "description": "Specify whether you want the underlying label to be visually hidden",
+        "name": "hideLabel",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "invalid": {
+        "defaultValue": null,
+        "description": "Specify whether the control is currently invalid.\nEither a boolean in combination with `invalidText` or an `object`( eg. { message: \"Message\", …otherErrorProperties }) can be passed.",
+        "name": "invalid",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "invalidText": {
+        "defaultValue": null,
+        "description": "Provide the text that is displayed when the control is in an invalid state @design",
+        "name": "invalidText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "additional": {
+        "defaultValue": null,
+        "description": "Provide the content that will be shown in addition to the label\n(e.g. units, currency, etc.)\nThis content will be placed after the label @design",
+        "name": "additional",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "light": {
+        "defaultValue": null,
+        "description": "",
+        "name": "light",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "Specify the placeholder attribute for the input @design",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "Provide a unique identifier for the control",
+        "name": "id",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "Provide a name for the control",
+        "name": "name",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
+        "name": "required",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "readOnly": {
+        "defaultValue": null,
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
+        "name": "readOnly",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "inline": {
+        "defaultValue": null,
+        "description": "Renders the input as inline element for horizontal forms",
+        "name": "inline",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "addonBefore": {
+        "defaultValue": null,
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonBefore",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "addonAfter": {
+        "defaultValue": null,
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonAfter",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "components": {
+        "defaultValue": null,
+        "description": "Supports replacement components",
+        "name": "components",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
+        }
+      }
+    }
+  },
+  {
+    "tags": {},
+    "filePath": "src/components/Input/index.tsx",
+    "description": "Shows a helper text under the label",
+    "displayName": "Helper",
+    "methods": [],
+    "props": {
+      "labelClasses": {
+        "defaultValue": null,
+        "description": "The classes for the label",
+        "name": "labelClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "calculatedId": {
+        "defaultValue": null,
+        "description": "The the ID of the element, uses the `name` prop if no `id` is provided. Make sure it is unique on the page.",
+        "name": "calculatedId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "helperTextClasses": {
+        "defaultValue": null,
+        "description": "The classes for the helper element",
+        "name": "helperTextClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorClasses": {
+        "defaultValue": null,
+        "description": "The classes for the error element",
+        "name": "errorClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorId": {
+        "defaultValue": null,
+        "description": "The id of the error. calculatedId + '-error-msg'",
+        "name": "errorId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorIcon": {
+        "defaultValue": null,
+        "description": "An icon for the error element",
+        "name": "errorIcon",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "helperText": {
+        "defaultValue": null,
+        "description": "Provide text that is used alongside the control label for additional help",
+        "name": "helperText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "labelText": {
+        "defaultValue": null,
+        "description": "Provide the text that will be read by a screen reader when visiting this\ncontrol @design",
+        "name": "labelText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "formItemClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "formItemClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "inputWrapperClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "inputWrapperClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hideLabel": {
+        "defaultValue": null,
+        "description": "Specify whether you want the underlying label to be visually hidden",
+        "name": "hideLabel",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "invalid": {
+        "defaultValue": null,
+        "description": "Specify whether the control is currently invalid.\nEither a boolean in combination with `invalidText` or an `object`( eg. { message: \"Message\", …otherErrorProperties }) can be passed.",
+        "name": "invalid",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "invalidText": {
+        "defaultValue": null,
+        "description": "Provide the text that is displayed when the control is in an invalid state @design",
+        "name": "invalidText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "additional": {
+        "defaultValue": null,
+        "description": "Provide the content that will be shown in addition to the label\n(e.g. units, currency, etc.)\nThis content will be placed after the label @design",
+        "name": "additional",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "light": {
+        "defaultValue": null,
+        "description": "",
+        "name": "light",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "Specify the placeholder attribute for the input @design",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "Provide a unique identifier for the control",
+        "name": "id",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "Provide a name for the control",
+        "name": "name",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
+        "name": "required",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "readOnly": {
+        "defaultValue": null,
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
+        "name": "readOnly",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "inline": {
+        "defaultValue": null,
+        "description": "Renders the input as inline element for horizontal forms",
+        "name": "inline",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "addonBefore": {
+        "defaultValue": null,
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonBefore",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "addonAfter": {
+        "defaultValue": null,
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonAfter",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "components": {
+        "defaultValue": null,
+        "description": "Supports replacement components",
+        "name": "components",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
+        }
+      }
+    }
+  },
+  {
+    "tags": {},
+    "filePath": "src/components/Input/index.tsx",
+    "description": "Shows the error message underneath the element",
+    "displayName": "Error",
+    "methods": [],
+    "props": {
+      "labelClasses": {
+        "defaultValue": null,
+        "description": "The classes for the label",
+        "name": "labelClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "calculatedId": {
+        "defaultValue": null,
+        "description": "The the ID of the element, uses the `name` prop if no `id` is provided. Make sure it is unique on the page.",
+        "name": "calculatedId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "helperTextClasses": {
+        "defaultValue": null,
+        "description": "The classes for the helper element",
+        "name": "helperTextClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorClasses": {
+        "defaultValue": null,
+        "description": "The classes for the error element",
+        "name": "errorClasses",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorId": {
+        "defaultValue": null,
+        "description": "The id of the error. calculatedId + '-error-msg'",
+        "name": "errorId",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorIcon": {
+        "defaultValue": null,
+        "description": "An icon for the error element",
+        "name": "errorIcon",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "helperText": {
+        "defaultValue": null,
+        "description": "Provide text that is used alongside the control label for additional help",
+        "name": "helperText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "labelText": {
+        "defaultValue": null,
+        "description": "Provide the text that will be read by a screen reader when visiting this\ncontrol @design",
+        "name": "labelText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "formItemClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "formItemClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "inputWrapperClassName": {
+        "defaultValue": null,
+        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
+        "name": "inputWrapperClassName",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hideLabel": {
+        "defaultValue": null,
+        "description": "Specify whether you want the underlying label to be visually hidden",
+        "name": "hideLabel",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "invalid": {
+        "defaultValue": null,
+        "description": "Specify whether the control is currently invalid.\nEither a boolean in combination with `invalidText` or an `object`( eg. { message: \"Message\", …otherErrorProperties }) can be passed.",
+        "name": "invalid",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "invalidText": {
+        "defaultValue": null,
+        "description": "Provide the text that is displayed when the control is in an invalid state @design",
+        "name": "invalidText",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "additional": {
+        "defaultValue": null,
+        "description": "Provide the content that will be shown in addition to the label\n(e.g. units, currency, etc.)\nThis content will be placed after the label @design",
+        "name": "additional",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "light": {
+        "defaultValue": null,
+        "description": "",
+        "name": "light",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "placeholder": {
+        "defaultValue": null,
+        "description": "Specify the placeholder attribute for the input @design",
+        "name": "placeholder",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "Provide a unique identifier for the control",
+        "name": "id",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "Provide a name for the control",
+        "name": "name",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
+        "name": "required",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "readOnly": {
+        "defaultValue": null,
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
+        "name": "readOnly",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "inline": {
+        "defaultValue": null,
+        "description": "Renders the input as inline element for horizontal forms",
+        "name": "inline",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "addonBefore": {
+        "defaultValue": null,
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonBefore",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "addonAfter": {
+        "defaultValue": null,
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
+        "name": "addonAfter",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "components": {
+        "defaultValue": null,
+        "description": "Supports replacement components",
+        "name": "components",
+        "parent": {
+          "fileName": "react/src/components/Input/Input.tsx",
+          "name": "InputProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Input/Input.tsx",
+            "name": "InputProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
         }
       }
     }
@@ -408,9 +2828,7 @@
     "methods": [],
     "props": {
       "className": {
-        "defaultValue": {
-          "value": "wfp--input"
-        },
+        "defaultValue": null,
         "description": "Specify an optional className to be applied to the <input> node",
         "name": "className",
         "parent": {
@@ -466,10 +2884,12 @@
           "name": "boolean"
         }
       },
-      "formItemClassName": {
-        "defaultValue": null,
-        "description": "Specify an optional className to be applied to the form-item node",
-        "name": "formItemClassName",
+      "inputClassName": {
+        "defaultValue": {
+          "value": "wfp--input"
+        },
+        "description": "Specify an optional className to be applied to the input node",
+        "name": "inputClassName",
         "parent": {
           "fileName": "react/src/components/Input/useInput.tsx",
           "name": "UseInputProps"
@@ -625,7 +3045,9 @@
         }
       },
       "value": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "undefined"
+        },
         "description": "Specify the value of the <input>",
         "name": "value",
         "parent": {
@@ -640,7 +3062,7 @@
         ],
         "required": false,
         "type": {
-          "name": "string | number | object"
+          "name": "string | number | readonly string[]"
         }
       },
       "hideLabel": {
@@ -812,25 +3234,6 @@
         "required": false,
         "type": {
           "name": "string"
-        }
-      },
-      "components": {
-        "defaultValue": null,
-        "description": "",
-        "name": "components",
-        "parent": {
-          "fileName": "react/src/components/Input/useInput.tsx",
-          "name": "UseInputProps"
-        },
-        "declarations": [
-          {
-            "fileName": "react/src/components/Input/useInput.tsx",
-            "name": "UseInputProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "{ AddonAfter?: React.ReactNode; }"
         }
       }
     }

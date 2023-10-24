@@ -16,7 +16,7 @@
     "props": {
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "The CSS class name to be placed on the wrapping element.",
         "name": "className",
         "declarations": [
           {
@@ -31,7 +31,7 @@
       },
       "image": {
         "defaultValue": null,
-        "description": "",
+        "description": "The image is set as background on the left section when provided",
         "name": "image",
         "declarations": [
           {
@@ -46,7 +46,7 @@
       },
       "backgroundContent": {
         "defaultValue": null,
-        "description": "",
+        "description": "This usually consist of `<BackgroundContent/>` if you wish to provide content and background color instead of an image",
         "name": "backgroundContent",
         "declarations": [
           {

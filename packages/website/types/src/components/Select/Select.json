@@ -8,7 +8,7 @@
     "props": {
       "inline": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify whether you want the inline version of this control",
         "name": "inline",
         "parent": {
           "fileName": "src/components/Select/Select.tsx",
@@ -27,7 +27,7 @@
       },
       "defaultValue": {
         "defaultValue": null,
-        "description": "",
+        "description": "Optionally provide the default value of the `<select>`",
         "name": "defaultValue",
         "parent": {
           "fileName": "src/components/Select/Select.tsx",
@@ -46,7 +46,7 @@
       },
       "iconDescription": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide a description for the twistie icon that can be read by screen readers",
         "name": "iconDescription",
         "parent": {
           "fileName": "src/components/Select/Select.tsx",
@@ -61,6 +61,25 @@
         "required": false,
         "type": {
           "name": "string"
+        }
+      },
+      "hideLabel": {
+        "defaultValue": null,
+        "description": "Specify whether the label should be hidden, or not",
+        "name": "hideLabel",
+        "parent": {
+          "fileName": "src/components/Select/Select.tsx",
+          "name": "SelectProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Select/Select.tsx",
+            "name": "SelectProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
         }
       },
       "helperText": {
@@ -139,25 +158,6 @@
           "name": "string"
         }
       },
-      "hideLabel": {
-        "defaultValue": null,
-        "description": "Specify whether you want the underlying label to be visually hidden",
-        "name": "hideLabel",
-        "parent": {
-          "fileName": "react/src/components/Input/Input.tsx",
-          "name": "InputProps"
-        },
-        "declarations": [
-          {
-            "fileName": "react/src/components/Input/Input.tsx",
-            "name": "InputProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "boolean"
-        }
-      },
       "invalid": {
         "defaultValue": null,
         "description": "Specify whether the control is currently invalid.\nEither a boolean in combination with `invalidText` or an `object`( eg. { message: \"Message\", …otherErrorProperties }) can be passed.",
@@ -174,7 +174,7 @@
         ],
         "required": false,
         "type": {
-          "name": "boolean | FieldError"
+          "name": "any"
         }
       },
       "invalidText": {
@@ -193,7 +193,7 @@
         ],
         "required": false,
         "type": {
-          "name": "ReactNode"
+          "name": "any"
         }
       },
       "additional": {
@@ -293,7 +293,7 @@
       },
       "required": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
         "name": "required",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -312,7 +312,7 @@
       },
       "disabled": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
         "name": "disabled",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -331,7 +331,7 @@
       },
       "readOnly": {
         "defaultValue": null,
-        "description": "",
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
         "name": "readOnly",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -350,7 +350,7 @@
       },
       "addonBefore": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonBefore",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -369,7 +369,7 @@
       },
       "addonAfter": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonAfter",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -388,7 +388,7 @@
       },
       "components": {
         "defaultValue": null,
-        "description": "",
+        "description": "Supports replacement components",
         "name": "components",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -402,7 +402,7 @@
         ],
         "required": false,
         "type": {
-          "name": "{ AddonBefore?: ReactNode; AddonAfter?: ReactNode; }"
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
         }
       }
     }

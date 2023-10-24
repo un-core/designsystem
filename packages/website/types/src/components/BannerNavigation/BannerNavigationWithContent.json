@@ -8,7 +8,7 @@
     "props": {
       "searchOnChange": {
         "defaultValue": null,
-        "description": "",
+        "description": "A onChange Function for the search",
         "name": "searchOnChange",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "search": {
         "defaultValue": null,
-        "description": "",
+        "description": "Allows to disable the search input",
         "name": "search",
         "declarations": [
           {

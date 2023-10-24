@@ -7,9 +7,7 @@
     "methods": [],
     "props": {
       "className": {
-        "defaultValue": {
-          "value": "wfp--input"
-        },
+        "defaultValue": null,
         "description": "Specify an optional className to be applied to the <input> node",
         "name": "className",
         "parent": {
@@ -65,10 +63,12 @@
           "name": "boolean"
         }
       },
-      "formItemClassName": {
-        "defaultValue": null,
-        "description": "Specify an optional className to be applied to the form-item node",
-        "name": "formItemClassName",
+      "inputClassName": {
+        "defaultValue": {
+          "value": "wfp--input"
+        },
+        "description": "Specify an optional className to be applied to the input node",
+        "name": "inputClassName",
         "parent": {
           "fileName": "src/components/Input/useInput.tsx",
           "name": "UseInputProps"
@@ -224,7 +224,9 @@
         }
       },
       "value": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "undefined"
+        },
         "description": "Specify the value of the <input>",
         "name": "value",
         "parent": {
@@ -239,7 +241,7 @@
         ],
         "required": false,
         "type": {
-          "name": "string | number | object"
+          "name": "string | number | readonly string[]"
         }
       },
       "hideLabel": {
@@ -411,25 +413,6 @@
         "required": false,
         "type": {
           "name": "string"
-        }
-      },
-      "components": {
-        "defaultValue": null,
-        "description": "",
-        "name": "components",
-        "parent": {
-          "fileName": "src/components/Input/useInput.tsx",
-          "name": "UseInputProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Input/useInput.tsx",
-            "name": "UseInputProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "{ AddonAfter?: React.ReactNode; }"
         }
       }
     }

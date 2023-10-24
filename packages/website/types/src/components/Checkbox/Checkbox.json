@@ -8,7 +8,7 @@
     "props": {
       "indeterminate": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify whether the Checkbox is in an indeterminate state",
         "name": "indeterminate",
         "parent": {
           "fileName": "src/components/Checkbox/Checkbox.tsx",
@@ -27,7 +27,7 @@
       },
       "labelText": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide a label to provide a description of the Checkbox input that you are\nexposing to the user",
         "name": "labelText",
         "parent": {
           "fileName": "src/components/Checkbox/Checkbox.tsx",
@@ -46,7 +46,7 @@
       },
       "hideLabel": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify whether the label should be hidden, or not",
         "name": "hideLabel",
         "parent": {
           "fileName": "src/components/Checkbox/Checkbox.tsx",
@@ -65,7 +65,7 @@
       },
       "wrapperClassName": {
         "defaultValue": null,
-        "description": "",
+        "description": "The CSS class name to be placed on the wrapping element",
         "name": "wrapperClassName",
         "parent": {
           "fileName": "src/components/Checkbox/Checkbox.tsx",
@@ -86,7 +86,7 @@
         "defaultValue": {
           "value": "() => {}"
         },
-        "description": "",
+        "description": "@param event | The event triggering the change\n@param checked | The new value of the checkbox\n@param customId | The id of the checkbox",
         "name": "onChange",
         "parent": {
           "fileName": "src/components/Checkbox/Checkbox.tsx",

@@ -8,8 +8,27 @@
     "props": {
       "title": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide the title for the item contet",
         "name": "title",
+        "parent": {
+          "fileName": "src/components/Item/Item.tsx",
+          "name": "ItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Item/Item.tsx",
+            "name": "ItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "children": {
+        "defaultValue": null,
+        "description": "Provide the description for the item content",
+        "name": "children",
         "parent": {
           "fileName": "src/components/Item/Item.tsx",
           "name": "ItemProps"
@@ -27,7 +46,7 @@
       },
       "icon": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide the icon for the item content",
         "name": "icon",
         "parent": {
           "fileName": "src/components/Item/Item.tsx",
@@ -48,7 +67,7 @@
         "defaultValue": {
           "value": "large"
         },
-        "description": "",
+        "description": "Provide a kind to use different appearances.",
         "name": "kind",
         "parent": {
           "fileName": "src/components/Item/Item.tsx",
@@ -69,7 +88,7 @@
         "defaultValue": {
           "value": "none"
         },
-        "description": "",
+        "description": "Provide a wrap to use different borders.",
         "name": "wrapper",
         "parent": {
           "fileName": "src/components/Item/Item.tsx",
@@ -121,26 +140,7 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
-        }
-      },
-      "additional": {
-        "defaultValue": null,
-        "description": "",
-        "name": "additional",
-        "parent": {
-          "fileName": "src/components/Item/Item.tsx",
-          "name": "ItemProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Item/Item.tsx",
-            "name": "ItemProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
+          "name": "ReactNode"
         }
       },
       "hint": {
@@ -179,6 +179,25 @@
         "required": false,
         "type": {
           "name": "boolean"
+        }
+      },
+      "additional": {
+        "defaultValue": null,
+        "description": "",
+        "name": "additional",
+        "parent": {
+          "fileName": "src/components/Item/Item.tsx",
+          "name": "ItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Item/Item.tsx",
+            "name": "ItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
         }
       },
       "image": {

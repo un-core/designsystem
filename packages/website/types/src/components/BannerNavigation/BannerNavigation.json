@@ -8,7 +8,7 @@
     "props": {
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "The CSS class name to be placed on the wrapping element.",
         "name": "className",
         "declarations": [
           {
@@ -32,7 +32,7 @@
     "props": {
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "The CSS class name to be placed on the wrapping element.",
         "name": "className",
         "declarations": [
           {
@@ -47,7 +47,7 @@
       },
       "pageWidth": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify the max-width on desktop devices (same as \\`Wrapper\\` component)",
         "name": "pageWidth",
         "declarations": [
           {

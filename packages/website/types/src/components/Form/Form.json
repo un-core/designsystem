@@ -7,8 +7,10 @@
     "methods": [],
     "props": {
       "longForm": {
-        "defaultValue": null,
-        "description": "",
+        "defaultValue": {
+          "value": "true"
+        },
+        "description": "Default margin is added to each form input",
         "name": "longForm",
         "declarations": [
           {
@@ -23,7 +25,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide a custom className to be applied on the containing <form> node",
         "name": "className",
         "declarations": [
           {

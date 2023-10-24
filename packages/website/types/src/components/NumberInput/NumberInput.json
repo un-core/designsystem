@@ -8,7 +8,7 @@
     "props": {
       "max": {
         "defaultValue": null,
-        "description": "",
+        "description": "The maximum value.",
         "name": "max",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -27,7 +27,7 @@
       },
       "min": {
         "defaultValue": null,
-        "description": "",
+        "description": "The minimum value.",
         "name": "min",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -46,7 +46,7 @@
       },
       "step": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify how much the valus should increase/decrease upon clicking on up/down button",
         "name": "step",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -65,7 +65,7 @@
       },
       "allowEmpty": {
         "defaultValue": null,
-        "description": "",
+        "description": "`true` to allow empty string.",
         "name": "allowEmpty",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -84,7 +84,7 @@
       },
       "disabled": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control should be disabled, or not",
         "name": "disabled",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -103,7 +103,7 @@
       },
       "id": {
         "defaultValue": null,
-        "description": "Provide a unique identifier for the control",
+        "description": "Specify a custom `id` for the input",
         "name": "id",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -179,7 +179,7 @@
       },
       "light": {
         "defaultValue": null,
-        "description": "",
+        "description": "`true` to use the light version.",
         "name": "light",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -217,7 +217,7 @@
       },
       "onChange": {
         "defaultValue": null,
-        "description": "",
+        "description": "The new value is available in 'imaginaryTarget.value'\ni.e. to get the value: evt.imaginaryTarget.value",
         "name": "onChange",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -236,7 +236,7 @@
       },
       "onClick": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide an optional function to be called when the up/down button is clicked",
         "name": "onClick",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -255,7 +255,7 @@
       },
       "value": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify the value of the input, if undefined or null the value is empty",
         "name": "value",
         "parent": {
           "fileName": "src/components/NumberInput/NumberInput.tsx",
@@ -269,7 +269,7 @@
         ],
         "required": false,
         "type": {
-          "name": "number | \"\""
+          "name": "string | number"
         }
       },
       "labelText": {
@@ -345,7 +345,7 @@
         ],
         "required": false,
         "type": {
-          "name": "boolean | FieldError"
+          "name": "any"
         }
       },
       "invalidText": {
@@ -364,7 +364,7 @@
         ],
         "required": false,
         "type": {
-          "name": "ReactNode"
+          "name": "any"
         }
       },
       "additional": {
@@ -426,7 +426,7 @@
       },
       "required": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
         "name": "required",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -445,7 +445,7 @@
       },
       "readOnly": {
         "defaultValue": null,
-        "description": "",
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
         "name": "readOnly",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -464,7 +464,7 @@
       },
       "inline": {
         "defaultValue": null,
-        "description": "",
+        "description": "Renders the input as inline element for horizontal forms",
         "name": "inline",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -483,7 +483,7 @@
       },
       "addonBefore": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonBefore",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -502,7 +502,7 @@
       },
       "addonAfter": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonAfter",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -521,7 +521,7 @@
       },
       "components": {
         "defaultValue": null,
-        "description": "",
+        "description": "Supports replacement components",
         "name": "components",
         "parent": {
           "fileName": "react/src/components/Input/Input.tsx",
@@ -535,7 +535,7 @@
         ],
         "required": false,
         "type": {
-          "name": "{ AddonBefore?: ReactNode; AddonAfter?: ReactNode; }"
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
         }
       }
     }

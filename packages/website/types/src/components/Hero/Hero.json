@@ -8,7 +8,7 @@
     "props": {
       "href": {
         "defaultValue": null,
-        "description": "",
+        "description": "The links target",
         "name": "href",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "image": {
         "defaultValue": null,
-        "description": "",
+        "description": "An optimized photograph",
         "name": "image",
         "declarations": [
           {
@@ -38,7 +38,7 @@
       },
       "isExternal": {
         "defaultValue": null,
-        "description": "",
+        "description": "External link flag",
         "name": "isExternal",
         "declarations": [
           {
@@ -53,7 +53,7 @@
       },
       "isLink": {
         "defaultValue": null,
-        "description": "",
+        "description": "Render the Hero as link",
         "name": "isLink",
         "declarations": [
           {
@@ -68,7 +68,7 @@
       },
       "subTitle": {
         "defaultValue": null,
-        "description": "",
+        "description": "A short sentence to explain the content of the node (max 180 characters)",
         "name": "subTitle",
         "declarations": [
           {
@@ -83,7 +83,7 @@
       },
       "title": {
         "defaultValue": null,
-        "description": "",
+        "description": "A search-friendly title (ideally 50 characters, max 100)",
         "name": "title",
         "declarations": [
           {
@@ -98,7 +98,7 @@
       },
       "metadata": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional metadatas",
         "name": "metadata",
         "declarations": [
           {
@@ -113,7 +113,7 @@
       },
       "more": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional more content",
         "name": "more",
         "declarations": [
           {
@@ -128,7 +128,7 @@
       },
       "kind": {
         "defaultValue": null,
-        "description": "",
+        "description": "Kind of Hero",
         "name": "kind",
         "declarations": [
           {
@@ -143,7 +143,7 @@
       },
       "url": {
         "defaultValue": null,
-        "description": "",
+        "description": "The URL where the content uploaded is located.",
         "name": "url",
         "declarations": [
           {
@@ -158,7 +158,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional className which will be added",
         "name": "className",
         "declarations": [
           {

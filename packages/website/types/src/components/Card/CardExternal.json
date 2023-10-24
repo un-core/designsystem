@@ -1,0 +1,201 @@
+[
+  {
+    "tags": {},
+    "filePath": "src/components/Card/CardExternal.tsx",
+    "description": "",
+    "displayName": "CardExternal",
+    "methods": [],
+    "props": {
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "labelStatus": {
+        "defaultValue": null,
+        "description": "",
+        "name": "labelStatus",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "interactive": {
+        "defaultValue": null,
+        "description": "",
+        "name": "interactive",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "image": {
+        "defaultValue": null,
+        "description": "",
+        "name": "image",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "heading": {
+        "defaultValue": null,
+        "description": "",
+        "name": "heading",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "subHeading": {
+        "defaultValue": null,
+        "description": "",
+        "name": "subHeading",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "caption": {
+        "defaultValue": null,
+        "description": "",
+        "name": "caption",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "tag": {
+        "defaultValue": null,
+        "description": "",
+        "name": "tag",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "truncated": {
+        "defaultValue": null,
+        "description": "",
+        "name": "truncated",
+        "parent": {
+          "fileName": "src/components/Card/CardExternal.tsx",
+          "name": "CardExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Card/CardExternal.tsx",
+            "name": "CardExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      }
+    }
+  }
+]

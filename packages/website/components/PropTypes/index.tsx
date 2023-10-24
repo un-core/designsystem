@@ -17,7 +17,7 @@ import CodeBlockLive from "../Blog/Mdx/CodeBlockLive";
 import Markdown from "react-markdown";
 import formatTypes from "./formatTypes";
 
-import * as componentsSource from "@wfp/react/demo/dist/bundle";
+import * as componentsSource from "@../../../demoCode/dist/bundle";
 
 /*
 const clean = (obj) => {

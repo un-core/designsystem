@@ -1,0 +1,30 @@
+[
+  {
+    "tags": {},
+    "filePath": "src/components/SubNavigation/SubNavigationItem.tsx",
+    "description": "",
+    "displayName": "SubNavigationItem",
+    "methods": [],
+    "props": {
+      "children": {
+        "defaultValue": null,
+        "description": "Specify a the content of the SubNavigationItem",
+        "name": "children",
+        "parent": {
+          "fileName": "src/components/SubNavigation/SubNavigationItem.tsx",
+          "name": "SubNavigationItemProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/SubNavigation/SubNavigationItem.tsx",
+            "name": "SubNavigationItemProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      }
+    }
+  }
+]

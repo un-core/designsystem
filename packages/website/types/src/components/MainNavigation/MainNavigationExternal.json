@@ -1,0 +1,188 @@
+[
+  {
+    "tags": {},
+    "filePath": "src/components/MainNavigation/MainNavigationExternal.tsx",
+    "description": "",
+    "displayName": "MainNavigationExternal",
+    "methods": [],
+    "props": {
+      "productName": {
+        "defaultValue": null,
+        "description": "The name of your product can be applied to this prop",
+        "name": "productName",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "The CSS class name to be placed on the wrapping element.",
+        "name": "className",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "languageList": {
+        "defaultValue": null,
+        "description": "List of laguages your site support",
+        "name": "languageList",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "username": {
+        "defaultValue": null,
+        "description": "The name of signed in user can be applied to this prop",
+        "name": "username",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "userImage": {
+        "defaultValue": null,
+        "description": "The image of signed in user can be applied to this prop",
+        "name": "userImage",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "userDetails": {
+        "defaultValue": null,
+        "description": "The dropdown details of user can be applied to this prop",
+        "name": "userDetails",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "primaryLanguage": {
+        "defaultValue": {
+          "value": "English"
+        },
+        "description": "This prop accepts the first language your website is in. Default: English",
+        "name": "primaryLanguage",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "components": {
+        "defaultValue": {
+          "value": "{}"
+        },
+        "description": "",
+        "name": "components",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "pageWidth": {
+        "defaultValue": {
+          "value": "full"
+        },
+        "description": "",
+        "name": "pageWidth",
+        "parent": {
+          "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+          "name": "MainNavigationExternalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/MainNavigation/MainNavigationExternal.tsx",
+            "name": "MainNavigationExternalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "\"sm\" | \"md\" | \"lg\" | \"full\" | \"xs\" | \"narrow\" | \"narrower\" | \"narrowest\""
+        }
+      }
+    }
+  }
+]

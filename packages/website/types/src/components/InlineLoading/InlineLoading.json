@@ -8,7 +8,7 @@
     "props": {
       "success": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify whether the load was successful",
         "name": "success",
         "parent": {
           "fileName": "src/components/InlineLoading/InlineLoading.tsx",
@@ -27,7 +27,7 @@
       },
       "description": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify the description for the inline loading text",
         "name": "description",
         "parent": {
           "fileName": "src/components/InlineLoading/InlineLoading.tsx",
@@ -41,12 +41,12 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "ReactNode"
         }
       },
       "successDelay": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide a delay for the `setTimeout` for success",
         "name": "successDelay",
         "parent": {
           "fileName": "src/components/InlineLoading/InlineLoading.tsx",
@@ -65,7 +65,7 @@
       },
       "onSuccess": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide an optional handler to be invoked when <InlineLoading> is\nsuccessful",
         "name": "onSuccess",
         "parent": {
           "fileName": "src/components/InlineLoading/InlineLoading.tsx",
@@ -84,7 +84,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify a custom className to be applied to the container node",
         "name": "className",
         "parent": {
           "fileName": "src/components/InlineLoading/InlineLoading.tsx",

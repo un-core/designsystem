@@ -1,0 +1,116 @@
+[
+  {
+    "tags": {},
+    "filePath": "src/components/Unit/SimpleCalc.tsx",
+    "description": "",
+    "displayName": "SimpleCalc",
+    "methods": [],
+    "props": {
+      "calcOnly": {
+        "defaultValue": null,
+        "description": "",
+        "name": "calcOnly",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "string": {
+        "defaultValue": null,
+        "description": "",
+        "name": "string",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "svg": {
+        "defaultValue": null,
+        "description": "",
+        "name": "svg",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "hideUnit": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hideUnit",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "after": {
+        "defaultValue": null,
+        "description": "",
+        "name": "after",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "before": {
+        "defaultValue": null,
+        "description": "",
+        "name": "before",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/SimpleCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+]

@@ -51,7 +51,7 @@
       },
       "pageWidth": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify the max-width on desktop devices (same as \\`Wrapper\\` component)",
         "name": "pageWidth",
         "parent": {
           "fileName": "src/components/SecondaryNavigation/SecondaryNavigation.tsx",
@@ -70,7 +70,7 @@
       },
       "wrapperClassName": {
         "defaultValue": null,
-        "description": "",
+        "description": "The CSS class name to be placed on the wrapping element",
         "name": "wrapperClassName",
         "parent": {
           "fileName": "src/components/SecondaryNavigation/SecondaryNavigation.tsx",

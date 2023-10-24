@@ -8,7 +8,7 @@
     "props": {
       "hometext": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify an optional text for the `Home` Icon",
         "name": "hometext",
         "parent": {
           "fileName": "src/components/BreadcrumbHome/BreadcrumbHome.tsx",
@@ -27,7 +27,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify an optional className to be added to the `Home` Icon",
         "name": "className",
         "parent": {
           "fileName": "src/components/BreadcrumbHome/BreadcrumbHome.tsx",

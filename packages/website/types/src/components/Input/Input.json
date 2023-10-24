@@ -2,26 +2,117 @@
   {
     "tags": {},
     "filePath": "src/components/Input/Input.tsx",
-    "description": "Input is a wrapper for custom inputs providing the label, helperText and errors.",
+    "description": "",
     "displayName": "Input",
     "methods": [],
     "props": {
-      "children": {
+      "labelClasses": {
         "defaultValue": null,
-        "description": "Provide a custom className that is applied directly to the underlying\n&lt;textarea&gt; node",
-        "name": "children",
+        "description": "The classes for the label",
+        "name": "labelClasses",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
-          "name": "InputPropsI"
+          "name": "InputPropsForReplacementComponents"
         },
         "declarations": [
           {
             "fileName": "src/components/Input/Input.tsx",
-            "name": "InputPropsI"
-          },
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "calculatedId": {
+        "defaultValue": null,
+        "description": "The the ID of the element, uses the `name` prop if no `id` is provided. Make sure it is unique on the page.",
+        "name": "calculatedId",
+        "parent": {
+          "fileName": "src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
           {
-            "fileName": "un-core-v1/node_modules/@types/react/index.d.ts",
-            "name": "TypeLiteral"
+            "fileName": "src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "helperTextClasses": {
+        "defaultValue": null,
+        "description": "The classes for the helper element",
+        "name": "helperTextClasses",
+        "parent": {
+          "fileName": "src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorClasses": {
+        "defaultValue": null,
+        "description": "The classes for the error element",
+        "name": "errorClasses",
+        "parent": {
+          "fileName": "src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorId": {
+        "defaultValue": null,
+        "description": "The id of the error. calculatedId + '-error-msg'",
+        "name": "errorId",
+        "parent": {
+          "fileName": "src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "errorIcon": {
+        "defaultValue": null,
+        "description": "An icon for the error element",
+        "name": "errorIcon",
+        "parent": {
+          "fileName": "src/components/Input/Input.tsx",
+          "name": "InputPropsForReplacementComponents"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Input/Input.tsx",
+            "name": "InputPropsForReplacementComponents"
           }
         ],
         "required": false,
@@ -140,7 +231,7 @@
         ],
         "required": false,
         "type": {
-          "name": "boolean | FieldError"
+          "name": "any"
         }
       },
       "invalidText": {
@@ -159,7 +250,7 @@
         ],
         "required": false,
         "type": {
-          "name": "ReactNode"
+          "name": "any"
         }
       },
       "additional": {
@@ -259,7 +350,7 @@
       },
       "required": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is required @design\n(sets aria-invalid as well)",
         "name": "required",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -278,7 +369,7 @@
       },
       "disabled": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specify if the control is disabled @design\n(sets aria-disabled as well)",
         "name": "disabled",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -297,7 +388,7 @@
       },
       "readOnly": {
         "defaultValue": null,
-        "description": "",
+        "description": "If the input is read-only, the user cannot change its value but focus\nand tabIndex are still applied @design\n(sets aria-readonly as well)",
         "name": "readOnly",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -316,7 +407,7 @@
       },
       "inline": {
         "defaultValue": null,
-        "description": "",
+        "description": "Renders the input as inline element for horizontal forms",
         "name": "inline",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -335,7 +426,7 @@
       },
       "addonBefore": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper in front of the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonBefore",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -354,7 +445,7 @@
       },
       "addonAfter": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional helper behind the input, e.g. a currency symbol @design\n(sets aria-describedby as well)",
         "name": "addonAfter",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -373,7 +464,7 @@
       },
       "components": {
         "defaultValue": null,
-        "description": "",
+        "description": "Supports replacement components",
         "name": "components",
         "parent": {
           "fileName": "src/components/Input/Input.tsx",
@@ -387,7 +478,7 @@
         ],
         "required": false,
         "type": {
-          "name": "{ AddonBefore?: ReactNode; AddonAfter?: ReactNode; }"
+          "name": "{ AddonBefore?: ComponentType<InputPropsForReplacementComponents>; AddonAfter?: ComponentType<InputPropsForReplacementComponents>; Label?: ComponentType<...>; HelperText?: ComponentType<...>; Error?: ComponentType<...>; }"
         }
       }
     }

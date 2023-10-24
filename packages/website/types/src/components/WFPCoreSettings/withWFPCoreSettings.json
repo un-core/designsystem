@@ -1,7 +1,7 @@
 [
   {
     "tags": {},
-    "filePath": "src/components/UNCoreSettings/withUNCoreSettings.tsx",
+    "filePath": "src/components/WFPCoreSettings/withWFPCoreSettings.tsx",
     "description": "",
     "displayName": "withWFPCoreSettings",
     "methods": [],

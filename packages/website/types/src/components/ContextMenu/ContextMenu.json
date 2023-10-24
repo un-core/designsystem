@@ -8,7 +8,7 @@
     "props": {
       "content": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide content to display when contextMenu is clicked",
         "name": "content",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "href": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide a href prop as an alternative to onClick",
         "name": "href",
         "declarations": [
           {
@@ -38,7 +38,7 @@
       },
       "inline": {
         "defaultValue": null,
-        "description": "",
+        "description": "Inline links are used within a sentence or paragraph and are styled with an underline. They should not be paired with an icon.",
         "name": "inline",
         "declarations": [
           {
@@ -53,7 +53,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Provide a custom className",
         "name": "className",
         "declarations": [
           {

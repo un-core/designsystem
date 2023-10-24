@@ -1,0 +1,131 @@
+[
+  {
+    "tags": {},
+    "filePath": "src/components/Unit/percentageCalc.tsx",
+    "description": "",
+    "displayName": "percentageCalc",
+    "methods": [],
+    "props": {
+      "calcOnly": {
+        "defaultValue": null,
+        "description": "",
+        "name": "calcOnly",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "from": {
+        "defaultValue": null,
+        "description": "",
+        "name": "from",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "string": {
+        "defaultValue": null,
+        "description": "",
+        "name": "string",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "svg": {
+        "defaultValue": null,
+        "description": "",
+        "name": "svg",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "hideZero": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hideZero",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "maximumSignificantDigits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maximumSignificantDigits",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "maximumFractionDigits": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maximumFractionDigits",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "declarations": [
+          {
+            "fileName": "src/components/Unit/percentageCalc.tsx",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+]

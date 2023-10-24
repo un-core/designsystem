@@ -8,7 +8,7 @@
     "props": {
       "alt": {
         "defaultValue": null,
-        "description": "",
+        "description": "The alt-text of the avatar",
         "name": "alt",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -27,7 +27,7 @@
       },
       "ellipsis": {
         "defaultValue": null,
-        "description": "",
+        "description": "Sets the max-width of the user name to 130px and shows an ellipsis",
         "name": "ellipsis",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -46,7 +46,7 @@
       },
       "description": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional description under the Name will also increase the size\nof the Avatar use &lt;List kind=\"simple\" small /&gt; as default content",
         "name": "description",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -84,7 +84,7 @@
       },
       "extendedDescription": {
         "defaultValue": null,
-        "description": "",
+        "description": "Extended Description column",
         "name": "extendedDescription",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -103,7 +103,7 @@
       },
       "missingImage": {
         "defaultValue": null,
-        "description": "",
+        "description": "Selects the generated empty icon if no image is provided.\nCan be `avatar` or `letter`.",
         "name": "missingImage",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -122,7 +122,7 @@
       },
       "image": {
         "defaultValue": null,
-        "description": "",
+        "description": "Url to an avatar image The size of the image is 25px * 25px.\nProvide at least 50px * 50px to support HiDPI displays.",
         "name": "image",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -141,7 +141,7 @@
       },
       "showName": {
         "defaultValue": null,
-        "description": "",
+        "description": "Show the name next to the avatar",
         "name": "showName",
         "parent": {
           "fileName": "src/components/User/User.tsx",
@@ -198,7 +198,7 @@
       },
       "name": {
         "defaultValue": null,
-        "description": "",
+        "description": "The username which will be displayed. Usually `Firstname Lastname`.",
         "name": "name",
         "parent": {
           "fileName": "src/components/User/User.tsx",

@@ -6,44 +6,6 @@
     "displayName": "ModalFooter",
     "methods": [],
     "props": {
-      "passiveModal": {
-        "defaultValue": null,
-        "description": "",
-        "name": "passiveModal",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "boolean"
-        }
-      },
-      "secondaryButtonText": {
-        "defaultValue": null,
-        "description": "",
-        "name": "secondaryButtonText",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "onSecondaryButtonClick": {
         "defaultValue": null,
         "description": "",
@@ -61,101 +23,6 @@
         "required": false,
         "type": {
           "name": "(evt: MouseEvent<HTMLButtonElement, MouseEvent>, trigger: \"button\" | \"background\" | \"key\") => void"
-        }
-      },
-      "primaryButtonText": {
-        "defaultValue": null,
-        "description": "",
-        "name": "primaryButtonText",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "onRequestSubmit": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onRequestSubmit",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "() => void"
-        }
-      },
-      "primaryButtonDisabled": {
-        "defaultValue": null,
-        "description": "",
-        "name": "primaryButtonDisabled",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "boolean"
-        }
-      },
-      "secondaryButtonDisabled": {
-        "defaultValue": null,
-        "description": "",
-        "name": "secondaryButtonDisabled",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "boolean"
-        }
-      },
-      "danger": {
-        "defaultValue": null,
-        "description": "",
-        "name": "danger",
-        "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "boolean"
         }
       },
       "prefix": {
@@ -177,23 +44,650 @@
           "name": "string"
         }
       },
+      "modalLabel": {
+        "defaultValue": null,
+        "description": "Specify the content of the modal header label.",
+        "name": "modalLabel",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "modalHeading": {
+        "defaultValue": null,
+        "description": "Specify the content of the modal header title.",
+        "name": "modalHeading",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "modalText": {
+        "defaultValue": null,
+        "description": "",
+        "name": "modalText",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "lazyLoad": {
+        "defaultValue": null,
+        "description": "Specify whether the modals content should be only loaded when the `Modal` is `open`",
+        "name": "lazyLoad",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "passiveModal": {
+        "defaultValue": null,
+        "description": "Specify whether the modal should be button-less",
+        "name": "passiveModal",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "components": {
+        "defaultValue": null,
+        "description": "",
+        "name": "components",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ Wrapper?: React.ReactNode; }"
+        }
+      },
+      "modalAriaLabel": {
+        "defaultValue": null,
+        "description": "Specify a label to be read by screen readers on the modal root node",
+        "name": "modalAriaLabel",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "elementToAppend": {
+        "defaultValue": null,
+        "description": "",
+        "name": "elementToAppend",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "HTMLElement"
+        }
+      },
+      "modalSecondaryAction": {
+        "defaultValue": null,
+        "description": "",
+        "name": "modalSecondaryAction",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "secondaryButtonText": {
+        "defaultValue": null,
+        "description": "Specify the text for the secondary button",
+        "name": "secondaryButtonText",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "secondaryButtonDisabled": {
+        "defaultValue": null,
+        "description": "Specify whether the secondary Button should be disabled, or not",
+        "name": "secondaryButtonDisabled",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "onSecondarySubmit": {
+        "defaultValue": null,
+        "description": "Specify a handler for the secondary button.\nUseful if separate handler from `onRequestClose` is desirable",
+        "name": "onSecondarySubmit",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "primaryButtonText": {
+        "defaultValue": null,
+        "description": "Specify the text for the primary button",
+        "name": "primaryButtonText",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      },
+      "primaryButtonDisabled": {
+        "defaultValue": null,
+        "description": "Specify whether the Button should be disabled, or not",
+        "name": "primaryButtonDisabled",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "open": {
+        "defaultValue": null,
+        "description": "Specify whether the Modal is currently open",
+        "name": "open",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "hideClose": {
+        "defaultValue": null,
+        "description": "Specify to hide the close button",
+        "name": "hideClose",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "warning": {
+        "defaultValue": null,
+        "description": "",
+        "name": "warning",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "danger": {
+        "defaultValue": null,
+        "description": "Specify whether the Modal is for dangerous actions",
+        "name": "danger",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "shouldSubmitOnEnter": {
+        "defaultValue": null,
+        "description": "Specify if Enter key should be used as \"submit\" action",
+        "name": "shouldSubmitOnEnter",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "selectorsFloatingMenus": {
+        "defaultValue": null,
+        "description": "Specify CSS selectors that match DOM elements working as floating menus.\nFocusing on those elements won't trigger \"focus-wrap\" behavior",
+        "name": "selectorsFloatingMenus",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string[]"
+        }
+      },
+      "selectorPrimaryFocus": {
+        "defaultValue": null,
+        "description": "Specify a CSS selector that matches the DOM element that should\nbe focused when the Modal opens. If \"false\" no selector will be triggered",
+        "name": "selectorPrimaryFocus",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string | boolean"
+        }
+      },
+      "type": {
+        "defaultValue": null,
+        "description": "Different styling options are available `info`, `warning`, `danger`",
+        "name": "type",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "\"warning\" | \"danger\" | \"info\""
+        }
+      },
+      "inPortal": {
+        "defaultValue": null,
+        "description": "If true the Modal will be rendered inside a portal at the end of the\nbody element, otherwise at the position it is placed.",
+        "name": "inPortal",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "width": {
+        "defaultValue": null,
+        "description": "",
+        "name": "width",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "\"wide\" | \"narrow\" | \"full\""
+        }
+      },
+      "wide": {
+        "defaultValue": null,
+        "description": "If true the Modal will be wider then the regular Modal",
+        "name": "wide",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "boolean"
+        }
+      },
+      "modalFooter": {
+        "defaultValue": null,
+        "description": "Specify the a function which renders a custom ModalFooter.",
+        "name": "modalFooter",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "onRequestClose": {
+        "defaultValue": null,
+        "description": "Specify a handler for closing modal.\nThe handler should care of closing modal, e.g. changing `open` prop.",
+        "name": "onRequestClose",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(evt: React.UIEvent, trigger: \"button\" | \"background\" | \"key\") => void"
+        }
+      },
+      "onRequestSubmit": {
+        "defaultValue": null,
+        "description": "Specify a handler for \"submitting\" modal.\nThe handler should care of closing modal, e.g. changing `open` prop, if necessary.",
+        "name": "onRequestSubmit",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "iconDescription": {
+        "defaultValue": null,
+        "description": "Provide a description for \"close\" icon that can be read by screen readers",
+        "name": "iconDescription",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "id": {
+        "defaultValue": null,
+        "description": "Specify the DOM element ID of the top-level node.",
+        "name": "id",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "backgroundImage": {
+        "defaultValue": null,
+        "description": "",
+        "name": "backgroundImage",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "handleBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "handleBlur",
+        "parent": {
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
+        },
+        "declarations": [
+          {
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(obj?: unknown) => void"
+        }
+      },
       "primaryButtonRef": {
         "defaultValue": null,
         "description": "",
         "name": "primaryButtonRef",
         "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
         },
         "declarations": [
           {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
           }
         ],
         "required": false,
         "type": {
-          "name": "RefObject<HTMLButtonElement>"
+          "name": "React.RefObject<HTMLButtonElement>"
         }
       },
       "secondaryButtonRef": {
@@ -201,18 +695,18 @@
         "description": "",
         "name": "secondaryButtonRef",
         "parent": {
-          "fileName": "src/components/Modal/ModalFooter.tsx",
-          "name": "ModalFooterProps"
+          "fileName": "react/src/components/Modal/Modal.tsx",
+          "name": "ModalProps"
         },
         "declarations": [
           {
-            "fileName": "src/components/Modal/ModalFooter.tsx",
-            "name": "ModalFooterProps"
+            "fileName": "react/src/components/Modal/Modal.tsx",
+            "name": "ModalProps"
           }
         ],
         "required": false,
         "type": {
-          "name": "RefObject<HTMLButtonElement>"
+          "name": "React.RefObject<HTMLButtonElement>"
         }
       }
     }

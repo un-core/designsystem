@@ -2,9 +2,29 @@
   {
     "tags": {},
     "filePath": "src/components/Breadcrumb/Breadcrumb.tsx",
-    "description": "The breadcrumb is a secondary navigation pattern that helps a user understand the hierarchy among levels and navigate back through them.",
+    "description": "",
     "displayName": "Breadcrumb",
     "methods": [],
-    "props": {}
+    "props": {
+      "children": {
+        "defaultValue": null,
+        "description": "Pass in the BreadcrumbItem's for your Breadcrumb",
+        "name": "children",
+        "parent": {
+          "fileName": "src/components/Breadcrumb/Breadcrumb.tsx",
+          "name": "BreadcrumbProps"
+        },
+        "declarations": [
+          {
+            "fileName": "src/components/Breadcrumb/Breadcrumb.tsx",
+            "name": "BreadcrumbProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "React.ReactNode"
+        }
+      }
+    }
   }
 ]

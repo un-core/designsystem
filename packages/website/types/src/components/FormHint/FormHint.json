@@ -8,7 +8,7 @@
     "props": {
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "The additional className which will be added",
         "name": "className",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "description": {
         "defaultValue": null,
-        "description": "",
+        "description": "The description of the icon",
         "name": "description",
         "declarations": [
           {

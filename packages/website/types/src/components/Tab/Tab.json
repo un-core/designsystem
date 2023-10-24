@@ -77,7 +77,7 @@
             "name": "TabProps"
           }
         ],
-        "required": true,
+        "required": false,
         "type": {
           "name": "string"
         }
@@ -272,10 +272,10 @@
           "name": "boolean"
         }
       },
-      "onClick": {
+      "components": {
         "defaultValue": null,
         "description": "",
-        "name": "onClick",
+        "name": "components",
         "parent": {
           "fileName": "src/components/Tab/Tab.tsx",
           "name": "TabProps"
@@ -288,26 +288,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(evt?: Event) => void"
-        }
-      },
-      "onKeyDown": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onKeyDown",
-        "parent": {
-          "fileName": "src/components/Tab/Tab.tsx",
-          "name": "TabProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/Tab/Tab.tsx",
-            "name": "TabProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "(evt?: Event) => void"
+          "name": "{ Tab?: ReactNode; }"
         }
       }
     }

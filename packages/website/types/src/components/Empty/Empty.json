@@ -10,14 +10,14 @@
         "defaultValue": null,
         "description": "The content to be rendered in the empty state. @design",
         "name": "children",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
-          },
-          {
-            "fileName": "un-core-v1/node_modules/@types/react/index.d.ts",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,
@@ -29,10 +29,14 @@
         "defaultValue": null,
         "description": "The title to be rendered in the empty state.",
         "name": "title",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,
@@ -46,10 +50,14 @@
         },
         "description": "The kind of empty state to be rendered. @design",
         "name": "kind",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,
@@ -61,10 +69,14 @@
         "defaultValue": null,
         "description": "",
         "name": "icon",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,
@@ -76,10 +88,14 @@
         "defaultValue": null,
         "description": "The button to be rendered in the empty state. @design",
         "name": "button",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,
@@ -91,10 +107,14 @@
         "defaultValue": null,
         "description": "",
         "name": "className",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,
@@ -106,10 +126,14 @@
         "defaultValue": null,
         "description": "The replaceable components to be used for the empty state.",
         "name": "components",
+        "parent": {
+          "fileName": "src/components/Empty/Empty.tsx",
+          "name": "EmptyProps"
+        },
         "declarations": [
           {
             "fileName": "src/components/Empty/Empty.tsx",
-            "name": "TypeLiteral"
+            "name": "EmptyProps"
           }
         ],
         "required": false,

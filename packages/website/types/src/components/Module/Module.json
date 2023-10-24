@@ -16,7 +16,7 @@
             "name": "TypeLiteral"
           },
           {
-            "fileName": "un-core-v1/node_modules/@types/react/index.d.ts",
+            "fileName": "un-core-v1/node_modules/@types/react/ts5.0/index.d.ts",
             "name": "TypeLiteral"
           }
         ],

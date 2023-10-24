@@ -8,7 +8,7 @@
     "props": {
       "info": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specifiy the info content",
         "name": "info",
         "declarations": [
           {
@@ -23,7 +23,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional className which will be added",
         "name": "className",
         "declarations": [
           {

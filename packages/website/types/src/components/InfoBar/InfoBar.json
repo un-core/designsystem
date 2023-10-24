@@ -8,7 +8,7 @@
     "props": {
       "pageWidth": {
         "defaultValue": null,
-        "description": "",
+        "description": "`pageWidth` for the `<Wrapper />` component",
         "name": "pageWidth",
         "parent": {
           "fileName": "src/components/InfoBar/InfoBar.tsx",
@@ -27,7 +27,7 @@
       },
       "wrapperClassName": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional `className` for the `<Wrapper />` component",
         "name": "wrapperClassName",
         "parent": {
           "fileName": "src/components/InfoBar/InfoBar.tsx",
@@ -46,7 +46,7 @@
       },
       "className": {
         "defaultValue": null,
-        "description": "",
+        "description": "The CSS class name to be placed on the wrapping element.",
         "name": "className",
         "parent": {
           "fileName": "src/components/InfoBar/InfoBar.tsx",
@@ -65,7 +65,7 @@
       },
       "id": {
         "defaultValue": null,
-        "description": "",
+        "description": "Additional `id` provided to the wrapping element",
         "name": "id",
         "parent": {
           "fileName": "src/components/InfoBar/InfoBar.tsx",

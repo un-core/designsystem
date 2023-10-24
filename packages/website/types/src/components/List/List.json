@@ -8,7 +8,7 @@
     "props": {
       "small": {
         "defaultValue": null,
-        "description": "",
+        "description": "If true, renders the List with a smaller font size and padding.",
         "name": "small",
         "parent": {
           "fileName": "src/components/List/List.tsx",
@@ -25,32 +25,9 @@
           "name": "boolean"
         }
       },
-      "className": {
-        "defaultValue": null,
-        "description": "",
-        "name": "className",
-        "parent": {
-          "fileName": "src/components/List/List.tsx",
-          "name": "ListBaseProps"
-        },
-        "declarations": [
-          {
-            "fileName": "src/components/List/List.tsx",
-            "name": "ListBaseProps"
-          },
-          {
-            "fileName": "un-core-v1/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "colon": {
         "defaultValue": null,
-        "description": "",
+        "description": "If true, colons will be displayed in the List items.",
         "name": "colon",
         "parent": {
           "fileName": "src/components/List/List.tsx",
@@ -69,7 +46,7 @@
       },
       "kind": {
         "defaultValue": null,
-        "description": "",
+        "description": "Specifies the visual presentation style of the List.",
         "name": "kind",
         "parent": {
           "fileName": "src/components/List/List.tsx",
