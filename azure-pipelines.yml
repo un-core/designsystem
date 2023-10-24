@@ -17,18 +17,17 @@ trigger:
 jobs:
   - job: WFP_Design_System_publish
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: "ubuntu-latest"
 
     variables:
       NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
       nextRelease: unknown
 
     steps:
-     
       - checkout: self
         persistCredentials: true
-        clean: 
-    
+        clean:
+
       - script: |
           git config --global user.name "Azure Devops Pipeline"
           git config --global user.email "roberg.guehne@wfp.org"
@@ -43,18 +42,36 @@ jobs:
 
       - task: NodeTool@0
         inputs:
-          versionSpec: '18.x'
-        displayName: 'Install Node.js'
+          versionSpec: "18.x"
+        displayName: "Install Node.js"
 
       - task: DownloadSecureFile@1
         name: npmrcFile
-        displayName: 'Download CA certificate'
+        displayName: "Download CA certificate"
         inputs:
-          secureFile: 'npmrc'
+          secureFile: "npmrc"
 
       - task: CmdLine@2
         inputs:
           script: cp $(npmrcFile.secureFilePath) ./.npmrc
+
+      - script: |
+          # Install urlencode function to encode reserved characters in passwords
+          sudo apt-get install gridsite-clients
+          # Create local mirror of Azure DevOps repository
+          git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror   
+          # Sync AWS CodeCommit repository
+          cd repo-mirror
+          git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
+
+        displayName: "Sync repository with AWS CodeCommit"
+        env:
+          AZURE_REPO_URL: $(AZURE_REPO_URL)
+          AZURE_GIT_USERNAME: $(AZURE_GIT_USERNAME)
+          AZURE_GIT_PASSWORD: $(AZURE_GIT_PASSWORD)
+          AWS_REPO_URL: $(AWS_REPO_URL)
+          AWS_GIT_USERNAME: $(AWS_GIT_USERNAME)
+          AWS_GIT_PASSWORD: $(AWS_GIT_PASSWORD)
 
       #    - task: CmdLine@2
       #      displayName: Checkout $(Build.SourceBranchName)
@@ -81,7 +98,7 @@ jobs:
       - script: |
           yarn -v
           yarn install
-        displayName: 'yarn install'
+        displayName: "yarn install"
 
       #    - script: |
       #        yarn test
@@ -89,18 +106,18 @@ jobs:
 
       - script: |
           yarn build
-        displayName: 'yarn build'
+        displayName: "yarn build"
         env:
-         FIGMA_TOKEN: $(FIGMA_TOKEN)
+          FIGMA_TOKEN: $(FIGMA_TOKEN)
 
       - script: |
           npm run lerna:versionNoPush
           git push --follow-tags origin HEAD:$(branchName)
-        displayName: 'npm run lerna:version'
+        displayName: "npm run lerna:version"
 
       - script: |
           npm run lerna:publishFromPackage
-        displayName: 'lerna publish'
+        displayName: "lerna publish"
 
       # - script: |
       #      yarn publish:cli
@@ -119,25 +136,7 @@ jobs:
 
       - script: |
           yarn publish:alpha-cli
-        displayName: 'yarn publish:alpha-cli'
-
-      - script: |  
-          # Install urlencode function to encode reserved characters in passwords
-          sudo apt-get install gridsite-clients
-          # Create local mirror of Azure DevOps repository
-          git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror   
-          # Sync AWS CodeCommit repository
-          cd repo-mirror
-          git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
-          
-        displayName: 'Sync repository with AWS CodeCommit'
-        env:
-          AZURE_REPO_URL: $(AZURE_REPO_URL)
-          AZURE_GIT_USERNAME: $(AZURE_GIT_USERNAME)
-          AZURE_GIT_PASSWORD: $(AZURE_GIT_PASSWORD)
-          AWS_REPO_URL: $(AWS_REPO_URL)
-          AWS_GIT_USERNAME: $(AWS_GIT_USERNAME)
-          AWS_GIT_PASSWORD: $(AWS_GIT_PASSWORD)
+        displayName: "yarn publish:alpha-cli"
 
       - powershell: |
           echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"
