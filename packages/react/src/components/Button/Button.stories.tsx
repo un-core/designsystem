@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { buttonKinds } from "../../prop-types/types";
-import { AddCircle } from "@un/icons-react";
+import { AddCircleGlyph } from "@un/icons-react";
 import markdown from "./README.mdx";
 import Button from "./Button";
 
@@ -69,6 +69,45 @@ ButtonKind.args = {
 };
 
 ButtonKind.parameters = {
+  code: false,
+};
+
+export const ButtonSolid = (args) => (
+  <div
+    style={{
+      width: "100%",
+      height: "150px",
+      backgroundColor: "#017DBC",
+      padding: "20px",
+    }}
+  >
+    {buttonKinds
+      .filter((e) => e === "primary" || e === "secondary" || e === "ghost")
+      .map((e) => (
+        <div
+          key={e}
+          style={{
+            display: "inline-block",
+            padding: "0.3rem",
+          }}
+        >
+          <Button {...args} kind={e}>
+            {e}
+          </Button>{" "}
+          <Button {...args} disabled kind={e}>
+            {e} disable
+          </Button>
+        </div>
+      ))}
+  </div>
+);
+
+ButtonSolid.args = {
+  kind: "primary",
+  btnSolid: true,
+};
+
+ButtonSolid.parameters = {
   code: false,
 };
 

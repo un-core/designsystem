@@ -18,6 +18,11 @@ interface ButtonBaseProps {
    * Specify whether the Button should be a large variant
    */
   large?: boolean;
+
+  /**
+   * Specify btnSolid to buttons on solid background to make it stand out
+   */
+  btnSolid?: boolean;
   /**
    * Specify the kind of Button you want to create @design
    */
@@ -82,6 +87,7 @@ export const Button = React.forwardRef(
       disabled,
       small,
       large,
+      btnSolid,
       kind = "primary",
       iconReverse,
       tabIndex,
@@ -111,6 +117,7 @@ export const Button = React.forwardRef(
       [`${prefix}--btn--flexbox`]: useFlexbox,
       [`${prefix}--btn--icon-only`]: icon && children === undefined,
       [`${prefix}--btn--${kind}`]: kind,
+      [`${prefix}--btn--${kind}-solid`]: btnSolid,
       [`${prefix}--btn--animating`]: count,
     });
 
