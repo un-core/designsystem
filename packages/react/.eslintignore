@@ -1,2 +1,2 @@
 *.js
-*.stories.tsx
+#*.stories.tsx

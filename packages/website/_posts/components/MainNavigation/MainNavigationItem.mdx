@@ -1,0 +1,32 @@
+---
+category: "Core"
+title: "MainNavigationItem"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/MainNavigation/MainNavigationItem"
+previewScale: 0.3
+storybook: true
+mainComponent: "MainNavigationItem"
+sampleCode: >
+
+  <MainNavigationItem>
+    <Link href="http://communities.wfp.org" target="_blank">
+      Section 1
+    </Link>
+  </MainNavigationItem>
+---
+
+The `MainNavigationItem` are the main components of the `MainNavigation`. It can be used to create a link to a page or to open a `SubNavigation`.
+
+```jsx
+import { MainNavigation, MainNavigationItem } from "@wfp/react";
+
+() => (
+  <MainNavigation>
+    <MainNavigationItem>
+      <Link href="http://communities.wfp.org" target="_blank">
+        Section 1
+      </Link>
+    </MainNavigationItem>
+  </MainNavigation>
+);
+```

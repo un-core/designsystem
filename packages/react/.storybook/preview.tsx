@@ -1,15 +1,11 @@
 import React, { FC } from "react";
 import "./storybook.scss";
 import theme from "./theme";
-import { UNCoreProvider } from "../src/components/UNCoreSettings";
+import { WFPCoreProvider } from "../src/components/WFPCoreSettings";
 
 import { themes, ensure } from "@storybook/theming";
 
 import "@fontsource-variable/open-sans/wdth.css";
-
-//import 'iframe-resizer';
-
-// require("iframe-resizer/js/iframeResizer.contentWindow");
 
 export const parameters = {
   controls: { expanded: true },
@@ -90,10 +86,10 @@ const withThemeProvider = (Story, context) => {
   );
 };
 
-const withUNCoreProvider = (Story) => (
-  <UNCoreProvider prefix="wfp">
+const withWFPCoreProvider = (Story) => (
+  <WFPCoreProvider prefix="wfp">
     <Story />
-  </UNCoreProvider>
+  </WFPCoreProvider>
 );
 
-export const decorators = [withThemeProvider, withUNCoreProvider];
+export const decorators = [withThemeProvider, withWFPCoreProvider];

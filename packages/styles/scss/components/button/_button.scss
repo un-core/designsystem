@@ -97,14 +97,31 @@
 
   .#{$prefix}--btn--primary {
     @include button-theme(
-      $button-primary,
+      //token:WFP-Blue50
+      #017dbc,
       transparent,
-      $text-inverse,
-      $button-primary-hover,
+      $text-on-color,
+      //token:WFP-Blue50
+      #017dbc,
       $text-on-color
     );
     &:hover {
-      color: $text-inverse;
+      color: #003351;
+    }
+
+    &:active {
+      color: #006497; //token:WFP-Blue40
+    }
+
+    &:focus {
+      border: 2px solid #5ab2f5; //token:WFP-Blue70
+    }
+    &:disabled,
+    &:hover:disabled,
+    &:focus:disabled {
+      color: $text-on-color; //TODO button disabled color
+      background-color: #a6acb3;
+      opacity: unset;
     }
   }
 
@@ -124,7 +141,7 @@
       color: #5ab2f5;
     }
     &:focus {
-      border: 1px solid #5ab2f5;
+      border: 2px solid #5ab2f5;
     }
 
     &:disabled,
@@ -180,30 +197,39 @@
   .#{$prefix}--btn--secondary {
     @include button-theme(
       transparent,
-      $button-secondary,
-      $button-secondary,
+      //token:WFP-Blue50
+      #017dbc,
+      //token:WFP-Blue50
+      #017dbc,
       transparent,
       // TODO rename to $button-secondary-hover
       $button-secondary-hover
     );
+    border-width: 1px;
 
-    &:hover,
-    &:focus {
-      border-color: $button-secondary-hover;
-      color: $button-secondary-hover;
+    &:hover {
+      background-color: #e7f2ff;
+      color: #003351;
     }
 
     &:active {
-      color: $button-secondary-active; // TODO rename to $button-secondary-active
+      background-color: #f6f7f9; //token: neutral-95]
+      color: #006497; //token:WFP-Blue40
+    }
+
+    &:focus {
+      border: 2px solid #5ab2f5; // token:wfp-blue-70
     }
     &:hover > .#{$prefix}--btn__icon,
     &:focus > .#{$prefix}--btn__icon {
       fill: $icon-inverse;
     }
 
+    &:disabled,
     &:hover:disabled,
     &:focus:disabled {
-      color: $button-disabled; //TODO button disabled color
+      color: #a6acb3; //TODO button disabled color
+      border-color: #8c9198;
     }
   }
 
@@ -280,22 +306,30 @@
     @include button-theme(
       transparent,
       transparent,
-      $interactive,
+      #017dbc,
       $border-subtle,
       var(--ui-05)
     );
 
-    &:hover,
-    &:focus {
-      //color: var(--inverse-01);
-
-      .#{$prefix}--btn__icon {
-        fill: var(--inverse-01);
-      }
+    &:hover {
+      color: #003351;
+      background-color: transparent;
     }
 
     &:active {
-      color: var(--ui-05);
+      color: #006497; //token:WFP-Blue40
+    }
+
+    &:focus {
+      border: 2px solid #5ab2f5; // token:wfp-blue-70
+      background-color: transparent;
+    }
+
+    &:disabled,
+    &:hover:disabled,
+    &:focus:disabled {
+      color: #a6acb3; //TODO button disabled color
+      border-color: transparent;
     }
 
     .#{$prefix}--btn__icon {
@@ -303,15 +337,6 @@
       @include rtl {
         margin-left: initial;
         margin-right: $spacing-03;
-      }
-    }
-
-    &:hover:disabled,
-    &:focus:disabled {
-      color: $interactive;
-
-      .#{$prefix}--btn__icon {
-        fill: $interactive;
       }
     }
   }
@@ -350,13 +375,13 @@
         margin-right: $spacing-03;
       }
     }
-
+    &:disabled,
     &:hover:disabled,
     &:focus:disabled {
-      color: $interactive;
-
+      color: #dee3eb; //TODO button disabled color
+      opacity: 0.8;
       .#{$prefix}--btn__icon {
-        fill: $interactive;
+        fill: #dee3eb;
       }
     }
   }

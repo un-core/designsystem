@@ -117,12 +117,17 @@
     }
   }
 
-  .#{$prefix}--tabs--no-animation {
+  .#{$prefix}--tabs /* TODO: --no-animation */ {
     .#{$prefix}--tabs__nav__bar {
       display: none;
     }
-    .#{$prefix}--tabs__nav-item--selected {
+
+    .#{$prefix}--tabs__nav-item {
       position: relative;
+    }
+    .#{$prefix}--tabs__nav-item--selected {
+      color: $interactive;
+
       &:after {
         content: "";
         display: block;

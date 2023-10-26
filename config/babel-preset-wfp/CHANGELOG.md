@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.41 (2023-10-24)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
+## 0.1.40 (2023-10-24)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
+## 0.1.39 (2023-10-24)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
+## 0.1.38 (2023-10-24)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
+## 0.1.37 (2023-10-24)
+
+
+### Bug Fixes
+
+* **website:** no longer commit types ([13b98ca](https://github.com/wfp-design-system/wfp/commit/13b98ca873487caa77dbc0828da85c9c136ce6a5))
+
+
+
+
+
+## 0.1.36 (2023-10-09)
+
+**Note:** Version bump only for package @un/babel-preset-wfp
+
+
+
+
+
 ## 0.1.35 (2023-09-19)
 
 **Note:** Version bump only for package @un/babel-preset-wfp

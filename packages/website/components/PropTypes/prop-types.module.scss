@@ -1,4 +1,4 @@
-@use 'scss/meta' as *;
+@use "scss/meta" as *;
 
 .normalPreview {
   position: relative;
@@ -30,8 +30,8 @@
   border-top: 0;
 }
 
-.propTitle {
-  font-weight: 500;
+.propName {
+  font-weight: 600;
   margin-bottom: 0.3em;
 }
 
@@ -48,4 +48,8 @@
   transform-origin: center;
   position: relative;
   height: 100%;
+}
+
+.types {
+  font-size: 0.8em;
 }

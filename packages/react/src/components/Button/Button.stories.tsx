@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { buttonKinds } from "../../prop-types/types";
-import { AddCircleGlyph } from "@un/icons-react";
+import { AddCircle } from "@un/icons-react";
 import markdown from "./README.mdx";
 import Button from "./Button";
 
@@ -44,32 +44,52 @@ export const ButtonRegular: Story = {
   },
 };
 
-export const ButtonKind = (args) => (
+export const PrimaryButton = (args) => (
   <>
-    {buttonKinds
-      .filter((e) => e === "primary" || e === "secondary" || e === "ghost")
-      .map((e) => (
-        <div
-          key={e}
-          style={{
-            display: "inline-block",
-            padding: "0.3rem",
-          }}
-        >
-          <Button {...args} kind={e}>
-            {e}
-          </Button>
-        </div>
-      ))}
+    <Button {...args}>Default</Button> {""}
+    <Button {...args} icon={AddCircle} iconReverse>
+      With Icon
+    </Button>{" "}
+    <Button {...args} disabled>
+      Disable
+    </Button>
   </>
 );
 
-ButtonKind.args = {
-  children: "Button",
+PrimaryButton.args = {
+  kind: "primary",
 };
 
-ButtonKind.parameters = {
-  code: false,
+export const SecondaryButton = (args) => (
+  <>
+    <Button {...args}>Default</Button> {""}
+    <Button {...args} icon={AddCircle}>
+      With Icon
+    </Button>{" "}
+    <Button {...args} disabled>
+      Disable
+    </Button>
+  </>
+);
+
+SecondaryButton.args = {
+  kind: "secondary",
+};
+
+export const GhostButton = (args) => (
+  <>
+    <Button {...args}>Default</Button> {""}
+    <Button {...args} icon={AddCircle}>
+      With Icon
+    </Button>{" "}
+    <Button {...args} disabled>
+      Disable
+    </Button>
+  </>
+);
+
+GhostButton.args = {
+  kind: "ghost",
 };
 
 export const ButtonSolid = (args) => (
@@ -91,7 +111,7 @@ export const ButtonSolid = (args) => (
             padding: "0.3rem",
           }}
         >
-          <Button {...args} kind={e}>
+          <Button {...args} kind={e} icon={AddCircle}>
             {e}
           </Button>{" "}
           <Button {...args} disabled kind={e}>
@@ -109,6 +129,15 @@ ButtonSolid.args = {
 
 ButtonSolid.parameters = {
   code: false,
+};
+
+const solidDesc =
+  "This is how the different kinds of buttons look on solid background. Set`solid prop` to true to enable it";
+
+ButtonSolid.parameters = {
+  docs: {
+    storyDescription: solidDesc,
+  },
 };
 
 // const hello = `

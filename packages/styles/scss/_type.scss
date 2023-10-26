@@ -12,7 +12,7 @@
 }
 
 $code-font-family: var(--code-font-family);
-// TODO: $font-family-primary: var(--font-family-primary);
+//$font-family-primary: var(--font-family-primary);
 
 @mixin font-family($family) {
   @if $family == "code" {

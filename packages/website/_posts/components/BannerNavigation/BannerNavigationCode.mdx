@@ -1,0 +1,53 @@
+---
+title: "BannerNavigation"
+excerpt: "Links are typically used as a means of navigation either within the application, to a place outside, or to a resource."
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/BannerNavigation/code"
+mainComponent: "BannerNavigation"
+previewScale: 0.3
+components: ["BannerNavigationItem"]
+storybook: true
+sampleCode: >
+  <BannerNavigationWithContent>
+    <BannerNavigationItem>
+      <Link href="http://communities.wfp.org" target="_blank">
+        Communities
+      </Link>
+    </BannerNavigationItem>
+    <BannerNavigationItem>
+      <Search banner id="search-2" labelText="Search" placeholder="Search" />
+    </BannerNavigationItem>
+  </BannerNavigationWithContent>
+---
+
+### Default version
+
+```jsx live forceFullWidth
+import { BannerNavigationWithContent } from "@wfp/react";
+<BannerNavigationWithContent pageWidth="lg" />;
+```
+
+### Custom version
+
+```jsx live forceFullWidth
+import { BannerNavigation } from "@wfp/react";
+
+<BannerNavigation>
+  <BannerNavigationItem>
+    <Link href="http://communities.wfp.org" target="_blank">
+      Communities
+    </Link>
+  </BannerNavigationItem>
+  <BannerNavigationItem>
+    <Search banner id="search-2" labelText="Search" placeholder="Search" />
+  </BannerNavigationItem>
+</BannerNavigation>;
+```
+
+## Mobile
+
+The component is hidden when the viewport size is less than `768px`.
+
+## Related
+
+[Link](?path=/docs/components-link--link-regular)

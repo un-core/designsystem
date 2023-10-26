@@ -29,9 +29,8 @@
   .#{$prefix}--footer {
     @include reset;
     @include font-family("sans");
-    border-top: 2px solid $border-subtle;
-    color: $text-primary;
-    background-color: $background-main;
+    color: $text-on-color; // TODO: use new text color white token $text-primary(old);
+    background-color: #0d295c; // use new color token $background-main(old);
     z-index: z("footer");
     padding: calcRem(20px) 0;
     @media print {
@@ -45,6 +44,7 @@
     align-items: center;
     min-height: 3.5rem;
     width: 100%;
+    border-bottom: 1px solid $border-subtle;
   }
 
   .#{$prefix}--footer__info {
@@ -52,6 +52,7 @@
 
     @media screen and (max-width: 600px) {
       flex-direction: column;
+      text-align: center;
     }
   }
 
@@ -64,10 +65,12 @@
 
   .#{$prefix}--footer__meta {
     @include type-style("body-short");
-    margin-top: calcRem(20px);
-    font-style: italic;
+    font-size: calcRem(12px);
+    margin-top: calcRem(10px);
+    // font-style: italic;
+    font-weight: 600;
     @include breakpoint-down(lg) {
-      display: none;
+      // display: none;
     }
   }
 
@@ -81,6 +84,11 @@
       margin-left: calcRem(64px);
       margin-right: 0;
     }
+
+    @media screen and (max-width: 600px) {
+      margin-right: 0;
+      margin-bottom: calcRem(20px);
+    }
   }
 
   .#{$prefix}--footer__info__item > .#{$prefix}--link {
@@ -93,20 +101,36 @@
     @include type-style("label-02");
     font-weight: 600;
     margin: 0;
-
-    @media screen and (max-width: 600px) {
-      display: none;
-    }
   }
 
   .#{$prefix}--footer__cta {
     margin-left: auto;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+
     @include rtl {
       margin-left: 0;
       margin-right: auto;
+    }
+    .#{$prefix}--footer__cta-logo {
+      fill: $text-on-color; // TODO: use new text color white token;
+      width: calcRem(90px);
+      height: calcRem(90px);
+
+      @media screen and (max-width: 600px) {
+        width: calcRem(120px);
+      }
+    }
+  }
+
+  .#{$prefix}--footer__secondary {
+    display: none;
+    @media screen and (max-width: 600px) {
+      margin-bottom: calcRem(10px);
+      display: inline;
+      font-size: calc(10px);
     }
   }
 
@@ -118,7 +142,16 @@
   }
 
   @include breakpoint-down("md") {
-    .#{$prefix}--footer__cta-logo {
+    .#{$prefix}--footer__content {
+      flex-direction: column;
+    }
+    .#{$prefix}--footer__cta {
+      margin: auto;
+    }
+    .#{$prefix}--footer__meta {
+      text-align: center;
+    }
+    .#{$prefix}--footer__cta-logo-small {
       display: none;
     }
     .#{$prefix}--footer__sdg {
@@ -136,10 +169,6 @@
 
   .#{$prefix}--footer__info {
     display: flex;
-  }
-
-  .#{$prefix}--footer__info__item {
-    margin-right: calcRem(20px);
   }
 
   /* External */

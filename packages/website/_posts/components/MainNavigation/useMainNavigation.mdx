@@ -1,0 +1,54 @@
+---
+category: "Core"
+title: "useMainNavigation"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/MainNavigation/useMainNavigation"
+previewScale: 0.3
+storybook: true
+mainComponent: "useMainNavigation"
+sampleCode: >
+
+  <MainNavigationItem>
+    <Link href="http://communities.wfp.org" target="_blank">
+      Section 1
+    </Link>
+  </MainNavigationItem>
+---
+
+The `useMainNavigation` hook can be used inside the `MainNavigation` to access and control the state of the Navigation.
+
+### Usage
+
+```jsx
+import { useMainNavigation } from "@wfp/react";
+
+function ComponentInsideMainNavigation() {
+  const { onChangeSub, activeMenuItem, openMobileMenu, toggleMenu } =
+    useMainNavigation();
+
+  return <Button onClick={() => toggleMenu()}>Toggle Menu</Button>;
+}
+```
+
+### Definition
+
+```jsx
+export interface MainNavigationContextType {
+  /**
+   * Callback when the user clicks on a sub menu item
+   */
+  onChangeSub: (action: string, i?: string, e?: any) => void;
+  /**
+   * The active menu item
+   */
+  activeMenuItem?: string | null;
+  /**
+   * Whether the mobile menu is open
+   */
+  openMobileMenu: boolean;
+  /**
+   * Toggle the mobile menu
+   */
+  toggleMenu: () => void;
+}
+```

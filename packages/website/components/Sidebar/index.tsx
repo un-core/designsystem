@@ -1,17 +1,16 @@
+"use client";
 import React from "react";
 
 import {
   Link,
   Wrapper,
-  // Text,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbHome,
-  // Tabs,
+  Tag,
   Tab,
   Text,
   Tabs,
-  // Story,
 } from "@wfp/react";
 import { MDXRemote } from "next-mdx-remote";
 import NextLink from "next/link";
@@ -23,10 +22,13 @@ import components from "../Blog/Mdx";
 import References from "../Blog/References";
 import TableOfContent from "../Blog/References/TableOfContent";
 import slugifyWithSlashes from "../../lib/slugifyWithSlashes";
-import { NextSeo } from "next-seo";
+// import { NextSeo } from "next-seo";
 import PropTypes from "../PropTypes";
 import NextTab from "./NextTab";
 import SidebarNavigation from "./SidebarNavigation";
+import { useParams } from "next/navigation";
+import removeSegmentIfMatch from "../../lib/removeSegementsFromUrl";
+import { createSlug } from "../Blog/Mdx/Headings";
 
 interface SidebarWrapperProps {
   content?: any;
@@ -50,9 +52,15 @@ export default function SidebarWrapper({
   posts,
   propTypes,
 }: SidebarWrapperProps) {
+  const params = useParams();
+
+  const lastUrlPath = params?.slug ? params.slug[params.slug.length - 1] : "";
+  if (!post?.slug) return null;
+
+  console.log("propTypes", propTypes);
   return (
     <>
-      <NextSeo
+      {/*<NextSeo
         title={post.title}
         description="Digital Design System"
         openGraph={{
@@ -68,7 +76,7 @@ export default function SidebarWrapper({
           type: "website",
           site_name: process.env.NEXT_PUBLIC_DOMAIN,
         }}
-      />
+      /> */}
       <Wrapper className={styles.sidebarWrapper} pageWidth="lg">
         <div className={styles.sidebar}>
           <SidebarNavigation posts={posts} post={post} slug={post.slug} />
@@ -102,34 +110,70 @@ export default function SidebarWrapper({
                 );
               })}
           </Breadcrumb>
-          <Text kind="story-title">{post?.title}</Text>
-          {/*}
-          {post.subtitle && (
-            <Text kind="story-subtitle" >
-              {post.subtitle}
-            </Text>
-          )} */}
 
-          <Tabs>
-            <NextTab
-              href={`${slugifyWithSlashes(post.slug).replace("/code", "")}`}
-            >
-              Usage
-            </NextTab>
-            <NextTab href={`${slugifyWithSlashes(post.slug)}/code`}>
-              Code
-            </NextTab>
-          </Tabs>
+          <Tag type="warning" className={styles.status}>
+            Draft component
+          </Tag>
+          <Text kind="story-title">{post?.title}</Text>
+
+          {post.subtitle && <Text kind="story-subtitle">{post.subtitle}</Text>}
+
+          {post.mainComponent && (
+            <Tabs className={styles.tabs}>
+              <NextTab
+                href={`/${removeSegmentIfMatch(slugifyWithSlashes(post.slug))}`}
+              >
+                Usage
+              </NextTab>
+              {posts.find((p) =>
+                p.slug.includes(`${removeSegmentIfMatch(post.slug)}/code`)
+              ) && (
+                <NextTab
+                  href={`/${removeSegmentIfMatch(
+                    slugifyWithSlashes(post.slug)
+                  )}/code`}
+                >
+                  Code
+                </NextTab>
+              )}
+
+              {propTypes && propTypes.length > 0 && (
+                <NextTab
+                  href={`/${removeSegmentIfMatch(
+                    slugifyWithSlashes(post.slug)
+                  )}/props`}
+                >
+                  Props
+                </NextTab>
+              )}
+            </Tabs>
+          )}
 
           <div className={styles.excerpt}>
-            {post.mdxExcerptSource && (
-              <MDXRemote {...post.mdxExcerptSource} components={components} />
-            )}
+            {post.mdxExcerptSource &&
+              lastUrlPath !== "props" &&
+              lastUrlPath !== "code" && (
+                <MDXRemote {...post.mdxExcerptSource} components={components} />
+              )}
           </div>
 
-          {post.mainComponent && <PropTypes propTypes={propTypes} {...post} />}
+          {post.mainComponent && lastUrlPath === "props" && (
+            <>
+              {propTypes.map((p: any, i: number) => (
+                <>
+                  <h3 id={createSlug(p.displayName)}>{p.displayName}</h3>
+                  <PropTypes
+                    key={i}
+                    propTypes={p}
+                    {...post}
+                    view="propsTable"
+                  />
+                </>
+              ))}
+            </>
+          )}
 
-          {post.mdxSource && (
+          {post.mdxSource && lastUrlPath !== "props" && (
             <MDXRemote {...post.mdxSource} components={components} />
           )}
 
@@ -144,8 +188,18 @@ export default function SidebarWrapper({
           </Link>
         </div>
         <div className={styles.sidebarAddition}>
-          <TableOfContent headings={post.headings} />
+          <TableOfContent
+            headings={
+              lastUrlPath !== "props"
+                ? post.headings
+                : propTypes.map((p: any) => {
+                    return { value: p.displayName };
+                  })
+            }
+          />
+
           <References post={post} />
+          {/* <ConnectedComponents post={post} /> */}
         </div>
       </Wrapper>
     </>

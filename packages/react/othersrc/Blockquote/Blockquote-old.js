@@ -1,14 +1,14 @@
-import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { withUNCoreSettings } from '../UNCoreSettings';
+import React from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { withWFPCoreSettings } from "../WFPCoreSettings";
 
 import {
   Checkmark,
   WarningAlt,
   WarningSolid,
   InfoSolid,
-} from '@un/icons-react';
+} from "@un/icons-react";
 
 const iconLookup = {
   warning: {
@@ -71,10 +71,10 @@ class Blockquote extends React.Component {
       [`${prefix}--blockquote--light`]: light,
       [`${prefix}--blockquote--code`]: code,
       [`${prefix}--blockquote--no-content`]: !children,
-      [`${prefix}--blockquote--error`]: kind === 'error' || error,
-      [`${prefix}--blockquote--warning`]: kind === 'warning' || warning,
-      [`${prefix}--blockquote--success`]: kind === 'success',
-      [`${prefix}--blockquote--info`]: kind === 'info' || info,
+      [`${prefix}--blockquote--error`]: kind === "error" || error,
+      [`${prefix}--blockquote--warning`]: kind === "warning" || warning,
+      [`${prefix}--blockquote--success`]: kind === "success",
+      [`${prefix}--blockquote--info`]: kind === "info" || info,
       [`${prefix}--blockquote--with-icon`]: withIcon || icon,
       [`${prefix}--blockquote--toggle--open`]: this.state.open,
       [`${className}`]: className,
@@ -89,19 +89,20 @@ class Blockquote extends React.Component {
 
     // @deprecated Only kind is allowed
     const lookup =
-      warning || kind === 'warning'
-        ? iconLookup['warning']
-        : error || kind === 'error'
-        ? iconLookup['error']
-        : kind === 'success'
-        ? iconLookup['success']
-        : iconLookup['info'];
+      warning || kind === "warning"
+        ? iconLookup["warning"]
+        : error || kind === "error"
+        ? iconLookup["error"]
+        : kind === "success"
+        ? iconLookup["success"]
+        : iconLookup["info"];
 
     const Icon = lookup.icon;
 
     const iconElement = React.isValidElement(icon) ? (
       <div
-        className={`${prefix}--blockquote__icon ${prefix}--blockquote__icon--custom`}>
+        className={`${prefix}--blockquote__icon ${prefix}--blockquote__icon--custom`}
+      >
         {icon}
       </div>
     ) : withIcon || icon ? (
@@ -127,12 +128,13 @@ class Blockquote extends React.Component {
               onKeyDown={this.toggleBlockquote}
               className={`${prefix}--blockquote__title`}
               role="button"
-              tabIndex={0}>
+              tabIndex={0}
+            >
               {title
                 ? title
                 : this.state.open
-                ? 'Hide content'
-                : 'Show content'}
+                ? "Hide content"
+                : "Show content"}
             </div>
           )}
           <div className={`${prefix}--blockquote__inside`}>{children}</div>
@@ -174,7 +176,7 @@ Blockquote.propTypes = {
   /**
    * Specify the type of your Blockquote Options are `info` `error` `warning` `info`
    */
-  kind: PropTypes.oneOf(['info', 'warning', 'error', 'success']),
+  kind: PropTypes.oneOf(["info", "warning", "error", "success"]),
   /**
    * Specify if an Icon should be displayed
    */
@@ -185,4 +187,4 @@ Blockquote.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
 };
 
-export default withUNCoreSettings(Blockquote);
+export default withWFPCoreSettings(Blockquote);

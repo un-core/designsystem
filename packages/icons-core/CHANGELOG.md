@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.48 (2023-10-24)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
+## 0.0.47 (2023-10-24)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
+## 0.0.46 (2023-10-24)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
+## 0.0.45 (2023-10-24)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
+## 0.0.44 (2023-10-24)
+
+
+### Bug Fixes
+
+* **website:** no longer commit types ([13b98ca](https://github.com/carbon-design-system/carbon/commit/13b98ca873487caa77dbc0828da85c9c136ce6a5))
+
+
+
+
+
+## 0.0.43 (2023-10-09)
+
+**Note:** Version bump only for package @un/icons-core
+
+
+
+
+
 ## 0.0.42 (2023-09-19)
 
 **Note:** Version bump only for package @un/icons-core

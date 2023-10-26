@@ -18,6 +18,7 @@ const baseConfig = {
     ...Object.keys(packageJson.dependencies),
     "prop-types",
   ],
+
   plugins: [
     nodeResolve(),
     commonjs({
@@ -28,7 +29,12 @@ const baseConfig = {
       compilerOptions: {
         declaration: true,
       },
-      exclude: ["**/__tests__", "**/*.test.ts", "**/*.stories.tsx"],
+      exclude: [
+        "**/__tests__",
+        "**/*.test.ts",
+        "**/*.stories.tsx",
+        "**/indexStories.ts",
+      ],
     }),
     babel({
       babelrc: false,
@@ -76,6 +82,10 @@ const umdBundleConfig = {
     format: "es",
     exports: "named",
     sourcemap: true,
+    banner: `/*
+    * WFP Design System React.js
+    */
+   'use client';`,
   },
   /*{
       name: 'WfpUiReact',
@@ -91,9 +101,6 @@ const umdBundleConfig = {
 };
 
 module.exports = [
-  // TODO: update configuration to correctly support tree-shaking for React
-  // components. See:
-  // https://github.com/carbon-design-system/carbon/issues/5442
   // Generates the following bundles:
   // ESM:       es/index.js
   // CommonJS: lib/index.js
@@ -112,7 +119,7 @@ module.exports = [
   },
 
   // Generate the development UMD bundle:
-  // UMD: umd/carbon-components-react.js
+  // ESM: es/index.js UMD: umd/index.js
   {
     ...umdBundleConfig,
     plugins: [
@@ -144,7 +151,7 @@ module.exports = [
   },
 
   // Generate the production UMD bundle:
-  // UMD: umd/carbon-components-react.min.js
+  // UMD: umd/index.min.js
   {
     ...umdBundleConfig,
     plugins: [

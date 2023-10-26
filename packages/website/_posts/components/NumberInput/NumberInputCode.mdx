@@ -1,0 +1,41 @@
+---
+category: "Core"
+title: "Number Input"
+coverImage: "../sample-image.jpg"
+slug: "Components/Form/Number Input/code"
+storybook: true
+mainComponent: "NumberInput"
+defaultProps:
+  labelText: "Text Area label"
+  placeholder: "Placeholder text"
+  helperText: "Optional helper text"
+---
+
+The `NumberInput` component allows users to input numeric values. It includes controls for incrementally increasing or decreasing the value.
+
+### Usage
+
+To use the `NumberInput` component, you should import it and render it within a parent component:
+
+```jsx
+import { NumberInput } from "@wfp/react";
+```
+
+```jsx
+<NumberInput
+  id="number-input"
+  min={0}
+  max={100}
+  step={5}
+  onChange={(evt, value, direction) => {
+    console.log(`Value: ${value}, Direction: ${direction}`);
+  }}
+/>
+```
+
+This will render a `NumberInput` component with a minimum value of 0, a maximum value of 100, and an increment/decrement step of 5.
+
+### Notes
+
+- The component uses the `React.forwardRef` method, allowing refs to be forwarded to it.
+- The component uses utility functions `capMin` and `capMax` to ensure the value remains within the specified min and max bounds.

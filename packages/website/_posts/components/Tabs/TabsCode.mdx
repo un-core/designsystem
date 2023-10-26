@@ -1,0 +1,119 @@
+---
+category: "Core"
+title: "Tabs"
+excerpt: "Tabs allow users to navigate easily between views within the same context."
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/Tabs/code"
+storybook: true
+---
+
+Use tabs to alternate between views within the same context: not to navigate to different areas. This is the single most important point, because staying in place while alternating views is the reason we have tabs in the first place.
+
+Source: [Tabs, Used Right by Nielsen Normal Group](https://www.nngroup.com/articles/tabs-used-right/)
+
+### Usage with react
+
+```jsx live
+import { Tabs, Tab, TabContent } from "@wfp/react";
+
+<Tabs>
+  <Tab label="Label 1">
+    <div className="some-content">Content for first tab.</div>
+  </Tab>
+  <Tab label="Label 2">
+    <div className="some-content">Content for second tab.</div>
+  </Tab>
+  <Tab label="Label 3">
+    <div className="some-content">Content for third tab.</div>
+  </Tab>
+  <Tab disabled label="Label 4 disabled">
+    <div className="some-content">Content for fourth tab.</div>
+  </Tab>
+</Tabs>;
+```
+
+### Use a custom Tab Link Component
+
+A custom `renderAnchor` replaces the Link inside the `<Tab/>` Component
+
+```js
+const el = (props) => {
+  return <a href={props.href}>{props.label}</a>;
+};
+```
+
+```js
+<Tab
+  {...props.tab()}
+  label="Tab label 4"
+  href="http://www.fr.wfp.org"
+  renderAnchor={el}
+/>
+```
+
+A custom `renderListElement` replaces the whole tab element inside the `<Tab/>` Component, which is especially relevant if you use `<Tabs/>` with react-router, etc.
+
+```js
+const listEl = (props) => (
+  <NavLink {...props} activeClassName="wfp--tabs__nav-item--selected">
+    {props.label}
+  </NavLink>
+);
+```
+
+```js
+<Tab
+  label="Tab label 4"
+  href="http://www.fr.wfp.org"
+  renderListElement={listEl}
+/>
+```
+
+#### Use with react-router
+
+Write a custom component to use Tabs with different route handlers like `react-router`.
+
+```js
+import { Link } from "react-router-dom";
+
+const listElReactRouter = ({ anchor, className, to, exact, match }) => (
+  <Route
+    to={to}
+    exact={exact}
+    children={({ match }) => (
+      <li
+        className={
+          match ? className + " wfp--tabs__nav-item--selected" : className
+        }
+      >
+        <Link className={anchor.className} to={to}>
+          {anchor.label}
+        </Link>
+      </li>
+    )}
+  />
+);
+
+<Tabs customTabContent={true}>
+  <Tab
+    label="React-Router Example"
+    to="/path"
+    renderListElement={listElReactRouter}
+  />
+</Tabs>;
+```
+
+### useTab hook
+
+The useTab component can be used to build your own tab component which is useful when using a router. An example can be found here:
+
+TODO: ADD example
+
+```jsx
+import { useTab } from "@wfp/react";
+const { anchorProps, liProps, selectedClasses } = useTab(props);
+```
+
+### References
+
+- [Carbon Design System Tabs](https://www.carbondesignsystem.com/components/tabs/usage/).

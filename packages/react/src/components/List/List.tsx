@@ -1,47 +1,43 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
 /** List component show a number of connected items written consecutively, typically one below the other. */
 export interface ListBaseProps {
   /**
-   * Specify a custom className
-   */
-  className?: string;
-  /**
-   * Specify if colons should be used
+   * If true, colons will be displayed in the List items.
    */
   colon?: boolean;
   /**
-   * Specify a kind.
+   * Specifies the visual presentation style of the List.
    */
   kind?:
-    | 'unstyled'
-    | 'simple-inline'
-    | 'simple'
-    | 'details'
-    | 'unordered'
-    | 'ordered'
-    | 'tooltip'
-    | 'bullets';
+    | "unstyled"
+    | "simple-inline"
+    | "simple"
+    | "details"
+    | "unordered"
+    | "ordered"
+    | "tooltip"
+    | "bullets";
   /**
-   * Specify if the List should be small
+   * If true, renders the List with a smaller font size and padding.
    */
   small?: boolean;
 }
 
 interface ListOlProps
   extends ListBaseProps,
-    React.ComponentPropsWithRef<'button'> {}
+    React.ComponentPropsWithRef<"button"> {}
 
-interface ListUlProps extends ListBaseProps, React.ComponentPropsWithRef<'a'> {}
+interface ListUlProps extends ListBaseProps, React.ComponentPropsWithRef<"a"> {}
 
-type ConditionalProps<T> = T extends { kind: 'ordered' }
+type ConditionalProps<T> = T extends { kind: "ordered" }
   ? ListOlProps
   : ListUlProps;
 
 type ListProps<T extends { kind?: string }> = ConditionalProps<T> &
-  React.ComponentPropsWithRef<T extends { kind: 'ordered' } ? 'ol' : 'ul'>;
+  React.ComponentPropsWithRef<T extends { kind: "ordered" } ? "ol" : "ul">;
 
 export const List = React.forwardRef(
   <T extends { kind?: string }>(
@@ -82,7 +78,8 @@ export const List = React.forwardRef(
       <ul
         className={classes}
         {...ulProps}
-        ref={ref as React.Ref<HTMLUListElement>}>
+        ref={ref as React.Ref<HTMLUListElement>}
+      >
         {children}
       </ul>
     );
