@@ -9,7 +9,7 @@ import { terser } from "rollup-plugin-terser";
 import packageJson from "./package.json";
 import typescript from "@rollup/plugin-typescript";
 import { string } from "rollup-plugin-string";
-import exportsAsStrings from "./rollup-plugin-exports-as-strings.js";
+import exportsAsStrings from "./scripts/rollup-plugin-exports-as-strings.js";
 
 const baseConfig = {
   input: "./src/indexStories.ts",

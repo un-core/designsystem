@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/react";
+import { addons } from "@storybook/manager-api";
+
 const config: StorybookConfig = {
   stories: ["../src/**/*stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   core: {
@@ -8,13 +10,12 @@ const config: StorybookConfig = {
     "@storybook/blocks",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    // "@storybook/preset-create-react-app",
-    "@storybook/addon-interactions",
   ],
   framework: {
     name: "@storybook/react-vite",
   },
-  /* typescript: {
+  /*
+  typescript: {
     check: false,
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
@@ -23,15 +24,15 @@ const config: StorybookConfig = {
       propFilter: (prop) =>
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
-  },*/
-  /*webpackFinal: async (config, { configType }) => {
-    const tsConfigIndex = config.plugins.findIndex(
-      (v) => v.constructor.name === 'ForkTsCheckerWebpackPlugin'
-    );
-    config.plugins.splice(tsConfigIndex, 1);
-    return config;
-  },*/ docs: {
+  },
+  */
+  docs: {
     autodocs: true,
   },
 };
+
+addons.setConfig({
+  panelPosition: "bottom",
+});
+
 export default config;

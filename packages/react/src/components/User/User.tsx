@@ -13,7 +13,7 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
   showName?: boolean;
   small?: boolean;
   name?: string;
-  userIconProps: React.ComponentProps<typeof UserIcon>;
+  userIconProps?: React.ComponentProps<typeof UserIcon>;
 }
 
 const Avatar: React.FC<AvatarProps> = ({

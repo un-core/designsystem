@@ -10,10 +10,8 @@ export default create({
 
   brandTitle: "WFP Design System",
   brandUrl: "https://www.designsystem.wfp.org/",
-  // brandImage: 'https://storybook.js.org/images/placeholders/350x150.png',
   brandTarget: "_self",
 
-  //
   colorPrimary: "#3A10E5",
   colorSecondary: "#585C6D",
 

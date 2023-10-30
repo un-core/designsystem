@@ -1,30 +1,17 @@
 $css--body: true;
 $css--reset: true;
 
-@use "./theme" as coretheme;
 @use "@un/themes-core/dist/scss/default-css-theme" as defaulttheme;
 @use "@un/themes-core/distDark/scss/default-css-theme" as darkTheme;
 
 @use "@wfp/styles/scss/global-defaults" as globalDefaults;
-
-@use "@wfp/styles/scss/theme" /*with (
-  $coretheme: coretheme
-)*/;
-
+@use "@wfp/styles/scss/theme";
 @use "@wfp/styles/index";
 
-/*div {
-  background: $color-corporate-09 !important;
-}*/
 // Use the WFP theme
 :root {
   @include defaulttheme.theme-default();
-  //font-family: var(--font-family-primary);
-
-  /*@include carbon--theme($carbon--theme--wfp, true) {
-    // @include emit-component-tokens($tag-colors);
-    // @include emit-component-tokens($notification-colors);
-  }*/
+  // font-family: var(--font-family-primary);
 }
 
 body,
@@ -32,17 +19,8 @@ body,
   @include globalDefaults.globalDefaults();
 }
 
-.sbdocs {
-  //.wfp--story > * {
-  // color: $text-primary !important;
-}
-
 .wfp--theme-dark {
   @include darkTheme.theme-dark();
-}
-
-.docs-story {
-  //overflow: visible !important;
 }
 
 .docs-story > * {

@@ -153,7 +153,7 @@ export const MainNavigationDefault = (args) => (
   </MainNavigation>
 );
 
-Regular.args = {
+MainNavigationDefault.args = {
   logo: "WFP",
 };
 
@@ -302,7 +302,7 @@ const sourcecode = (type) => {
   `;
 };
 
-Regular.story = {
+MainNavigationDefault.story = {
   parameters: {
     docs: {
       storyDescription: description,
