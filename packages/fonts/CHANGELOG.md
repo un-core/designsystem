@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.45 (2023-10-31)
+
+
+### Bug Fixes
+
+* **website:** build type errors fixed ([c72a344](https://dev.azure.com/commits/c72a3440fc4ef3f29fdacb24e853e315bc54fe0b))
+
+
+
+
+
 ## 1.0.44 (2023-10-24)
 
 **Note:** Version bump only for package @un/fonts

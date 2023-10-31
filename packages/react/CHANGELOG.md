@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.18.108 (2023-10-31)
+
+
+### Bug Fixes
+
+* **website:** build type errors fixed ([c72a344](https://github.com/wfp/ui/commit/c72a3440fc4ef3f29fdacb24e853e315bc54fe0b))
+
+
+
+
+
 ## 1.18.107 (2023-10-24)
 
 **Note:** Version bump only for package @wfp/react
