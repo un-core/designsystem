@@ -4,7 +4,8 @@ import algoliasearch from "algoliasearch/lite";
 import { getAllPosts } from "../../lib/getPost";
 
 type Data = {
-  name: string;
+  success: boolean;
+  message: string;
 };
 
 function transformPostsToSearchObjects(posts) {
@@ -61,10 +62,8 @@ export default async function handler(
     )}`
   );
 
-  res
-    .status(200)
-    .json({
-      success: true,
-      message: `Sucessfully added ${algoliaResponse.objectIDs.length}`,
-    });
+  res.status(200).json({
+    success: true,
+    message: `Sucessfully added ${algoliaResponse.objectIDs.length}`,
+  });
 }

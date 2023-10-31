@@ -1,43 +1,83 @@
-import React, { useState } from "react";
-import { InputGroup, List, ListItem, RadioButton, Text } from "@wfp/react";
+import React from "react";
+import { List, ListItem, Text } from "@wfp/react";
 
 import tokens from "@wfp/themes-core/dist/json/variables-full.json";
 
 import styles from "./typeset.module.scss";
 
+/*
+interface DesignValue {
+  fontFamily: string;
+  fontWeight: string;
+  lineHeight: string;
+  fontSize: string;
+  letterSpacing: string;
+}
+*/
+
 interface DesignToken {
-  value?: DesignValue;
+  value?: any;
   type?: string;
-  [key: string]: DesignToken | string | DesignValue | undefined;
+  [key: string]: DesignToken | string | /*DesignValue | */ undefined | any;
 }
 
 interface TokenDisplayProps {
   name: string;
-  token: DesignToken;
+  token: any /* DesignToken */;
   depth?: number;
 }
 
-const TokenDisplay: React.FC<TokenDisplayProps> = ({ name, token, depth }) => {
+const TokenDisplay: React.FC<TokenDisplayProps> = ({
+  name,
+  token,
+  depth = 0,
+}) => {
   if (depth > 3) return null;
   if (token.value) {
     return (
       <div className={styles.token}>
-        <strong className="token-name">{name}:</strong>
-        <span className="token-value">
-          {typeof token.value === "string" && token.value}
-        </span>
+        <div className={styles.preview}>
+          {token.type === "color" && (
+            <div
+              className={styles.color}
+              style={{ backgroundColor: token.value as string }}
+            />
+          )}
+        </div>
+
+        <div>
+          <Text kind="h5" spacingTop="none">
+            {name}
+          </Text>
+
+          <List kind="simple">
+            <ListItem title="Value">
+              {typeof token.value === "string" && token.value}
+            </ListItem>
+            <ListItem title="CSS">
+              <Text kind="code" spacingTop="none">
+                {token.cssName}
+              </Text>
+            </ListItem>
+            <ListItem title="path">
+              <Text kind="code" spacingTop="none">
+                path here
+              </Text>
+            </ListItem>
+          </List>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="token-category">
-      <h2 className="category-name">{name}</h2>
+      <Text kind="h2" spacingTop="none">
+        {name}
+      </Text>
       {typeof token === "object" && (
         <div className="nested-tokens">
           {Object.entries(token).map(([nestedName, nestedToken]) => {
-            //console.log("nestedToken", nestedToken);
-
             return (
               <TokenDisplay
                 key={nestedName}

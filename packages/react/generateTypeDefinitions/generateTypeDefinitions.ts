@@ -23,7 +23,7 @@ const options = {
 
 export default async function walk(directory: string) {
   let fileList: string[] = [];
-
+  // TODO: fix only run once
   const files = await readdir(directory);
   for (const file of files) {
     const p = path.join(directory, file);
@@ -43,6 +43,7 @@ export default async function walk(directory: string) {
 
   await Promise.all(
     tsxFileList.map(async (file) => {
+      console.log("read file", file);
       const propTypes = JSON.parse(JSON.stringify(parse(file, options)));
 
       try {

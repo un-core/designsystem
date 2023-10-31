@@ -44,4 +44,4 @@ actions/copy-carbon/output/*
 .npmrc
 packages/styles/styles.css
 packages/website/types/*
-packages/react/.temp/generateTypeDefinitions.js
+packages/react/.temp
