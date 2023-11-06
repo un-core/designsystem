@@ -1,16 +1,16 @@
-import React from 'react';
-import Wrapper from '.';
+import React from "react";
+import Wrapper from ".";
 
 export default {
-  title: 'Components/Content Related/Wrapper',
+  title: "Components/Content Related/Wrapper",
   component: Wrapper,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
   },
 };
 
-export const Regular = (args) => (
+export const WrapperDefault = (args) => (
   <Wrapper {...args}>
     Assisting 91.4 million people in around 83 countries each year, the World
     Food Programme (WFP) is the leading humanitarian organization saving lives

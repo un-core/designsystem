@@ -51,18 +51,26 @@ export default function PropTypes({
 }: any) {
   const [showAllProps /* , setShowAllProps */] = useState(true);
 
+  const componentsSourceProps =
+    componentsSource[mainComponent]?.default[
+      `${propTypes?.displayName}DefaultArgs`
+    ];
+
   const { register, watch, handleSubmit } = useForm({
-    defaultValues: defaultProps,
+    defaultValues: componentsSourceProps /* defaultProps */,
   });
 
   const componentsSourceText =
     componentsSource[mainComponent]?.default[
       `${propTypes?.displayName}Default`
     ];
+
   const sampleCode = extractJSX(componentsSourceText);
 
   /*     children?.props?.children?.props?.children || sampleCodeInput */ //if (!propTypes?.[0]) return null;
   const propList = propTypes?.props;
+
+  console.log("componentsSourceddd", propList, componentsSourceProps);
 
   /*Object.entries(propList).forEach((prop) => {
     componentProps[prop.name] =
@@ -168,7 +176,7 @@ export default function PropTypes({
 () => { 
   const action = () => {}; return (${code})}`;
 
-  console.log("code", code);
+  console.log("code", MyComponent, code);
 
   if (view === "smallPreview") {
     return (

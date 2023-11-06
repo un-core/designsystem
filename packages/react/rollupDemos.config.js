@@ -3,12 +3,7 @@
 import { babel } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import replace from "@rollup/plugin-replace";
-// TODO; Check terser
-import { terser } from "rollup-plugin-terser";
 import packageJson from "./package.json";
-import typescript from "@rollup/plugin-typescript";
-import { string } from "rollup-plugin-string";
 import exportsAsStrings from "./scripts/rollup-plugin-exports-as-strings.js";
 
 const baseConfig = {
@@ -25,13 +20,6 @@ const baseConfig = {
     commonjs({
       include: /node_modules/,
     }),
-    //typescript({
-    //  sourceMap: true,
-    //  compilerOptions: {
-    //    declaration: true,
-    //  },
-    //  exclude: ["**/__tests__", "**/*.test.ts", "**/*.stories.tsx"],
-    //}),
     babel({
       babelrc: false,
       exclude: ["node_modules/**"],

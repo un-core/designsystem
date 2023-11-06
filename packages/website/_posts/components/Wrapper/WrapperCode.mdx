@@ -1,0 +1,72 @@
+---
+category: "Core"
+title: "Wrapper"
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/Wrapper/code"
+storybook: true
+previewScale: 0.5
+mainComponent: "Wrapper"
+---
+
+Import the `Wrapper` component:
+
+```jsx
+import { Wrapper } from "@wfp/react";
+```
+
+Here's a basic example of how to use the `InfoBar`:
+
+```jsx
+<Wrapper pageWidth="md">This is the content.</Wrapper>
+```
+
+In this example, the `InfoBar` displays a message "This is important information." with an optional custom CSS class `custom-class`, an id `info-bar-id`, and sets the page width for the inner `Wrapper` component to `lg` (large).
+
+```jsx
+<Wrapper id="info-bar-id" className="custom-class" pageWidth="lg">
+  This is the content.
+</Wrapper>
+```
+
+### Props
+
+Use the props below to change the behaviour of the `Wrapper` component:
+
+#### pageWidth
+
+Use the `pageWidth` prop to set the width of the `Wrapper` component.
+
+| Property    | CSS Name                  | Value                |
+| ----------- | ------------------------- | -------------------- |
+| 'xs'        | .wfp--wrapper--width-xs   | `max-width: 500px;`  |
+| 'sm'        | .wfp--wrapper--width-sm   | `max-width: 700px;`  |
+| 'md'        | .wfp--wrapper--width-md   | `max-width: 1000px;` |
+| 'lg'        | .wfp--wrapper--width-lg   | `max-width: 1200px;` |
+| 'full'      | .wfp--wrapper--width-full | `max-width: 100%;`   |
+| 'narrow'    | -                         | -                    |
+| 'narrower'  | -                         | -                    |
+| 'narrowest' | -                         | -                    |
+
+#### mobilePageWidth
+
+Use the `mobilePageWidth` prop to set the width of the `Wrapper` component on mobile devices.
+
+'full' | 'lg' | 'md' | 'sm'
+
+#### spacing
+
+Use the `spacing` prop to add spacing to the top and bottom of the `Wrapper` component.
+
+| Property | CSS Name                  | Value                                                            |
+| -------- | ------------------------- | ---------------------------------------------------------------- |
+| md       | .wfp--wrapper--spacing-md | `padding-top: $spacing-05;` <br/> `padding-bottom: $spacing-05;` |
+| xl       | .wfp--wrapper--spacing-xl | `padding-top: $spacing-08;` <br/> `padding-bottom: $spacing-08;` |
+
+#### background
+
+Use the `background` prop to set the background color of the `Wrapper` component.
+
+| Property | CSS Name                          | Value                            |
+| -------- | --------------------------------- | -------------------------------- |
+| light    | .wfp--wrapper--background-lighter | `background: $layer-primary;`    |
+| dark     | .wfp--wrapper--background-dark    | `background: $background-brand;` |
