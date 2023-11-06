@@ -16,16 +16,14 @@ function deepFilter(obj) {
   }
 
   if (obj && typeof obj === "object") {
-    let newObj = Array.isArray(obj) ? [] : {};
+    const newObj = Array.isArray(obj) ? [] : {};
     let hasValidChildren = false;
 
-    for (let key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        const child = deepFilter(obj[key]);
-        if (child !== null) {
-          newObj[key] = child;
-          hasValidChildren = true;
-        }
+    for (const key of Object.keys(obj)) {
+      const child = deepFilter(obj[key]);
+      if (child !== null) {
+        newObj[key] = child;
+        hasValidChildren = true;
       }
     }
 
@@ -57,15 +55,12 @@ interface TokenDisplayProps {
   depth?: number;
 }
 
-const TokenDisplaySmall: React.FC<TokenDisplayProps> = ({
-  name,
-  token,
-  depth = 0,
-}) => {
-  if (depth > 3) return null;
+interface Token {
+  [key: string]: { value?: any };
+}
 
-  // if (token.filePath === "tokens/design-tokens.tokens.new.json")
-  //  return <div>hello{token.filePath}</div>;
+function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
+  if (depth > 3) return null;
 
   if (
     token.value &&
@@ -134,13 +129,14 @@ const TokenDisplaySmall: React.FC<TokenDisplayProps> = ({
       </Tooltip>
     );
   }
-};
+  return null;
+}
 
 const TokenDisplay: React.FC<TokenDisplayProps> = ({
   name,
   token,
   depth = 0,
-}) => {
+}: any) => {
   if (depth > 3) return null;
 
   // if (token.filePath === "tokens/design-tokens.tokens.new.json")
@@ -187,12 +183,6 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
   }
 
   // if (typeof token === "object")
-  console.log(
-    "tokenqqqqqq",
-    token,
-    Object.entries(token),
-    Object.values(token)[0]?.name?.endsWith("10")[1] === "10"
-  );
 
   /*if (Object.values(token).find((t) => t?.name?.endsWith("10"))) {
     return <div>Colorrange</div>;
@@ -211,7 +201,7 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
   } */
 
   if (
-    name === "spacing" ||
+    /*  name === "spacing" ||
     name === "borderWidth" ||
     name === "borderRadius" ||
     name === "Desktop" ||
@@ -219,8 +209,8 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
     name === "Action" ||
     name === "Focus" ||
     name === "Error" ||
-    name === "BoxShadow" ||
-    Object.values(token)[0]?.value
+    name === "BoxShadow" || */
+    Object.values(token as Token)?.[0]?.value
   ) {
     return (
       <div>
