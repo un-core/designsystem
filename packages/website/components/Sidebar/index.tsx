@@ -55,6 +55,14 @@ export default function SidebarWrapper({
   const params = useParams();
 
   const lastUrlPath = params?.slug ? params.slug[params.slug.length - 1] : "";
+
+  const filteredPosts = posts.filter((p) => {
+    const pattern = new RegExp(`^${post.slug}/[^/]+$`); // matches baseSlug followed by a single segment
+    return pattern.test(p.slug);
+  });
+
+  console.log("filteredPosts", filteredPosts);
+
   if (!post?.slug) return null;
 
   console.log("propTypes", propTypes);
@@ -125,17 +133,11 @@ export default function SidebarWrapper({
               >
                 Usage
               </NextTab>
-              {posts.find((p) =>
-                p.slug.includes(`${removeSegmentIfMatch(post.slug)}/code`)
-              ) && (
-                <NextTab
-                  href={`/${removeSegmentIfMatch(
-                    slugifyWithSlashes(post.slug)
-                  )}/code`}
-                >
-                  Code
+              {filteredPosts.map((p, key) => (
+                <NextTab key={key} href={`/${slugifyWithSlashes(p.slug)}`}>
+                  {p.slug.split("/").pop()}
                 </NextTab>
-              )}
+              ))}
 
               {propTypes && propTypes.length > 0 && (
                 <NextTab

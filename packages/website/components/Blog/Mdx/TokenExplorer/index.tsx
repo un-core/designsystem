@@ -1,7 +1,16 @@
 import React from "react";
-import { List, ListItem, Text, Tooltip, tooltipStyle } from "@wfp/react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  List,
+  ListItem,
+  Text,
+  Tooltip,
+  tooltipStyle,
+} from "@wfp/react";
 
 import tokens from "@wfp/themes-core/dist/json/variables-full.json";
+import { hex, score } from "wcag-contrast";
 
 import styles from "./typeset.module.scss";
 
@@ -66,49 +75,72 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
     token.value &&
     token.filePath === "tokens/design-tokens.tokens.new.json"
   ) {
+    const tokenPath = token.path.slice(0, -1);
     return (
       <Tooltip
         interactive
         className={styles.tooltip}
         content={
           <div className={styles.tooltip}>
-            <div className={styles.name}>{token.name}</div>
-            <List kind="simple" colon className={styles.list}>
-              <ListItem title="Value">
-                {typeof token.value === "string"
-                  ? token.value
-                  : JSON.stringify(token.value, null, 2)}
-              </ListItem>
-              <ListItem title="CSS">
-                <Text kind="code" spacingTop="none">
-                  {token.cssName}
-                </Text>
-              </ListItem>
+            <div className={styles.tooltipPreview}>
+              {token.type === "color" ? (
+                <div
+                  className={styles.tooltipColor}
+                  style={{ backgroundColor: token.value as string }}
+                >
+                  <div className={styles.wcagScore}>
+                    <div className={styles.wcagScoreLabelBlack}>
+                      {score(hex("#000", token.value))}
+                    </div>
+                    <div className={styles.wcagScoreLabelWhite}>
+                      {score(hex("#FFF", token.value))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className={styles.value}>{name}</div>
+              )}
+            </div>
+            <div>
+              <Breadcrumb className={styles.breadcrumb}>
+                {tokenPath.map((p, key) => (
+                  <BreadcrumbItem key={key}>
+                    <span>{p}</span>
+                  </BreadcrumbItem>
+                ))}
+              </Breadcrumb>
+              <h3 className={styles.name}>{token.name}</h3>
+              <List kind="details" colon className={styles.list}>
+                <ListItem title="Value">
+                  {typeof token.value === "string"
+                    ? token.value
+                    : JSON.stringify(token.value, null, 2)}
+                </ListItem>
+                <ListItem title="CSS">
+                  <Text kind="code" spacingTop="none">
+                    {token.cssName}
+                  </Text>
+                </ListItem>
 
-              <ListItem title="path">
-                <Text kind="code" spacingTop="none">
-                  {token.path.join(" > ")}
-                </Text>
-              </ListItem>
+                {/* <ListItem title="Type">
+                  <Text kind="code" spacingTop="none">
+                    {token.type}
+                  </Text>
+                </ListItem> */}
 
-              <ListItem title="Type">
-                <Text kind="code" spacingTop="none">
-                  {token.type}
-                </Text>
-              </ListItem>
+                <ListItem title="Original">
+                  <Text kind="code" spacingTop="none">
+                    {typeof token.original.value === "string"
+                      ? token.original.value
+                      : JSON.stringify(token.original.value, null, 2)}
+                  </Text>
+                </ListItem>
 
-              <ListItem title="Original">
-                <Text kind="code" spacingTop="none">
-                  {typeof token.original.value === "string"
-                    ? token.original.value
-                    : JSON.stringify(token.original.value, null, 2)}
-                </Text>
-              </ListItem>
-
-              {/* <ListItem title="CSS" className={styles.raw}>
+                {/* <ListItem title="CSS" className={styles.raw}>
                 {JSON.stringify(token, null, 2)}
         </ListItem> */}
-            </List>
+              </List>
+            </div>
           </div>
         }
         trigger="click"
@@ -158,9 +190,7 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
         </div>
 
         <div>
-          <Text kind="h5" spacingTop="none">
-            {name}
-          </Text>
+          <h2>{name}</h2>
 
           <List kind="simple">
             <ListItem title="Value">
@@ -214,7 +244,7 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
   ) {
     return (
       <div>
-        <h5>{name}</h5>
+        <h5 className={styles.tokenHeading}>{name}</h5>
 
         <div className={styles.smallTokens}>
           {Object.entries(token).map(([nestedName, nestedToken]) => {
@@ -256,7 +286,7 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
 
   return (
     <div className="token-category">
-      <h1>{name}</h1>
+      <h1 className={styles.heading}>{name}</h1>
       {typeof token === "object" && (
         <div className={styles.nestedTokens}>
           {Object.entries(token).map(([nestedName, nestedToken]) => {
