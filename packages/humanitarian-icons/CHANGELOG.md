@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.14.47 (2023-11-06)
+
+
+### Bug Fixes
+
+* **website:** types fixed in TokenExplorer ([69f0514](https://github.com/carbon-design-system/carbon/commit/69f051402c3fe011e026aae5ffee006c9412ae8f))
+
+
+
+
+
 ## 11.14.46 (2023-10-31)
 
 

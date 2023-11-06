@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.46 (2023-11-06)
+
+
+### Bug Fixes
+
+* **website:** types fixed in TokenExplorer ([69f0514](https://dev.azure.com/commits/69f051402c3fe011e026aae5ffee006c9412ae8f))
+
+
+
+
+
 ## 1.0.45 (2023-10-31)
 
 

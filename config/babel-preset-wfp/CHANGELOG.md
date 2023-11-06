@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.42 (2023-11-06)
+
+
+### Bug Fixes
+
+* **website:** types fixed in TokenExplorer ([69f0514](https://github.com/wfp-design-system/wfp/commit/69f051402c3fe011e026aae5ffee006c9412ae8f))
+
+
+
+
+
 ## 0.1.41 (2023-10-31)
 
 
