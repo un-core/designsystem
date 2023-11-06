@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2023-11-06)
+
+
+### Features
+
+* **website:** added color contrast checker ([cc12261](https://github.com/carbon-design-system/carbon/commit/cc122617dc46fcfe8c8913b405837d549ad2f8f0))
+
+
+
+
+
 ## 0.0.49 (2023-11-06)
 
 

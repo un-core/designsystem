@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2023-11-06)
+
+
+### Features
+
+* **website:** added color contrast checker ([cc12261](https://github.com/wfp-design-system/wfp/commit/cc122617dc46fcfe8c8913b405837d549ad2f8f0))
+
+
+
+
+
 ## 0.1.42 (2023-11-06)
 
 
