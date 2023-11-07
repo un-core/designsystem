@@ -1,4 +1,4 @@
-@use './config' as *;
+@use "./config" as *;
 
 //@use './config' as *;
 
@@ -11,8 +11,8 @@
 //@use '@un/themes/scss/modules/tokens' as coretheme;
 //$coretheme: 'sdsadasd' !default;
 
-//@use '@un/themes-core/dist/scss/variables' as *;
-@forward '@un/themes-core/dist/scss/tokens';
+//@use '@wfp/themes-core/dist/scss/variables' as *;
+@forward "@wfp/themes-core/dist/scss/tokens";
 
 /*@forward '@un/themes/scss/modules/theme' with (
   $fallback: themes.$wfp !default,
@@ -21,7 +21,7 @@
 
 //@forward '@un/themes/scss/modules/tokens';
 // @use '@un/themes/scss/modules/tokens';
-@use './utilities/custom-property';
+@use "./utilities/custom-property";
 
 /*
 @use './utilities/layer-set' with (
@@ -111,4 +111,3 @@ $border-subtle: custom-property.get-var('border-subtle');
 $border-subtle-selected: custom-property.get-var('border-subtle-selected');
 $border-strong: custom-property.get-var('border-strong');
 */
-

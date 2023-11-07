@@ -29,7 +29,7 @@ $main-navigation-width: 100%;
 /// @type Number
 /// @access public
 /// @group main-navigation
-$main-navigation-height: calcRem(40px);
+$main-navigation-height: calcRem(60px);
 
 /// @type Number
 /// @access public
@@ -45,15 +45,12 @@ $main-navigation-menu-width: calcRem(300px);
 /// @access public
 /// @group main-navigation
 @mixin main-navigation {
-  // The overall container element for a `main-navigation`. Has two variants,
-  // `disabled` and `inline`.
   .#{$prefix}--main-navigation {
-    color: $text-primary;
-    // background: $background-brand;
+    color: $link-primary;
     background: $background-main;
+    height: $main-navigation-height;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
     @include reset;
-    //display: flex;
     @media print {
       display: none;
     }
@@ -81,7 +78,9 @@ $main-navigation-menu-width: calcRem(300px);
     .#{$prefix}--main-navigation__trigger {
       cursor: pointer;
       user-select: none;
-      //vertical-align: middle;
+      display: flex;
+      align-items: center;
+      justify-content: center; // TODO: Check if needed
       white-space: nowrap;
 
       > a {
@@ -162,9 +161,43 @@ $main-navigation-menu-width: calcRem(300px);
     }
 
     .#{$prefix}--main-navigation__logo {
+      display: flex;
       flex-grow: 1;
       font-weight: 700;
       white-space: nowrap;
+    }
+    .#{$prefix}--main-navigation__logo__default {
+      padding-left: 5rem;
+      .#{$prefix}--main-navigation__logo__default__ribbon {
+        background: $logo-blue;
+        margin-right: 0.5em;
+        width: 4.2rem;
+        margin-left: -5rem;
+        margin-top: -4px;
+        margin-bottom: -20em;
+        position: absolute;
+        top: 0;
+        padding: 0.5em 0em;
+      }
+      svg {
+        margin: 0 -0.2em;
+        width: calc(100% + 0.4em);
+        height: auto;
+        fill: $logo-white; // TODO: Always use color instead
+      }
+    }
+
+    .#{$prefix}--main-navigation__logo__offShelf {
+      margin-right: 0.5em;
+      height: $main-navigation-height;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //padding: 0.5em 0em;
+      svg {
+        font-size: 6.5em;
+        fill: $logo-blue; // TODO: Always use color instead
+      }
     }
 
     .#{$prefix}--main-navigation__wrapper {
@@ -172,6 +205,7 @@ $main-navigation-menu-width: calcRem(300px);
       align-items: center;
       justify-content: flex-end;
       position: relative;
+      height: 100%;
     }
 
     .#{$prefix}--main-navigation__item {

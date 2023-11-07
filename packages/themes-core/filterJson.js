@@ -48,7 +48,7 @@ if (!String.prototype.endsWith) {
 
 let json = JSON.parse(readFileSync("./tokensRepository/tokens.json", "utf8"));
 
-json = { ...json.Global, ...json };
+json = { ...json.Global, ...json.System, ...json.Component };
 json = removeKeys(json);
 
 /*

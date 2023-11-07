@@ -32,7 +32,7 @@
     "@carbon/motion": "^10.22.0",
     "@un/layout": "^10.26.15",
     "@un/themes": "^10.40.14",
-    "@un/themes-core": "^0.0.46",
+    "@wfp/themes-core": "^0.0.48",
     "@un/type": "^10.30.16"
   },
   "devDependencies": {

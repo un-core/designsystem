@@ -313,6 +313,13 @@ MainNavigationDefault.story = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div style={externalStoryStyles}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const MainNavigationItemDefault = (args) => (
@@ -558,7 +565,7 @@ RegularWithButton.story = {
 };
 
 export const External = (args) => (
-  <MainNavigationExternal {...args}>
+  <MainNavigation {...args}>
     <>
       <MainNavigationItem external>
         <a>First link</a>
@@ -572,7 +579,7 @@ export const External = (args) => (
     </Button>
   </li> */}
     </>
-  </MainNavigationExternal>
+  </MainNavigation>
 );
 
 const Languages = () => (
@@ -628,6 +635,7 @@ External.args = {
       Product <br /> Name
     </>
   ),
+  logoRibbon: "offShelf",
   languageList: <Languages />,
   userDetails: <UserDropdownDetails />,
   username: "Max Mustermann",
