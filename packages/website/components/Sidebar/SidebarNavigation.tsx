@@ -46,9 +46,10 @@ function TreeBranch({ slug, split, level }: SidebarProps) {
     >
       {split?.children && (
         <>
-          {split.name === "code" ? null : (split.children.length === 0 && // Code Preview
+          {split.name.startsWith("tab:") ? null : (split.children.length ===
+              0 && // Code Preview
               level > 0) ||
-            split.children[0].name === "code" ? (
+            split.children[0].name.startsWith("tab:") ? (
             // Child level
             <NextLink
               href={`${slugifyWithSlashes(split.path?.key)}`}

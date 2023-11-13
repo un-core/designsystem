@@ -17,6 +17,26 @@ function containsComplexContent(node) {
   return false;
 }
 
+// New function to handle nested objects and arrays
+function processNestedElements(element) {
+  console.log(typeof element);
+  if (Array.isArray(element)) {
+    return `[${element.map(processNestedElements).join(", ")}]`;
+  } else if (element && typeof element === "object") {
+    const processedObject = {};
+    Object.keys(element).forEach((key) => {
+      processedObject[key] = processNestedElements(element[key]);
+    });
+    return `{${Object.entries(processedObject)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(", ")}}`;
+  } else if (typeof element === "function") {
+    return JSON.stringify(generate.default(element).code);
+  }
+
+  return element;
+}
+
 function exportsAsStrings(options = {}) {
   return {
     name: "exports-as-strings",
@@ -35,6 +55,10 @@ function exportsAsStrings(options = {}) {
       const exports = {};
       const argsExports = {};
 
+      // Additional variable for default export
+      let defaultExport = {};
+
+      // Traverse the AST to find exports
       // Traverse the AST to find named exports
       ast.program.body.forEach((node) => {
         if (node.type === "ExportNamedDeclaration" && node.declaration) {
@@ -67,12 +91,20 @@ function exportsAsStrings(options = {}) {
               : argsCode;
           }
         }
+
+        // Handle default export
+        /* if (node.type === "ExportDefaultDeclaration") {
+          const generatedCode = generate.default(node.declaration).code;
+          console.log(typeof JSON.parse(generatedCode));
+          defaultExport = processNestedElements(generatedCode);
+        } */
       });
 
-      // Combine exports and argsExports
+      // Combine exports, argsExports, and defaultExport
       const combinedExports = {
         ...exports,
         ...argsExports,
+        //defaultExport: defaultExport,
       };
 
       const generatedExports = Object.entries(combinedExports)
@@ -82,7 +114,7 @@ function exportsAsStrings(options = {}) {
       // Return the new code and an empty source map
       return {
         code: `export default { ${generatedExports} };`,
-        map: { mappings: "" }, // Empty sourcemap
+        map: { mappings: "" },
       };
     },
   };

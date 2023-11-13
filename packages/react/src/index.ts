@@ -7,6 +7,7 @@ export {
   BannerNavigationWithContent,
 } from "./components/BannerNavigation";
 
+export { default as Avatar } from "./components/Avatar";
 //export { default as Blockquote } from './components/Blockquote';
 export { default as Breadcrumb } from "./components/Breadcrumb";
 export { default as BreadcrumbItem } from "./components/BreadcrumbItem";

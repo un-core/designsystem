@@ -7,6 +7,8 @@ export * as Select from "./components/Select/Select.stories.tsx";
 export * as TextArea from "./components/TextArea/TextArea.stories.tsx";
 export * as TextInput from "./components/TextInput/TextInput.stories.tsx";
 
+export * as Avatar from "./components/Avatar/Avatar.stories.tsx";
+
 export * as Card from "./components/Card/Card.stories.tsx";
 export * as Checkbox from "./components/Checkbox/Checkbox.stories.tsx";
 // export * as ContextMenu from "./components/ContextMenu/ContextMenu.stories.tsx";

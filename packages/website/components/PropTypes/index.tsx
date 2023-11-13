@@ -101,6 +101,19 @@ export default function PropTypes({
         </Select>
       );
     }
+    console.log("prop.type.name", prop);
+    if (prop.type.name === "ButtonKind") {
+      return (
+        <Select
+          {...register(prop.name, { required: prop.required })}
+          defaultValue={prop.defaultValue && prop.defaultValue.value}
+        >
+          {Object.values(options.split("|")).map((kind, i) => (
+            <SelectItem key={i} value={kind} text={kind} />
+          ))}
+        </Select>
+      );
+    }
     if (
       prop.type.name === "ReactNode" ||
       prop.type.name === "string" ||

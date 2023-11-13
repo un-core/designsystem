@@ -1,53 +1,28 @@
 ---
-category: 'Core'
-title: 'Footer'
-excerpt: 'Links are typically used as a means of navigation either within the application, to a place outside, or to a resource.'
-coverImage: '../sample-image.jpg'
-slug: 'Components/Navigation/Footer'
+category: "Core"
+title: "Footer"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/Footer"
 storybook: true
 previewScale: 0.4
-mainComponent: 'Footer'
-sampleCode: >
-  <Footer>
-       <div className="wfp--footer__info">
-         <div className="wfp--footer__info__item">
-           <p className="wfp--footer__label">A label</p>
-           <ul className="wfp--footer__list">
-             <li>
-               <Link href="http://www.wfp.org">First Link</Link>
-             </li>
-             <li>
-               <Link href="http://www.wfp.org">Second Link</Link>
-             </li>
-           </ul>
-         </div>
-         <div className="wfp--footer__info__item">
-           <p className="wfp--footer__label">Another label</p>
-           <ul className="wfp--footer__list">
-             <li>
-               <Link href="http://www.wfp.org">First Link</Link>
-             </li>
-             <li>
-               <Link href="http://www.wfp.org">Second Link</Link>
-             </li>
-           </ul>
-         </div>
-       </div>
-     </Footer>
+mainComponent: "Footer"
 ---
 
 ## Usage
 
 Footer is the second most important place where your basic site information and links should live. Users turn often to the footer to look for important information, such as contact details, or links to less prominent sections of the website (privacy policy, terms of use, etc).
-It can contain `<Form>` , `<Button>`, `<Link>` and `images`.
 
-#### When to use
+<DoUse>
 
-Use when you want to share information like contacts details, privacy policy, terms of use, copyright.
+- Use when you want to share information like contacts details, privacy policy, terms of use, copyright.
 
-#### When not to use
+</DoUse>
 
-The `Footer` component is not sectioning content and therefore shouldn't be used introduce a new section in the outline.
+<DoNotUse>
+
+- The Footer component should only be used once per page at the end of the page.
+
+</DoNotUse>
 
 ### External footer
 

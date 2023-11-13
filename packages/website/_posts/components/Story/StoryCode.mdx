@@ -1,0 +1,44 @@
+---
+category: "Core"
+title: "Story"
+slug: "Components/UI elements/Story/tab:Code"
+storybook: true
+status: "published"
+mainComponent: "Story"
+---
+
+The `Story` component in React is crafted to enhance the presentation and readability of longer text content. It emphasizes default styling, formatting, and spacing to focus on readability, making it ideal for displaying narrative content, detailed descriptions, or extended text passages.
+
+## Example
+
+```jsx
+<Story className="custom-story-class">
+  <p>
+    Your long-form text or story goes here. It could be multiple paragraphs,
+    each focusing on enhancing the reader's experience with well-spaced and
+    formatted text.
+  </p>
+</Story>
+```
+
+This example demonstrates how to use the `Story` component to wrap a long-form text passage, applying both the default and custom styling to ensure readability and visual appeal.
+
+### html
+
+By adding `<div class="wfp--story"></div>` the story styling will be applied to all containing elements.
+
+```html
+<div class="wfp--story">
+  <h1 class="wfp--story__title">Story Title</h1>
+  <h2 class="wfp--story__subtitle">The Sub Title</h2>
+  <p>Some <a href="#">text</a></p>
+  <ul>
+    <li>A list</li>
+    <li>Another list item</li>
+  </ul>
+</div>
+```
+
+#### Spacings
+
+When applying the story classes the margins between the elements will be calculated automatically.

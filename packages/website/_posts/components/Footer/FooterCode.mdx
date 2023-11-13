@@ -1,0 +1,69 @@
+---
+category: "Core"
+title: "Footer"
+slug: "Components/Navigation/Footer/tab:Code"
+storybook: true
+previewScale: 0.4
+mainComponent: "Footer"
+---
+
+### External footer
+
+```jsx live forceFullWidth
+import { FooterExternal, Link  } from "@wfp/react";
+
+<FooterExternal
+    metaContent="Via C. G. Viola 68 Parco dei Medici, 00148 Rome, Italy"
+    metaLinks={
+      <>
+        <FooterMetaLink href="hh.com">First legal link</FooterMetaLink>
+        <FooterMetaLink href="hh.com">Second legal link</FooterMetaLink>
+      </>
+    }
+    productName={<span>Service{' '}<br />{' '}Marketplace</span>
+    >
+    <>
+      <LinksColumn title="Title">
+        <li className="wfp--links-column-link">
+          <Link>First link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Second link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Third link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fourth link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fifth link</Link>
+        </li>
+      </LinksColumn>
+
+      <LinksColumn title="Title 2">
+        <li className="wfp--links-column-link">
+          <Link>First link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Second link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Third link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fourth link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fifth link 2</Link>
+        </li>
+      </LinksColumn>
+    </>
+  </FooterExternal>
+```
+
+## Related
+
+- [Link](?path=/docs/components-link--regular)
+- [Form](?path=/docs/components-form--regular)
+- [Button](?path=/docs/components-button--regular)

@@ -1,0 +1,55 @@
+---
+category: "Core"
+title: "User"
+excerpt: "**Text inputs** enable the user to interact with and input data. Use when the application requires long-form content from the user."
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/User/tab:Code"
+storybook: true
+mainComponent: "User"
+---
+
+The `User` component is a comprehensive UI element in the World Food Programme's design system. It extends the functionality of the `Avatar` component by incorporating user-related information such as name and descriptions. This component is commonly used in main navigation and forms.
+
+### Usage
+
+```jsx
+import User from "@wfp/react";
+
+<User
+  image="user-image-url.jpg"
+  name="John Doe"
+  alt="John Doe's Avatar"
+  description={<p>User Description</p>}
+/>;
+```
+
+### Component Behavior
+
+- **Avatar Display:** Utilizes the `Avatar` component to display the user's image or a fallback icon.
+- **Name and Descriptions:** Optionally displays the user's name, a brief description, and an extended description based on props.
+- **Customizable Appearance:** Supports custom styling and component replacement through `className` and `components` props.
+
+### Styling
+
+- The component uses a CSS class naming convention influenced by a `prefix` from the `useSettings` hook, ensuring consistent styling across the system.
+- Conditional classes are applied based on the presence of descriptions and other properties.
+
+### Accessibility
+
+- The `alt` prop is crucial for screen reader accessibility, providing a text alternative for the avatar image.
+
+### Example
+
+```jsx live
+<User
+  image="https://example.com/avatar.jpg"
+  alt="Jane Doe's avatar"
+  name="Jane Doe"
+  ellipsis
+  description={<p>Project Manager</p>}
+  extendedDescription={<p>Additional details about Jane Doe</p>}
+  showName
+/>
+```
+
+In this example, the `User` component displays an avatar with the image from the provided URL. If the URL is unavailable, the component defaults to the specified missing image mode. The user's name, "Jane Doe," is displayed with an ellipsis for long names. Below the name, a brief description and an extended description provide additional information about the user.

@@ -1,0 +1,31 @@
+---
+category: "Core"
+title: "User"
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/User"
+storybook: true
+mainComponent: "User"
+---
+
+The User is used inside the `MainNavigation` and can display an avatar and username. It can be also used inside forms, etc. with the extended prop.
+
+<DoUse>
+
+- Use the `User` component to represent individual users, especially in contexts like navigation bars, user profiles, or forms.
+- Utilize the `image` prop for adding user avatars, enhancing visual recognition.
+- Apply the `name` prop to display the user's name, ensuring it is clearly visible next to the avatar.
+- Use `ellipsis` prop for names that might be too long.
+- Employ `description` and `extendedDescription` props for additional user information, providing context and details about the user.
+
+</DoUse>
+
+<DoNotUse>
+  
+- Do not use the `User` component for non-user-related entities. It is specifically designed for representing individual users.
+- Avoid overcrowding the component with too much text or overly detailed descriptions. Keep it concise and relevant.
+
+</DoNotUse>
+
+### Actions 🎬
+
+When including user information, balance the display of textual information with visual elements. Use the `ellipsis`, `description`, and `extendedDescription` props thoughtfully to ensure the component remains informative yet uncluttered.
