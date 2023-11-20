@@ -162,7 +162,12 @@ export default function SidebarWrapper({
             <>
               {propTypes.map((p: any, i: number) => (
                 <>
-                  <h3 id={createSlug(p.displayName)}>{p.displayName}</h3>
+                  <h3
+                    id={createSlug(p.displayName)}
+                    className={styles.propTitle}
+                  >
+                    {p.displayName}
+                  </h3>
                   <PropTypes
                     key={i}
                     propTypes={p}

@@ -34,7 +34,7 @@ export default async function getPostContent(params: any) {
     "sampleCode",
   ]);
 
-  const slugs = await getPostSlugs();
+  const slugs: any = await getPostSlugs();
   const foundSlug = params.slug
     ? slugs.find(
         (f) =>

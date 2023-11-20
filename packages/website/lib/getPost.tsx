@@ -22,7 +22,7 @@ export async function getPostSlugs() {
   const files = await getFiles(postsDirectory);
 
   const filesFiltered = files.filter(el => extname(el) === '.mdx');
-  const results = [];
+  const results : any = [];
 
   filesFiltered.map(f => {
     const fileContents = fs.readFileSync(f, 'utf8');

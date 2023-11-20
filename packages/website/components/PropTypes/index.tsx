@@ -138,7 +138,7 @@ export default function PropTypes({
     // Add more input types based on prop types if needed
   };
 
-  const componentProps = {};
+  const componentProps: any = {};
   if (propList) {
     Object.values(propList).forEach(({ name, defaultValue }: any) => {
       componentProps[name] = propValues[name] || defaultValue?.value;
@@ -266,11 +266,6 @@ export default function PropTypes({
               </thead>
               <tbody>
                 {propsAsList.map((prop: any) => {
-                  console.log(
-                    "formatTypes(prop.type.name)",
-                    formatTypes(prop.type.name)
-                  );
-
                   return (
                     <tr key={prop.name}>
                       <td>
