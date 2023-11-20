@@ -650,7 +650,7 @@
       "primary": {
         "description": "",
         "type": "color",
-        "value": "#0b77c2ff",
+        "value": "#017DBC",
         "blendMode": "normal",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
@@ -662,7 +662,7 @@
       "primary hover": {
         "description": "",
         "type": "color",
-        "value": "#085387ff",
+        "value": "#017DBC",
         "blendMode": "normal",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
@@ -674,7 +674,7 @@
       "primary active": {
         "description": "",
         "type": "color",
-        "value": "#1a4262ff",
+        "value": "#017DBC",
         "blendMode": "normal",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {

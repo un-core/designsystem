@@ -72,6 +72,7 @@
     "@carbon/feature-flags": "^0.6.0",
     "classnames": "2.2.6",
     "invariant": "^2.2.4",
+    "lerna": "^7.1.5",
     "react-datepicker": "^4.6.0",
     "react-docgen": "^6.0.4",
     "react-markdown": "^9.0.0",
