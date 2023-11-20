@@ -12,6 +12,7 @@ components:
     "SubNavigation",
     "SubNavigationHeader",
     "SubNavigationTitle",
+    "SubNavigationLink",
     "SubNavigationFilter",
     "SubNavigationContent",
     "SubNavigationList",
@@ -89,18 +90,6 @@ import {
   </SubNavigation>
 );
 ```
-
-### Components:
-
-- **SubNavigation**: This is the main wrapper for the sub-navigation.
-- **SubNavigationHeader**: Use this component to set a header for your sub-navigation.
-- **SubNavigationTitle**: This component sets a title for your sub-navigation.
-- **SubNavigationLink**: This component creates links within the sub-navigation. They can be used similar to the traditional anchor links.
-- **SubNavigationFilter**: This is used to integrate a filter mechanism within your sub-navigation.
-- **SubNavigationContent**: This is a wrapper for the content that should be displayed within the sub-navigation.
-- **SubNavigationList**: This component wraps a list of items or links within the sub-navigation.
-- **SubNavigationGroup**: This allows you to group multiple items or links under a single heading. The group can have a title and is ideal for categorizing sub-navigation elements.
-- **SubNavigationItem**: These are individual items within the sub-navigation.
 
 Each of these components can accept a `className` prop to override or add additional classes. They also spread other properties to their root element, allowing you to pass other props like `id`, `style`, etc.
 

@@ -58,7 +58,7 @@ $main-navigation-menu-width: calcRem(300px);
   }
 
   .#{$prefix}--main-navigation--line {
-    border-top: 4px solid #0d295c;
+    border-top: 12px solid #0d295c;
   }
 
   .#{$prefix}--main-navigation__item {
@@ -167,13 +167,13 @@ $main-navigation-menu-width: calcRem(300px);
       white-space: nowrap;
     }
     .#{$prefix}--main-navigation__logo__default {
-      padding-left: 5rem;
+      padding-left: 5.7rem;
       .#{$prefix}--main-navigation__logo__default__ribbon {
         background: $logo-blue;
         margin-right: 0.5em;
-        width: 4.2rem;
-        margin-left: -5rem;
-        margin-top: -4px;
+        width: 4.7rem;
+        margin-left: -5.7rem;
+        margin-top: -12px;
         margin-bottom: -20em;
         position: absolute;
         top: 0;
