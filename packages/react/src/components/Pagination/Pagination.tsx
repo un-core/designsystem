@@ -1,8 +1,8 @@
-import React, { useState, ChangeEvent } from 'react';
-import classnames from 'classnames';
-import { ChevronLeft, ChevronRight } from '@un/icons-react';
-import Select from '../Select';
-import SelectItem from '../SelectItem';
+import React, { useState, ChangeEvent } from "react";
+import classnames from "classnames";
+import { ChevronLeft, ChevronRight } from "@un/icons-react";
+import Select from "../Select";
+import SelectItem from "../SelectItem";
 // import { equals } from '../../tools/array';
 
 interface PaginationProps {
@@ -92,13 +92,13 @@ interface PaginationProps {
 
 let instanceId = 0;
 
-const Pagination: React.FC<PaginationProps> = (props) => {
+const Pagination = (props: PaginationProps) => {
   const {
-    backwardText = 'Backward',
+    backwardText = "Backward",
     className,
-    forwardText = 'Forward',
+    forwardText = "Forward",
     id,
-    itemsPerPageText = 'Items per page:',
+    itemsPerPageText = "Items per page:",
     itemsPerPageFollowsText,
     itemRangeText = (min, max, total) => `${min}-${max} of ${total} items`,
     pageRangeText = (current, total) => `${current} of ${total} pages`,
@@ -107,7 +107,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     pageSizes,
     itemText = (min, max) => `${min}-${max} items`,
     pageText = (page) => `page ${page}`,
-    pageNumberText = 'Page Number', //eslint-disable-line
+    pageNumberText = "Page Number", //eslint-disable-line
     pagesUnknown = false,
     isLastPage = false,
     pageInputDisabled = false,
@@ -169,12 +169,12 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     return itemArr;
   };
 
-  const classNames = classnames('wfp--pagination', className);
+  const classNames = classnames("wfp--pagination", className);
   const backButtonClasses = classnames(
-    'wfp--pagination__button',
-    'wfp--pagination__button--backward',
+    "wfp--pagination__button",
+    "wfp--pagination__button--backward",
     {
-      'wfp--pagination__button--no-index': pageInputDisabled,
+      "wfp--pagination__button--no-index": pageInputDisabled,
     }
   );
   const inputId = id || uniqueId;
@@ -195,13 +195,14 @@ const Pagination: React.FC<PaginationProps> = (props) => {
               hideLabel
               inline
               onChange={handleSizeChange}
-              value={pageSizeState}>
+              value={pageSizeState}
+            >
               {pageSizes.map((size) => (
                 <SelectItem key={size} value={size} text={String(size)} />
               ))}
             </Select>
             <span className="wfp--pagination__text">
-              {' '}
+              {" "}
               &nbsp;&nbsp;|&nbsp;&nbsp;
             </span>
           </React.Fragment>
@@ -223,7 +224,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         <button
           className={backButtonClasses}
           onClick={decrementPage}
-          disabled={props.disabled || page === 1}>
+          disabled={props.disabled || page === 1}
+        >
           <ChevronLeft
             className="wfp--pagination__button-icon"
             description={backwardText}
@@ -236,14 +238,16 @@ const Pagination: React.FC<PaginationProps> = (props) => {
             hideLabel
             inline
             onChange={handlePageInputChange}
-            value={page}>
+            value={page}
+          >
             {selectItems}
           </Select>
         )}
         <button
           className="wfp--pagination__button wfp--pagination__button--forward"
           onClick={incrementPage}
-          disabled={props.disabled || page === totalPages || isLastPage}>
+          disabled={props.disabled || page === totalPages || isLastPage}
+        >
           <ChevronRight
             className="wfp--pagination__button-icon"
             description={forwardText}
@@ -253,5 +257,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     </div>
   );
 };
+
+Pagination.displayName = "Pagination";
 
 export default Pagination;

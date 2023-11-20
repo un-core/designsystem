@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "main:scss": "source/globals/styles.scss",
-  "types": "es/index.d.ts",
+  "types": "es/dist/index.d.ts",
   "scripts": {
     "build": "yarn rollup -c --bundleConfigAsCjs && yarn build:demos && yarn generate:types",
     "clean": "rimraf es lib umd storybook-static build react-docgen.json",

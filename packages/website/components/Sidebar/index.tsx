@@ -69,6 +69,7 @@ export default function SidebarWrapper({
 
   // Extract the last path segment from the URL
   const lastUrlPath = params?.slug?.at(-1) || "";
+  if (!post.slug) return null;
 
   const mainSlug = extractMainSlug(post.slug);
 

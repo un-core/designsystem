@@ -158,10 +158,10 @@ const CodeBlockLive = (props: any) => {
 
   if (live) {
     const scope = {
-      ...unComponents,
       ...unHumanitarianIcons,
       ...unPictograms,
       ...icons,
+      ...unComponents,
       useForm,
       useState,
       Storybook,

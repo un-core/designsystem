@@ -1,4 +1,4 @@
-@use 'scss/meta' as *;
+@use "scss/meta" as *;
 
 .codeBlock {
   overflow: auto;
@@ -40,8 +40,8 @@
     margin-bottom: 0;
   }
   :global(.prism-code) {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace !important;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace !important;
   }
 }
 
@@ -83,6 +83,7 @@
   }
   .showWrapper {
     border-radius: 0 0 10px 10px;
+    border: 1px solid $border-strong;
   }
   .previewWrapper {
     background: $background-main;
@@ -95,11 +96,15 @@
   }
 }
 
+.showWrapper {
+  border: 1px solid $border-strong;
+}
+
 .fullWidth {
   .previewWrapper {
     position: relative;
     &::after {
-      content: '';
+      content: "";
       display: block;
       width: 5em;
       bottom: 0;

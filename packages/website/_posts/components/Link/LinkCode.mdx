@@ -1,35 +1,11 @@
 ---
-category: 'Core'
-title: 'Link'
-excerpt: 'Links are typically used as a means of navigation either within the application, to a place outside, or to a resource.'
-coverImage: '../sample-image.jpg'
-slug: 'Components/UI elements/Link'
+category: "Core"
+title: "Link"
+excerpt: "Links are typically used as a means of navigation either within the application, to a place outside, or to a resource."
+slug: "Components/UI elements/Link/tab:Code"
 storybook: true
-mainComponent: 'Link'
-defaultProps:
-  children: 'Link text'
+mainComponent: "Link"
 ---
-
-Links can have the same properties as a regular `<a>`-element.
-
-<DoUse>
-
-- Use text for links rather than graphics or icons.
-- Links should be three words or less.
-- Text should be consistent with the title of the intended destination.
-- Navigate to a different page within the application
-- Navigate to an entirely different site
-- Jump to an element on the same page
-- Link to emails or phone numbers
-
-</DoUse>
-
-<DoNotUse>
-
-- Avoid the term “click here“, “other links“ to “here,” or the web address itself. Instead, use a meaningful descriptive label for the link, and match the destination site name.
-- Use a button instead of a link for actions that will change data or manipulate how it is displayed, change a state, or trigger an action. Buttons should never be used for navigational actions.
-
-</DoNotUse>
 
 ### Standalone link
 
@@ -49,10 +25,10 @@ Inline links should not be used on their own and should not be paired with icons
 
 ```jsx live
 <>
-  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed{' '}
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed{" "}
   <Link href="https://www.wfp.org" inline>
     diam nonumy
-  </Link>{' '}
+  </Link>{" "}
   eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
 </>
 ```
@@ -69,13 +45,15 @@ Use the Link styling by adding the className `wfp--link` to `<NavLink />`
 <a className="wfp--link">Link</a>
 ```
 
-### Use with next/link
+### Use with external routing libraries
+
+#### next/link
 
 By passing `passHref` and `legacyBehavior` to the [next/link](https://nextjs.org/docs/api-reference/next/link) component, you can use the `Link` component from `@wfp/react` as a child of the `next/link` component.
 
 ```jsx
-import NextLink from 'next/link';
-import { Link } from '@wfp/react';
+import NextLink from "next/link";
+import { Link } from "@wfp/react";
 
 function MyComponent() {
   return (
@@ -85,12 +63,3 @@ function MyComponent() {
   );
 }
 ```
-
-### Related
-
-[Button](?path=/docs/components-button--button-regular)
-
-### Reference
-
-- [Carbon Design System Usage for Link](https://www.carbondesignsystem.com/components/link/usage)
-- Links is based on a fork from [Carbon Components](https://www.carbondesignsystem.com/components/link/code)

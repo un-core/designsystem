@@ -16,13 +16,13 @@ export default {
   },
 };
 
-export const ButtonRegular = (args) => <Button {...args} />;
+export const ButtonDefault = (args) => <Button {...args} />;
 
-ButtonRegular.args = {
+ButtonDefault.args = {
   children: "Button",
 };
 
-ButtonRegular.parameters = {
+ButtonDefault.parameters = {
   design: {
     type: "figma",
     url: "https://www.figma.com/file/jtKqyyMTOKgUTstiGvPZMl/?node-id=0%3A1",

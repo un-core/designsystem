@@ -107,7 +107,6 @@ module.exports = [
   // CommonJS: lib/index.js
   {
     ...baseConfig,
-
     external: umdBundleConfig.external,
     output: [
       /*{

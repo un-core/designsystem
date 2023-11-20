@@ -25,3 +25,4 @@ export * as MainNavigation from "./components/MainNavigation/MainNavigation.stor
 export * as Wrapper from "./components/Wrapper/Wrapper.stories.tsx";
 export * as List from "./components/List/List.stories.tsx";
 export * as Empty from "./components/Empty/Empty.stories.tsx";
+export * as User from "./components/User/User.stories.tsx";

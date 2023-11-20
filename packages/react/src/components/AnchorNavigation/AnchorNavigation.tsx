@@ -1,8 +1,8 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
-interface AnchorNavigationProps extends React.ComponentPropsWithRef<'div'> {
+interface AnchorNavigationProps extends React.ComponentPropsWithRef<"div"> {
   /*
    * The title of the anchor navigation
    */
@@ -16,6 +16,7 @@ const AnchorNavigation: React.FC<AnchorNavigationProps> = ({
   ...other
 }) => {
   const { prefix } = useSettings();
+
   const wrapperClasses = classNames(`${prefix}--anchor-navigation`, className);
   return (
     <div className={wrapperClasses} {...other}>
