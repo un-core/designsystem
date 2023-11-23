@@ -25,7 +25,7 @@ const baseConfig = {
       include: /node_modules/,
     }),
     typescript({
-      sourceMap: true,
+      sourceMap: false,
       compilerOptions: {
         declaration: true,
       },
@@ -66,9 +66,10 @@ const baseConfig = {
   ],
 };
 
-const umdExternalDependencies = Object.keys(
-  packageJson.peerDependencies
-).filter((dependency) => dependency !== "carbon-components");
+const umdExternalDependencies = [
+  ...Object.keys(packageJson.peerDependencies),
+  ...Object.keys(packageJson.devDependencies),
+].filter((dependency) => dependency !== "carbon-components");
 
 const umdBundleConfig = {
   input: baseConfig.input,
@@ -81,7 +82,7 @@ const umdBundleConfig = {
     file: "es/index.js",
     format: "es",
     exports: "named",
-    sourcemap: true,
+    sourcemap: false,
     banner: `/*
     * WFP Design System React.js
     */
@@ -106,6 +107,7 @@ module.exports = [
   // CommonJS: lib/index.js
   {
     ...baseConfig,
+    external: umdBundleConfig.external,
     output: [
       /*{
         format: 'esm',

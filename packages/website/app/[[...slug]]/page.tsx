@@ -70,4 +70,4 @@ export default async function Page(args: any) {
   return <Layout posts={posts} post={post} propTypes={propTypes} />;
 }
 
-export const revalidate = 0;
+export const revalidate = 3600;

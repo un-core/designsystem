@@ -1,0 +1,30 @@
+---
+category: "Core"
+title: "Wrapper"
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/Wrapper"
+storybook: true
+previewScale: 0.5
+mainComponent: "Wrapper"
+---
+
+Wrapper can wrap it's content in a specific width depending on if the application has a full or fixed width.
+
+If not used with as `fullWidth` it centers content horizontally and ensures that it doesn't stretch indefinitely on larger screens.
+
+<DoUse>
+
+- Page Layout: Always use the Wrapper component as the outermost container for page-level content to maintain consistent layout and spacing.
+- Centering Content: Utilize the Wrapper when you need to center content horizontally within a viewport.
+- Controlling Width: When designing for content that shouldn't stretch across extremely wide screens, leverage the Wrapper to set a maximum content width.
+- Responsive Designs: Adopt the Wrapper in responsive designs to ensure that content adapts gracefully across a range of device sizes.
+
+</DoUse>
+
+<DoNotUse>
+
+- Nested Wrapping: Avoid nesting multiple Wrapper components within each other. This can lead to redundant spacing and layout inconsistencies.
+- Fixed-width Content: For components or content areas with a fixed width that won't change across screen sizes, don't use the Wrapper. Instead, define that fixed width explicitly.
+- Side-by-Side Layouts: If designing a multi-column or grid layout where columns sit side-by-side and each column should adapt to its content, avoid using the Wrapper as it may restrict the desired fluidity.
+
+</DoNotUse>

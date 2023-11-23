@@ -10,7 +10,7 @@ import {
   SubNavigationList,
   SubNavigationGroup,
   SubNavigationItem,
-} from "./SubNavigation";
+} from "./";
 import Search from "../Search";
 import Button from "../Button";
 import Link from "../Link";

@@ -1,0 +1,42 @@
+---
+category: "Core"
+title: "List"
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/List"
+storybook: true
+mainComponent: "List"
+components: ["ListItem"]
+---
+
+The `List` component is designed to display a set of connected items consecutively, either one below the other or inline. It offers flexible rendering options, including ordered lists, unordered lists, and other styles, while also allowing for visual customizations, such as adding colons to list items or rendering them with smaller font sizes.
+
+<DoUse>
+
+- Use bulleted lists when you don’t need to convey a specific order for list
+  items. - Use numbered lists (e.g. `ordered`) when you need to convey a
+  priority, hierarchy, or sequence between list items.
+- Use the `colon` prop
+  when you want to emphasize list items, especially for short, critical lists.
+
+</DoUse>
+
+<DoNotUse>
+
+- Do not use lists for content that is not related. - Avoid using the
+  `unordered` kind for lists where the sequence of items is crucial.
+
+</DoNotUse>
+
+## Content
+
+#### Length
+
+Generally, lists should be used to present simple pieces of information. For more complex sets of data, consider using a data table.
+
+#### Order
+
+Arrange list items in a logical way. For example, if the list is about resource use, the default order might be highest resource use to lowest. Grouping items in categories into smaller, more specific lists might be more meaningful in some contexts. Alternatively, organize in alphabetical or numeric order.
+
+#### Text
+
+Use list items that are grammatically parallel. For example, do not mix passive voice with active voice or declarative sentences (statements) with imperative sentences (direct command).

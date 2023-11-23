@@ -1,18 +1,18 @@
-import React from 'react';
-import Link from '.';
+import React from "react";
+import Link from ".";
 
 export default {
-  title: 'Components/UI Elements/Link',
+  title: "Components/UI Elements/Link",
   component: Link,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
   },
 };
 
-export const Regular = (args) => <Link {...args} />;
+export const LinkDefault = (args) => <Link {...args} />;
 
-Regular.args = { children: 'WFP Homepage', href: 'https://www.wfp.org' };
+LinkDefault.args = { children: "WFP Homepage", href: "https://www.wfp.org" };
 
 export const States = (args) => (
   <>
@@ -31,7 +31,7 @@ export const States = (args) => (
   </>
 );
 
-States.args = { ...Regular.args, style: { marginRight: '1rem' } };
+States.args = { ...Regular.args, style: { marginRight: "1rem" } };
 
 States.story = {
   parameters: {

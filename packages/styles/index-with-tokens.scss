@@ -1,19 +1,19 @@
 $css--reset: true;
 $css--body: true;
 
-@use '@wfp/styles/scss/themes';
-@use '@wfp/styles/scss/theme';
+@use "@wfp/styles/scss/themes";
+@use "@wfp/styles/scss/theme";
 
-@use '@un/themes-core/dist/scss/default-css-theme' as defaultTheme;
-@use '@un/themes-core/distDark/scss/default-css-theme' as darkTheme;
+@use "@wfp/themes-core/dist/scss/default-css-theme" as defaultTheme;
+@use "@wfp/themes-core/distDark/scss/default-css-theme" as darkTheme;
 
-@use '@wfp/styles/scss/reset';
-@use '@wfp/styles/scss/components';
+@use "@wfp/styles/scss/reset";
+@use "@wfp/styles/scss/components";
 
 // Import types
-@import '@un/type/scss/font-face/mono';
-@import '@un/type/scss/font-face/sans';
-@import '@un/type/scss/font-face/serif';
+@import "@un/type/scss/font-face/mono";
+@import "@un/type/scss/font-face/sans";
+@import "@un/type/scss/font-face/serif";
 
 @include open-sans-font-face();
 

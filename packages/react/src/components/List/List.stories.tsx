@@ -1,20 +1,20 @@
-import React from 'react';
-import markdown from './README.mdx';
-import List from './List';
-import ListItem from './ListItem';
+import React from "react";
+import markdown from "./README.mdx";
+import List from "./List";
+import ListItem from "./ListItem";
 
 export default {
-  title: 'Components/UI Elements/List',
+  title: "Components/UI Elements/List",
   component: List,
   subcomponents: { ListItem },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => (
+export const ListDefault = (args) => (
   <List {...args}>
     <ListItem title="List item with title">First item</ListItem>
     <ListItem title="Another item with title">Second item</ListItem>
@@ -24,7 +24,7 @@ export const Regular = (args) => (
   </List>
 );
 
-Regular.args = {
+ListDefault.args = {
   colon: true,
 };
 
@@ -39,7 +39,7 @@ export const SimpleInline = (args) => (
 );
 
 SimpleInline.args = {
-  kind: 'simple-inline',
+  kind: "simple-inline",
 };
 
 const msg = ` \`simple-inline\` \`kind\` shows listed items next to each other`;
@@ -63,7 +63,7 @@ export const Details = (args) => (
 );
 
 Details.args = {
-  kind: 'details',
+  kind: "details",
 };
 
 const msghere = ` \`details\` \`kind\` shows listed items on different blocks`;
@@ -87,7 +87,7 @@ export const Bullet = (args) => (
 );
 
 Bullet.args = {
-  kind: 'unordered',
+  kind: "unordered",
 };
 
 const msgg = ` \`undordered\` \`kind\` shows bulleted list items`;

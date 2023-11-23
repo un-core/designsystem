@@ -3,7 +3,7 @@ import classNames from "classnames";
 import useSettings from "../../hooks/useSettings";
 // import { IIcon } from '../../utils';
 
-interface EmptyProps extends React.ComponentPropsWithoutRef<"div"> {
+interface EmptyProps extends Omit<React.ComponentPropsWithRef<"div">, "title"> {
   /**
    * The content to be rendered in the empty state. @design
    */

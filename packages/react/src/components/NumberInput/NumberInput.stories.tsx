@@ -1,25 +1,27 @@
-import React from 'react';
-import markdown from './README.mdx';
-import NumberInput from '.';
+import React from "react";
+import markdown from "./README.mdx";
+import NumberInput from ".";
 
 export default {
-  title: 'Components/Forms/NumberInput',
+  title: "Components/Forms/NumberInput",
   component: NumberInput,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => <NumberInput {...args} />;
+export const NumberInputDefault = (args) => (
+  <NumberInput {...args} labelText="The labelText" />
+);
 
-Regular.args = {
-  name: 'inputname',
-  helperText: 'Optional helperText',
-  labelText: 'The labelText',
-  // pattern: '[0-9]+([.,][0-9]+)?',
-  // step: 0.01,
+NumberInputDefault.args = {
+  name: "inputname",
+  helperText: "Optional helperText",
+  labelText: "The labelText",
+  pattern: "[0-9]+([.,][0-9]+)?",
+  step: 0.01,
 };
 
 export const disabled = (args) => <NumberInput {...args} />;
@@ -33,9 +35,9 @@ disabled.story = {
 };
 
 disabled.args = {
-  name: 'inputname',
-  helperText: 'Optional helperText',
-  labelText: 'The labelText',
+  name: "inputname",
+  helperText: "Optional helperText",
+  labelText: "The labelText",
   disabled: true,
 };
 
@@ -50,9 +52,9 @@ hideLabel.story = {
 };
 
 hideLabel.args = {
-  name: 'inputname',
-  helperText: 'Optional helperText',
-  labelText: 'The labelText',
+  name: "inputname",
+  helperText: "Optional helperText",
+  labelText: "The labelText",
   hideLabel: true,
 };
 
@@ -71,8 +73,8 @@ invalid.story = {
 };
 
 invalid.args = {
-  name: 'inputname',
-  helperText: 'Optional helperText',
-  labelText: 'The labelText',
-  invalid: { message: 'Please enter your number' },
+  name: "inputname",
+  helperText: "Optional helperText",
+  labelText: "The labelText",
+  invalid: { message: "Please enter your number" },
 };

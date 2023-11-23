@@ -1,29 +1,33 @@
 ---
-category: 'Core'
-title: 'AnchorNavigation'
-excerpt: 'Links are typically used as a means of navigation either within the application, to a place outside, or to a resource.'
-coverImage: '../sample-image.jpg'
-slug: 'Components/Navigation/AnchorNavigation'
+category: "Core"
+title: "AnchorNavigation"
+excerpt: "Links are typically used as a means of navigation either within the application, to a place outside, or to a resource."
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/AnchorNavigation"
 storybook: true
-components: useInput
+components: ["useInput"]
 ---
 
 ### Usage
 
 The MainNavigation is used across all applications, it is the starting point of the application and offers the top level navigation items.
 
-#### When to use
+<DoUse>
 
-- ✓ Internal and external applications
-- ✓ The MainNavigation can be used for both internal and external websites.
+- Internal and external applications
+- The MainNavigation can be used for both internal and external websites.
 
-#### When not to use
+</DoUse>
 
-- ✗ External websites (wfp.org, etc.): The header might not be the right solution for external websites. Please consult the #ux-ui channel on Slack.
-- ✗ Do not use WFP's logo inside the MainNavigation.
+<DoNotUse>
+
+- External websites (wfp.org, etc.): The header might not be the right solution for external websites. Please consult the #ux-ui channel on Slack.
+- Do not use WFP's logo inside the MainNavigation.
+
+</DoNotUse>
 
 ```js
-import { MainNavigation, MainNavigationItem } from '@wfp/react';
+import { MainNavigation, MainNavigationItem } from "@wfp/react";
 ```
 
 ### SubNavigation
@@ -40,7 +44,7 @@ import {
   SubNavigationList,
   SubNavigationGroup,
   SubNavigationItem,
-} from '@wfp/react';
+} from "@wfp/react";
 ```
 
 The maximum number of items is 6 to 8 items depending on the average word length.
@@ -54,9 +58,9 @@ From outside (using react-router, etc.) using `refs` a function can be triggered
 ##### Using react-router (withRouter)
 
 ```js
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
+import React from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
 
 class Parent extends Component {
   static propTypes = {
@@ -78,11 +82,11 @@ class Parent extends Component {
   }
 
   openFirstMenu = () => {
-    this.child.current.onChangeSub('toggle', 0);
+    this.child.current.onChangeSub("toggle", 0);
   };
 
   closeMenu = () => {
-    this.child.current.onChangeSub('close');
+    this.child.current.onChangeSub("close");
   };
 
   render() {
@@ -109,7 +113,7 @@ class Parent extends Component {
   }
 
   closeMenu = () => {
-    this.child.current.onChangeSub('close');
+    this.child.current.onChangeSub("close");
   };
 
   render() {

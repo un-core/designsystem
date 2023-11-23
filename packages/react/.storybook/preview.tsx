@@ -15,32 +15,9 @@ export const parameters = {
     //theme: ensure(themes.dark),
     //page: DocsPage,
   },
-  previewTabs: {
-    "storybook/docs/panel": {
-      index: -1,
-      title: "Documentation",
-    },
-    canvas: { title: "Code", hidden: false },
-  },
   options: {
     storySort: {
-      order: [
-        "Getting started",
-        [
-          "Intro",
-          "Installing the Kit",
-          "Using the Kit",
-          "Recommended libraries",
-          "Design resources",
-          "Browser support",
-          "What's new",
-          "Support and Feedback",
-          "Credits",
-        ],
-        "Documentation",
-        "Templates",
-        "Components",
-      ],
+      order: ["Getting started", "Documentation", "Templates", "Components"],
     },
   },
 };

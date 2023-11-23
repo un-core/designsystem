@@ -1,0 +1,41 @@
+---
+category: "Core"
+title: "Pagination"
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/Pagination"
+storybook: true
+mainComponent: "Pagination"
+---
+
+The `Pagination` component is designed to control the display of paginated data.
+
+It allows users to navigate through pages of data, offering a range of features like customizing the number of items per page, navigating backward and forward through the dataset, and displaying the current range of data being viewed.
+
+<DoUse>
+
+- Use `Pagination` when managing large datasets that need to be broken down into smaller, more manageable chunks.
+- Utilize the `itemsPerPageText` prop to indicate the number of items per page.
+- Leverage the `pageRangeText` and `itemRangeText` props for providing users with context on their current position within the data.
+
+</DoUse>
+
+<DoNotUse>
+
+- Avoid using `Pagination` for small datasets where pagination would add unnecessary complexity.
+- Do not use `Pagination` in a situation where the order or number of items per page should not be controlled by the user.
+
+</DoNotUse>
+
+## Content
+
+### Length
+
+`Pagination` is ideal for datasets that are too large to be displayed in one view. It breaks down the data into manageable parts based on the specified `pageSize`.
+
+### Order
+
+The component allows users to navigate data in a logical sequence, either backward or forward, providing a clear understanding of the dataset's structure and their location within it.
+
+### Text
+
+The component uses descriptive texts for navigation and displaying the current data range, enhancing usability and accessibility.

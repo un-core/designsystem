@@ -1,0 +1,127 @@
+@use "scss/meta" as *;
+
+.token {
+  background: $layer-primary;
+  margin-bottom: 1.5rem;
+  //padding: 1em;
+}
+
+.description {
+  width: 50%;
+}
+
+.color {
+  width: 3rem;
+  height: 2rem;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(#000, 0.05);
+}
+
+.value {
+  height: 2rem;
+  padding: 0 0.5rem;
+  font-size: 0.8em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: $layer-primary;
+}
+
+.preview {
+  //  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smallTokens {
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    margin-right: 0.3em;
+  }
+}
+
+.list {
+  // font-size: 0.7em;
+}
+
+.raw {
+  font-size: 0.5em;
+  line-height: 1em;
+  white-space: pre;
+}
+
+.tooltip {
+  min-width: 500px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+h5.tokenHeading {
+  font-size: 1em;
+  margin-top: 0.7em;
+  margin-bottom: 0.3em;
+}
+
+h1.heading {
+  font-size: 1.5em;
+  margin-top: 0.7em;
+  margin-bottom: 0em;
+}
+
+h3.name {
+  font-size: 1.5em;
+  margin-top: 0.1em;
+  margin-bottom: 0em;
+}
+
+.breadcrumb {
+  font-size: 0.9em;
+}
+
+.tooltipPreview {
+  width: 7rem;
+  height: 14rem;
+  margin-right: 1rem;
+}
+
+.tooltipColor {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.list {
+  :global(.wfp--list__element) {
+    margin-bottom: 0;
+  }
+  :global(.wfp--list__element__title) {
+    font-size: 0.6em;
+    margin-bottom: -0.5em;
+  }
+}
+
+.wcagScore {
+  display: flex;
+  font-size: 0.7em;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  > * {
+    padding: 0.3em;
+  }
+}
+
+.wcagScoreLabelWhite {
+  color: #fff;
+}

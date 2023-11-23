@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import { Close, CaretDown } from "@un/icons-react";
+import { Close, AngleDown } from "@un/icons-react";
 import useSettings from "../../hooks/useSettings";
 import useMainNavigation from "../MainNavigation/useMainNavigation";
 
@@ -73,7 +73,7 @@ const MainNavigationItem = ({
       menuItemId === activeMenuItem,
   });
 
-  const Icon = menuItemId === activeMenuItem ? Close : CaretDown;
+  const Icon = menuItemId === activeMenuItem ? Close : AngleDown;
 
   const subClasses = classNames({
     [`${prefix}--main-navigation__sub`]: true,

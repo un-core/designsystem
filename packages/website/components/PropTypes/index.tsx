@@ -1,4 +1,5 @@
 import {
+  Button,
   Checkbox,
   Select,
   SelectItem,
@@ -8,7 +9,7 @@ import {
 } from "@wfp/react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import * as unComponents from "@wfp/react";
+import * as wfpComponents from "@wfp/react";
 
 import reactElementToJSXString from "react-element-to-jsx-string";
 
@@ -49,20 +50,28 @@ export default function PropTypes({
   propTypes,
   view,
 }: any) {
-  const [showAllProps /* , setShowAllProps */] = useState(true);
+  const [showAllProps, setShowAllProps] = useState(true);
+
+  const componentsSourceProps =
+    componentsSource[mainComponent]?.default[
+      `${propTypes?.displayName}DefaultArgs`
+    ];
 
   const { register, watch, handleSubmit } = useForm({
-    defaultValues: defaultProps,
+    defaultValues: componentsSourceProps /* defaultProps */,
   });
 
   const componentsSourceText =
     componentsSource[mainComponent]?.default[
       `${propTypes?.displayName}Default`
     ];
+
   const sampleCode = extractJSX(componentsSourceText);
 
   /*     children?.props?.children?.props?.children || sampleCodeInput */ //if (!propTypes?.[0]) return null;
   const propList = propTypes?.props;
+
+  console.log("componentsSourceddd", propList, componentsSourceProps);
 
   /*Object.entries(propList).forEach((prop) => {
     componentProps[prop.name] =
@@ -75,12 +84,23 @@ export default function PropTypes({
     console.log(data);
   };
 
-  const options = "primary | secondary | dsaasdads | saddsa".replaceAll(
-    " ",
-    ""
-  );
+  // TODO: Add auto detection of options based on prop types
+  const options = "primary | secondary | tertiary".replaceAll(" ", "");
 
   const renderInput = (prop) => {
+    if (prop.type.name === "ButtonKind") {
+      return (
+        <Select
+          {...register(prop.name, { required: prop.required })}
+          defaultValue={prop.defaultValue && prop.defaultValue.value}
+        >
+          {Object.values(options.split("|")).map((kind, i) => (
+            <SelectItem key={i} value={kind} text={kind} />
+          ))}
+        </Select>
+      );
+    }
+    console.log("prop.type.name", prop);
     if (prop.type.name === "ButtonKind") {
       return (
         <Select
@@ -118,14 +138,15 @@ export default function PropTypes({
     // Add more input types based on prop types if needed
   };
 
-  const componentProps = {};
+  const componentProps: any = {};
   if (propList) {
     Object.values(propList).forEach(({ name, defaultValue }: any) => {
       componentProps[name] = propValues[name] || defaultValue?.value;
     });
   }
 
-  const MyComponent = unComponents[mainComponent];
+  console.log("componentProps", componentProps);
+  const MyComponent = wfpComponents[mainComponent];
   if (!MyComponent) return null;
 
   let propsAsList: any = [];
@@ -150,25 +171,35 @@ export default function PropTypes({
         // {...defaultProps}
         {...componentProps}
         // eslint-disable-next-line react/no-children-prop
-        children={undefined}
+        //childrenINTERN={componentProps.children}
       />,
       { filterProps: (val) => (val === undefined ? false : true) }
     )
       .replace(`<${mainComponent}`, ``)
-      .replace(`/>`, ``);
+      .replace(`</${mainComponent}>`, ``);
+    console.log("codecodecode", sampleCode, codeFiltered);
 
     code = sampleCode
       .replace("PROPS_HERE", codeFiltered)
       .replace("{...args}", codeFiltered);
   }
+
+  if (componentProps.children) {
+    code = code.replace("/>", `</${mainComponent}>`);
+  }
+
+  // TODO: MainNavigation replace improve string replace
+  code = code.replace(`/>>`, `>`);
+
   const componentList = [mainComponent, ...components].join(", ");
+
   code = `import { ${componentList} } from "@wfp/react";
 
 
 () => { 
-  const action = () => {}; return (${code})}`;
-
-  console.log("code", code);
+  ${
+    code.search("action") !== -1 ? "const action = () => {};" : ""
+  } return (${code})}`;
 
   if (view === "smallPreview") {
     return (
@@ -183,9 +214,9 @@ export default function PropTypes({
         <CodeBlockLive
           source={code}
           live
-          hideWrapper
+          //hideWrapper
           center
-          smallPreview
+          //smallPreview
           showEditor={!showAllProps}
         />
       </div>
@@ -201,7 +232,7 @@ export default function PropTypes({
       <CodeBlockLive
         source={code}
         live
-        hideWrapper
+        // hideWrapper
         center
         view={view}
         showEditor={!showAllProps}
@@ -211,15 +242,15 @@ export default function PropTypes({
           <MyComponent {...defaultProps} {...componentProps} />
         </div>
   )}*/}
-      {/*view !== "smallPreview" && (
+      {view !== "smallPreview" && (
         <Button
           kind="ghost"
           className={styles.showAllPropsButton}
           onClick={() => setShowAllProps(!showAllProps)}
         >
-          {showAllProps && view !== "propTable" ? "Show" : "Hide"} all props
+          {showAllProps && view !== "propTable" ? "Show" : "Hide"} code
         </Button>
-      )*/}
+      )}
       {view === "propsTable" && (
         <form onSubmit={handleSubmit(onSubmit)}>
           {view === "propsTable" && (
@@ -235,11 +266,6 @@ export default function PropTypes({
               </thead>
               <tbody>
                 {propsAsList.map((prop: any) => {
-                  console.log(
-                    "formatTypes(prop.type.name)",
-                    formatTypes(prop.type.name)
-                  );
-
                   return (
                     <tr key={prop.name}>
                       <td>

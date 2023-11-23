@@ -1,8 +1,12 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
-export interface LinkProps extends React.ComponentPropsWithRef<'a'> {
+export interface LinkProps extends React.ComponentPropsWithRef<"a"> {
+  /**
+   * Provide the content for the link element
+   */
+  children?: React.ReactNode;
   /**
    * Adds an underline to the link element to better indicate that it is clickable in continuous text. @design
    */
@@ -12,13 +16,17 @@ export interface LinkProps extends React.ComponentPropsWithRef<'a'> {
    */
   disabled?: boolean;
   /**
+   * Provide the href for the link element
+   */
+  href?: string;
+  /**
    * Indicates that the link has been visited.
    */
   visited?: boolean;
   /**
    * Choose a size for the link element @design
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   /**
    * Use an icon with the link element @design
    */
@@ -48,14 +56,15 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       [`${prefix}--link--${size}`]: size,
     });
 
-    const rel = other.target === '_blank' ? 'noopener' : undefined;
+    const rel = other.target === "_blank" ? "noopener" : undefined;
     return (
       <a
         href={disabled ? undefined : href}
         className={classes}
         rel={rel}
         ref={ref}
-        {...other}>
+        {...other}
+      >
         {children}
         {Icon && (
           <div className={`${prefix}--link__icon`}>
@@ -111,6 +120,6 @@ const Linkd = React.forwardRef<HTMLButtonElement, LinkProps>((props, ref) => {
   );
 });*/
 
-Link.displayName = 'Link';
+Link.displayName = "Link";
 
 export default Link;

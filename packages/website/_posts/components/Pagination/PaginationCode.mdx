@@ -1,0 +1,23 @@
+---
+category: "Core"
+title: "Pagination"
+slug: "Components/UI elements/Pagination/tab:Code"
+storybook: true
+mainComponent: "Pagination"
+---
+
+## Example
+
+```jsx
+<Pagination
+  backwardText="Backward"
+  forwardText="Forward"
+  itemsPerPageText="Items per page:"
+  itemRangeText={(min, max, total) => `${min}-${max} of ${total} items`}
+  pageRangeText={(current, total) => `${current} of ${total} pages`}
+  pageSizes={[5, 10, 20]}
+  totalItems={100}
+/>
+```
+
+This example sets up a `Pagination` component for navigating through 100 items, with options to display 5, 10, or 20 items per page.

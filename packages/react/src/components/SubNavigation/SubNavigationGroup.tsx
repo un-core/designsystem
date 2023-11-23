@@ -3,7 +3,7 @@ import classNames from "classnames";
 import useSettings from "../../hooks/useSettings";
 
 interface SubNavigationGroupProps
-  extends React.ComponentPropsWithoutRef<"div"> {
+  extends Omit<React.ComponentPropsWithRef<"div">, "title"> {
   /**
    * Specify a the content of the SubNavigationGroup
    */

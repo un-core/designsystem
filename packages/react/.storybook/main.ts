@@ -1,20 +1,21 @@
+import { dirname, join } from "path";
 import type { StorybookConfig } from "@storybook/react";
+import { addons } from "@storybook/manager-api";
+
 const config: StorybookConfig = {
   stories: ["../src/**/*stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-  core: {
-    builder: "@storybook/builder-vite",
-  },
+  core: {},
   addons: [
-    "@storybook/blocks",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    // "@storybook/preset-create-react-app",
-    "@storybook/addon-interactions",
+    getAbsolutePath("@storybook/blocks"),
+    getAbsolutePath("@storybook/addon-links"),
+    getAbsolutePath("@storybook/addon-essentials"),
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: getAbsolutePath("@storybook/react-vite"),
+    options: {}
   },
-  /* typescript: {
+  /*
+  typescript: {
     check: false,
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
@@ -23,15 +24,19 @@ const config: StorybookConfig = {
       propFilter: (prop) =>
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
-  },*/
-  /*webpackFinal: async (config, { configType }) => {
-    const tsConfigIndex = config.plugins.findIndex(
-      (v) => v.constructor.name === 'ForkTsCheckerWebpackPlugin'
-    );
-    config.plugins.splice(tsConfigIndex, 1);
-    return config;
-  },*/ docs: {
+  },
+  */
+  docs: {
     autodocs: true,
   },
 };
+
+addons.setConfig({
+  panelPosition: "bottom",
+});
+
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}

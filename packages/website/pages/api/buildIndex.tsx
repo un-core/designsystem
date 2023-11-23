@@ -1,10 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 // const dotenv = require("dotenv");
-import algoliasearch from 'algoliasearch/lite';
-import { getAllPosts } from '../../lib/getPost';
+import algoliasearch from "algoliasearch/lite";
+import { getAllPosts } from "../../lib/getPost";
 
 type Data = {
-  name: string;
+  success: boolean;
+  message: string;
 };
 
 function transformPostsToSearchObjects(posts) {
@@ -28,12 +29,12 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const posts = await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'excerpt',
-    'author',
-    'content',
+    "title",
+    "date",
+    "slug",
+    "excerpt",
+    "author",
+    "content",
   ]);
 
   const transformed = transformPostsToSearchObjects(posts);
@@ -45,7 +46,7 @@ export default async function handler(
   );
 
   // initialize the index with your index name
-  const index: any = client.initIndex('ui-docs');
+  const index: any = client.initIndex("ui-docs");
 
   await index.clearObjects();
 
@@ -57,9 +58,12 @@ export default async function handler(
     `🎉 Sucessfully added ${
       algoliaResponse.objectIDs.length
     } records to Algolia search. Object IDs:\n${algoliaResponse.objectIDs.join(
-      '\n'
+      "\n"
     )}`
   );
 
-  res.status(200).json({ name: 'John Doe' });
+  res.status(200).json({
+    success: true,
+    message: `Sucessfully added ${algoliaResponse.objectIDs.length}`,
+  });
 }

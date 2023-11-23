@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import markdown from './README.mdx';
-import Checkbox from '.';
-import InputGroup from '../InputGroup';
+import React, { useState } from "react";
+import markdown from "./README.mdx";
+import Checkbox from ".";
+import InputGroup from "../InputGroup";
 
 export default {
-  title: 'Components/Forms/Checkbox',
+  title: "Components/Forms/Checkbox",
   component: Checkbox,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => <Checkbox {...args} />;
+export const CheckboxDefault = (args) => <Checkbox {...args} />;
 
-Regular.args = {
-  labelText: 'Label text',
-  id: 'check-1',
+CheckboxDefault.args = {
+  labelText: "Label text",
+  id: "check-1",
 };
+
 const regularsourcecode = `
 import { Checkbox } from "@wfp/react";
 
@@ -28,7 +29,7 @@ import { Checkbox } from "@wfp/react";
 />
 `;
 
-Regular.story = {
+CheckboxDefault.story = {
   parameters: {
     docs: {
       source: {
@@ -51,8 +52,8 @@ export const CheckedInput = (args) => {
 };
 
 CheckedInput.args = {
-  labelText: 'Checked Input',
-  id: 'check-2',
+  labelText: "Checked Input",
+  id: "check-2",
 };
 
 const check = `Specify whether the underlying input should be checked.`;
@@ -68,9 +69,9 @@ CheckedInput.story = {
 export const Indeterminate = (args) => <Checkbox {...args} />;
 
 Indeterminate.args = {
-  labelText: 'Indeterminate Input',
+  labelText: "Indeterminate Input",
   indeterminate: true,
-  id: 'check-3',
+  id: "check-3",
 };
 
 const indeterminate = `Is a state that is neither checked nor unchecked. It’s that in-between state that we might consider the “Maybe” between “Yes” and “No” options`;
@@ -86,9 +87,9 @@ Indeterminate.story = {
 export const DisabledInput = (args) => <Checkbox {...args} />;
 
 DisabledInput.args = {
-  labelText: 'Disabled Input',
+  labelText: "Disabled Input",
   disabled: true,
-  id: 'check-4',
+  id: "check-4",
 };
 
 const disabled = `Specify whether the Checkbox should be interactive or not`;
@@ -104,9 +105,9 @@ DisabledInput.story = {
 export const HideLabel = (args) => <Checkbox {...args} />;
 
 HideLabel.args = {
-  labelText: 'Hidden Label',
+  labelText: "Hidden Label",
   hideLabel: true,
-  id: 'check-5',
+  id: "check-5",
 };
 
 const nolabel = `Specify whether the label should be hidden or not`;
@@ -123,7 +124,8 @@ export const VerticalGrouping = (args) => (
   <InputGroup
     helperText="select any that apply"
     labelText="Programming language preference"
-    vertical>
+    vertical
+  >
     <Checkbox {...args} defaultChecked labelText="ReactJs" id="react" />
     <Checkbox {...args} defaultChecked labelText="ReactNative" id="native" />
     <Checkbox {...args} labelText="Node.js" id="node" />
@@ -160,7 +162,8 @@ VerticalGrouping.story = {
 export const HorizontalGrouping = (args) => (
   <InputGroup
     helperText="select any that apply"
-    labelText="Programming language preference">
+    labelText="Programming language preference"
+  >
     <Checkbox {...args} defaultChecked labelText="ReactJs" id="react1" />
     <Checkbox {...args} defaultChecked labelText="ReactNative" id="native1" />
     <Checkbox {...args} labelText="Node.js" id="node1" />

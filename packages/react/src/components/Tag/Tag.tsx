@@ -1,21 +1,21 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 //import { TagType } from '../../typesLegacy/utils';
 
 const TYPES = {
-  info: 'Info',
-  error: 'error',
-  success: 'Success',
-  warning: 'Warning',
-  custom: 'Custom',
+  info: "Info",
+  error: "error",
+  success: "Success",
+  warning: "Warning",
+  custom: "Custom",
 };
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Specify the type of Tag @design
    */
-  type?: 'wfp' | 'info' | 'error' | 'success' | 'warning' | 'custom' | string;
+  type?: "wfp" | "info" | "error" | "success" | "warning" | "custom" | string;
 
   /**
    * LEGACY: Specify if the Tag should be wrapped if it is too long
@@ -28,7 +28,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 const Tag: React.FC<TagProps> = ({
   children,
   className,
-  type = 'info',
+  type = "info",
   ...other
 }) => {
   const { prefix } = useSettings();
@@ -41,6 +41,6 @@ const Tag: React.FC<TagProps> = ({
   );
 };
 
-Tag.displayName = 'Tag';
+Tag.displayName = "Tag";
 
 export default Tag;

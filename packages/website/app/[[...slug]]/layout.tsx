@@ -1,12 +1,10 @@
+import React from "react";
 import "../../scss/style.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-
 import { Open_Sans } from "next/font/google";
-
 import "@fortawesome/fontawesome-svg-core/styles.css";
-
-import React from "react";
+import { WFPCoreProviderClient } from "./WFPCoreProviderClient";
 
 config.autoAddCss = false;
 
@@ -17,15 +15,16 @@ const openSans = Open_Sans({
 
 export default function RootLayout({
   children,
-}: // params,
-{
+}: {
   children: React.ReactNode;
   params: any;
 }) {
   return (
     <html lang="en">
       <head />
-      <body className={openSans.className}>{children}</body>
+      <body className={openSans.className}>
+        <WFPCoreProviderClient>{children}</WFPCoreProviderClient>
+      </body>
     </html>
   );
 }

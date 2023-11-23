@@ -15,6 +15,7 @@ import ComponentsList from "./ComponentsList";
 import { H1, H2, H3, H4, H5 } from "./Headings";
 import IconList from "./Icons/IconListNew";
 import PropTypes from "../../PropTypes";
+import TokenExplorer from "./TokenExplorer";
 import {
   AddonBefore,
   AddonAfter,
@@ -70,6 +71,7 @@ const components = {
   h3: H3,
   h4: H4,
   h5: H5,
+  TokenExplorer: TokenExplorer,
   //wrapper: Wrapper,
 };
 

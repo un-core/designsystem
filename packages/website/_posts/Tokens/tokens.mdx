@@ -1,11 +1,11 @@
 ---
-title: 'Design Tokens'
-excerpt: 'Tokens are used in our build system to allow us to define styles once. This way they can be consumed across all plattforms and keep the design system consistent.'
-coverImage: '../sample-image.jpg'
-slug: 'Documentation/Guidelines/Tokens'
-figma: 'https://figma.com'
-github: 'https://github.com/component'
-storybook: 'https://uikit.wfp.org/next-docs/index.html?path=/docs/components-button--button-regular'
+title: "Design Tokens"
+excerpt: "Tokens are used in our build system to allow us to define styles once. This way they can be consumed across all plattforms and keep the design system consistent."
+coverImage: "../sample-image.jpg"
+slug: "Documentation/Guidelines/Tokens"
+figma: "https://figma.com"
+github: "https://github.com/component"
+storybook: "https://uikit.wfp.org/next-docs/index.html?path=/docs/components-button--button-regular"
 ---
 
 ### Introduction
@@ -88,7 +88,7 @@ We are using `scss` to define the css/styles of the components. This level is no
 @mixin page-title {
   color: $text-primary;
   font-size: $font-size-02;
-  @include breakpointUp('md') {
+  @include breakpointUp("md") {
     font-size: $font-size-03;
   }
 }
@@ -128,7 +128,7 @@ TODO: Add content
 All tokens can be directly imported in to your project. Use the following code to access them:
 
 ```jsx
-import { defaultTheme } from '@un/theme';
+import { defaultTheme } from "@un/theme";
 
 const { colors } = defaultTheme;
 
@@ -151,7 +151,7 @@ const App = () => (
 ### Usage in css
 
 ```css
-@import '@un/theme/scss/variables';
+@import "@un/theme/scss/variables";
 
 body {
   background-color: $primary-background;
@@ -159,8 +159,6 @@ body {
 
 //TODO: Check code
 ```
-
-TODO: List all Tokens
 
 ### Reference
 

@@ -19,6 +19,7 @@ export default async function getPostContent(params: any) {
     "category",
     "title",
     "date",
+    "status",
     "slug",
     "intro",
     "subtitle",
@@ -33,7 +34,7 @@ export default async function getPostContent(params: any) {
     "sampleCode",
   ]);
 
-  const slugs = await getPostSlugs();
+  const slugs: any = await getPostSlugs();
   const foundSlug = params.slug
     ? slugs.find(
         (f) =>
@@ -44,10 +45,13 @@ export default async function getPostContent(params: any) {
       )
     : null;
 
+  console.log("foundSlug", foundSlug, params.slug, slugs);
+
   const post: any = foundSlug?.path
     ? getPostByPath(foundSlug.path, [
         "title",
         "date",
+        "status",
         "slug",
         "intro",
         "subtitle",
@@ -66,6 +70,7 @@ export default async function getPostContent(params: any) {
         "storybook",
       ])
     : {};
+
   const content = post?.content || "";
 
   const mdxSource = await serialize(post.content, {

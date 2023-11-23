@@ -27,8 +27,21 @@ import PropTypes from "../PropTypes";
 import NextTab from "./NextTab";
 import SidebarNavigation from "./SidebarNavigation";
 import { useParams } from "next/navigation";
-import removeSegmentIfMatch from "../../lib/removeSegementsFromUrl";
 import { createSlug } from "../Blog/Mdx/Headings";
+
+const statuses = {
+  draft: { title: "Draft", type: "warning" },
+  designOnly: { title: "Design only", type: "info" },
+  published: { title: "Published", type: "success" },
+  deprecated: { title: "Deprecated", type: "danger" },
+};
+
+// Function to extract the main slug, excluding parts starting with "tab:"
+const extractMainSlug = (slug) =>
+  slug
+    .split("/")
+    .filter((part) => !part.startsWith("tab:"))
+    .join("/");
 
 interface SidebarWrapperProps {
   content?: any;
@@ -54,29 +67,35 @@ export default function SidebarWrapper({
 }: SidebarWrapperProps) {
   const params = useParams();
 
-  const lastUrlPath = params?.slug ? params.slug[params.slug.length - 1] : "";
+  // Extract the last path segment from the URL
+  const lastUrlPath = params?.slug?.at(-1) || "";
+  if (!post.slug) return null;
+
+  const mainSlug = extractMainSlug(post.slug);
+
+  let filteredPosts = posts.filter((p) => {
+    const postMainSlug = extractMainSlug(p.slug);
+    return mainSlug === postMainSlug && p.slug.includes("tab:");
+  });
+
+  console.log("post.slug", post.slug, filteredPosts);
+
+  let codeAlreadySet = false;
+
+  filteredPosts = filteredPosts.map((p) => {
+    if (p.slug.includes("tab:Code")) {
+      if (codeAlreadySet) {
+        p.slug = p.slug.replace("tab:Code", "tab:Props");
+      }
+      codeAlreadySet = true;
+    }
+    return p;
+  });
+
   if (!post?.slug) return null;
 
-  console.log("propTypes", propTypes);
   return (
     <>
-      {/*<NextSeo
-        title={post.title}
-        description="Digital Design System"
-        openGraph={{
-          url: process.env.NEXT_PUBLIC_DOMAIN,
-          title: post.title,
-          description: post.excerpt,
-          images: [
-            {
-              url: `${process.env.NEXT_PUBLIC_DOMAIN}api/og?title=${post.title}`,
-              alt: "Foto",
-            },
-          ],
-          type: "website",
-          site_name: process.env.NEXT_PUBLIC_DOMAIN,
-        }}
-      /> */}
       <Wrapper className={styles.sidebarWrapper} pageWidth="lg">
         <div className={styles.sidebar}>
           <SidebarNavigation posts={posts} post={post} slug={post.slug} />
@@ -111,48 +130,30 @@ export default function SidebarWrapper({
               })}
           </Breadcrumb>
 
-          <Tag type="warning" className={styles.status}>
-            Draft component
-          </Tag>
+          {post?.status && (
+            <Tag type={statuses[post?.status].type} className={styles.status}>
+              {statuses[post?.status].title}
+            </Tag>
+          )}
           <Text kind="story-title">{post?.title}</Text>
 
           {post.subtitle && <Text kind="story-subtitle">{post.subtitle}</Text>}
 
-          {post.mainComponent && (
+          {filteredPosts.length >= 1 && (
             <Tabs className={styles.tabs}>
-              <NextTab
-                href={`/${removeSegmentIfMatch(slugifyWithSlashes(post.slug))}`}
-              >
-                Usage
-              </NextTab>
-              {posts.find((p) =>
-                p.slug.includes(`${removeSegmentIfMatch(post.slug)}/code`)
-              ) && (
-                <NextTab
-                  href={`/${removeSegmentIfMatch(
-                    slugifyWithSlashes(post.slug)
-                  )}/code`}
-                >
-                  Code
+              <NextTab href={`/${slugifyWithSlashes(mainSlug)}`}>Usage</NextTab>
+              {filteredPosts.map((p, key) => (
+                <NextTab key={key} href={`/${slugifyWithSlashes(p.slug)}`}>
+                  {p.slug.split("/").pop().replace("tab:", "")}
                 </NextTab>
-              )}
-
-              {propTypes && propTypes.length > 0 && (
-                <NextTab
-                  href={`/${removeSegmentIfMatch(
-                    slugifyWithSlashes(post.slug)
-                  )}/props`}
-                >
-                  Props
-                </NextTab>
-              )}
+              ))}
             </Tabs>
           )}
 
           <div className={styles.excerpt}>
             {post.mdxExcerptSource &&
               lastUrlPath !== "props" &&
-              lastUrlPath !== "code" && (
+              lastUrlPath !== "Code" && (
                 <MDXRemote {...post.mdxExcerptSource} components={components} />
               )}
           </div>
@@ -161,7 +162,12 @@ export default function SidebarWrapper({
             <>
               {propTypes.map((p: any, i: number) => (
                 <>
-                  <h3 id={createSlug(p.displayName)}>{p.displayName}</h3>
+                  <h3
+                    id={createSlug(p.displayName)}
+                    className={styles.propTitle}
+                  >
+                    {p.displayName}
+                  </h3>
                   <PropTypes
                     key={i}
                     propTypes={p}

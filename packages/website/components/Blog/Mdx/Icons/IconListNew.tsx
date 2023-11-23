@@ -1,22 +1,22 @@
 /* eslint-disable no-console */
 
-import React from 'react';
+import React from "react";
 import {
   Button,
   Module,
   ModuleFooter,
   Tooltip,
   tooltipStyle,
-} from '@wfp/react';
-import { Download } from '@un/icons-react';
+} from "@wfp/react";
+import { Download } from "@un/icons-react";
 
-import styles from './icon-list.module.scss';
+import styles from "./icon-list.module.scss";
 
-import * as icons from '@un/icons-react';
-import * as pictograms from '@un/pictograms-react';
+import * as icons from "@un/icons-react";
+import * as pictograms from "@un/pictograms-react";
 
-import * as humanitarianIcons from '@un/humanitarian-icons-react';
-import { CodeBlock } from '../CodeBlockLive';
+import * as humanitarianIcons from "@un/humanitarian-icons-react";
+import { CodeBlock } from "../CodeBlockLive";
 
 const iconList = {
   icons,
@@ -48,39 +48,44 @@ const IconPreview = ({ icon, name }: any) => {
             icon={Download}
             href={`https://github.com/un-core/designsystem/tree/develop/packages/${name}/src/svg`}
             //target="_blank"
-            small>
+            small
+          >
             View on GitHub
           </Button>
         </div>
       }
       trigger="click"
-      {...tooltipStyle}>
+      {...tooltipStyle}
+    >
       <div
         style={{
-          width: '20%',
-        }}>
+          width: "20%",
+        }}
+      >
         <Module light withHover className={styles.module}>
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
 
-              height: '95px',
-              margin: '0.5em',
-            }}>
-            {Icon && <Icon style={{ fontSize: '2em' }} />}
+              height: "95px",
+              margin: "0.5em",
+            }}
+          >
+            {Icon && <Icon style={{ fontSize: "2em" }} />}
           </div>
           <ModuleFooter
             style={{
-              padding: '0.2em',
-              fontSize: '0.45em',
-              textAlign: 'center',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minHeight: '2rem',
-            }}>
+              padding: "0.2em",
+              fontSize: "0.45em",
+              textAlign: "center",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "2rem",
+            }}
+          >
             <span>{key}</span>
           </ModuleFooter>
         </Module>

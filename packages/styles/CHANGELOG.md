@@ -3,9 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 10.26.89 (2023-10-24)
+# 10.27.0 (2023-11-06)
 
-**Note:** Version bump only for package @wfp/styles
+
+### Features
+
+* **website:** added color contrast checker ([cc12261](https://github.com/wfp/designsystem/commit/cc122617dc46fcfe8c8913b405837d549ad2f8f0))
+
+
+
+
+
+## 10.26.90 (2023-11-06)
+
+
+### Bug Fixes
+
+* **website:** types fixed in TokenExplorer ([69f0514](https://github.com/wfp/designsystem/commit/69f051402c3fe011e026aae5ffee006c9412ae8f))
+
+
+
+
+
+## 10.26.89 (2023-10-31)
+
+
+### Bug Fixes
+
+* **website:** build type errors fixed ([c72a344](https://github.com/wfp/designsystem/commit/c72a3440fc4ef3f29fdacb24e853e315bc54fe0b))
 
 
 

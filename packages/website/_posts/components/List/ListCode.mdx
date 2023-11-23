@@ -1,0 +1,80 @@
+---
+category: "Core"
+title: "List"
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/List/tab:Code"
+storybook: true
+mainComponent: "List"
+components: ["ListItem"]
+---
+
+Common `ListBaseProps` for all kinds of lists:
+
+| Property | Type                       | Default | Description                                                       |
+| -------- | -------------------------- | ------- | ----------------------------------------------------------------- |
+| `colon`  | `boolean`                  | `false` | If `true`, colons will be displayed in the List items.            |
+| `kind`   | `string` (see kinds below) | `null`  | Specifies the visual presentation style of the List.              |
+| `small`  | `boolean`                  | `false` | If `true`, renders the List with a smaller font size and padding. |
+
+#### Kinds of Lists:
+
+- `unstyled`
+- `simple-inline`
+- `simple`
+- `details`
+- `unordered`
+- `ordered`
+- `tooltip`
+- `bullets`
+
+TODO: Add more examples for each kind.
+
+#### Extended Props:
+
+Depending on the `kind` of list chosen, the component may also accept all standard attributes for either an `<ul>` or a `<ol>` tag.
+
+### Usage
+
+#### Basic Usage:
+
+```jsx
+import { List } from "@wfp/react";
+
+<List>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  {/* ... */}
+</List>;
+```
+
+#### Using Different Kinds:
+
+```jsx
+<List kind="ordered">
+  <li>First Item</li>
+  <li>Second Item</li>
+</List>
+
+<List kind="bullets">
+  <li>Bullet 1</li>
+  <li>Bullet 2</li>
+</List>
+```
+
+#### Displaying Colons:
+
+```jsx
+<List colon={true}>
+  <li>Item with colon</li>
+  <li>Another item with colon</li>
+</List>
+```
+
+#### Using Small Styling:
+
+```jsx
+<List small={true}>
+  <li>Small styled item</li>
+  <li>Another small styled item</li>
+</List>
+```

@@ -1,22 +1,23 @@
-import React from 'react';
-import User from '.';
-import { List, ListItem } from '../List';
+import React from "react";
+import User from ".";
+import { List, ListItem } from "../List";
 
 export default {
-  title: 'Components/UI Elements/User',
+  title: "Components/UI Elements/User",
   component: User,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
   },
 };
 
-export const Regular = (args) => <User {...args} />;
+export const UserDefault = (args) => <User {...args} />;
 
-Regular.args = {
-  children: 'Max Mustermann',
+UserDefault.args = {
+  name: "Max Mustermann",
+  showName: true,
   image:
-    'https://www.wfp.org/sites/default/files/styles/page_accordion/public/images/ourwork_humanitarian.jpg?itok=R0ymBwxH',
+    "https://www.wfp.org/sites/default/files/styles/page_accordion/public/images/ourwork_humanitarian.jpg?itok=R0ymBwxH",
 };
 
 export const AvatarOnly = (args) => (

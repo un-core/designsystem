@@ -22,20 +22,18 @@ export async function getPostSlugs() {
   const files = await getFiles(postsDirectory);
 
   const filesFiltered = files.filter(el => extname(el) === '.mdx');
+  const results : any = [];
 
-  const results = filesFiltered.map(f => {
+  filesFiltered.map(f => {
     const fileContents = fs.readFileSync(f, 'utf8');
     const { data } = matter(fileContents);
-    return {slug: data.slug, path: f};
+    results.push({slug: data.slug.replace("tab:", ""), path: f});
+    if(data.slug.includes("/tab:Code")) {
+      results.push({slug: data.slug.replace("tab:Code", "Props"), path: f});
+    }
   });
 
-
-  const resultsWithCode = filesFiltered.map(f => {
-    const fileContents = fs.readFileSync(f, 'utf8');
-    const { data } = matter(fileContents);
-    return {slug: data.slug + "/props", path: f};
-  });
- return [...results, ...resultsWithCode];
+ return results;
 }
 
 

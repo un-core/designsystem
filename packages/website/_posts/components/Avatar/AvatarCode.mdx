@@ -1,0 +1,42 @@
+---
+category: "Core"
+title: "Avatar"
+slug: "Components/UI elements/Avatar/tab:Code"
+storybook: true
+mainComponent: "Avatar"
+---
+
+### Usage
+
+```jsx
+import { Avatar } from "@wfp/react";
+
+<Avatar image="user-image-url.jpg" name="John Doe" alt="John Doe's Avatar" />;
+```
+
+### Component Behavior
+
+- **Default Icon:** If the `image` prop is not provided and `missingImage` is set to "avatar", a default user icon is displayed.
+- **Initial Letter:** If the `image` prop is undefined and `missingImage` is "letter", an SVG with the user's initial letter is rendered.
+- **Custom Image:** If the `image` prop is provided, it is displayed as the user's avatar.
+
+### Styling
+
+- The component utilizes a CSS class naming scheme based on a `prefix` obtained from the `useSettings` hook. This prefix is prepended to various CSS class names for consistent styling across the design system.
+
+### Accessibility
+
+- The `alt` prop should be used to provide descriptive alternative text for the avatar image, enhancing accessibility for screen reader users.
+
+### Example
+
+```jsx
+<Avatar
+  image="https://example.com/avatar.jpg"
+  alt="User's name"
+  missingImage="avatar"
+  name="Jane Doe"
+/>
+```
+
+In this example, the `Avatar` component displays the image from the provided URL. If the URL is not available, it falls back to the default user icon. The `alt` text for the image is "User's name", and the user's name "Jane Doe" is used for generating the initial in the fallback letter mode.

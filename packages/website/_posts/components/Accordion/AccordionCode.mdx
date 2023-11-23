@@ -1,11 +1,11 @@
 ---
-category: 'Core'
-title: 'Accordion'
-excerpt: 'The accordion component allows the user to show and hide sections of related content on a page.'
-coverImage: '../sample-image.jpg'
-slug: 'Components/UI elements/Accordion/code'
+category: "Core"
+title: "Accordion"
+excerpt: "The accordion component allows the user to show and hide sections of related content on a page."
+coverImage: "../sample-image.jpg"
+slug: "Components/UI elements/Accordion/tab:Code"
 storybook: true
-mainComponent: 'Accordion'
+mainComponent: "Accordion"
 previewScale: 0.7
 sampleCode: >
   <Accordion>
@@ -50,7 +50,7 @@ sampleCode: >
 </PropTypes>
 
 ```jsx live
-import { Accordion, AccordionItem } from '@wfp/react';
+import { Accordion, AccordionItem } from "@wfp/react";
 
 <Accordion>
   <AccordionItem header="What is Lorem Ipsum?">
@@ -116,7 +116,8 @@ You may provide the `header` prop of `AccordionItem` with any JSX elements or Re
         visual form of a document.
       </p>
     </div>
-  }>
+  }
+>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
   incididunt ut labore et dolore magna aliqua.
 </AccordionItem>
@@ -148,13 +149,15 @@ export default function Example() {
         <button
           className="btn"
           // Toggle between open and close by omitting the second parameter
-          onClick={() => toggle('item-1')}>
+          onClick={() => toggle("item-1")}
+        >
           Toogle the first item
         </button>
         <button
           className="btn"
           // Open rather than toggling
-          onClick={() => toggle('item-3', true)}>
+          onClick={() => toggle("item-3", true)}
+        >
           Open the last item
         </button>
         <button className="btn" onClick={() => toggleAll(true)}>
@@ -166,18 +169,21 @@ export default function Example() {
         <button
           className="btn"
           // Omitting the boolean parameter means toggling
-          onClick={() => toggleAll()}>
+          onClick={() => toggleAll()}
+        >
           Toggle all items
         </button>
       </div>
 
       <ControlledAccordion
         // Forward the `providerValue` directly to `ControlledAccordion`
-        providerValue={providerValue}>
+        providerValue={providerValue}
+      >
         <AccordionItem
           header="What is Lorem Ipsum?"
           // Set an explicit `itemKey`
-          itemKey="item-1">
+          itemKey="item-1"
+        >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -185,7 +191,8 @@ export default function Example() {
           <button
             className="btn"
             // It also works within the `AccordionItem` children
-            onClick={() => toggle('item-3')}>
+            onClick={() => toggle("item-3")}
+          >
             Toggle the last item
           </button>
         </AccordionItem>
@@ -199,7 +206,8 @@ export default function Example() {
         <AccordionItem
           header="Why do we use it?"
           // Set an explicit `itemKey`
-          itemKey="item-3">
+          itemKey="item-3"
+        >
           Suspendisse massa risus, pretium id interdum in, dictum sit amet ante.
           Fusce vulputate purus sed tempus feugiat.
         </AccordionItem>
@@ -233,7 +241,8 @@ Both the `header` and `children` props of `AccordionItem` component support the 
 ```jsx
 <AccordionItem
   // Accessing item state by giving a function to the `header` prop
-  header={({ state }) => `Item expanded: ${state.isEnter}`}>
+  header={({ state }) => `Item expanded: ${state.isEnter}`}
+>
   {({ toggle }) => (
     <>
       <p>
@@ -267,13 +276,15 @@ The `onStateChange` event of `Accordion` can be used to listen to item state upd
   onStateChange={({ key, current }) => {
     if (current.isResolved)
       console.log(`${key} is expanded: ${current.isEnter}`);
-  }}>
+  }}
+>
   {items.map(({ header, content }, i) => (
     <AccordionItem
       key={i}
       header={header}
       // Explicitly set `itemKey` prop for each item
-      itemKey={`Item-${i + 1}`}>
+      itemKey={`Item-${i + 1}`}
+    >
       {content}
     </AccordionItem>
   ))}

@@ -1,0 +1,86 @@
+---
+category: "Core"
+title: "Footer"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/Footer"
+storybook: true
+previewScale: 0.4
+mainComponent: "Footer"
+---
+
+## Usage
+
+Footer is the second most important place where your basic site information and links should live. Users turn often to the footer to look for important information, such as contact details, or links to less prominent sections of the website (privacy policy, terms of use, etc).
+
+<DoUse>
+
+- Use when you want to share information like contacts details, privacy policy, terms of use, copyright.
+
+</DoUse>
+
+<DoNotUse>
+
+- The Footer component should only be used once per page at the end of the page.
+
+</DoNotUse>
+
+### External footer
+
+```jsx live forceFullWidth
+import { FooterExternal, Link  } from "@wfp/react";
+
+<FooterExternal
+    metaContent="Via C. G. Viola 68 Parco dei Medici, 00148 Rome, Italy"
+    metaLinks={
+      <>
+        <FooterMetaLink href="hh.com">First legal link</FooterMetaLink>
+        <FooterMetaLink href="hh.com">Second legal link</FooterMetaLink>
+      </>
+    }
+    productName={<span>Service{' '}<br />{' '}Marketplace</span>
+    >
+    <>
+      <LinksColumn title="Title">
+        <li className="wfp--links-column-link">
+          <Link>First link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Second link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Third link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fourth link</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fifth link</Link>
+        </li>
+      </LinksColumn>
+
+      <LinksColumn title="Title 2">
+        <li className="wfp--links-column-link">
+          <Link>First link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Second link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Third link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fourth link 2</Link>
+        </li>
+        <li className="wfp--links-column-link">
+          <Link>Fifth link 2</Link>
+        </li>
+      </LinksColumn>
+    </>
+  </FooterExternal>
+```
+
+## Related
+
+- [Link](?path=/docs/components-link--regular)
+- [Form](?path=/docs/components-form--regular)
+- [Button](?path=/docs/components-button--regular)

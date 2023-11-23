@@ -1,19 +1,19 @@
-import React from 'react';
-import markdown from './README.mdx';
-import InfoBar from '.';
-import Link from '../Link';
+import React from "react";
+import markdown from "./README.mdx";
+import InfoBar from ".";
+import Link from "../Link";
 
 export default {
-  title: 'Components/UI Elements/InfoBar',
+  title: "Components/UI Elements/InfoBar",
   component: InfoBar,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => (
+export const InfoBarDefault = (args) => (
   <InfoBar {...args}>
     InfoBar with content. <Link href="#">Click here</Link> to do Something.
   </InfoBar>
@@ -31,7 +31,7 @@ const infobarsourcecode = `
   </InfoBar>
 `;
 
-Regular.story = {
+InfoBarDefault.story = {
   parameters: {
     docs: {
       source: {

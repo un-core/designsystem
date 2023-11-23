@@ -1,28 +1,29 @@
-import React from 'react';
-import markdown from './README.mdx';
-import Empty from './Empty';
-import Button from '../Button';
+import React from "react";
+import markdown from "./README.mdx";
+import Empty from "./Empty";
+import Button from "../Button";
 //import { IllustrationsMovingVanWithBackground } from '@un/pictograms-react';
 
 export default {
-  title: 'Components/UI Elements/Empty',
+  title: "Components/UI Elements/Empty",
   component: Empty,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'experimental',
+    componentSubtitle: "Component",
+    status: "experimental",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => <Empty {...args} />;
+export const EmptyDefault = (args) => <Empty {...args} />;
 
-Regular.args = {
-  title: 'No entries found',
+EmptyDefault.args = {
+  title: "No entries found",
   children: `You haven't yet created an entry`,
-  kind: 'large',
-  // icon: <IllustrationsMovingVanWithBackground alt="Moving van" width="25rem" />,
-  button: <Button kind="accent">New entry</Button>,
+  kind: "large",
 };
+
+//   button: <Button kind="accent">New entry</Button>,
+// icon: <IllustrationsMovingVanWithBackground alt="Moving van" width="25rem" />,
 
 const emptysourcecode = `
 import { Empty, Button  } from "@wfp/react";
@@ -37,7 +38,7 @@ import { IllustrationsMovingVanWithBackground } from '@un/pictograms-react';
   You haven't yet created an entry
 </Empty>
 `;
-Regular.story = {
+EmptyDefault.story = {
   parameters: {
     docs: {
       source: {
