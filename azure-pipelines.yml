@@ -5,143 +5,86 @@ variables:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
 
 trigger:
-  - master
-  - next
-  - hotfix/*
-  - bugfix/*
-  - alpha/*
+  - main
   - feat/*
-  - un-core-v1
-  - main-bridge-website
 
-jobs:
-  - job: WFP_Design_System_publish
-    pool:
-      vmImage: "ubuntu-latest"
+pool:
+  vmImage: ubuntu-latest
 
-    variables:
-      NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
-      nextRelease: unknown
+steps:
+  - checkout: self
+    persistCredentials: true
 
-    steps:
-      - checkout: self
-        persistCredentials: true
-        clean:
+  - script: |
+      git config --global user.name "Azure Devops Pipeline"
+      git config --global user.email "robert.guehne@wfp.org"
+    displayName: Git config user
+  - task: CmdLine@2
+    displayName: Checkout $(branchName)
+    inputs:
+      script: "git checkout $(branchName)"
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "16.x"
+    displayName: "Install Node.js"
 
-      - script: |
-          git config --global user.name "Azure Devops Pipeline"
-          git config --global user.email "roberg.guehne@wfp.org"
-        displayName: Git config user
+  - task: DownloadSecureFile@1
+    name: npmrcFile
+    displayName: "Download CA certificate"
+    inputs:
+      secureFile: "npmrc"
+  - task: CmdLine@2
+    inputs:
+      script: cp $(npmrcFile.secureFilePath) ./.npmrc
 
-      - task: CmdLine@2
-        displayName: Checkout $(branchName) Original $(Build.SourceBranch)
-        inputs:
-          script: |
-            git fetch --all
-            git checkout $(branchName)
+  - script: |
+      npm run lerna:versionNoPush
+      git push --follow-tags origin HEAD:$(branchName)
+    displayName: "npm run lerna:version"
 
-      - task: NodeTool@0
-        inputs:
-          versionSpec: "18.x"
-        displayName: "Install Node.js"
+  - bash: echo "##vso[task.setvariable variable=yarnCacheDir;]$(yarn cache dir)"
+    displayName: Set yarn cache dir variable
 
-      - task: DownloadSecureFile@1
-        name: npmrcFile
-        displayName: "Download CA certificate"
-        inputs:
-          secureFile: "npmrc"
+  - script: |
+      npmVersionString=$(node -p "require('./lerna.json').version") 
+      echo "##vso[build.updatebuildnumber]$npmVersionString"
+    displayName: "set build number"
+  - task: CmdLine@2
+    inputs:
+      script: |
+        cp $(npmrcFile.secureFilePath) .npmrc
+        cp $(npmrcFile.secureFilePath) ./packages/helpers/.npmrc
+        ls -a
+        cat .npmrc
+  - task: Cache@2
+    inputs:
+      key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        yarn | "$(Agent.OS)"
+        yarn
+      path: $(yarnCacheDir)
+    displayName: Cache Yarn packages
 
-      - task: CmdLine@2
-        inputs:
-          script: cp $(npmrcFile.secureFilePath) ./.npmrc
+  - script: |
+      yarn install --frozen-lockfile
+    displayName: "yarn install"
 
-      - script: |
-          # Install urlencode function to encode reserved characters in passwords
-          sudo apt-get install gridsite-clients
-          # Create local mirror of Azure DevOps repository
-          git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror   
-          # Sync AWS CodeCommit repository
-          cd repo-mirror
-          git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
+  - script: |
+      yarn build
+    displayName: "yarn build"
 
-        displayName: "Sync repository with AWS CodeCommit"
-        env:
-          AZURE_REPO_URL: $(AZURE_REPO_URL)
-          AZURE_GIT_USERNAME: $(AZURE_GIT_USERNAME)
-          AZURE_GIT_PASSWORD: $(AZURE_GIT_PASSWORD)
-          AWS_REPO_URL: $(AWS_REPO_URL)
-          AWS_GIT_USERNAME: $(AWS_GIT_USERNAME)
-          AWS_GIT_PASSWORD: $(AWS_GIT_PASSWORD)
+  - script: |
+      npm run lerna:publishFromPackage
+    displayName: "lerna publish"
 
-      #    - task: CmdLine@2
-      #      displayName: Checkout $(Build.SourceBranchName)
-      #      inputs:
-      #        script: 'git checkout $(Build.SourceBranchName)'
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "./packages/web/cloudformation"
+      artifact: "memo-web-cloudformation"
+      publishLocation: "pipeline"
 
-      #    - script: |
-      #        npm config set '//registry.npmjs.org/:_authToken' "$(NPM_TOKEN)"
-      #      displayName: 'npm config set'
-
-      #    - task: npmAuthenticate@0
-      #      inputs:
-      #        workingFile: './.npmrc'
-
-      #    - task: Cache@2
-      #      inputs:
-      #        key: 'npm | "$(Agent.OS)" | package-lock.json'
-      #        path: "$(NPM_CACHE_FOLDER)"
-      #        restoreKeys: |
-      #          npm | "$(Agent.OS)"
-      #          npm
-      #      displayName: 'Cache NPM packages'
-      #        mkdir -p $(NPM_CACHE_FOLDER)
-      - script: |
-          yarn -v
-          yarn install
-        displayName: "yarn install"
-
-      #    - script: |
-      #        yarn test
-      #      displayName: 'yarn test'
-
-      - script: |
-          yarn build
-        displayName: "yarn build"
-        env:
-          FIGMA_TOKEN: $(FIGMA_TOKEN)
-
-      - script: |
-          npm run lerna:versionNoPush
-          git push --follow-tags origin HEAD:$(branchName)
-        displayName: "npm run lerna:version"
-
-      - script: |
-          npm run lerna:publishFromPackage
-        displayName: "lerna publish"
-
-      # - script: |
-      #      yarn publish:cli
-      #    displayName: 'yarn build:cli'
-      #    condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
-
-      #    - script: |
-      #        lerna version patch --yes
-      #      displayName: 'yarn build:alpha-cli'
-      #      condition: in(variables['Build.SourceBranch'], 'refs/heads/develop', 'refs/heads/next', 'refs/heads/un-core-v1')
-
-      # - script: |
-      #     lerna publish from-package --dist-tag alpha
-      #   displayName: 'yarn build:alpha-cli'
-      #condition: in(variables['Build.SourceBranch'], 'refs/heads/develop', 'refs/heads/next', 'refs/heads/un-core-v1')
-
-      - script: |
-          yarn publish:alpha-cli
-        displayName: "yarn publish:alpha-cli"
-
-      - powershell: |
-          echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"
-        name: setOutputVar
-#    - script: |
-#        npmVersionString=$(node -p "require('./packages/ui/package.json').version")
-#        echo "##vso[build.updatebuildnumber]$npmVersionString"
-#      displayName: 'set build number'
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "./packages/react"
+      artifact: "uncore-react"
+      publishLocation: "pipeline"
