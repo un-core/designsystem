@@ -20,17 +20,17 @@ steps:
       git config --global user.name "Azure Devops Pipeline"
       git config --global user.email "robert.guehne@wfp.org"
     displayName: Git config user
-    condition: 
+    condition:
 
   - task: CmdLine@2
     displayName: Git Branch $(branchName)
     inputs:
       script: "git branch -r"
 
-#  - task: CmdLine@2
-#    displayName: Checkout $(branchName)
-#    inputs:
-#      script: "git checkout develop" #$(branchName)
+  #  - task: CmdLine@2
+  #    displayName: Checkout $(branchName)
+  #    inputs:
+  #      script: "git checkout develop" #$(branchName)
   - task: NodeTool@0
     inputs:
       versionSpec: "16.x"
