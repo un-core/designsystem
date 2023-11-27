@@ -71,6 +71,8 @@ const CodeBlockLive = (props: any) => {
     reactHookForm,
   } = props;
   const [showHtml, setShowHtml] = useState(false);
+  const [showCode, setShowCode] = useState(showEditor);
+  const [rtl, setRtl] = useState(false);
   let code = source ? source : children ? children.trim() : "";
 
   if (reactHookForm)
@@ -179,11 +181,31 @@ const CodeBlockLive = (props: any) => {
       [stylesModule.notCenter]: !center,
       [stylesModule.fullWidth]: forceFullWidth,
       [stylesModule.normalWidth]: !forceFullWidth,
+      [stylesModule.rtl]: rtl,
       [`${stylesModule[view]}`]: view,
     });
 
     return (
       <div className={codeBlockClasses}>
+        {view !== "smallPreview" && (
+          <div className={stylesModule.buttons}>
+            <Button
+              kind="ghost"
+              className={stylesModule.showAllPropsButton}
+              onClick={() => setRtl(!rtl)}
+            >
+              RTL
+            </Button>
+            <Button
+              kind="ghost"
+              className={stylesModule.showAllPropsButton}
+              onClick={() => setShowCode(!showCode)}
+            >
+              {showCode && view !== "propTable" && "C"} code
+            </Button>
+          </div>
+        )}
+
         <LiveProvider
           code={formatedCode}
           scope={scope}
@@ -205,7 +227,7 @@ const CodeBlockLive = (props: any) => {
             </div>
           )}
 
-          {showEditor && (
+          {showCode && (
             <>
               <div className={stylesModule.liveEditor}>
                 <Button

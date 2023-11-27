@@ -1,12 +1,11 @@
-import React, { HTMLAttributes } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
-export interface SelectItemProps extends HTMLAttributes<HTMLOptionElement> {
+interface SelectItemProps extends React.ComponentPropsWithRef<"option"> {
   /**
    * Specify the value of the <SelectItem>
    */
-
   value?: string | number;
   /**
    * Specify an optional className to be applied to the node
@@ -26,14 +25,14 @@ export interface SelectItemProps extends HTMLAttributes<HTMLOptionElement> {
   text: string;
 }
 
-const SelectItem: React.FC<SelectItemProps> = ({
+function SelectItem({
   className,
   value,
   disabled,
   hidden,
   text,
   ...other
-}) => {
+}: SelectItemProps) {
   const { prefix } = useSettings();
   const selectItemClasses = classNames({
     [`${prefix}--select-option`]: true,
@@ -46,12 +45,13 @@ const SelectItem: React.FC<SelectItemProps> = ({
       className={selectItemClasses}
       value={value}
       disabled={disabled}
-      hidden={hidden}>
+      hidden={hidden}
+    >
       {text}
     </option>
   );
-};
+}
 
-SelectItem.displayName = 'SelectItem';
+SelectItem.displayName = "SelectItem";
 
 export default SelectItem;

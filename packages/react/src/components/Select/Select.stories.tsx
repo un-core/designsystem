@@ -1,30 +1,31 @@
-import React from 'react';
-import Select from './Select';
-import SelectItem from '../SelectItem';
-import markdown from './README.mdx';
+import React from "react";
+import Select from "./Select";
+import SelectItem from "../SelectItem";
+import markdown from "./README.mdx";
 
 export default {
-  title: 'Components/Forms/Dropdown/Select',
+  title: "Components/Forms/Dropdown/Select",
   component: Select,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const SelectDefault = (args) => {
-  return (
+export const SelectDefault: Story = {
+  render: (args) => (
     <Select {...args}>
       <SelectItem value="option-1" text="Option 1" />
       <SelectItem value="option-2" text="Option 2" />
     </Select>
-  );
+  ),
+  args: { labelText: "Label text", helperText: "This is a helper text" },
 };
 
 SelectDefault.args = {
-  labelText: 'Label text',
-  helperText: 'This is a helper text',
+  labelText: "Label text",
+  helperText: "This is a helper text",
 };
 
 const hello = `

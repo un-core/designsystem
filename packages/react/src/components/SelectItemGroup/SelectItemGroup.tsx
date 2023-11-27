@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
-interface SelectItemGroupProps extends HTMLAttributes<HTMLOptGroupElement> {
+interface SelectItemGroupProps extends React.ComponentPropsWithRef<"optgroup"> {
   /**
    * Provide the contents of your <SelectItemGroup>
    */
@@ -21,13 +21,13 @@ interface SelectItemGroupProps extends HTMLAttributes<HTMLOptGroupElement> {
   label: string;
 }
 
-const SelectItemGroup: React.FC<SelectItemGroupProps> = ({
+function SelectItemGroup({
   children,
   className,
   disabled,
   label,
   ...other
-}) => {
+}: SelectItemGroupProps) {
   const { prefix } = useSettings();
   const classes = classNames(`${prefix}--select-optgroup`, className);
   return (
@@ -35,18 +35,6 @@ const SelectItemGroup: React.FC<SelectItemGroupProps> = ({
       {children}
     </optgroup>
   );
-};
-
-// SelectItemGroup.propTypes = {
-//   children: PropTypes.node,
-//   className: PropTypes.string,
-//   disabled: PropTypes.bool,
-//   label: PropTypes.string.isRequired,
-// };
-
-// SelectItemGroup.defaultProps = {
-//   disabled: false,
-//   label: 'Provide label',
-// };
+}
 
 export default SelectItemGroup;

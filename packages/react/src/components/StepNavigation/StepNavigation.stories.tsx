@@ -1,65 +1,39 @@
-import React, { useState } from 'react';
-import StepNavigation from './StepNavigation';
-import StepNavigationItem from '../StepNavigationItem';
+import React, { useState } from "react";
+import StepNavigation from "./StepNavigation";
+import StepNavigationItem from "../StepNavigationItem";
 
 export default {
-  title: 'Components/Navigation/StepNavigation',
+  title: "Components/Navigation/StepNavigation",
   component: StepNavigation,
   subcomponents: { StepNavigationItem },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
   },
 };
 
-export const StepNavigationRegular = (args) => {
-  const [step, setStep] = useState(0);
-  return (
-    <>
-      <StepNavigation
-        {...args}
-        onSelectionChange={(e) => setStep(e)}
-        selectedPage={step}>
-        <StepNavigationItem
-          label="Item without Status"
-          helperText="dbsajjh"
-          page={0}
-        />
-        <StepNavigationItem label="Active Item" page={1} />
-        <StepNavigationItem
-          label="Not started Item"
-          page={2}
-          status="not-started"
-        />
-      </StepNavigation>
-    </>
-  );
-};
-
-StepNavigationRegular.args = {
-  children: 'StepNavigation',
-};
-
-StepNavigationRegular.story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
-        import { StepNavigation , StepNavigationItem } from "@wfp/react";
-        
-const StepNavigationExample = (args) => {
-  const [step, setStep] = useState(0);
-  return (
-    <StepNavigation onSelectionChange={(e) => setStep(e)} selectedPage={step}>
-      <StepNavigationItem label="Item without Status" page={0} />
+export const StepNavigationDefault: Story = {
+  render: (args) => (
+    <StepNavigation
+      {...args}
+      onSelectionChange={(e) => setStep(e)}
+      selectedPage={0}
+    >
+      <StepNavigationItem
+        label="Item without Status"
+        helperText="dbsajjh"
+        page={0}
+      />
       <StepNavigationItem label="Active Item" page={1} />
-      <StepNavigationItem label="Not started Item" page={2} status="not-started" />
-    </StepNavigation> 
-  ) 
-}
-      `,
-      },
-    },
+      <StepNavigationItem
+        label="Not started Item"
+        page={2}
+        status="not-started"
+      />
+    </StepNavigation>
+  ),
+  args: {
+    children: "StepNavigation",
   },
 };
 

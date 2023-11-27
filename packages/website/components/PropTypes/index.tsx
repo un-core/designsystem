@@ -3,6 +3,7 @@ import {
   Checkbox,
   Select,
   SelectItem,
+  Tag,
   Table,
   Text,
   TextInput,
@@ -39,6 +40,19 @@ function extractJSX(code) {
   }
 }
 
+function extractJSXFromRender(code) {
+  // Regular expression to match the pattern of the function and extract JSX
+  const pattern = /\s*=>\s*(<.*>);?/s;
+  if (!code) return null;
+  const match = code.match(pattern);
+
+  if (match && match[1]) {
+    return match[1].trim();
+  } else {
+    return "Pattern not found";
+  }
+}
+
 export default function PropTypes({
   defaultProps = {},
   mainComponent,
@@ -51,27 +65,29 @@ export default function PropTypes({
   view,
 }: any) {
   const [showAllProps, setShowAllProps] = useState(true);
-
-  const componentsSourceProps =
-    componentsSource[mainComponent]?.default[
-      `${propTypes?.displayName}DefaultArgs`
-    ];
-
-  const { register, watch, handleSubmit } = useForm({
-    defaultValues: componentsSourceProps /* defaultProps */,
-  });
+  const [rtl, setRtl] = useState(false);
 
   const componentsSourceText =
     componentsSource[mainComponent]?.default[
       `${propTypes?.displayName}Default`
     ];
 
-  const sampleCode = extractJSX(componentsSourceText);
+  const componentsSourceProps = componentsSourceText?.args
+    ? componentsSourceText.args
+    : componentsSource[mainComponent]?.default[
+        `${propTypes?.displayName}DefaultArgs`
+      ];
+
+  const { register, watch, handleSubmit } = useForm({
+    defaultValues: componentsSourceProps /* defaultProps */,
+  });
+
+  const sampleCode = componentsSourceText?.render
+    ? extractJSXFromRender(componentsSourceText.render)
+    : extractJSX(componentsSourceText);
 
   /*     children?.props?.children?.props?.children || sampleCodeInput */ //if (!propTypes?.[0]) return null;
   const propList = propTypes?.props;
-
-  console.log("componentsSourceddd", propList, componentsSourceProps);
 
   /*Object.entries(propList).forEach((prop) => {
     componentProps[prop.name] =
@@ -88,6 +104,30 @@ export default function PropTypes({
   const options = "primary | secondary | tertiary".replaceAll(" ", "");
 
   const renderInput = (prop) => {
+    console.log("propsss", prop);
+
+    if (
+      (prop.name === "kind" || prop.name === "type" || prop.name === "size") &&
+      prop.name.includes("|")
+    ) {
+      //const propOptionsList = inputString.split(" | ").map(s => s.replace(/"/g, ''));
+
+      return (
+        <Select
+          {...register(prop.name, { required: prop.required })}
+          defaultValue={prop.defaultValue && prop.defaultValue.value}
+        >
+          {Object.values(prop.type.name.split("|")).map((kind, i) => (
+            <SelectItem
+              key={i}
+              value={kind.replaceAll('"', "").replaceAll(" ", "")}
+              text={kind.replaceAll('"', "").replaceAll(" ", "")}
+            />
+          ))}
+        </Select>
+      );
+    }
+
     if (prop.type.name === "ButtonKind") {
       return (
         <Select
@@ -145,7 +185,6 @@ export default function PropTypes({
     });
   }
 
-  console.log("componentProps", componentProps);
   const MyComponent = wfpComponents[mainComponent];
   if (!MyComponent) return null;
 
@@ -189,7 +228,10 @@ export default function PropTypes({
   }
 
   // TODO: MainNavigation replace improve string replace
-  code = code.replace(`/>>`, `>`);
+  code = code
+    .replaceAll(`/>>`, `>`)
+    .replaceAll(` /> />`, `/>`)
+    .replaceAll(`/> />`, `/>`);
 
   const componentList = [mainComponent, ...components].join(", ");
 
@@ -227,10 +269,11 @@ export default function PropTypes({
     <div
       className={`${styles.preview} ${
         view === "smallPreview" ? styles.smallPreview : styles.normalPreview
-      }`}
+      } ${rtl ? styles.rtl : styles.ltr}`}
     >
       <CodeBlockLive
         source={code}
+        className={styles.codeBlock}
         live
         // hideWrapper
         center
@@ -242,15 +285,7 @@ export default function PropTypes({
           <MyComponent {...defaultProps} {...componentProps} />
         </div>
   )}*/}
-      {view !== "smallPreview" && (
-        <Button
-          kind="ghost"
-          className={styles.showAllPropsButton}
-          onClick={() => setShowAllProps(!showAllProps)}
-        >
-          {showAllProps && view !== "propTable" ? "Show" : "Hide"} code
-        </Button>
-      )}
+
       {view === "propsTable" && (
         <form onSubmit={handleSubmit(onSubmit)}>
           {view === "propsTable" && (
@@ -285,9 +320,15 @@ export default function PropTypes({
                       </td>
 
                       <td>
+                        {prop.description.includes("@deprecated") && (
+                          <Tag type="warning" className={styles.deprecated}>
+                            Deprecated
+                          </Tag>
+                        )}
                         <Markdown>
                           {prop.description
                             .replace("@design", "")
+                            .replace("@deprecated", "")
                             .replaceAll("\\", "")}
                         </Markdown>
 

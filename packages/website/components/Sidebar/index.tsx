@@ -78,7 +78,7 @@ export default function SidebarWrapper({
     return mainSlug === postMainSlug && p.slug.includes("tab:");
   });
 
-  console.log("post.slug", post.slug, filteredPosts);
+  console.log("post.slug", post.slug, propTypes);
 
   let codeAlreadySet = false;
 

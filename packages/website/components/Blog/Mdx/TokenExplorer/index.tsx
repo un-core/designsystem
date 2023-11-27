@@ -75,7 +75,8 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
     token.value &&
     token.filePath === "tokens/design-tokens.tokens.new.json"
   ) {
-    const tokenPath = token.path.slice(0, -1);
+    const tokenPath = token.path?.slice(0, -1);
+    if (!tokenPath) return null;
     return (
       <Tooltip
         interactive
@@ -110,6 +111,7 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
                 ))}
               </Breadcrumb>
               <h3 className={styles.name}>{token.name}</h3>
+              <p>{token.description}</p>
               <List kind="details" colon className={styles.list}>
                 <ListItem title="Value">
                   {typeof token.value === "string"

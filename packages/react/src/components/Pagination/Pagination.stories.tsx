@@ -12,10 +12,11 @@ export default {
   },
 };
 
-export const PaginationDefault = (args) => <Pagination {...args} />;
-
-PaginationDefault.args = {
-  pageSizes: [5, 20],
-  totalItems: 30,
-  onChange: () => {},
+export const PaginationDefault: Story = {
+  render: (args) => <Pagination {...args} />,
+  args: {
+    pageSizes: [5, 20],
+    totalItems: 30,
+    // onChange: () => {},
+  },
 };

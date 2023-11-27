@@ -20,8 +20,8 @@ export default {
   },
 };
 
-export const Regular = (args) => {
-  return (
+export const FooterDefault: Story = {
+  render: (args) => (
     <Footer {...args}>
       <div className="wfp--footer__info">
         <div className="wfp--footer__info__item">
@@ -32,12 +32,11 @@ export const Regular = (args) => {
         </div>
       </div>
     </Footer>
-  );
-};
-
-Regular.args = {
-  external: false,
-  metaContent: "2023 © World Food Programme",
+  ),
+  args: {
+    external: false,
+    metaContent: "2023 © World Food Programme",
+  },
 };
 
 const regularsourcecode = `

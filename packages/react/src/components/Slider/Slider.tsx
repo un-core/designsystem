@@ -6,7 +6,6 @@ import TextInput from "../TextInput";
 import { UseInputProps } from "../Input/useInput";
 
 /** Sliders provide a visual indication of adjustable content, where the user can move the handle along a horizontal track to increase or decrease the value. */
-
 interface SliderProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   /**
    * Specify an optional className to be applied to the form-item node
@@ -75,10 +74,6 @@ interface SliderProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   hideControls?: boolean;
 }
 
-const defaultFormatLabel = (value, label) => {
-  return typeof label === "function" ? label(value) : `${value}${label}`;
-};
-
 const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
   const {
     ariaLabelInput,
@@ -131,6 +126,10 @@ const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
         onChange(/*parseFloat(evt.target.value), */ evt);
       }
     }
+  };
+
+  const defaultFormatLabel = (value, label) => {
+    return typeof label === "function" ? label(value) : `${value}${label}`;
   };
 
   const numberInputClasses = classNames(

@@ -79,16 +79,6 @@ export const MainNavigationDefault = (args) => (
       </Link>
     </MainNavigationItem>
     <MainNavigationItem>
-      <Link href="https://go.docs.wfp.org" target="_blank">
-        Section 3
-      </Link>
-    </MainNavigationItem>
-    <MainNavigationItem>
-      <Link href="http://opweb.wfp.org" target="_blank">
-        Section 4
-      </Link>
-    </MainNavigationItem>
-    <MainNavigationItem>
       <Search
         kind="main"
         id="search-2"

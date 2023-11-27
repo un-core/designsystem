@@ -18,7 +18,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   type?: "wfp" | "info" | "error" | "success" | "warning" | "custom" | string;
 
   /**
-   * LEGACY: Specify if the Tag should be wrapped if it is too long
+   * Specify if the Tag should be wrapped if it is too long @deprecated
    */
   wrap?: boolean;
 }

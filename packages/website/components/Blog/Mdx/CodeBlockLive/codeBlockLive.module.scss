@@ -46,7 +46,7 @@
 }
 
 .previewInside {
-  padding: 1em;
+  padding: 2em 1em;
 }
 
 .smallPreview {
@@ -127,5 +127,11 @@
   }
   .preview {
     width: 1000px;
+  }
+}
+
+.rtl {
+  .previewWrapper {
+    direction: rtl;
   }
 }

@@ -15,21 +15,24 @@ export default {
   },
 };
 
-export const BreadcrumbRegular = (args) => (
-  <Breadcrumb {...args}>
-    <BreadcrumbItem>
-      <a href="/#">
-        <BreadcrumbHome />
-      </a>
-    </BreadcrumbItem>
-    <BreadcrumbItem href="#">Breadcrumb 2</BreadcrumbItem>
-    <BreadcrumbItem disableLink>Breadcrumb 3</BreadcrumbItem>
-  </Breadcrumb>
-);
+export const BreadcrumbDefault: Story = {
+  render: (args) => (
+    <Breadcrumb {...args}>
+      <BreadcrumbItem>
+        <a href="/#">
+          <BreadcrumbHome />
+        </a>
+      </BreadcrumbItem>
+      <BreadcrumbItem href="#">Breadcrumb 2</BreadcrumbItem>
+      <BreadcrumbItem disableLink>Breadcrumb 3</BreadcrumbItem>
+    </Breadcrumb>
+  ),
+  args: {},
+};
 
-export const BreadcrumbHomeRegular = (args) => <BreadcrumbHome {...args} />;
+export const BreadcrumbHomeDefault = (args) => <BreadcrumbHome {...args} />;
 
-export const BreadcrumbItemRegular = (args) => (
+export const BreadcrumbItemDefault = (args) => (
   <BreadcrumbItem {...args}>
     <a>Breadcrumb Item</a>
   </BreadcrumbItem>

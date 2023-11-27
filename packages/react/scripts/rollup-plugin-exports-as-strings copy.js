@@ -17,6 +17,26 @@ function containsComplexContent(node) {
   return false;
 }
 
+// New function to handle nested objects and arrays
+function processNestedElements(element) {
+  console.log(typeof element);
+  if (Array.isArray(element)) {
+    return `[${element.map(processNestedElements).join(", ")}]`;
+  } else if (element && typeof element === "object") {
+    const processedObject = {};
+    Object.keys(element).forEach((key) => {
+      processedObject[key] = processNestedElements(element[key]);
+    });
+    return `{${Object.entries(processedObject)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(", ")}}`;
+  } else if (typeof element === "function") {
+    return JSON.stringify(generate.default(element).code);
+  }
+
+  return element;
+}
+
 function evaluateProperty(property) {
   switch (property.type) {
     case "Literal":
@@ -24,10 +44,6 @@ function evaluateProperty(property) {
       return property.value;
     case "StringLiteral":
       // Specifically handles string literals, if they are distinct in your AST
-      return property.value;
-    case "NumericLiteral":
-      return property.value;
-    case "BooleanLiteral":
       return property.value;
     case "ObjectExpression":
       let obj = {};
@@ -47,26 +63,6 @@ function evaluateProperty(property) {
       console.warn("Unknown property type:", property.type);
       return null;
   }
-}
-
-// New function to handle nested objects and arrays
-function processNestedElements(element) {
-  console.log(typeof element);
-  if (Array.isArray(element)) {
-    return `[${element.map(processNestedElements).join(", ")}]`;
-  } else if (element && typeof element === "object") {
-    const processedObject = {};
-    Object.keys(element).forEach((key) => {
-      processedObject[key] = processNestedElements(element[key]);
-    });
-    return `{${Object.entries(processedObject)
-      .map(([key, value]) => `${key}: ${value}`)
-      .join(", ")}}`;
-  } else if (typeof element === "function") {
-    return JSON.stringify(generate.default(element).code);
-  }
-
-  return element;
 }
 
 function exportsAsStrings(options = {}) {
@@ -150,16 +146,6 @@ function exportsAsStrings(options = {}) {
             );
 
             exports[name] = JSON.stringify(object, null, 2); // Pretty print the JSON
-          } else if (
-            node.declaration.type === "FunctionDeclaration" ||
-            node.declaration.type === "VariableDeclaration"
-          ) {
-            const name = node.declaration.id
-              ? node.declaration.id.name
-              : node.declaration.declarations[0].id.name;
-
-            const generatedCode = generate.default(node.declaration).code;
-            exports[name] = JSON.stringify(generatedCode);
           }
         } else if (node.type === "ExpressionStatement") {
           if (

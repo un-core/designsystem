@@ -1,11 +1,11 @@
 ---
-category: 'Core'
-title: 'useInput hook'
-excerpt: 'The `useInput` hook is used to provide a simple way to manage state and callbacks for input elements.'
-coverImage: '../sample-image.jpg'
-slug: 'Components/Form/useInput'
+category: "Core"
+title: "useInput hook"
+excerpt: "The `useInput` hook is used to provide a simple way to manage state and callbacks for input elements."
+coverImage: "../sample-image.jpg"
+slug: "Components/Form/Input/tab:useInput"
 storybook: true
-mainComponent: 'useInput'
+mainComponent: "useInput"
 sampleCode: >
   () => {
      const { inputProps, wrapperProps } = useInput({
@@ -30,8 +30,8 @@ The wrapping element should be the `Input` component, and the input element shou
 ```jsx
 const MyComponent = () => {
   const { inputProps, wrapperProps } = useInput({
-    labelText: 'Email',
-    helperText: 'Please enter your email address',
+    labelText: "Email",
+    helperText: "Please enter your email address",
     onChange: (event) => console.log(event.target.value),
   });
 

@@ -32,7 +32,10 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const ButtonRegular: Story = {
+//export const ButtonDefault = (args) => <Button {...args}>Default</Button>;
+
+export const ButtonDefault: Story = {
+  render: (args) => <Button {...args} />,
   args: {
     children: "Button",
   },

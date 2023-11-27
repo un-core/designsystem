@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useRef } from 'react';
-import ReactDOM from 'react-dom';
-import classNames from 'classnames';
-import { Close } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
-import ModalFooterDefault, { ModalFooterProps } from './ModalFooter';
+import React, { useRef } from "react";
+import ReactDOM from "react-dom";
+import classNames from "classnames";
+import { Close } from "@un/icons-react";
+import useSettings from "../../hooks/useSettings";
+import ModalFooterDefault, { ModalFooterProps } from "./ModalFooter";
 
 export interface ModalProps {
   /**
@@ -85,13 +85,13 @@ export interface ModalProps {
   /**
    *  Different styling options are available `info`, `warning`, `danger`
    */
-  type?: 'info' | 'warning' | 'danger';
+  type?: "info" | "warning" | "danger";
   /**
    * If true the Modal will be rendered inside a portal at the end of the
    * body element, otherwise at the position it is placed.
    */
   inPortal?: boolean;
-  width?: 'narrow' | 'wide' | 'full'; // TODO: Check
+  width?: "narrow" | "wide" | "full"; // TODO: Check
   /**
    * If true the Modal will be wider then the regular Modal
    */
@@ -106,7 +106,7 @@ export interface ModalProps {
    */
   onRequestClose?: (
     evt: React.UIEvent,
-    trigger: 'button' | 'key' | 'background'
+    trigger: "button" | "key" | "background"
   ) => void;
   /**
    * Specify a handler for "submitting" modal.
@@ -130,14 +130,14 @@ export interface ModalProps {
 }
 
 const matchesFuncName =
-  typeof Element !== 'undefined' &&
-  ['matches', 'webkitMatchesSelector', 'msMatchesSelector'].filter(
-    (name) => typeof Element.prototype[name] === 'function'
+  typeof Element !== "undefined" &&
+  ["matches", "webkitMatchesSelector", "msMatchesSelector"].filter(
+    (name) => typeof Element.prototype[name] === "function"
   )[0];
 
 /** Modals focus the user’s attention exclusively on one task or piece of information via a window that sits on top of the page content. */
 
-const Modal: React.FC<ModalProps> = (props) => {
+function Modal(props: ModalProps) {
   const {
     modalHeading,
     modalLabel,
@@ -174,7 +174,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const el = elementToAppend
     ? elementToAppend
-    : typeof document !== 'undefined'
+    : typeof document !== "undefined"
     ? document.body
     : undefined;
 
@@ -190,17 +190,17 @@ const Modal: React.FC<ModalProps> = (props) => {
       selectorsFloatingMenus = [
         `.${prefix}--overflow-menu-options`,
         `.${prefix}--tooltip`,
-        '.flatpickr-calendar',
+        ".flatpickr-calendar",
       ],
     } = props;
-    if (target && typeof target.closest === 'function') {
+    if (target && typeof target.closest === "function") {
       return selectorsFloatingMenus.some((selector) =>
         target.closest(selector)
       );
     } else {
       // Alternative if closest does not exist.
       while (target) {
-        if (matchesFuncName && typeof target[matchesFuncName] === 'function') {
+        if (matchesFuncName && typeof target[matchesFuncName] === "function") {
           if (
             // eslint-disable-next-line no-loop-func
             selectorsFloatingMenus.some((selector) =>
@@ -233,7 +233,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   //   };
 
   const handleCloseButton = (evt) => {
-    onRequestClose(evt, 'button');
+    onRequestClose(evt, "button");
   };
 
   const focusModal = () => {
@@ -300,9 +300,9 @@ const Modal: React.FC<ModalProps> = (props) => {
       [`${prefix}--modal--wide`]: wide,
       [`${prefix}--modal--tall`]: !passiveModal,
       [`${prefix}--modal--background-image`]: backgroundImage,
-      'is-visible': open,
-      [`${prefix}--modal--warning`]: type === 'warning' || props.warning,
-      [`${prefix}--modal--danger`]: type === 'danger' || props.danger,
+      "is-visible": open,
+      [`${prefix}--modal--warning`]: type === "warning" || props.warning,
+      [`${prefix}--modal--danger`]: type === "danger" || props.danger,
     },
     className
   );
@@ -313,7 +313,8 @@ const Modal: React.FC<ModalProps> = (props) => {
       type="button"
       id="closeButton"
       onClick={handleCloseButton}
-      ref={button}>
+      ref={button}
+    >
       <Close
         className={`${prefix}--modal-close__icon`}
         description={iconDescription}
@@ -326,7 +327,8 @@ const Modal: React.FC<ModalProps> = (props) => {
       ref={innerModal}
       role="dialog"
       className={`${prefix}--modal-container`}
-      aria-label={modalAriaLabel}>
+      aria-label={modalAriaLabel}
+    >
       <div className={`${prefix}--modal-header`}>
         {passiveModal && modalButton}
         <div>
@@ -364,15 +366,16 @@ const Modal: React.FC<ModalProps> = (props) => {
       role="presentation"
       tabIndex={-1}
       onTransitionEnd={open ? handleTransitionEnd : undefined}
-      ref={outerModal}>
+      ref={outerModal}
+    >
       <div className={`${prefix}--modal-inner`}>{modalBody}</div>
     </div>
   );
 
   if (inPortal && el) return ReactDOM.createPortal(modal, el);
   else return modal;
-};
+}
 
-Modal.displayName = 'Modal';
+Modal.displayName = "Modal";
 
 export default Modal;

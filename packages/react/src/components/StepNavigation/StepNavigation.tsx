@@ -1,11 +1,11 @@
-import type { PropsWithChildren } from 'react';
-import React, { useState /*createRef */ } from 'react';
-import classNames from 'classnames';
+import type { PropsWithChildren } from "react";
+import React, { useState /*createRef */ } from "react";
+import classNames from "classnames";
 
-import useSettings from '../../hooks/useSettings';
+import useSettings from "../../hooks/useSettings";
 
 /** Step Navigation provide indications to help users reach their destination from their current position */
-type StepNavigationProps = PropsWithChildren<{
+interface StepNavigationProps {
   /**
    * Provide a className that is applied to the root <nav> component for the
    * <Tabs>
@@ -38,18 +38,18 @@ type StepNavigationProps = PropsWithChildren<{
    * Optionally provide an index for the currently selected <Tab>
    */
   selectedPage?: number;
-}>;
+}
 
-const StepNavigation: React.FC<StepNavigationProps> = ({
+function StepNavigation({
   children,
   inline,
   small,
   vertical,
   className,
   role,
-  //selectedPage,
-  // onSelectionChange,
-}) => {
+}: //selectedPage,
+// onSelectionChange,
+StepNavigationProps) {
   const { prefix } = useSettings();
   const [dropdownHidden] = useState(true);
   // const [elRefs, setElRefs] = useState({});
@@ -110,7 +110,7 @@ const StepNavigation: React.FC<StepNavigationProps> = ({
 
   const selectTabAt = (index, onSelectionChange) => {
     handleTabClick(index);
-    if (typeof onSelectionChange === 'function') {
+    if (typeof onSelectionChange === "function") {
       onSelectionChange(index);
     }
   };
@@ -151,6 +151,6 @@ const StepNavigation: React.FC<StepNavigationProps> = ({
       </nav>
     </>
   );
-};
+}
 
 export default StepNavigation;

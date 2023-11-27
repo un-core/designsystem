@@ -17,12 +17,17 @@ export * as Footer from "./components/Footer/Footer.stories.tsx";
 export * as Form from "./components/Form/Form.stories.tsx";
 export * as FormLabel from "./components/FormLabel/FormLabel.stories.tsx";
 export * as InfoBar from "./components/InfoBar/InfoBar.stories.tsx";
+export * as InlineLoading from "./components/InlineLoading/InlineLoading.stories.tsx";
 export * as Input from "./components/Input/Input.stories.tsx";
 export * as Link from "./components/Link/Link.stories.tsx";
 export * as Loading from "./components/Loading/Loading.stories.tsx";
 export * as Modal from "./components/Modal/Modal.stories.tsx";
+export * as Pagination from "./components/Pagination/Pagination.stories.tsx";
+export * as Slider from "./components/Slider/Slider.stories.tsx";
 export * as MainNavigation from "./components/MainNavigation/MainNavigation.stories.tsx";
 export * as Wrapper from "./components/Wrapper/Wrapper.stories.tsx";
 export * as List from "./components/List/List.stories.tsx";
 export * as Empty from "./components/Empty/Empty.stories.tsx";
 export * as User from "./components/User/User.stories.tsx";
+
+export * as StepNavigation from "./components/StepNavigation/StepNavigation.stories.tsx";

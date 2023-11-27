@@ -1,56 +1,57 @@
-import React from 'react';
-import Slider from '.';
+import React from "react";
+import Slider from ".";
 
 export default {
-  title: 'Components/Forms/Slider',
+  title: "Components/Forms/Slider",
   component: Slider,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
   },
 };
 
-export const RegularSlider = (args) => <Slider id="slider2" {...args} />;
-
-RegularSlider.args = {
-  name: 'Form item name (name)',
-  value: 25,
-  min: 10,
-  max: 50,
-  step: 1,
-  labelText: 'Slider Label',
-  helperText: 'Additional helper text',
-  fullWidth: false,
-  hideTextInput: false,
-  disabled: false,
-  minLabel: '',
-  maxLabel: '',
-  inputType: 'number',
-  ariaLabelInput: 'Slider number input',
+export const SliderDefault: Story = {
+  render: (args) => <Slider id="slider2" {...args} />,
+  args: {
+    name: "Form item name (name)",
+    value: 25,
+    min: 10,
+    max: 50,
+    step: 1,
+    labelText: "Slider Label",
+    helperText: "Additional helper text",
+    fullWidth: false,
+    hideTextInput: false,
+    disabled: false,
+    minLabel: "",
+    maxLabel: "",
+    inputType: "number",
+    ariaLabelInput: "Slider number input",
+  },
 };
 
 export const hideTextInput = (args) => (
-  <div style={{ marginTop: '2rem' }}>
+  <div style={{ marginTop: "2rem" }}>
     <Slider id="slider2" {...args} />
   </div>
 );
 
 hideTextInput.args = {
-  name: 'Form item name (name)',
-  inputType: 'number',
+  name: "Form item name (name)",
+  inputType: "number",
   hideTextInput: true,
   value: 25,
   min: 0,
   max: 50,
   step: 1,
-  labelText: 'Slider Label',
-  helperText: 'Additional helper text',
-  minLabel: '',
-  maxLabel: '',
+  labelText: "Slider Label",
+  helperText: "Additional helper text",
+  minLabel: "",
+  maxLabel: "",
 };
 
 hideTextInput.story = {
-  name: 'Hide TextInput',
+  name: "Hide TextInput",
   parameters: {
     docs: {
       storyDescription: `Hide the number input box by setting \`hideTextInput\` property to **true**`,
@@ -59,23 +60,23 @@ hideTextInput.story = {
 };
 
 export const Disabled = (args) => (
-  <div style={{ marginTop: '2rem' }}>
+  <div style={{ marginTop: "2rem" }}>
     <Slider id="slider2" {...args} />
   </div>
 );
 
 Disabled.args = {
-  name: 'Form item name (name)',
-  inputType: 'number',
+  name: "Form item name (name)",
+  inputType: "number",
   disabled: true,
   value: 50,
   min: 0,
   max: 100,
   step: 1,
-  labelText: 'Slider Label',
-  helperText: 'Additional helper text',
-  minLabel: '',
-  maxLabel: '',
+  labelText: "Slider Label",
+  helperText: "Additional helper text",
+  minLabel: "",
+  maxLabel: "",
 };
 
 Disabled.story = {
@@ -87,23 +88,23 @@ Disabled.story = {
 };
 
 export const Fullwidth = (args) => (
-  <div style={{ marginTop: '2rem' }}>
+  <div style={{ marginTop: "2rem" }}>
     <Slider id="slider2" {...args} />
   </div>
 );
 
 Fullwidth.args = {
-  name: 'Form item name (name)',
-  inputType: 'number',
+  name: "Form item name (name)",
+  inputType: "number",
   fullWidth: true,
   value: 50,
   min: 0,
   max: 100,
   step: 1,
-  labelText: 'Slider Label',
-  helperText: 'Additional helper text',
-  minLabel: '',
-  maxLabel: '',
+  labelText: "Slider Label",
+  helperText: "Additional helper text",
+  minLabel: "",
+  maxLabel: "",
 };
 
 Fullwidth.story = {

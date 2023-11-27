@@ -1,0 +1,76 @@
+---
+category: "Core"
+title: "Modal"
+excerpt: "Modal are surfaces that display content and actions on a single topic."
+slug: "Components/UI elements/Modal/tab:Code"
+storybook: true
+mainComponent: "Modal"
+components: ["ModuleBody", "ModuleHeader", ModuleFooter]
+---
+
+```js
+import { Modal } from "@wfp/react";
+```
+
+##### Custom footer
+
+To display custom footer content, pass a function (or React component) to `modalFooter` prop
+
+```js
+<Modal open modalFooter={() => <div>The Modal Footer content</div>} />
+```
+
+#### Full screen Dialog (`Dialog` example)
+
+Full screen dialogs only show the Modal element without any other content like the navigation. They can be used for login, password reset or very important dialogs.
+
+```js
+<Modal open hideClose backgroundImage={yourBackgroundImage.jpg} />
+```
+
+#### Handle the `open` state
+
+Modal allows you to control the `open` State on your own. Use the Modal Wrapper component to use a controlled version of Modal.
+
+```jsx live
+() => {
+  const [open, setOpen] = useState();
+
+  submitAndClose = () => {
+    alert("Submit now and close the modal");
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <button onClick={() => setOpen(!open)}>Open Modal</button>
+      <Modal
+        open={open}
+        primaryButtonText="Submit"
+        onRequestSubmit={this.submitAndClose}
+        secondaryButtonText="Cancel Modal"
+        onSecondarySubmit={this.toggleModal}
+        onRequestClose={this.toggleModal}
+      >
+        <p className="wfp--modal-content__text">Nothing to see here</p>
+      </Modal>
+    </div>
+  );
+};
+```
+
+#### Disable closing the Modal if the user clicks on the background
+
+```js
+onRequestClose={(evt, trigger) => {
+  if (trigger !== 'background') {
+    return props.onClose(evt, trigger);
+  }
+  return null;
+}}
+
+<Modal
+  onRequestClose={this.onRequestClose}
+  {...otherProps}
+/>
+```
