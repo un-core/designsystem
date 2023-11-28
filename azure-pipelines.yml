@@ -8,6 +8,7 @@ variables:
 trigger:
   - main
   - feat/*
+  - develop
 
 pool:
   vmImage: ubuntu-latest
