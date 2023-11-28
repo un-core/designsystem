@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-empty-function */
+import * as React from "react";
 import classNames from "classnames";
 import useSettings from "../../hooks/useSettings";
 import Input, { InputProps, useInput } from "../Input";
@@ -42,6 +43,7 @@ interface SliderProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   /**
    * The `name` attribute of the `<input>`.
    */
+
   name?: string;
   /**
    * The `type` attribute of the `<input>`.
@@ -74,6 +76,12 @@ interface SliderProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   hideControls?: boolean;
 }
 
+const defaultFormatLabel = (value, label) => {
+  return typeof label === "function"
+    ? label(value)
+    : `${value}${label ? label : ""}`;
+};
+
 const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
   const {
     ariaLabelInput,
@@ -102,13 +110,13 @@ const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
   const { prefix } = useSettings();
 
   const initialValue = props.value;
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = React.useState(initialValue);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setValue(props.value);
   }, [props.value]);
 
-  const newInputRef = useRef(null);
+  const newInputRef = React.useRef(null);
   const _inputRef = ref ? ref : newInputRef;
 
   const handleChange = (evt) => {
@@ -126,10 +134,6 @@ const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
         onChange(/*parseFloat(evt.target.value), */ evt);
       }
     }
-  };
-
-  const defaultFormatLabel = (value, label) => {
-    return typeof label === "function" ? label(value) : `${value}${label}`;
   };
 
   const numberInputClasses = classNames(

@@ -12,16 +12,15 @@ export default {
   },
 };
 
-export const NumberInputDefault = (args) => (
-  <NumberInput {...args} labelText="The labelText" />
-);
-
-NumberInputDefault.args = {
-  name: "inputname",
-  helperText: "Optional helperText",
-  labelText: "The labelText",
-  pattern: "[0-9]+([.,][0-9]+)?",
-  step: 0.01,
+export const NumberInputDefault: Story = {
+  render: (args) => <NumberInput {...args} />,
+  args: {
+    name: "inputname",
+    helperText: "Optional helperText",
+    labelText: "The labelText",
+    pattern: "[0-9]+([.,][0-9]+)?",
+    step: 0.01,
+  },
 };
 
 export const disabled = (args) => <NumberInput {...args} />;

@@ -257,24 +257,25 @@ const CodeBlockLive = (props: any) => {
       }`}
     >
       {source && <div className={stylesModule.preview}>{children}</div>}
-
-      <Highlight
-        code={code}
-        language="tsx" //{language}
-        theme={themes.vsDark}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={{ ...style, padding: "20px" }}>
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
+      {view !== "smallPreview" && (
+        <Highlight
+          code={code}
+          language="tsx" //{language}
+          theme={themes.vsDark}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={className} style={{ ...style, padding: "20px" }}>
+              {tokens.map((line, i) => (
+                <div key={i} {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
+      )}
       <Button
         className={stylesModule.copyButton}
         small

@@ -13,11 +13,12 @@ export default {
   },
 };
 
-export const CheckboxDefault = (args) => <Checkbox {...args} />;
-
-CheckboxDefault.args = {
-  labelText: "Label text",
-  id: "check-1",
+export const CheckboxDefault: Story = {
+  render: (args) => <Checkbox {...args} />,
+  args: {
+    labelText: "Label text",
+    id: "check-1",
+  },
 };
 
 const regularsourcecode = `

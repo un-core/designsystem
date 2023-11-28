@@ -6,3 +6,36 @@ slug: "Components/Form/Slider/tab:Code"
 storybook: true
 mainComponent: "Slider"
 ---
+
+```jsx live
+<Slider
+  min={0}
+  max={100}
+  step={1}
+  value={50}
+  onChange={(newValue) => console.log(newValue)}
+/>
+```
+
+Sliders are used to select from a range of values. The `min` and `max` props define the range of values, while `step` determines the intervals between values.
+
+```jsx live
+<>
+  <Slider min={0} max={100} value={30} disabled />
+  <Slider min={0} max={100} value={70} hideTextInput />
+</>
+```
+
+In these examples, the first slider is disabled, and the second one hides the text input. These options provide additional flexibility for different use cases.
+
+### Design and Accessibility
+
+The Slider component is designed with accessibility in mind. It is keyboard accessible and includes ARIA attributes for screen readers.
+
+### Customization
+
+The appearance of the Slider can be customized with CSS. You can use the provided class names to target elements for styling.
+
+### Related
+
+[TextInput](?path=/docs/components-textinput--default)

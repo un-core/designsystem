@@ -1,0 +1,27 @@
+---
+category: "Core"
+title: "SecondaryNavigation"
+coverImage: "../sample-image.jpg"
+slug: "Components/Navigation/SecondaryNavigation"
+storybook: true
+---
+
+The SecondaryNavigation shows the page title and and optional tab navigation.
+
+<DoUse>
+
+- **To Organize Navigation Elements**: Use `SecondaryNavigation` to organize and display secondary navigation elements in a clear, structured manner. It's ideal for sub-pages or sections within your application.
+- **With Page Titles**: Always use it with `SecondaryNavigationTitle` to provide context about the current page or section.
+- **Responsive Layouts**: Utilize the `pageWidth` prop to maintain consistent layout and alignment with the rest of your page content, especially in responsive designs.
+
+</DoUse>
+
+<DoNotUse>
+
+- **As Primary Navigation**: Do not use `SecondaryNavigation` as the primary navigation bar of your application. It is not designed to replace the main navigation menu.
+- **Overcrowding**: Avoid adding too many elements or overly complex structures. Keep it simple and user-friendly.
+- **Inconsistent Widths**: Do not mix different `pageWidth` values within the same application level to maintain a consistent layout.
+- **Non-Descriptive Titles**: Do not use vague or generic titles. Titles should always give clear indications of the content they represent.
+- **Frequent Changes**: Avoid changing the title too frequently within the same navigation context, as it can lead to user confusion.
+
+</DoNotUse>

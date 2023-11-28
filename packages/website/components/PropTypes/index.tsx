@@ -1,5 +1,4 @@
 import {
-  Button,
   Checkbox,
   Select,
   SelectItem,
@@ -8,7 +7,7 @@ import {
   Text,
   TextInput,
 } from "@wfp/react";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import * as wfpComponents from "@wfp/react";
 
@@ -64,8 +63,8 @@ export default function PropTypes({
   propTypes,
   view,
 }: any) {
-  const [showAllProps, setShowAllProps] = useState(true);
-  const [rtl, setRtl] = useState(false);
+  // const [showAllProps, setShowAllProps] = useState(true);
+  // const [rtl, setRtl] = useState(false);
 
   const componentsSourceText =
     componentsSource[mainComponent]?.default[
@@ -104,8 +103,6 @@ export default function PropTypes({
   const options = "primary | secondary | tertiary".replaceAll(" ", "");
 
   const renderInput = (prop) => {
-    console.log("propsss", prop);
-
     if (
       (prop.name === "kind" || prop.name === "type" || prop.name === "size") &&
       prop.name.includes("|")
@@ -117,7 +114,7 @@ export default function PropTypes({
           {...register(prop.name, { required: prop.required })}
           defaultValue={prop.defaultValue && prop.defaultValue.value}
         >
-          {Object.values(prop.type.name.split("|")).map((kind, i) => (
+          {Object.values(prop.type.name.split("|")).map((kind: string, i) => (
             <SelectItem
               key={i}
               value={kind.replaceAll('"', "").replaceAll(" ", "")}
@@ -140,7 +137,7 @@ export default function PropTypes({
         </Select>
       );
     }
-    console.log("prop.type.name", prop);
+
     if (prop.type.name === "ButtonKind") {
       return (
         <Select
@@ -216,7 +213,6 @@ export default function PropTypes({
     )
       .replace(`<${mainComponent}`, ``)
       .replace(`</${mainComponent}>`, ``);
-    console.log("codecodecode", sampleCode, codeFiltered);
 
     code = sampleCode
       .replace("PROPS_HERE", codeFiltered)
@@ -232,6 +228,7 @@ export default function PropTypes({
     .replaceAll(`/>>`, `>`)
     .replaceAll(` /> />`, `/>`)
     .replaceAll(`/> />`, `/>`);
+  //.replaceAll(`/>`, ``);
 
   const componentList = [mainComponent, ...components].join(", ");
 
@@ -255,11 +252,13 @@ export default function PropTypes({
       >
         <CodeBlockLive
           source={code}
-          live
-          //hideWrapper
+          // live
+          // hideWrapper
           center
-          //smallPreview
-          showEditor={!showAllProps}
+          // smallPreview
+          live
+          view={view}
+          // showEditor={!showAllProps}
         />
       </div>
     );
@@ -269,7 +268,7 @@ export default function PropTypes({
     <div
       className={`${styles.preview} ${
         view === "smallPreview" ? styles.smallPreview : styles.normalPreview
-      } ${rtl ? styles.rtl : styles.ltr}`}
+      }`}
     >
       <CodeBlockLive
         source={code}
@@ -278,7 +277,7 @@ export default function PropTypes({
         // hideWrapper
         center
         view={view}
-        showEditor={!showAllProps}
+        // showEditor={!showAllProps}
       />
       {/*
         <div className={styles.previewWrapper}>

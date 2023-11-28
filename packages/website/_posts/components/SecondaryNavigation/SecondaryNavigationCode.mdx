@@ -1,0 +1,36 @@
+---
+category: "Core"
+title: "SecondaryNavigation"
+slug: "Components/Navigation/SecondaryNavigation/tab:Code"
+storybook: true
+mainComponent: "SecondaryNavigation"
+---
+
+## SecondaryNavigation Component
+
+The `SecondaryNavigation` component is used to display a page title and optionally, tab navigation. It provides a flexible way to structure the navigation elements and additional content in your application's secondary navigation bar.
+
+## Example Usage
+
+```jsx live
+<SecondaryNavigation pageWidth="lg">
+  <SecondaryNavigationTitle>Page Title</SecondaryNavigationTitle>
+  {/* Additional content here */}
+</SecondaryNavigation>
+```
+
+This example shows a secondary navigation bar with a large page width and a title. You can add more elements as children to customize the navigation bar further.
+
+## SecondaryNavigationTitle Component
+
+The `SecondaryNavigationTitle` component is used within the `SecondaryNavigation` to display the title of the page or section.
+
+### Example Usage
+
+```jsx live
+<SecondaryNavigationTitle className="custom-class">
+  Page Title
+</SecondaryNavigationTitle>
+```
+
+In this example, the `SecondaryNavigationTitle` component is used to render a page title with an additional custom class.

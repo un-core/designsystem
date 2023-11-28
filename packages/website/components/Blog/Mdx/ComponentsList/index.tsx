@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import PropTypes from "../../../PropTypes";
 
-function ComponentPreview({ component, componentsList }: any) {
+function ComponentPreview({ component, componentsList, propTypes }: any) {
   const componentData = componentsList.find(
     (e) => e.slug === component.path?.slug
   );
@@ -14,11 +14,7 @@ function ComponentPreview({ component, componentsList }: any) {
   if (!componentData) return null;
 
   return (
-    <PropTypes
-      //propTypes={propTypes}
-      smallPreview
-      {...componentData}
-    />
+    <PropTypes view="smallPreview" {...componentData} propTypes={propTypes} />
   );
 }
 
@@ -38,6 +34,9 @@ export default function ComponentsList(props: any) {
   if (split === null) return null;
 
   const components = split.children.find((e) => e.name === "Components");
+
+  const propTypesList = JSON.parse(props.propTypes);
+
   return (
     <div className={styles.componentsList}>
       {components.children.map((p, a) => {
@@ -48,6 +47,10 @@ export default function ComponentsList(props: any) {
 
             <div className={styles.componentsSubList}>
               {p.children.map((c, i) => {
+                const propType = propTypesList.find(
+                  (e) => e?.displayName === c.name
+                );
+
                 return (
                   <Link
                     className={styles.component}
@@ -58,6 +61,7 @@ export default function ComponentsList(props: any) {
                     <ComponentPreview
                       component={c}
                       componentsList={componentsList}
+                      propTypes={propType}
                     />
                   </Link>
                 );

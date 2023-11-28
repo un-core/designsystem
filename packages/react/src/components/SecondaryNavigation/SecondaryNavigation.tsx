@@ -1,34 +1,16 @@
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import Wrapper from '../Wrapper';
-import useSettings from '../../hooks/useSettings';
-
-type SecondaryNavigationTitleProps = PropsWithChildren<{
-  className?: string;
-}>;
-
-const SecondaryNavigationTitle: React.FC<SecondaryNavigationTitleProps> = ({
-  className,
-  children,
-}) => {
-  const { prefix } = useSettings();
-
-  const wrapperClasses = classNames(
-    `${prefix}--secondary-navigation__title`,
-    className
-  );
-  return <h1 className={wrapperClasses}>{children}</h1>;
-};
+import * as React from "react";
+import classNames from "classnames";
+import Wrapper from "../Wrapper";
+import useSettings from "../../hooks/useSettings";
 
 /** The SecondaryNavigation shows the page title and and optional tab navigation. */
 export interface SecondaryNavigationProps
-  extends React.HTMLAttributes<HTMLSpanElement> {
+  extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   /**
    * Specify the max-width on desktop devices (same as \`Wrapper\` component)
    */
-  pageWidth?: 'sm' | 'md' | 'lg' | 'full';
+  pageWidth?: "sm" | "md" | "lg" | "full";
   /**
    * The CSS class name to be placed on the wrapping element
    */
@@ -37,14 +19,14 @@ export interface SecondaryNavigationProps
   additional?: React.ReactNode;
 }
 
-const SecondaryNavigation: React.FC<SecondaryNavigationProps> = ({
+export function SecondaryNavigation({
   additional,
   children,
   className,
   id,
   pageWidth,
   ...other
-}) => {
+}: SecondaryNavigationProps) {
   const { prefix } = useSettings();
 
   const wrapperClasses = classNames(
@@ -56,7 +38,8 @@ const SecondaryNavigation: React.FC<SecondaryNavigationProps> = ({
     <div id={id} className={wrapperClasses} {...other}>
       <Wrapper
         pageWidth={pageWidth}
-        className={`${prefix}--secondary-navigation__wrapper`}>
+        className={`${prefix}--secondary-navigation__wrapper`}
+      >
         <div className={`${prefix}--secondary-navigation__list`}>
           {children}
         </div>
@@ -68,6 +51,6 @@ const SecondaryNavigation: React.FC<SecondaryNavigationProps> = ({
       </Wrapper>
     </div>
   );
-};
+}
 
-export { SecondaryNavigationTitle, SecondaryNavigation };
+SecondaryNavigation.displayName = "SecondaryNavigation";

@@ -1,38 +1,25 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-import { BannerNavigation, BannerNavigationItem } from './BannerNavigation';
-import { BannerNavigationWithContent } from './BannerNavigationWithContent';
-import Search from '../Search';
-import Link from '../Link';
+import React from "react";
+import { action } from "@storybook/addon-actions";
+import { BannerNavigation, BannerNavigationItem } from "./BannerNavigation";
+import { BannerNavigationWithContent } from "./BannerNavigationWithContent";
+import Search from "../Search";
+import Link from "../Link";
 
 export default {
-  title: 'Components/Navigation/BannerNavigation',
+  title: "Components/Navigation/BannerNavigation",
   component: BannerNavigation,
   subcomponents: { BannerNavigationItem, Link },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
-    previewWidth: 'full',
+    componentSubtitle: "Component",
+    status: "released",
+    previewWidth: "full",
   },
 };
 
-export const RegularNavigation = (args) => (
-  <BannerNavigationWithContent {...args} />
-);
-
-const sourcecode = `
-  import { BannerNavigationWithContent } from "@wfp/react";
-        
-  <BannerNavigationWithContent pageWidth="lg" />
-  `;
-
-RegularNavigation.story = {
-  parameters: {
-    docs: {
-      source: {
-        code: sourcecode,
-      },
-    },
+export const BannerNavigationDefault: Story = {
+  render: (args) => <BannerNavigationWithContent {...args} />,
+  args: {
+    pageWidth: "lg",
   },
 };
 
@@ -63,7 +50,7 @@ export const CustomContent = (args) => (
         id="search-2"
         kind="banner"
         placeholder="Search"
-        onChange={action('onChange')}
+        onChange={action("onChange")}
       />
     </BannerNavigationItem>
   </BannerNavigation>

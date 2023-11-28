@@ -45,8 +45,6 @@ export default async function getPostContent(params: any) {
       )
     : null;
 
-  console.log("foundSlug", foundSlug, params.slug, slugs);
-
   const post: any = foundSlug?.path
     ? getPostByPath(foundSlug.path, [
         "title",
@@ -72,24 +70,6 @@ export default async function getPostContent(params: any) {
     : {};
 
   const content = post?.content || "";
-
-  const mdxSource = await serialize(post.content, {
-    //components,
-    mdxOptions: {
-      remarkPlugins: [remarkMdxCodeMeta, remarkGfm],
-      rehypePlugins: [
-        rehypeCode,
-        rehypeFigmaImage,
-        [rehypeComponentsList, posts],
-        [
-          rehypeImgSize,
-          {
-            dir: "_posts/",
-          },
-        ],
-      ],
-    },
-  });
 
   const mdxToC = await serialize(post.content, {
     //components,
@@ -125,6 +105,36 @@ export default async function getPostContent(params: any) {
       }
     });
   }
+
+  if (post.slug === "Components/Overview") {
+    posts.forEach((p) => {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const file = require(`../../types/src/components/${p.title}/${p.title}.json`);
+        propTypes.push(file[0]);
+      } catch (e) {
+        console.log("Can't load typescript definitions!");
+      }
+    });
+  }
+
+  const mdxSource = await serialize(post.content, {
+    //components,
+    mdxOptions: {
+      remarkPlugins: [remarkMdxCodeMeta, remarkGfm],
+      rehypePlugins: [
+        rehypeCode,
+        rehypeFigmaImage,
+        [rehypeComponentsList, posts, propTypes],
+        [
+          rehypeImgSize,
+          {
+            dir: "_posts/",
+          },
+        ],
+      ],
+    },
+  });
 
   //let data = {};
   //let query = {};

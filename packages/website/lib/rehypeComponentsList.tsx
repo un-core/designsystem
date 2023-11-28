@@ -16,7 +16,7 @@ function searchTreeWrapper(element:any, matchingTitle:any) {
   return result;
 }
 
-const rehypeComponentsList = (posts) => async (tree) => {
+const rehypeComponentsList = (posts, propTypes) => async (tree) => {
   const imageNodes = searchTreeWrapper(tree, 'ComponentsList');
 
   await Promise.all(
@@ -24,6 +24,7 @@ const rehypeComponentsList = (posts) => async (tree) => {
       const attributes = {
         //...dimensions,
         components: JSON.stringify(posts),
+        propTypes: JSON.stringify(propTypes),
       };
 
       const newAttributes = Object.entries(attributes).map(([i, a]) => {

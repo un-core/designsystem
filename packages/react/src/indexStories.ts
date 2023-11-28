@@ -3,6 +3,7 @@ export * as BannerNavigation from "./components/BannerNavigation/BannerNavigatio
 export * as Button from "./components/Button/Button.stories.tsx";
 
 export * as NumberInput from "./components/NumberInput/NumberInput.stories.tsx";
+export * as Checkbox from "./components/Checkbox/Checkbox.stories.tsx";
 export * as Select from "./components/Select/Select.stories.tsx";
 export * as TextArea from "./components/TextArea/TextArea.stories.tsx";
 export * as TextInput from "./components/TextInput/TextInput.stories.tsx";
@@ -10,7 +11,6 @@ export * as TextInput from "./components/TextInput/TextInput.stories.tsx";
 export * as Avatar from "./components/Avatar/Avatar.stories.tsx";
 
 export * as Card from "./components/Card/Card.stories.tsx";
-export * as Checkbox from "./components/Checkbox/Checkbox.stories.tsx";
 // export * as ContextMenu from "./components/ContextMenu/ContextMenu.stories.tsx";
 export * as Credits from "./components/Credits/Credits.stories.tsx";
 export * as Footer from "./components/Footer/Footer.stories.tsx";
@@ -31,3 +31,4 @@ export * as Empty from "./components/Empty/Empty.stories.tsx";
 export * as User from "./components/User/User.stories.tsx";
 
 export * as StepNavigation from "./components/StepNavigation/StepNavigation.stories.tsx";
+export * as SecondaryNavigation from "./components/SecondaryNavigation/SecondaryNavigation.stories.tsx";
