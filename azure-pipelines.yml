@@ -17,16 +17,6 @@ steps:
   - checkout: self
     persistCredentials: true
 
-  - task: NodeTool@0
-    displayName: 'Install node v18.17.0'
-    inputs:
-      versionSpec: '18.17.0'
-  
-  - task: UseNode@1
-    displayName: 'Use node v18.17.0'
-    inputs:
-      version: '18.17.0'
-
   - script: |
       git config --global user.name "Azure Devops Pipeline"
       git config --global user.email "robert.guehne@wfp.org"
@@ -44,7 +34,7 @@ steps:
   #      script: "git checkout develop" #$(branchName)
   - task: NodeTool@0
     inputs:
-      versionSpec: "16.x"
+      versionSpec: "18.x"
     displayName: "Install Node.js"
 
   - task: DownloadSecureFile@1
