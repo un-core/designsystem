@@ -19,6 +19,7 @@
     "publish:alpha-recover": "lerna exec -- \"npm publish --tag alpha || exit 0\"",
     "lerna:publish": "lerna publish --conventional-commits",
     "lerna:publishFromPackage": "lerna publish from-package --yes",
+    "lerna:publishFromPackageAlpha": "lerna publish --dist-tag alpha from-package --yes",
     "lerna:version": "lerna version --conventional-commits",
     "lerna:versionNoPush": "lerna version --no-push --conventional-commits --yes",
     "publish:main": "lerna publish",

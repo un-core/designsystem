@@ -4,10 +4,12 @@ variables:
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
   isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+  isDevelop: $[eq(variables['Build.SourceBranch'], 'refs/heads/develop')]
 
 trigger:
   - main
   - feat/*
+  - develop
 
 pool:
   vmImage: ubuntu-latest
@@ -33,7 +35,7 @@ steps:
   #      script: "git checkout develop" #$(branchName)
   - task: NodeTool@0
     inputs:
-      versionSpec: "16.x"
+      versionSpec: "18.x"
     displayName: "Install Node.js"
 
   - task: DownloadSecureFile@1
@@ -85,6 +87,11 @@ steps:
       npm run lerna:publishFromPackage
     displayName: "lerna publish"
     condition: eq(variables.isMain, 'true')
+
+  - script: |
+      npm run lerna:publishFromPackageAlpha
+    displayName: "lerna publish alpha (Develop)"
+    condition: eq(variables.isDevelop, 'true')
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: "./packages/react"
