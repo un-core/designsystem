@@ -18,10 +18,15 @@ steps:
     persistCredentials: true
 
   - task: NodeTool@0
-    displayName: 'Use node 18.17.0'
+    displayName: 'Install node v18.17.0'
     inputs:
       versionSpec: '18.17.0'
-      
+  
+  - task: UseNode@1
+    displayName: 'Use node v18.17.0'
+    inputs:
+      version: '18.17.0'
+
   - script: |
       git config --global user.name "Azure Devops Pipeline"
       git config --global user.email "robert.guehne@wfp.org"
