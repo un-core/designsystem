@@ -29,6 +29,7 @@ export * as Wrapper from "./components/Wrapper/Wrapper.stories.tsx";
 export * as List from "./components/List/List.stories.tsx";
 export * as Empty from "./components/Empty/Empty.stories.tsx";
 export * as User from "./components/User/User.stories.tsx";
+export * as Module from "./components/Module/Module.stories.tsx";
 
 export * as StepNavigation from "./components/StepNavigation/StepNavigation.stories.tsx";
 export * as SecondaryNavigation from "./components/SecondaryNavigation/SecondaryNavigation.stories.tsx";

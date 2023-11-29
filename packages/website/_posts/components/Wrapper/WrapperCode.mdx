@@ -8,22 +8,16 @@ previewScale: 0.5
 mainComponent: "Wrapper"
 ---
 
-Import the `Wrapper` component:
-
-```jsx
-import { Wrapper } from "@wfp/react";
-```
-
-Here's a basic example of how to use the `InfoBar`:
+Here's a basic example of how to use the `Wrapper`:
 
 ```jsx
 <Wrapper pageWidth="md">This is the content.</Wrapper>
 ```
 
-In this example, the `InfoBar` displays a message "This is important information." with an optional custom CSS class `custom-class`, an id `info-bar-id`, and sets the page width for the inner `Wrapper` component to `lg` (large).
+In this example, the `Wrapper` displays a message "This is the content." with an optional custom CSS class `custom-class`, an id `wrapper-id`, and sets the page width for the inner `Wrapper` component to `lg` (large).
 
 ```jsx
-<Wrapper id="info-bar-id" className="custom-class" pageWidth="lg">
+<Wrapper id="wrapper-id" className="custom-class" pageWidth="lg">
   This is the content.
 </Wrapper>
 ```
