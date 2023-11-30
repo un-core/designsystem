@@ -59,6 +59,8 @@ export default function PropTypes({
   components = [],
   //sampleCode: sampleCodeInput,
   //smallPreview,
+  showEditor,
+  showWrapper,
   previewScale,
   propTypes,
   view,
@@ -258,6 +260,7 @@ export default function PropTypes({
           // smallPreview
           live
           view={view}
+          showEditor={showEditor}
           // showEditor={!showAllProps}
         />
       </div>

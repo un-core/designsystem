@@ -14,7 +14,13 @@ function ComponentPreview({ component, componentsList, propTypes }: any) {
   if (!componentData) return null;
 
   return (
-    <PropTypes view="smallPreview" {...componentData} propTypes={propTypes} />
+    <PropTypes
+      view="smallPreview"
+      {...componentData}
+      propTypes={propTypes}
+      showEditor={false}
+      hideWrapper={true}
+    />
   );
 }
 

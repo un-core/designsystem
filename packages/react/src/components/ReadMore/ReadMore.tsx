@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import Link from '../Link';
-import { CaretUp, CaretDown } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
+import React, { useRef, useState } from "react";
+import classNames from "classnames";
+import Link from "../Link";
+import { CaretUp, CaretDown } from "@un/icons-react";
+import useSettings from "../../hooks/useSettings";
 
 const MoreLink = ({ handleToggleClick, link, text, showMore }) => {
   const { prefix } = useSettings();
@@ -19,19 +18,20 @@ const MoreLink = ({ handleToggleClick, link, text, showMore }) => {
       <Link
         className={`${prefix}--read-more__trigger`}
         size="sm"
-        onClick={handleToggleClick}>
+        onClick={handleToggleClick}
+      >
         {text}
         <Icon
           width="10"
           height="10"
-          description={showMore ? 'icon up' : 'icon down'}
+          description={showMore ? "icon up" : "icon down"}
         />
       </Link>
     );
   }
 };
 
-type ReadMoreProps = PropsWithChildren<{
+export interface ReadMoreProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Specify an optional className to be applied to the wrapper node
    */
@@ -68,20 +68,21 @@ type ReadMoreProps = PropsWithChildren<{
    * The maximum height when the content is collapsed (optional)
    */
   maxHeight?: number;
-}>;
+}
+
 /** ReadMore component is a simple way to keep longer content from cluttering up your page, giving you more control over how much content is displayed to visitor */
-const ReadMore: React.FC<ReadMoreProps> = ({
+function ReadMore({
   collapseLink,
-  collapseText = 'Show less',
+  collapseText = "Show less",
   children,
   collapsed,
   className,
   disableAutoscroll,
   expandLink,
-  expandText = 'Show more',
+  expandText = "Show more",
   fade,
   maxHeight,
-}) => {
+}: ReadMoreProps) {
   const { prefix } = useSettings();
   const [showMore, setShowMore] = useState(false);
   const [innerHeight, setInnerHeight] = useState(0);
@@ -96,8 +97,8 @@ const ReadMore: React.FC<ReadMoreProps> = ({
       setTimeout(() => {
         if (readMoreFakeRef?.current)
           readMoreFakeRef.current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
+            behavior: "smooth",
+            block: "end",
           });
       }, 50);
 
@@ -128,10 +129,10 @@ const ReadMore: React.FC<ReadMoreProps> = ({
 
   const collapseStyle = showMore
     ? {
-        display: 'none',
+        display: "none",
       }
     : {
-        display: 'block',
+        display: "block",
       };
 
   return (
@@ -140,7 +141,8 @@ const ReadMore: React.FC<ReadMoreProps> = ({
         <div
           className={`${prefix}--read-more__fake-height`}
           ref={readMoreFakeRef}
-          style={{ height: `${innerHeight + 30}px` }}></div>
+          style={{ height: `${innerHeight + 30}px` }}
+        ></div>
         <div ref={readMoreRef}>
           {(showMore || !collapsed) && children}
           {collapsed && <div style={collapseStyle}>{collapsed}</div>}
@@ -154,6 +156,8 @@ const ReadMore: React.FC<ReadMoreProps> = ({
       />
     </div>
   );
-};
+}
+
+ReadMore.displayName = "ReadMore";
 
 export default ReadMore;

@@ -1,34 +1,34 @@
-import React, { ReactNode, ForwardedRef, memo } from 'react';
-import { TransitionState } from 'react-transition-state';
+import * as React from "react";
+import { TransitionState } from "react-transition-state";
 import {
   ACCORDION_BLOCK,
   ElementProps,
   ItemState,
   ItemStateOptions,
-} from '../utils/constants';
-import { bem } from '../utils/bem';
-import { mergeProps } from '../utils/mergeProps';
-import useSettings from '../../../hooks/useSettings';
-import { useAccordionItem } from '../hooks/useAccordionItem';
-import { useHeightTransition } from '../hooks/useHeightTransition';
-import { useMergeRef } from '../hooks/useMergeRef';
-import { ChevronDown } from '@un/icons-react';
-import { withAccordionItem, ItemStateProps } from './withAccordionItem';
-import classNames from 'classnames';
+} from "../utils/constants";
+import { bem } from "../utils/bem";
+import { mergeProps } from "../utils/mergeProps";
+import useSettings from "../../../hooks/useSettings";
+import { useAccordionItem } from "../hooks/useAccordionItem";
+import { useHeightTransition } from "../hooks/useHeightTransition";
+import { useMergeRef } from "../hooks/useMergeRef";
+import { ChevronDown } from "@un/icons-react";
+import { withAccordionItem, ItemStateProps } from "./withAccordionItem";
+import classNames from "classnames";
 
 interface ItemElementProps<E extends HTMLElement>
   extends ElementProps<E, TransitionState> {
-  ref?: ForwardedRef<E>;
+  ref?: React.ForwardedRef<E>;
 }
 
-type NodeOrFunc = ReactNode | ((props: ItemState) => ReactNode);
+type NodeOrFunc = React.ReactNode | ((props: ItemState) => React.ReactNode);
 
 interface AccordionItemProps
   extends ItemStateOptions,
     ElementProps<HTMLDivElement, TransitionState> {
   header?: NodeOrFunc;
   children?: NodeOrFunc;
-  headingTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  headingTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   headingProps?: ItemElementProps<HTMLHeadingElement>;
   buttonProps?: ItemElementProps<HTMLButtonElement>;
   contentProps?: ItemElementProps<HTMLDivElement>;
@@ -37,15 +37,15 @@ interface AccordionItemProps
 
 interface WrappedItemProps<E extends Element>
   extends ItemStateProps<E>,
-    Omit<AccordionItemProps, 'itemRef' | 'itemKey' | 'initialEntered'> {}
+    Omit<AccordionItemProps, "itemRef" | "itemKey" | "initialEntered"> {}
 
 const getRenderNode: <P>(
-  nodeOrFunc: ReactNode | ((props: P) => ReactNode),
+  nodeOrFunc: React.ReactNode | ((props: P) => React.ReactNode),
   props: P
-) => ReactNode = (nodeOrFunc, props) =>
-  typeof nodeOrFunc === 'function' ? nodeOrFunc(props) : nodeOrFunc;
+) => React.ReactNode = (nodeOrFunc, props) =>
+  typeof nodeOrFunc === "function" ? nodeOrFunc(props) : nodeOrFunc;
 
-const WrappedItem = memo(
+const WrappedItem = React.memo(
   ({
     forwardedRef,
     itemRef,
@@ -54,7 +54,7 @@ const WrappedItem = memo(
     className,
     disabled,
     header,
-    headingTag: Heading = 'h3',
+    headingTag: Heading = "h3",
     headingProps,
     buttonProps,
     contentProps,
@@ -81,24 +81,27 @@ const WrappedItem = memo(
       <div
         {...rest}
         ref={useMergeRef(forwardedRef, itemRef)}
-        className={bem(ACCORDION_BLOCK, 'item', { status, expanded: isEnter })(
+        className={bem(ACCORDION_BLOCK, "item", { status, expanded: isEnter })(
           className,
           state
-        )}>
+        )}
+      >
         <Heading
           {...headingProps}
           style={{ margin: 0, ...(headingProps && headingProps.style) }}
-          className={bem(ACCORDION_BLOCK, 'item-heading')(
+          className={bem(ACCORDION_BLOCK, "item-heading")(
             headingProps && headingProps.className,
             state
-          )}>
+          )}
+        >
           <button
             {...mergeProps(_buttonProps, buttonProps)}
             type="button"
-            className={bem(ACCORDION_BLOCK, 'item-btn')(
+            className={bem(ACCORDION_BLOCK, "item-btn")(
               buttonProps && buttonProps.className,
               state
-            )}>
+            )}
+          >
             <ChevronDown description="open" className={buttonClasses} />
             {getRenderNode(header, itemState)}
           </button>
@@ -108,21 +111,23 @@ const WrappedItem = memo(
           <div
             {...contentProps}
             style={{
-              display: status === 'exited' ? 'none' : undefined,
+              display: status === "exited" ? "none" : undefined,
               ...transitionStyle,
               ...(contentProps && contentProps.style),
             }}
-            className={bem(ACCORDION_BLOCK, 'item-content')(
+            className={bem(ACCORDION_BLOCK, "item-content")(
               contentProps && contentProps.className,
               state
-            )}>
+            )}
+          >
             <div
               {...mergeProps(_panelProps, panelProps)}
               ref={panelRef}
-              className={bem(ACCORDION_BLOCK, 'item-panel')(
+              className={bem(ACCORDION_BLOCK, "item-panel")(
                 panelProps && panelProps.className,
                 state
-              )}>
+              )}
+            >
               {getRenderNode(children, itemState)}
             </div>
           </div>
@@ -132,7 +137,7 @@ const WrappedItem = memo(
   }
 );
 
-WrappedItem.displayName = 'AccordionItem';
+WrappedItem.displayName = "AccordionItem";
 const AccordionItem = withAccordionItem<AccordionItemProps, HTMLDivElement>(
   WrappedItem
 );

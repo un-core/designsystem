@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import * as React from 'react';
+import * as React from "react";
 //import classNames from 'classnames';
 //import useSettings from '../../hooks/useSettings';
-import useTab from './useTab';
+import useTab from "./useTab";
 
-export interface TabProps extends React.ComponentPropsWithRef<'li'> {
+export interface TabProps extends React.ComponentPropsWithRef<"li"> {
   handleTabClick?: (
     index?: number,
     label?: string | React.ReactNode,
@@ -34,6 +34,8 @@ export interface TabProps extends React.ComponentPropsWithRef<'li'> {
   //onKeyDown?: (evt?: Event) => void;
 }
 
+/** Tab to be used inside the Tabs component */
+
 const Tab: React.FC<TabProps> = (props) => {
   // const { prefix } = useSettings();
   const {
@@ -59,7 +61,7 @@ const Tab: React.FC<TabProps> = (props) => {
   return (
     <React.Fragment>
       {renderListElement ? (
-        typeof renderListElement === 'function' ? (
+        typeof renderListElement === "function" ? (
           renderListElement({
             ...props,
             ...liProps,
