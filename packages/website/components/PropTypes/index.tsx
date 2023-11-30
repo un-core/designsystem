@@ -60,7 +60,6 @@ export default function PropTypes({
   //sampleCode: sampleCodeInput,
   //smallPreview,
   showEditor,
-  showWrapper,
   previewScale,
   propTypes,
   view,

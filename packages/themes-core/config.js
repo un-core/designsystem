@@ -1,10 +1,12 @@
-const StyleDictionary = require("style-dictionary");
-const { formatHelpers } = require("style-dictionary");
-const ChangeCase = require("change-case");
+//import StyleDictionary from "style-dictionary";
+import StyleDictionary from "style-dictionary";
+import * as changeCase from "change-case";
+
+const { formatHelpers } = StyleDictionary;
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 
-const config = ({
+export const config = ({
   source = `tokens/**/*.json`,
   buildPath = `dist`,
   themeName = "default",
@@ -14,10 +16,25 @@ const config = ({
     name: "css/variables-theme",
     formatter: function ({ dictionary, file, options }) {
       const { outputReferences, theme } = options;
+      console.log("dictionary", outputReferences);
+
+      return (
+        fileHeader({ file, commentStyle: "short" }) +
+        `@mixin theme-${theme} () {\n` +
+        dictionary.allTokens
+          .map((token) => `--${token.name}: ${token.value};`)
+          .join("\n") +
+        "\n}\n"
+      );
+
       return (
         fileHeader({ file }) +
         `@mixin theme-${theme} () {\n` +
-        formattedVariables({ format: "css", dictionary, outputReferences }) +
+        formattedVariables({
+          format: "css",
+          dictionary,
+          outputReferences,
+        }) +
         "\n}\n"
       );
     },
@@ -62,7 +79,7 @@ const config = ({
       );
     });
 
-    return ChangeCase.paramCase([options.prefix].concat(tokenPath).join(" "));
+    return changeCase.kebabCase([options.prefix].concat(tokenPath).join(" "));
   };
 
   StyleDictionary.registerTransform({
@@ -277,5 +294,3 @@ const config = ({
     },
   }).buildAllPlatforms();
 };
-
-module.exports = { config };
