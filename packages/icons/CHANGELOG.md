@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.35.2 (2023-11-29)
+
+
+### Bug Fixes
+
+* **Storybook:** fixed TypeScript errors and publishing it ([ca94293](https://github.com/carbon-design-system/carbon/commit/ca942938534e06d98a5799340d21aa0a58cb6847))
+
+
+
+
+
 ## 10.35.1 (2023-11-28)
 
 **Note:** Version bump only for package @un/icons
