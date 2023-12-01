@@ -1,7 +1,7 @@
 {
   "name": "@un/icons",
   "description": "Icons for digital and software products using the Carbon Design System",
-  "version": "10.35.6",
+  "version": "10.35.7",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
