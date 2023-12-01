@@ -28,6 +28,7 @@ import NextTab from "./NextTab";
 import SidebarNavigation from "./SidebarNavigation";
 import { useParams } from "next/navigation";
 import { createSlug } from "../Blog/Mdx/Headings";
+import ReactImportStatements from "../ReactImportStatements";
 
 const statuses = {
   draft: { title: "Draft", type: "warning" },
@@ -155,6 +156,8 @@ export default function SidebarWrapper({
                 <MDXRemote {...post.mdxExcerptSource} components={components} />
               )}
           </div>
+
+          {lastUrlPath == "code" && <ReactImportStatements post={post} />}
 
           {post.mainComponent && lastUrlPath === "props" && (
             <>

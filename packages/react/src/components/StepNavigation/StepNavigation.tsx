@@ -40,7 +40,6 @@ interface StepNavigationProps {
 }
 
 function StepNavigation({
-  children,
   inline,
   small,
   vertical,

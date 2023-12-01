@@ -1,36 +1,37 @@
-import React from 'react';
-import markdown from './README.mdx';
-import Search from '.';
-import Button from '../Button';
+import React from "react";
+import markdown from "./README.mdx";
+import Search from ".";
+import Button from "../Button";
 
 export default {
-  title: 'Components/UI Elements/Search',
+  title: "Components/UI Elements/Search",
   component: Search,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => <Search {...args} />;
-
-Regular.args = {
-  name: 'search',
+export const SearchDefault: Story = {
+  render: (args) => <Search {...args} />,
+  args: {
+    name: "search",
+  },
 };
 
 export const SearchWithButton = (args) => (
-  <div style={{ width: '50%', display: 'flex' }}>
+  <div style={{ width: "50%", display: "flex" }}>
     <Search {...args} addonAfter={<div>AddonAfter</div>} />
-    <Button kind="primary" style={{ margin: '0 0.5rem' }}>
+    <Button kind="primary" style={{ margin: "0 0.5rem" }}>
       Apply search
     </Button>
   </div>
 );
 
 SearchWithButton.args = {
-  name: 'search',
-  id: 'butonsearch',
+  name: "search",
+  id: "butonsearch",
 };
 
 const AddonBefore = () => {
@@ -42,15 +43,15 @@ const AddonAfter = () => {
 };
 
 export const SearchWithComponents = (args) => (
-  <div style={{ width: '50%', display: 'flex' }}>
+  <div style={{ width: "50%", display: "flex" }}>
     <Search
       {...args}
       components={{ AddonBefore, AddonAfter }}
       onChange={(e, value) => {
-        console.log('onChange', e, value);
+        console.log("onChange", e, value);
       }}
     />
-    <Button kind="primary" style={{ margin: '0 0.5rem' }}>
+    <Button kind="primary" style={{ margin: "0 0.5rem" }}>
       Apply search
     </Button>
   </div>
@@ -67,8 +68,8 @@ SearchWithButton.story = {
 export const SmallSearch = (args) => <Search {...args} />;
 
 SmallSearch.args = {
-  kind: 'small',
-  id: 'smallsearch',
+  kind: "small",
+  id: "smallsearch",
 };
 
 SmallSearch.story = {
@@ -82,7 +83,7 @@ SmallSearch.story = {
 export const MainNavigationSearch = (args) => <Search {...args} />;
 
 MainNavigationSearch.args = {
-  kind: 'main',
+  kind: "main",
 };
 
 MainNavigationSearch.story = {

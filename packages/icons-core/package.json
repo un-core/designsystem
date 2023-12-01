@@ -1,14 +1,14 @@
 {
   "name": "@un/icons-core",
   "description": "Themes for un core",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/carbon-design-system/carbon.git",
+    "url": "https://github.com/wfp/designsystem.git",
     "directory": "packages/styles"
   },
-  "bugs": "https://github.com/carbon-design-system/carbon/issues",
+  "bugs": "https://github.com/wfp/designsystem/issues",
   "main": "build/bundle.js",
   "module": "build/bundle.js",
   "keywords": [

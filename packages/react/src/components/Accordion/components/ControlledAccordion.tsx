@@ -1,20 +1,20 @@
-import React, { ReactNode, forwardRef } from 'react';
+import * as React from "react";
 import {
   ACCORDION_BLOCK,
   AccordionProviderValue,
   ElementProps,
-} from '../utils/constants';
-import { bem } from '../utils/bem';
-import { mergeProps } from '../utils/mergeProps';
-import { AccordionProvider } from './AccordionProvider';
-import { useAccordion } from '../hooks/useAccordion';
+} from "../utils/constants";
+import { bem } from "../utils/bem";
+import { mergeProps } from "../utils/mergeProps";
+import { AccordionProvider } from "./AccordionProvider";
+import { useAccordion } from "../hooks/useAccordion";
 
 interface ControlledAccordionProps extends ElementProps<HTMLDivElement> {
   providerValue: AccordionProviderValue;
-  children?: ReactNode;
+  children?: React.ReactNode;
 }
 
-const ControlledAccordion = forwardRef<
+const ControlledAccordion = React.forwardRef<
   HTMLDivElement,
   ControlledAccordionProps
 >(({ providerValue, className, ...rest }, ref) => {
@@ -30,6 +30,6 @@ const ControlledAccordion = forwardRef<
   );
 });
 
-ControlledAccordion.displayName = 'ControlledAccordion';
+ControlledAccordion.displayName = "ControlledAccordion";
 
 export { ControlledAccordion, ControlledAccordionProps };

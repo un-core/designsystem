@@ -1,7 +1,7 @@
-const { config } = require('./config');
+import { config } from "./config.js";
 
 config({
   source: `tokens/**/*.json`,
-  buildPath: 'dist', //`distDark`,
+  buildPath: "dist", //`distDark`,
   //themeName: 'default', //'dark',
 });

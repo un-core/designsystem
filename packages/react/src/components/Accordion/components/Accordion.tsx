@@ -1,16 +1,16 @@
-import React, { forwardRef } from 'react';
-import { AccordionProviderOptions } from '../utils/constants';
-import { useAccordionProvider } from '../hooks/useAccordionProvider';
+import * as React from "react";
+import { AccordionProviderOptions } from "../utils/constants";
+import { useAccordionProvider } from "../hooks/useAccordionProvider";
 import {
   ControlledAccordion,
   ControlledAccordionProps,
-} from './ControlledAccordion';
+} from "./ControlledAccordion";
 
 interface AccordionProps
   extends AccordionProviderOptions,
-    Omit<ControlledAccordionProps, 'providerValue'> {}
+    Omit<ControlledAccordionProps, "providerValue"> {}
 
-const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   (
     {
       allowMultiple,
@@ -39,6 +39,6 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   }
 );
 
-Accordion.displayName = 'Accordion';
+Accordion.displayName = "Accordion";
 
 export { Accordion, AccordionProps };

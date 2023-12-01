@@ -1,14 +1,7 @@
-/**
- * Modified from https://github.com/IBM/carbon-components-react/
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-import React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import React from "react";
+import type { PropsWithChildren } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
 /** Value are typically used to show KPI values and additional information. */
 type ValueProps = PropsWithChildren<{

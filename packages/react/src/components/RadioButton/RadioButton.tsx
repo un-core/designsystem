@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useState, ChangeEventHandler } from 'react';
-import classNames from 'classnames';
-import uId from '../../tools/uniqueId';
-import useSettings from '../../hooks/useSettings';
-import { InputProps } from '../Input';
+import * as React from "react";
+import { useState, ChangeEventHandler } from "react";
+import classNames from "classnames";
+import uId from "../../tools/uniqueId";
+import useSettings from "../../hooks/useSettings";
+import { InputProps } from "../Input";
 
 interface RadioButtonProps
   extends InputProps,
-    Omit<React.ComponentPropsWithRef<'input'>, 'onChange'> {
+    Omit<React.ComponentPropsWithRef<"input">, "onChange"> {
   /**
    * Specify whether the <RadioButton> is currently checked
    */
@@ -44,7 +44,7 @@ const RadioButton: React.FC<RadioButtonProps> = React.forwardRef(
 
     const { prefix } = useSettings();
 
-    const wrapperClasses = classNames('radioButtonWrapper', className);
+    const wrapperClasses = classNames("radioButtonWrapper", className);
 
     const handleOnChange: ChangeEventHandler<HTMLInputElement> = (evt) => {
       onChange?.(evt, value, name);
@@ -80,6 +80,6 @@ const RadioButton: React.FC<RadioButtonProps> = React.forwardRef(
   }
 );
 
-//RadioButton.displayName = 'RadioButton';
+RadioButton.displayName = "RadioButton";
 
 export default RadioButton;

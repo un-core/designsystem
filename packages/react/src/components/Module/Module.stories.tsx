@@ -1,46 +1,37 @@
-import React from 'react';
-import markdown from './README.mdx';
-import Module from './Module';
-import ModuleHeader from './ModuleHeader';
-import ModuleBody from './ModuleBody';
-import ModuleFooter from './ModuleFooter';
+import React from "react";
+import markdown from "./README.mdx";
+import Module from "./Module";
+import ModuleHeader from "./ModuleHeader";
+import ModuleBody from "./ModuleBody";
+import ModuleFooter from "./ModuleFooter";
 
 export default {
-  title: 'Components/Content Related/Module',
+  title: "Components/Content Related/Module",
   component: Module,
   subcomponents: { ModuleHeader, ModuleBody, ModuleFooter },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => (
-  <Module {...args}>
-    <ModuleHeader>Module example</ModuleHeader>
-    <ModuleBody>
-      <p>
-        Lorem Ipsum is dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s, when an unknown printer took a galley of type and scrambled it to
-        make a type specimen book.
-      </p>
-    </ModuleBody>
-    <ModuleFooter>Module footer</ModuleFooter>
-  </Module>
-);
-
-const description = `
-You can customize the content by using \`BannerNavigation\`.
-`;
-
-Regular.story = {
-  parameters: {
-    docs: {
-      storyDescription: description,
-    },
-  },
+export const ModuleDefault: Story = {
+  render: (args) => (
+    <Module {...args}>
+      <ModuleHeader>Module example</ModuleHeader>
+      <ModuleBody>
+        <p>
+          Lorem Ipsum is dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book.
+        </p>
+      </ModuleBody>
+      <ModuleFooter>Module footer</ModuleFooter>
+    </Module>
+  ),
+  args: {},
 };
 
 export const Dark = () => (

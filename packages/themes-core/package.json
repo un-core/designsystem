@@ -1,14 +1,14 @@
 {
   "name": "@wfp/themes-core",
   "description": "Themes for un core",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/carbon-design-system/carbon.git",
+    "url": "https://github.com/wfp/designsystem.git",
     "directory": "packages/styles"
   },
-  "bugs": "https://github.com/carbon-design-system/carbon/issues",
+  "bugs": "https://github.com/wfp/designsystem/issues",
   "keywords": [
     "colors",
     "themes",
@@ -17,6 +17,7 @@
     "components",
     "react"
   ],
+  "type": "module",
   "scripts": {
     "build": "node --stack-size=9900 runTheme.js",
     "build:legacy": "style-dictionary build --config ./config.js",
@@ -31,10 +32,10 @@
     "token-transformer": "^0.0.33"
   },
   "dependencies": {
-    "change-case": "^4.1.2",
+    "change-case": "^5.2.0",
     "deepdash": "^5.3.9",
     "lodash": "^4.17.21",
-    "style-dictionary": "^3.8.0"
+    "style-dictionary": "^3.9.0"
   },
   "gitHead": "7201da36cfb8dad97a91763abc2497f70c239243"
 }

@@ -1,15 +1,15 @@
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import Wrapper from '../Wrapper';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import Wrapper from "../Wrapper";
+import useSettings from "../../hooks/useSettings";
 
-type BannerNavigationItemProps = PropsWithChildren<{
+export interface BannerNavigationItemProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The CSS class name to be placed on the wrapping element.
    */
   className?: string;
-}>;
+}
 
 const BannerNavigationItem: React.FC<BannerNavigationItemProps> = ({
   className,
@@ -23,7 +23,8 @@ const BannerNavigationItem: React.FC<BannerNavigationItemProps> = ({
   return <li className={wrapperClasses}>{children}</li>;
 };
 
-type BannerNavigationProps = PropsWithChildren<{
+export interface BannerNavigationProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The CSS class name to be placed on the wrapping element.
    */
@@ -31,8 +32,8 @@ type BannerNavigationProps = PropsWithChildren<{
   /**
    * Specify the max-width on desktop devices (same as \`Wrapper\` component)
    */
-  pageWidth?: 'sm' | 'md' | 'lg' | 'full';
-}>;
+  pageWidth?: "sm" | "md" | "lg" | "full";
+}
 
 const BannerNavigation: React.FC<BannerNavigationProps> = ({
   children,
@@ -51,4 +52,4 @@ const BannerNavigation: React.FC<BannerNavigationProps> = ({
   );
 };
 
-export { BannerNavigationItem, BannerNavigation };
+export { BannerNavigation, BannerNavigationItem };

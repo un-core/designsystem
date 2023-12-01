@@ -1,0 +1,30 @@
+---
+category: "Core"
+title: "Search"
+excerpt: "Search offers users a way to explore a website or application using keywords. Search can be used as the primary means of discovering content or as a filter to aid the user in finding content."
+coverImage: "../sample-image.jpg"
+slug: "Components/Forms/Search/tab:Code"
+storybook: true
+mainComponent: "Search"
+---
+
+```js live
+() => {
+  const handleOnChange = (searchValue, evt) => {
+    console.log("searchValue", searchValue); // a string
+    console.log("evt", evt); // the whole event object
+  };
+
+  return (
+    <Search
+      className="some-class"
+      kind="large"
+      name="input-name"
+      labelText="Label"
+      closeButtonLabelText="The label text for the close button"
+      placeholder="Placeholder"
+      onChange={handleOnChange}
+    />
+  );
+};
+```

@@ -5,8 +5,10 @@ export * as Button from "./components/Button/Button.stories.tsx";
 export * as NumberInput from "./components/NumberInput/NumberInput.stories.tsx";
 export * as Checkbox from "./components/Checkbox/Checkbox.stories.tsx";
 export * as Select from "./components/Select/Select.stories.tsx";
+export * as Search from "./components/Search/Search.stories.tsx";
 export * as TextArea from "./components/TextArea/TextArea.stories.tsx";
 export * as TextInput from "./components/TextInput/TextInput.stories.tsx";
+export * as RadioButton from "./components/RadioButton/RadioButton.stories.tsx";
 
 export * as Avatar from "./components/Avatar/Avatar.stories.tsx";
 
@@ -28,7 +30,11 @@ export * as MainNavigation from "./components/MainNavigation/MainNavigation.stor
 export * as Wrapper from "./components/Wrapper/Wrapper.stories.tsx";
 export * as List from "./components/List/List.stories.tsx";
 export * as Empty from "./components/Empty/Empty.stories.tsx";
+export * as Tabs from "./components/Tabs/Tabs.stories.tsx";
 export * as User from "./components/User/User.stories.tsx";
-
+export * as Module from "./components/Module/Module.stories.tsx";
+export * as ReadMore from "./components/ReadMore/ReadMore.stories.tsx";
+export * as Accordion from "./components/Accordion/Accordion.stories.tsx";
+export * as Story from "./components/Story/Story.stories.tsx";
 export * as StepNavigation from "./components/StepNavigation/StepNavigation.stories.tsx";
 export * as SecondaryNavigation from "./components/SecondaryNavigation/SecondaryNavigation.stories.tsx";

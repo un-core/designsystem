@@ -1,11 +1,29 @@
 ---
-category: 'Core'
-title: 'Accordion'
-excerpt: 'The accordion component allows the user to show and hide sections of related content on a page.'
-coverImage: '../sample-image.jpg'
-slug: 'Components/UI elements/Accordion'
+category: "Core"
+title: "Accordion"
+excerpt: "The accordion component allows the user to show and hide sections of related content on a page."
+coverImage: "../sample-image.jpg"
+slug: "Components/Structure/Accordion"
 storybook: true
-mainComponent: 'Accordion'
+mainComponent: "Accordion"
+components:
+  [
+    "AccordionItem",
+    "AccordionProvider",
+    "ControlledAccordion",
+    "withAccordionItem",
+  ]
+componentsNew:
+  Accordion:
+    path: "Accordion/components/Accordion"
+  AccordionItem:
+    path: "Accordion/components/AccordionItem"
+  AccordionProvider:
+    path: "Accordion/components/AccordionProvider"
+  ControlledAccordion:
+    path: "Accordion/components/ControlledAccordion"
+  withAccordionItem:
+    path: "Accordion/components/withAccordionItem"
 previewScale: 0.7
 sampleCode: >
   <Accordion>

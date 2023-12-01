@@ -137,13 +137,14 @@ const CodeBlockLive = (props: any) => {
 
   try {
     formatedCode =
-      language === "jsx"
+      language === "jsx" || 1 === 1
         ? prettier.format(code, {
             parser: "babel",
             plugins: [babelParser],
-            printWidth: 80,
+            printWidth: 55,
           })
         : code;
+    console.log("prettier", formatedCode, code);
   } catch (error) {
     console.log("prettier not working");
   }

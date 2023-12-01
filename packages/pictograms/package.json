@@ -1,17 +1,17 @@
 {
   "name": "@un/pictograms",
   "description": "Pictograms for digital and software products using the Carbon Design System",
-  "version": "11.15.1",
+  "version": "11.15.7",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/carbon-design-system/carbon.git",
+    "url": "https://github.com/wfp/designsystem.git",
     "directory": "packages/pictograms"
   },
-  "bugs": "https://github.com/carbon-design-system/carbon/issues",
+  "bugs": "https://github.com/wfp/designsystem/issues",
   "keywords": [
     "pictograms",
     "ibm",

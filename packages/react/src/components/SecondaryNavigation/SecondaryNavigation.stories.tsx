@@ -1,9 +1,7 @@
 import React from "react";
 import markdown from "./README.mdx";
-import {
-  SecondaryNavigation,
-  SecondaryNavigationTitle,
-} from "./SecondaryNavigation";
+import { SecondaryNavigation } from "./SecondaryNavigation";
+import { SecondaryNavigationTitle } from "./SecondaryNavigationTitle";
 import Breadcrumb from "../Breadcrumb";
 import BreadcrumbItem from "../BreadcrumbItem";
 import BreadcrumbHome from "../BreadcrumbHome";

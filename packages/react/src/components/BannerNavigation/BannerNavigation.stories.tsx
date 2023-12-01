@@ -17,53 +17,46 @@ export default {
 };
 
 export const BannerNavigationDefault: Story = {
-  render: (args) => <BannerNavigationWithContent {...args} />,
+  render: (args) => (
+    <BannerNavigation {...args}>
+      <BannerNavigationItem>
+        <Link href="#" target="_blank">
+          Link 1
+        </Link>
+      </BannerNavigationItem>
+      <BannerNavigationItem>
+        <Link href="#" target="_blank">
+          Link 2
+        </Link>
+      </BannerNavigationItem>
+      <BannerNavigationItem>
+        <Link href="#" target="_blank">
+          Link 3
+        </Link>
+      </BannerNavigationItem>
+      <BannerNavigationItem>
+        <Link href="#" target="_blank">
+          Link 4
+        </Link>
+      </BannerNavigationItem>
+      <BannerNavigationItem>
+        <Search
+          id="search-2"
+          kind="banner"
+          placeholder="Search"
+          onChange={action("onChange")}
+        />
+      </BannerNavigationItem>
+    </BannerNavigation>
+  ),
   args: {
     pageWidth: "lg",
   },
 };
 
-export const CustomContent = (args) => (
-  <BannerNavigation {...args}>
-    <BannerNavigationItem>
-      <Link href="#" target="_blank">
-        Link 1
-      </Link>
-    </BannerNavigationItem>
-    <BannerNavigationItem>
-      <Link href="#" target="_blank">
-        Link 2
-      </Link>
-    </BannerNavigationItem>
-    <BannerNavigationItem>
-      <Link href="#" target="_blank">
-        Link 3
-      </Link>
-    </BannerNavigationItem>
-    <BannerNavigationItem>
-      <Link href="#" target="_blank">
-        Link 4
-      </Link>
-    </BannerNavigationItem>
-    <BannerNavigationItem>
-      <Search
-        id="search-2"
-        kind="banner"
-        placeholder="Search"
-        onChange={action("onChange")}
-      />
-    </BannerNavigationItem>
-  </BannerNavigation>
-);
-
-const description = `
-You can customize the content by using \`BannerNavigation\`.
-`;
-
-CustomContent.story = {
-  parameters: {
-    docs: {
-      storyDescription: description,
-    },
+export const BannerNavigationWithContentDefault: Story = {
+  render: (args) => <BannerNavigationWithContent {...args} />,
+  args: {
+    pageWidth: "lg",
   },
 };

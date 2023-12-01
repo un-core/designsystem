@@ -1,6 +1,6 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 
 /** The Story component adds a default style, formatting and spacing for a longer text with main focus on readability. */
 

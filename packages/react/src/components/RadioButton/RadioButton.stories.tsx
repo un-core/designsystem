@@ -1,48 +1,33 @@
-import React, { useState } from 'react';
-import markdown from './README.mdx';
-import RadioButton from '.';
-import InputGroup from '../InputGroup';
+import React, { useState } from "react";
+import markdown from "./README.mdx";
+import RadioButton from ".";
+import InputGroup from "../InputGroup";
 
 export default {
-  title: 'Components/Forms/RadioButton',
+  title: "Components/Forms/RadioButton",
   component: RadioButton,
   parameters: {
-    componentSubtitle: 'RadioButton',
-    status: 'released',
+    componentSubtitle: "RadioButton",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => <RadioButton {...args} />;
-
-Regular.args = {
-  labelText: 'Radio button',
-  value: 'radio0',
-  name: 'radio0',
-};
-
-const regularsourcecode = `
-import { RadioButton  } from "@wfp/react";
-
-<RadioButton labelText="Radio button" />
-`;
-
-Regular.story = {
-  parameters: {
-    docs: {
-      source: {
-        code: regularsourcecode,
-      },
-    },
+export const RadioButtonDefault: Story = {
+  render: (args) => <RadioButton {...args} />,
+  args: {
+    labelText: "Radio button",
+    value: "radio0",
+    name: "radio0",
   },
 };
 
 export const VerticalGrouping = (args) => {
-  const [gender, setgender] = useState('female');
+  const [gender, setgender] = useState("female");
 
   const handleOnchange = (e) => {
     setgender(e.target.value);
-    console.log('eg', e.target.value);
+    console.log("eg", e.target.value);
   };
 
   return (
@@ -50,7 +35,8 @@ export const VerticalGrouping = (args) => {
       name="input-group"
       helperText="select one"
       labelText="Please select your gender"
-      vertical>
+      vertical
+    >
       <RadioButton
         {...args}
         value="female"
@@ -135,7 +121,8 @@ export const HorizontalGrouping = () => (
   <InputGroup
     name="input-group"
     helperText="select one"
-    labelText="Please select your age range">
+    labelText="Please select your age range"
+  >
     <RadioButton
       name="radiob"
       value="standard"

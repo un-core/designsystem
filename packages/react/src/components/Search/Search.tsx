@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import * as React from "react";
 import classNames from "classnames";
 import useSettings from "../../hooks/useSettings";
 import Input, { InputProps, useInput } from "../Input";
@@ -76,13 +76,13 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
   } = props;
 
   const initialValue = props.value;
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = React.useState(initialValue);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setValue(props.value);
   }, [props.value]);
 
-  const newInputRef = useRef<HTMLInputElement>(null);
+  const newInputRef = React.useRef<HTMLInputElement>(null);
 
   const _inputRef = ref ? ref : newInputRef;
 
@@ -134,7 +134,6 @@ const Search: React.FC<SearchProps> = React.forwardRef((props, ref) => {
     className: `${prefix}--search-input__wrapper`,
     inputClassName: `${prefix}--search-input`,
   });
-  console.log("wrapperProps", wrapperProps, inputProps);
 
   return (
     <Input {...wrapperProps} inputWrapperClassName={searchInputWrapperClasses}>

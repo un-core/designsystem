@@ -1,17 +1,17 @@
 {
   "name": "@un/icons",
   "description": "Icons for digital and software products using the Carbon Design System",
-  "version": "10.35.1",
+  "version": "10.35.7",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/carbon-design-system/carbon.git",
+    "url": "https://github.com/wfp/designsystem.git",
     "directory": "packages/icons"
   },
-  "bugs": "https://github.com/carbon-design-system/carbon/issues",
+  "bugs": "https://github.com/wfp/designsystem/issues",
   "files": [
     "es",
     "lib",

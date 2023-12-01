@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react';
-import classNames from 'classnames';
+import * as React from "react";
+import classNames from "classnames";
 //import TabContent from '../TabContent';
-import useSettings from '../../hooks/useSettings';
-import TabsContext from './TabsContext';
+import useSettings from "../../hooks/useSettings";
+import TabsContext from "./TabsContext";
 
 export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -89,7 +89,7 @@ const Tabs: React.FC<TabsProps> = (props) => {
     className,
     //customTabContent,
     // triggerHref = '#',
-    role = 'navigation',
+    role = "navigation",
     //onSelectionChange,
     selected = null,
     // children,
@@ -97,13 +97,13 @@ const Tabs: React.FC<TabsProps> = (props) => {
   } = props;
 
   const { prefix } = useSettings();
-  const [currentSelected, setCurrentSelected] = useState<string | null>(
+  const [currentSelected, setCurrentSelected] = React.useState<string | null>(
     selected
   );
   //const [sizes, setSizes] = useState<boolean>();
-  const rootRef = useRef(null);
+  const rootRef = React.useRef(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (selected !== currentSelected) {
       setCurrentSelected(selected);
     }
@@ -176,7 +176,7 @@ const Tabs: React.FC<TabsProps> = (props) => {
     return (index, label, evt) => {
       const key = evt.key || evt.which;
 
-      if (key === 'Enter' || key === 13 || key === ' ' || key === 32) {
+      if (key === "Enter" || key === 13 || key === " " || key === 32) {
         //selectTabAt(index, onSelectionChange);
       }
     };
@@ -253,7 +253,8 @@ const Tabs: React.FC<TabsProps> = (props) => {
 
   return (
     <TabsContext.Provider
-      value={{ handleTabClick, handleTabKeyDown, handleTabAnchorFocus }}>
+      value={{ handleTabClick, handleTabKeyDown, handleTabAnchorFocus }}
+    >
       <nav {...other} className={classes.tabs} role={role}>
         <div className={`${prefix}--tabs__nav__bar`} /*style={sizeBar}*/></div>
         <ul ref={rootRef} role="tablist" className={classes.tablist}>
@@ -264,6 +265,6 @@ const Tabs: React.FC<TabsProps> = (props) => {
   );
 };
 
-Tabs.displayName = 'Tabs';
+Tabs.displayName = "Tabs";
 
 export default Tabs;
