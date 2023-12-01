@@ -98,8 +98,10 @@ export default async function getPostContent(params: any) {
 
   if (post.componentsNew) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    Object.entries(post.componentsNew).forEach(([key, component]) => {
-      console.log("componentsNew", component);
+    Object.entries(
+      post.componentsNew as { [key: string]: { path?: string } }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    ).map(([key, component]) => {
       try {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const file = require(`../../types/src/components/${component.path}.json`);
