@@ -1,7 +1,7 @@
 {
   "name": "@wfp/styles",
   "description": "Styles for the WFP Design System",
-  "version": "10.27.5",
+  "version": "10.27.6",
   "license": "Apache-2.0",
   "author": "Robert Gühne <wfp.org>",
   "homepage": "https://www.wfp.org",
