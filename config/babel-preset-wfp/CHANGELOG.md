@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.4 (2023-11-30)
+
+
+### Bug Fixes
+
+* **packages:** fixed yarn lock errors and inconsitencies in themes ([14ace8c](https://github.com/wfp-design-system/wfp/commit/14ace8cc950c85a8b7220c516d7eaca2cbc8df48))
+
+
+
+
+
 ## 0.2.3 (2023-11-30)
 
 **Note:** Version bump only for package @un/babel-preset-wfp
