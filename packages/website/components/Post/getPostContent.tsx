@@ -30,6 +30,7 @@ export default async function getPostContent(params: any) {
     "previewScale",
     "mainComponent",
     "components",
+    "componentsNew",
     "defaultProps",
     "sampleCode",
   ]);
@@ -59,6 +60,7 @@ export default async function getPostContent(params: any) {
         "coverImage",
         "mainComponent",
         "components",
+        "componentsNew",
         "defaultProps",
         "sampleCode",
         "excerpt",
@@ -92,6 +94,19 @@ export default async function getPostContent(params: any) {
     } catch (e) {
       console.log("Can't load typescript definitions!");
     }
+  }
+
+  if (post.componentsNew) {
+    Object.entries(post.componentsNew).forEach(([key, component]) => {
+      console.log("componentsNew", component);
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const file = require(`../../types/src/components/${component.path}.json`);
+        propTypes.push(file[0]);
+      } catch (e) {
+        console.log("Can't load typescript definitions!");
+      }
+    });
   }
 
   if (post.components) {
