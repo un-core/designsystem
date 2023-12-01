@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.27.8 (2023-12-01)
+
+**Note:** Version bump only for package @wfp/styles
+
+
+
+
+
 ## 10.27.7 (2023-12-01)
 
 **Note:** Version bump only for package @wfp/styles
