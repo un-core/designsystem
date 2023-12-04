@@ -1,7 +1,7 @@
 import React from "react";
 import Tooltip from "./Tooltip";
 import markdown from "./README.mdx";
-import { OverflowMenu, Menu } from "@un/icons-react";
+import { Menu } from "@un/icons-react";
 
 export default {
   title: "Components/UI Elements/Tooltip",
@@ -11,18 +11,13 @@ export default {
     mdx: markdown,
   },
 };
-export const Regular = (args) => (
-  <Tooltip
-    // options
-    {...args}
-  >
-    Hover here to show tooltip
-  </Tooltip>
-);
 
-Regular.args = {
-  content: "Label text",
-  children: "This is a helper text",
+export const TooltipDefault: Story = {
+  render: (args) => <Tooltip {...args}>Hover here to show tooltip</Tooltip>,
+  args: {
+    content: "Label text",
+    children: "This is a helper text",
+  },
 };
 
 export const Dark = (args) => (

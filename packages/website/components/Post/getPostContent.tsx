@@ -126,12 +126,28 @@ export default async function getPostContent(params: any) {
 
   if (post.slug === "Components/Overview") {
     posts.forEach((p) => {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const file = require(`../../types/src/components/${p.title}/${p.title}.json`);
-        propTypes.push(file[0]);
-      } catch (e) {
-        console.log("Can't load typescript definitions!");
+      // console.log(posts);
+
+      if (p.mainComponent) {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const file = require(`../../types/src/components/${p.title}/${p.title}.json`);
+          propTypes.push(file[0]);
+        } catch (e) {
+          console.log("Can't load typescript definitions!");
+        }
+      }
+      if (p.componentsNew) {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          Object.entries(p.componentsNew).map(([i, cN]: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const fileCn = require(`../../types/src/components/${cN.path}.json`);
+            propTypes.push(fileCn[0]);
+          });
+        } catch (e) {
+          console.log("Can't load typescript definitions!");
+        }
       }
     });
   }

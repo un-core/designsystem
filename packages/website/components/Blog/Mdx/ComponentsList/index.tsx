@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import PropTypes from "../../../PropTypes";
 
-function ComponentPreview({ component, componentsList, propTypes }: any) {
+function ComponentPreview({ component, componentsList, name, propTypes }: any) {
   const componentData = componentsList.find(
     (e) => e.slug === component.path?.slug
   );
@@ -20,6 +20,7 @@ function ComponentPreview({ component, componentsList, propTypes }: any) {
       propTypes={propTypes}
       showEditor={false}
       hideWrapper={true}
+      name={name}
     />
   );
 }
@@ -66,6 +67,7 @@ export default function ComponentsList(props: any) {
                     <div className={styles.name}>{c.name}</div>
                     <ComponentPreview
                       component={c}
+                      name={c.name}
                       componentsList={componentsList}
                       propTypes={propType}
                     />

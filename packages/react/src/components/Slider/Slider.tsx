@@ -82,6 +82,18 @@ const defaultFormatLabel = (value, label) => {
     : `${value}${label ? label : ""}`;
 };
 
+function calculatePercentage(value, min, max) {
+  // Ensure the values are in the correct range
+  if (max <= min) {
+    return;
+  }
+  if (value < min) value = min;
+  if (value > max) value = max;
+
+  // Calculate the percentage
+  return ((value - min) / (max - min)) * 100;
+}
+
 const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
   const {
     ariaLabelInput,
@@ -182,6 +194,8 @@ const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
   const useInputProps = props as UseInputProps;
   const input = useInput(useInputProps);
 
+  console.log("valueMinimal", valueMinimal);
+
   return (
     <Input {...input.wrapperProps} formItemClassName={numberInputClasses}>
       <div className={sliderContainerClasses}>
@@ -193,7 +207,7 @@ const Slider: React.FC<SliderProps> = React.forwardRef((props, ref) => {
           <div
             className={`${prefix}--slider__range-before`}
             style={{
-              width: `${((valueMinimal || 0 - min) / (max - min)) * 100}%`,
+              width: `${calculatePercentage(valueMinimal, min, max)}%`,
             }}
           />
           <input

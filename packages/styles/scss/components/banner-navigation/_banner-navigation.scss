@@ -1,12 +1,12 @@
-@use '../../breakpoint' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../theme' as *;
-@use '../../spacing' as *;
-@use '../../type' as *;
-@use '../../utilities/button-reset';
-@use '../../utilities/component-reset';
-@use '../../utilities/convert';
+@use "../../breakpoint" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../theme" as *;
+@use "../../spacing" as *;
+@use "../../type" as *;
+@use "../../utilities/button-reset";
+@use "../../utilities/component-reset";
+@use "../../utilities/convert";
 
 @mixin banner-navigation {
   .#{$prefix}--banner-navigation {
@@ -14,18 +14,18 @@
     @include reset;
     display: flex;
     // @include font-smoothing; //added to reset mixin
-    @include breakpoint-down('sm') {
+    @include breakpoint-down("sm") {
       display: none;
     }
   }
 
   .#{$prefix}--banner-navigation__item {
-    @include type-style('label');
-    @include font-family('sans');
+    @include type-style("label");
+    @include font-family("sans");
     padding: 0 $spacing-03;
 
     font-size: 0.85rem; //TODO: use token
-    @include breakpoint('xlg') {
+    @include breakpoint("xlg") {
       padding: 0 $spacing-04;
     }
 
@@ -34,7 +34,7 @@
     }
 
     a {
-      @include type-style('label');
+      @include type-style("label");
       color: $text-on-color;
       text-decoration: none;
       font-weight: 500;
@@ -60,5 +60,20 @@
     justify-content: flex-end;
     height: 2rem;
     align-items: center;
+  }
+
+  .#{$prefix}--search {
+    .#{$prefix}--search-input {
+      border: none;
+      padding-left: 1.35em;
+    }
+    .#{$prefix}--search-magnifier-icon {
+      left: 0.4em;
+      height: 0.9em;
+      width: 0.9em;
+    }
+    .#{$prefix}--search-close {
+      right: 0.3em;
+    }
   }
 }

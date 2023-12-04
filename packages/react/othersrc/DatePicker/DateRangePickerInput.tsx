@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
 //import * as ReactHook from 'react-hook-form';
 
 interface DateRangePickerInputProps
@@ -62,11 +62,13 @@ const DateRangePickerInput: React.FC<DateRangePickerInputProps> = (props) => {
   } = props;
 
   const { prefix } = useSettings();
-  const [focusedInput, setFocusedInput] = useState(null);
-  const [startDate, setStartDate] = useState(
+  const [focusedInput, setFocusedInput] = React.useState(null);
+  const [startDate, setStartDate] = React.useState(
     props.startDate ? props.startDate : null
   );
-  const [endDate, setEndDate] = useState(props.endDate ? props.endDate : null);
+  const [endDate, setEndDate] = React.useState(
+    props.endDate ? props.endDate : null
+  );
 
   // state = {
   //   focusedInput: null,
@@ -75,7 +77,7 @@ const DateRangePickerInput: React.FC<DateRangePickerInputProps> = (props) => {
   // };
 
   const handleFocusChange = (focusedInput) => {
-    if (!focusedInput && typeof onBlur === 'function') {
+    if (!focusedInput && typeof onBlur === "function") {
       onBlur();
     }
     setFocusedInput(focusedInput);

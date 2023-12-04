@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { NotificationButton } from './NotificationButton';
-import { NotificationIcon } from './NotificationIcon';
-import { NotificationTextDetails } from './NotificationTextDetails';
-import useSettings from '../../hooks/useSettings';
-import classNames from 'classnames';
-import { CalloutProps } from './Callout';
+import * as React from "react";
+import { NotificationButton } from "./NotificationButton";
+import { NotificationIcon } from "./NotificationIcon";
+import { NotificationTextDetails } from "./NotificationTextDetails";
+import useSettings from "../../hooks/useSettings";
+import classNames from "classnames";
+import { CalloutProps } from "./Callout";
 
 interface ToastNotificationProps extends CalloutProps {
   /**
@@ -14,19 +14,19 @@ interface ToastNotificationProps extends CalloutProps {
 }
 
 export const ToastNotification: React.FC<ToastNotificationProps> = ({
-  role = 'alert',
-  notificationType = 'toast',
+  role = "alert",
+  notificationType = "toast",
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClose = () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onCloseButtonClick = () => {},
-  iconDescription = 'closes notification',
+  iconDescription = "closes notification",
   statusIconDescription,
   className,
   //caption = 'provide a caption',
   subtitle,
-  title = 'provide a title',
-  kind = 'error',
+  title = "provide a title",
+  kind = "error",
   lowContrast,
   hideCloseButton = false,
   children,
@@ -34,7 +34,7 @@ export const ToastNotification: React.FC<ToastNotificationProps> = ({
   ...other
 }) => {
   const { prefix } = useSettings();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = React.useState(true);
   const containerClassName = classNames(className, {
     [`${prefix}--toast-notification`]: true,
     [`${prefix}--toast-notification--low-contrast`]: lowContrast,
@@ -52,13 +52,13 @@ export const ToastNotification: React.FC<ToastNotificationProps> = ({
     handleClose(event);
   }
 
-  const savedOnClose = useRef(onClose);
+  const savedOnClose = React.useRef(onClose);
 
-  useEffect(() => {
+  React.useEffect(() => {
     savedOnClose.current = onClose;
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!timeout) {
       return;
     }
@@ -83,7 +83,8 @@ export const ToastNotification: React.FC<ToastNotificationProps> = ({
     <div
       {...other}
       role={role}
-      /* kind={kind} */ className={containerClassName}>
+      /* kind={kind} */ className={containerClassName}
+    >
       <NotificationIcon
         kind={kind}
         iconDescription={statusIconDescription || `${kind} icon`}
@@ -93,7 +94,8 @@ export const ToastNotification: React.FC<ToastNotificationProps> = ({
         title={title}
         subtitle={subtitle}
         //caption={caption}
-        notificationType={notificationType}>
+        notificationType={notificationType}
+      >
         {children}
       </NotificationTextDetails>
       {!hideCloseButton && (

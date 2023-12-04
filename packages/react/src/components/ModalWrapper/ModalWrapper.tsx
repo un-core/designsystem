@@ -1,14 +1,14 @@
-import React, { useState, KeyboardEvent } from 'react';
-import Modal from '../Modal';
-import Button from '../Button';
-import useSettings from '../../hooks/useSettings';
-import { ButtonKind } from '../../utils';
-import { ModalProps } from '../Modal/Modal';
+import * as React from "react";
+import Modal from "../Modal";
+import Button from "../Button";
+import useSettings from "../../hooks/useSettings";
+import { ButtonKind } from "../../utils";
+import { ModalProps } from "../Modal/Modal";
 
 /** Modal Wrapper component to encapsulate your Modal within a button. */
 interface ModalWrapperProps
   extends ModalProps,
-    React.ComponentPropsWithRef<'div'> {
+    React.ComponentPropsWithRef<"div"> {
   id?: string;
   /*status?: string;
    */
@@ -54,7 +54,7 @@ interface ModalWrapperProps
   triggerButtonKind?: ButtonKind;
   shouldCloseAfterSubmit?: boolean;
   primaryButtonDisabled?: boolean;
-  onKeyDown?: (evt: KeyboardEvent<HTMLDivElement>) => void;
+  onKeyDown?: (evt: React.KeyboardEvent<HTMLDivElement>) => void;
   /*primaryButtonRef?: React.RefObject<HTMLButtonElement>;
   secondaryButtonRef?: React.RefObject<HTMLButtonElement>*/
 }
@@ -75,7 +75,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 }) => {
   const { prefix } = useSettings();
   const triggerButton = React.createRef<HTMLButtonElement>();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -124,7 +124,8 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
           handleClose();
           onKeyDown && onKeyDown(evt);
         }
-      }}>
+      }}
+    >
       {customButton ? (
         <React.Fragment>{customButtonEl}</React.Fragment>
       ) : (
@@ -134,7 +135,8 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
           disabled={disabled}
           kind={triggerButtonKind}
           onClick={handleOpen}
-          ref={triggerButton}>
+          ref={triggerButton}
+        >
           {buttonTriggerText}
         </Button>
       )}
@@ -143,6 +145,6 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
   );
 };
 
-ModalWrapper.displayName = 'ModalWrapper';
+ModalWrapper.displayName = "ModalWrapper";
 
 export default ModalWrapper;

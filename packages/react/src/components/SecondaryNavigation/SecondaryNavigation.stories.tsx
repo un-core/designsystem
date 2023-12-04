@@ -29,7 +29,7 @@ export default {
 
 export const SecondaryNavigationDefault: Story = {
   render: (args) => (
-    <SecondaryNavigation {...args} additional="additional Information">
+    <SecondaryNavigation {...args} additional="Additional">
       <Breadcrumb>
         <BreadcrumbItem>
           <a href="/#">
@@ -44,7 +44,6 @@ export const SecondaryNavigationDefault: Story = {
         <Tab label="Tab label 1" href="#" />
         <Tab label="Tab label 2" href="#" />
         <Tab label="Tab label 3" href="#" />
-        <Tab label="Tab label 4" href="#" />
       </Tabs>
     </SecondaryNavigation>
   ),

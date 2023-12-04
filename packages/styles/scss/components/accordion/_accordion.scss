@@ -5,17 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../breakpoint' as *;
-@use '../../config' as *;
-@use '../../motion' as *;
-@use '../../theme' as *;
-@use '../../spacing' as *;
-@use '../../type' as *;
-@use '../../utilities/button-reset';
-@use '../../utilities/component-reset';
-@use '../../utilities/convert';
-@use '../../utilities/focus-outline' as *;
-@use '../../utilities/high-contrast-mode' as *;
+@use "../../breakpoint" as *;
+@use "../../config" as *;
+@use "../../motion" as *;
+@use "../../theme" as *;
+@use "../../spacing" as *;
+@use "../../type" as *;
+@use "../../utilities/button-reset";
+@use "../../utilities/component-reset";
+@use "../../utilities/convert";
+@use "../../utilities/focus-outline" as *;
+@use "../../utilities/high-contrast-mode" as *;
 
 /// @type Value
 /// @access public
@@ -56,7 +56,8 @@ $content-padding: 0 0 0 $spacing-05 !default;
 
   .szh-accordion {
     @include reset;
-    @include font-family('sans');
+    @include font-family("sans");
+    width: 100%;
     border-bottom: 1px solid $border-strong;
     &__item {
       border-top: 1px solid $border-strong;

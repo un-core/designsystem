@@ -1,19 +1,27 @@
-import React from 'react';
-import markdown from './README.mdx';
-import Text from '.';
-import Link from '../Link';
-import { List, ListItem } from '../List';
+import React from "react";
+import markdown from "./README.mdx";
+import Text from ".";
+import Link from "../Link";
+import { List, ListItem } from "../List";
 
 export default {
-  title: 'Components/UI Elements/Text',
+  title: "Components/UI Elements/Text",
   component: Text,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
+export const TextDefault: Story = {
+  render: (args) => <Text {...args} />,
+  args: {
+    children: "Text",
+  },
+};
+
+/*
 export const Regular = (args) => <Text {...args} />;
 
 Regular.decorators = [
@@ -30,6 +38,7 @@ Regular.decorators = [
 ];
 
 Regular.args = { children: 'Content', kind: 'h1' };
+*/
 
 const regularsourcecode = `
 import { Text } from "@wfp/react";
@@ -50,12 +59,12 @@ Regular.story = {
 };
 
 const headingText = [
-  { kind: 'h1', text: 'Heading 1', styling: '29px, SemiBold' },
-  { kind: 'h2', text: 'Heading 2', styling: '25px, SemiBold' },
-  { kind: 'h3', text: 'Heading 3', styling: '22px, SemiBold' },
-  { kind: 'h4', text: 'Heading 4', styling: '20px, SemiBold' },
-  { kind: 'h5', text: 'Heading 5', styling: '18px, SemiBold' },
-  { kind: 'h6', text: 'Heading 6', styling: '16px, SemiBold' },
+  { kind: "h1", text: "Heading 1", styling: "29px, SemiBold" },
+  { kind: "h2", text: "Heading 2", styling: "25px, SemiBold" },
+  { kind: "h3", text: "Heading 3", styling: "22px, SemiBold" },
+  { kind: "h4", text: "Heading 4", styling: "20px, SemiBold" },
+  { kind: "h5", text: "Heading 5", styling: "18px, SemiBold" },
+  { kind: "h6", text: "Heading 6", styling: "16px, SemiBold" },
 ];
 
 export const Headings = (args) => (
@@ -63,7 +72,7 @@ export const Headings = (args) => (
     {headingText.map((e) => (
       <>
         <Text kind={e.kind}>{e.text}</Text>
-        <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>
+        <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>
           {e.styling}
         </div>
       </>
@@ -94,14 +103,14 @@ Headings.story = {
 };
 
 const Normaltext = [
-  { kind: 'p', text: 'Body copy, paragraph', styling: '16px, Regular' },
-  { kind: 'p', text: 'Label (form)', styling: '14px, SemiBold' },
-  { kind: 'code', text: 'Code', styling: 'Monospace, 16px, Regular' },
-  { kind: 'sup', text: 'Sup', styling: '11px, Regular' },
+  { kind: "p", text: "Body copy, paragraph", styling: "16px, Regular" },
+  { kind: "p", text: "Label (form)", styling: "14px, SemiBold" },
+  { kind: "code", text: "Code", styling: "Monospace, 16px, Regular" },
+  { kind: "sup", text: "Sup", styling: "11px, Regular" },
   {
-    kind: 'inline-highlight',
-    text: 'Inline highlight',
-    styling: '14px, SemiBold',
+    kind: "inline-highlight",
+    text: "Inline highlight",
+    styling: "14px, SemiBold",
   },
 ];
 
@@ -110,7 +119,7 @@ export const text = (args) => (
     {Normaltext.map((e) => (
       <>
         <Text kind={e.kind}>{e.text}</Text>
-        <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>
+        <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>
           {e.styling}
         </div>
       </>
@@ -142,9 +151,9 @@ text.story = {
 export const Pagetitle = (args) => (
   <>
     <Text kind="title">Title</Text>
-    <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>58px, Light</div>
+    <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>58px, Light</div>
     <Text kind="subtitle">Overline</Text>
-    <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>14px, SemiBold</div>
+    <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>14px, SemiBold</div>
   </>
 );
 const pagetitlesourcecode = `
@@ -169,9 +178,9 @@ Pagetitle.story = {
 export const Links = (args) => (
   <>
     <Text kind="a">Link</Text>
-    <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>16px, Regular</div>
+    <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>16px, Regular</div>
     <Link className="wfp--link--hover">Link</Link>
-    <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>16px, Regular</div>
+    <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>16px, Regular</div>
   </>
 );
 
@@ -195,9 +204,9 @@ Links.story = {
 };
 
 const emphasisText = [
-  { kind: 'strong', text: 'Bold', styling: '16px, Bold' },
-  { kind: 'bold', text: 'SemiBold', styling: '16px, SemiBold' },
-  { kind: 'i', text: 'Italic', styling: '16px, Italic' },
+  { kind: "strong", text: "Bold", styling: "16px, Bold" },
+  { kind: "bold", text: "SemiBold", styling: "16px, SemiBold" },
+  { kind: "i", text: "Italic", styling: "16px, Italic" },
 ];
 
 export const Emphasis = (args) => (
@@ -205,7 +214,7 @@ export const Emphasis = (args) => (
     {emphasisText.map((e) => (
       <>
         <Text kind={e.kind}>{e.text}</Text>
-        <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>
+        <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>
           {e.styling}
         </div>
       </>
@@ -233,9 +242,9 @@ Emphasis.story = {
 };
 
 const list = [
-  { kind: 'simple', heading: 'Ordered lists' },
-  { kind: 'bullets', heading: 'Bullet lists' },
-  { kind: 'ordered', heading: 'Unordered lists' },
+  { kind: "simple", heading: "Ordered lists" },
+  { kind: "bullets", heading: "Bullet lists" },
+  { kind: "ordered", heading: "Unordered lists" },
 ];
 
 export const Lists = (args) => (
@@ -248,7 +257,7 @@ export const Lists = (args) => (
           <ListItem>Numbered List 2</ListItem>
           <ListItem>Numbered List 3</ListItem>
         </List>
-        <div style={{ color: '#A9A9A9', marginBottom: '2rem' }}>
+        <div style={{ color: "#A9A9A9", marginBottom: "2rem" }}>
           16px, Regular
         </div>
       </>
@@ -298,29 +307,30 @@ Lists.story = {
 };
 
 const colors = [
-  { color: '#031C2D', text: '#text-01' },
-  { color: '#5A6872', text: '#text-02' },
-  { color: '#DFE6EB', text: '#text-03' },
+  { color: "#031C2D", text: "#text-01" },
+  { color: "#5A6872", text: "#text-02" },
+  { color: "#DFE6EB", text: "#text-03" },
 ];
 
 export const textColors = (args) => (
   <>
     {colors.map((e) => (
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: "flex" }}>
         <div>
           <Text>{e.text}</Text>
-          <div style={{ color: '#A9A9A9', marginBottom: '3rem' }}>
+          <div style={{ color: "#A9A9A9", marginBottom: "3rem" }}>
             16px, {e.color}
           </div>
         </div>
         <div
           style={{
             backgroundColor: e.color,
-            width: '50px',
-            height: '50px',
-            borderRadius: '50%',
-            marginLeft: '1.5rem',
-          }}></div>
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            marginLeft: "1.5rem",
+          }}
+        ></div>
       </div>
     ))}
   </>

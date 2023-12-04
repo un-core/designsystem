@@ -76,6 +76,7 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
     token.filePath === "tokens/design-tokens.tokens.new.json"
   ) {
     const tokenPath = token.path?.slice(0, -1);
+
     if (!tokenPath) return null;
     return (
       <Tooltip
@@ -98,6 +99,78 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
                     </div>
                   </div>
                 </div>
+              ) : typeof token.value === "object" && token.value.fontFamily ? (
+                <div
+                  className={styles.value}
+                  style={{
+                    fontFamily: token.value.fontFamily,
+                    fontSize: token.value.fontSize + "px",
+                    fontWeight: token.value.fontWeight,
+                    lineHeight: token.value.lineHeight,
+                    letterSpacing: token.value.letterSpacing,
+                  }}
+                >
+                  {name}
+                  <br /> <br />
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor.
+                </div>
+              ) : tokenPath.find((t) => t === "fontSize") ? (
+                <div
+                  className={styles.value}
+                  style={{
+                    fontSize: token.value + "px",
+                  }}
+                >
+                  {name}
+                </div>
+              ) : tokenPath.find((t) => t === "letterSpacing") ? (
+                <div
+                  className={styles.value}
+                  style={{
+                    letterSpacing: token.value,
+                  }}
+                >
+                  {name}
+                </div>
+              ) : tokenPath.find((t) => t === "borderRadius") ? (
+                <div className={styles.value}>
+                  {name}
+                  <div
+                    className={styles.borderRadius}
+                    style={{
+                      borderRadius: token.value,
+                    }}
+                  ></div>
+                </div>
+              ) : tokenPath.find((t) => t === "borderWidth") ? (
+                <div className={styles.value}>
+                  {name}
+                  <div
+                    className={styles.borderRadius}
+                    style={{
+                      borderWidth: token.value,
+                    }}
+                  ></div>
+                </div>
+              ) : tokenPath.find((t) => t === "fontWeight") ? (
+                <div
+                  className={styles.value}
+                  style={{
+                    fontWeight: token.value,
+                  }}
+                >
+                  {name}
+                </div>
+              ) : tokenPath.find((t) => t === "fontFamily") ? (
+                <div
+                  className={styles.value}
+                  style={{
+                    fontFamily: token.value,
+                  }}
+                >
+                  {name}
+                </div>
               ) : (
                 <div className={styles.value}>{name}</div>
               )}
@@ -114,13 +187,27 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
               <p>{token.description}</p>
               <List kind="details" colon className={styles.list}>
                 <ListItem title="Value">
-                  {typeof token.value === "string"
-                    ? token.value
-                    : JSON.stringify(token.value, null, 2)}
+                  {typeof token.value === "string" ? (
+                    token.value
+                  ) : (
+                    <div className={styles.rawJson}>
+                      {JSON.stringify(token.value, null, 2)}
+                    </div>
+                  )}
                 </ListItem>
                 <ListItem title="CSS">
                   <Text kind="code" spacingTop="none">
-                    {token.cssName}
+                    <div className={styles.rawJson}>
+                      {token.cssName}
+
+                      {typeof token.value === "object" && (
+                        <>
+                          {Object.entries(token.value).map(([i]) => (
+                            <div key={i}>{`${token.cssName}__${i}`}</div>
+                          ))}
+                        </>
+                      )}
+                    </div>
                   </Text>
                 </ListItem>
 
@@ -132,9 +219,11 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
 
                 <ListItem title="Original">
                   <Text kind="code" spacingTop="none">
-                    {typeof token.original.value === "string"
-                      ? token.original.value
-                      : JSON.stringify(token.original.value, null, 2)}
+                    <div className={styles.rawJson}>
+                      {typeof token.original.value === "string"
+                        ? token.original.value
+                        : JSON.stringify(token.original.value, null, 2)}{" "}
+                    </div>
                   </Text>
                 </ListItem>
 
@@ -245,7 +334,7 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
     Object.values(token as Token)?.[0]?.value
   ) {
     return (
-      <div>
+      <div className={styles.tokenCategory}>
         <h5 className={styles.tokenHeading}>{name}</h5>
 
         <div className={styles.smallTokens}>
@@ -312,12 +401,11 @@ interface DesignTokenProps {
 }
 
 const DesignTokenDisplay: React.FC<DesignTokenProps> = ({ tokens }) => {
-  console.log("tokensssss", tokens);
   return (
     <div className="design-tokens">
       {Object.entries(tokens).map(([tokenName, tokenData]) => {
         //if (typeof nestedToken === "string") return null;
-        console.log("nestedLogssss", tokenData);
+
         /* if (nestedToken?.[0]?.name?.split("-")?.[1] === "10") {
   return <div></div>;
 } */

@@ -1,12 +1,11 @@
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
+import * as React from "react";
+import classNames from "classnames";
 
-type ModuleBodyProps = PropsWithChildren<{
+interface ModuleBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   centered?: boolean;
   noPadding?: boolean;
-}>;
+}
 
 const ModuleBody: React.FC<ModuleBodyProps> = ({
   children,
@@ -15,9 +14,9 @@ const ModuleBody: React.FC<ModuleBodyProps> = ({
   noPadding,
   ...other
 }) => {
-  const wrapperClasses = classNames('wfp--module__content', className, {
-    'wfp--module__content--centered': centered,
-    'wfp--module__content--no-padding': noPadding,
+  const wrapperClasses = classNames("wfp--module__content", className, {
+    "wfp--module__content--centered": centered,
+    "wfp--module__content--no-padding": noPadding,
   });
 
   return (

@@ -1,12 +1,12 @@
-import React from 'react';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import useSettings from "../../hooks/useSettings";
 
 import {
   Error,
   CheckmarkCircle,
   WarningSolid,
   InfoCircle,
-} from '@un/icons-react';
+} from "@un/icons-react";
 
 const iconTypes = {
   error: Error,
@@ -17,14 +17,14 @@ const iconTypes = {
 
 interface NotificationIconProps {
   iconDescription?: string;
-  kind: 'error' | 'info' | 'success' | 'warning' | 'warning-alt';
-  notificationType: 'toast' | 'inline';
+  kind: "error" | "info" | "success" | "warning" | "warning-alt";
+  notificationType: "toast" | "inline";
 }
 
 export const NotificationIcon: React.FC<NotificationIconProps> = ({
   iconDescription,
-  kind = 'info',
-  notificationType = 'toast',
+  kind = "info",
+  notificationType = "toast",
 }) => {
   const { prefix } = useSettings();
   const IconForKind = kind ? iconTypes[kind] : undefined;
@@ -33,7 +33,8 @@ export const NotificationIcon: React.FC<NotificationIconProps> = ({
   }
   return (
     <IconForKind
-      className={`${prefix}--${notificationType}-notification__icon`}>
+      className={`${prefix}--${notificationType}-notification__icon`}
+    >
       <title>{iconDescription}</title>
     </IconForKind>
   );

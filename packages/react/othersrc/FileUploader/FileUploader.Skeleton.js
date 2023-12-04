@@ -1,7 +1,7 @@
-import React from 'react';
-import SkeletonText from '../SkeletonText';
-import ButtonSkeleton from '../Button/Button.Skeleton';
-import useSettings from '../../hooks/useSettings';
+import React from "react";
+import SkeletonText from "../../src/components/SkeletonText";
+import ButtonSkeleton from "../../src/components/Button/Button.Skeleton";
+import useSettings from "../../src/hooks/useSettings";
 
 const FileUploaderSkeleton = () => {
   const { prefix } = useSettings();

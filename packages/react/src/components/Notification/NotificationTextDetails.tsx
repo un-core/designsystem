@@ -1,11 +1,11 @@
-import React from 'react';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import useSettings from "../../hooks/useSettings";
 
 interface NotificationTextDetailsProps {
   /*extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> */ title?: React.ReactNode;
   subtitle?: React.ReactNode;
   caption?: React.ReactNode;
-  notificationType?: 'toast' | 'inline';
+  notificationType?: "toast" | "inline";
   children?: React.ReactNode;
 }
 
@@ -15,13 +15,13 @@ export const NotificationTextDetails: React.FC<
   title,
   subtitle,
   caption,
-  notificationType = 'toast',
+  notificationType = "toast",
   children,
   ...other
 }) => {
   const { prefix } = useSettings();
 
-  if (notificationType === 'toast') {
+  if (notificationType === "toast") {
     return (
       <div {...other} className={`${prefix}--toast-notification__details`}>
         {title && (

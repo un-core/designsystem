@@ -21,13 +21,6 @@ export const WrapperDefault = (args) => (
     have enough to eat. Food and food-related assistance lie at the heart of the
     struggle to break the cycle of hunger and poverty. On any given day, WFP has
     5,000 trucks, 20 ships and 92 planes on the move, delivering food and other
-    assistance to those in most need. Every year, we distribute more than 15
-    billion rations at an estimated average cost per ration of US$ 0.31. These
-    numbers lie at the roots of WFP’s unparalleled reputation as an emergency
-    responder, one that gets the job done quickly at scale in the most difficult
-    environments. WFP’s efforts focus on emergency assistance, relief and
-    rehabilitation, development aid and special operations. Two-thirds of our
-    work is in conflict-affected countries where people are three times more
-    likely to be undernourished than those living in countries without conflict.
+    assistance to those in most need.
   </Wrapper>
 );

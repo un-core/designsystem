@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import * as ReactHook from 'react-hook-form';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import * as ReactHook from "react-hook-form";
 
 interface SingleDatePickerInputProps {
   datePicker: React.ElementType;
@@ -36,11 +36,13 @@ const SingleDatePickerInput: React.FC<SingleDatePickerInputProps> = ({
   ...other
 }) => {
   const { prefix } = useSettings();
-  const [controlledValue, setControlledValue] = useState(value ? value : null);
-  const [focusedInput, setFocusedInput] = useState(null);
+  const [controlledValue, setControlledValue] = React.useState(
+    value ? value : null
+  );
+  const [focusedInput, setFocusedInput] = React.useState(null);
 
   const handleFocusChange = (focusedInput) => {
-    if (!focusedInput && typeof onBlur === 'function') {
+    if (!focusedInput && typeof onBlur === "function") {
       onBlur();
     }
     setFocusedInput(focusedInput);
