@@ -18,7 +18,7 @@ import styles from "./prop-types.module.scss";
 import CodeBlockLive from "../Blog/Mdx/CodeBlockLive";
 import Markdown from "react-markdown";
 import formatTypes from "./formatTypes";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import { transform } from "@babel/standalone";
 import { AddCircle, CloseCircle, Settings, StarSolid } from "@un/icons-react";
 
@@ -67,13 +67,12 @@ function extractJSXFromRender(code) {
 export default function PropTypes({
   defaultProps = {},
   mainComponent,
-  components = [],
+  //components = [],
   //sampleCode: sampleCodeInput,
   //smallPreview,
   componentsNew,
   showEditor,
   previewScale,
-  name,
   propTypes,
   hideWrapper,
   view,
@@ -135,7 +134,8 @@ export default function PropTypes({
     if (
       (prop.name === "kind" ||
         prop.name === "type" ||
-        (prop.name === "size") | (prop.name === "pageWidth")) &&
+        prop.name === "size" ||
+        prop.name === "pageWidth") &&
       prop.type.name.includes("|")
     ) {
       //const propOptionsList = inputString.split(" | ").map(s => s.replace(/"/g, ''));
@@ -254,14 +254,14 @@ export default function PropTypes({
       // Evaluate the transpiled code to get a React element
       // WARNING: eval() can be dangerous and is generally not recommended.
       window.React = React;
-      window.action = (action) => {
+      (window as any).action = (action) => {
         console.log("action triggered", action);
       };
       Object.entries(wfpComponents).forEach((entry) => {
         window[entry[0]] = entry[1];
       });
 
-      let codeNew = "";
+      let codeNew: any = "";
 
       console.log("transformedCode.code", transformedCode.code);
 
@@ -315,8 +315,8 @@ export default function PropTypes({
     .replaceAll(`/> />`, `/>`); */
   //.replaceAll(`/>`, ``);
 
-  const componentsUsedInCode = [];
-  Object.entries(wfpComponents).forEach(([index, c]) => {
+  const componentsUsedInCode: any = [];
+  Object.entries(wfpComponents).forEach(([index]) => {
     if (code.includes("<" + index)) {
       componentsUsedInCode.push(index);
     }

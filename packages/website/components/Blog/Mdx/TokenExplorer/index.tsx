@@ -202,7 +202,7 @@ function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
 
                       {typeof token.value === "object" && (
                         <>
-                          {Object.entries(token.value).map(([i, t]) => (
+                          {Object.entries(token.value).map(([i]) => (
                             <div key={i}>{`${token.cssName}__${i}`}</div>
                           ))}
                         </>

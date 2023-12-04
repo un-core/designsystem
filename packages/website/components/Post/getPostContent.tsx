@@ -129,9 +129,8 @@ export default async function getPostContent(params: any) {
       // console.log(posts);
 
       if (p.mainComponent) {
-        console.log("p.title", p.title, p.mainComponent);
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
         try {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
           const file = require(`../../types/src/components/${p.title}/${p.title}.json`);
           propTypes.push(file[0]);
         } catch (e) {
@@ -140,8 +139,9 @@ export default async function getPostContent(params: any) {
       }
       if (p.componentsNew) {
         try {
-          Object.entries(p.componentsNew).map(([i, cN]) => {
-            console.log("cnPath", cN);
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          Object.entries(p.componentsNew).map(([i, cN]: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
             const fileCn = require(`../../types/src/components/${cN.path}.json`);
             propTypes.push(fileCn[0]);
           });
