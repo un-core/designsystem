@@ -2,6 +2,7 @@ import {
   Checkbox,
   Select,
   SelectItem,
+  Empty,
   Tag,
   Table,
   Text,
@@ -17,9 +18,20 @@ import styles from "./prop-types.module.scss";
 import CodeBlockLive from "../Blog/Mdx/CodeBlockLive";
 import Markdown from "react-markdown";
 import formatTypes from "./formatTypes";
+import parse from "html-react-parser";
+import { transform } from "@babel/standalone";
+import { AddCircle, CloseCircle, Settings, StarSolid } from "@un/icons-react";
 
 import * as componentsSource from "@../../../demoCode/dist/bundle";
 
+const filterEmptyValues = (obj) => {
+  return Object.entries(obj).reduce((acc, [key, value]) => {
+    if (value !== undefined && value !== null && value !== "") {
+      acc[key] = value;
+    }
+    return acc;
+  }, {});
+};
 /*
 const clean = (obj) => {
   for (const propName in obj) obj[propName] ?? delete obj[propName];
@@ -55,22 +67,30 @@ function extractJSXFromRender(code) {
 export default function PropTypes({
   defaultProps = {},
   mainComponent,
-
   components = [],
   //sampleCode: sampleCodeInput,
   //smallPreview,
+  componentsNew,
   showEditor,
   previewScale,
+  name,
   propTypes,
+  hideWrapper,
   view,
 }: any) {
   // const [showAllProps, setShowAllProps] = useState(true);
   // const [rtl, setRtl] = useState(false);
 
+  //console.log("componentsNew", name, propTypes, componentsNew);
+
+  const currentComponentsSettings = componentsNew?.[propTypes?.displayName];
+
   const componentsSourceText =
-    componentsSource[mainComponent]?.default[
-      `${propTypes?.displayName}Default`
-    ];
+    componentsSource[
+      currentComponentsSettings?.demo
+        ? currentComponentsSettings.demo
+        : mainComponent
+    ]?.default[`${propTypes?.displayName}Default`];
 
   const componentsSourceProps = componentsSourceText?.args
     ? componentsSourceText.args
@@ -100,13 +120,23 @@ export default function PropTypes({
     console.log(data);
   };
 
+  const iconsList = {
+    none: { value: "", icon: "No Icon" },
+    AddCircle: { value: "AddCircle", icon: <AddCircle /> },
+    CloseCircle: { value: "CloseCircle", icon: <CloseCircle /> },
+    Settings: { value: "Settings", icon: <Settings /> },
+    StarSolid: { value: "StarSolid", icon: <StarSolid /> },
+  };
+
   // TODO: Add auto detection of options based on prop types
   const options = "primary | secondary | tertiary".replaceAll(" ", "");
 
   const renderInput = (prop) => {
     if (
-      (prop.name === "kind" || prop.name === "type" || prop.name === "size") &&
-      prop.name.includes("|")
+      (prop.name === "kind" ||
+        prop.name === "type" ||
+        (prop.name === "size") | (prop.name === "pageWidth")) &&
+      prop.type.name.includes("|")
     ) {
       //const propOptionsList = inputString.split(" | ").map(s => s.replace(/"/g, ''));
 
@@ -151,6 +181,18 @@ export default function PropTypes({
         </Select>
       );
     }
+    if (prop.name === "icon") {
+      return (
+        <Select
+          {...register(prop.name, { required: prop.required })}
+          defaultValue={prop.defaultValue && prop.defaultValue.value}
+        >
+          {Object.entries(iconsList).map(([i, icon]) => (
+            <SelectItem key={i} value={icon.value} text={icon.value} />
+          ))}
+        </Select>
+      );
+    }
     if (
       prop.type.name === "ReactNode" ||
       prop.type.name === "string" ||
@@ -177,9 +219,14 @@ export default function PropTypes({
   };
 
   const componentProps: any = {};
+
   if (propList) {
     Object.values(propList).forEach(({ name, defaultValue }: any) => {
-      componentProps[name] = propValues[name] || defaultValue?.value;
+      if (name === "icon") {
+        componentProps.icon = iconsList[propValues[name]]?.icon;
+      } else {
+        componentProps[name] = propValues[name] || defaultValue?.value;
+      }
     });
   }
 
@@ -189,12 +236,7 @@ export default function PropTypes({
   let propsAsList: any = [];
 
   if (propList) {
-    propsAsList =
-      /*= showAllProps
-      ? Object.values(propList).filter((e: any) =>
-          e.description.includes("@design")
-        )
-      : */ Object.values(propList);
+    propsAsList = Object.values(propList);
   }
 
   let code = reactElementToJSXString(
@@ -203,35 +245,85 @@ export default function PropTypes({
   );
 
   if (sampleCode) {
-    const codeFiltered = reactElementToJSXString(
+    try {
+      // Transpile JSX to JavaScript
+      const transformedCode = transform(sampleCode.replace("{...args}", ""), {
+        presets: ["react"],
+      });
+
+      // Evaluate the transpiled code to get a React element
+      // WARNING: eval() can be dangerous and is generally not recommended.
+      window.React = React;
+      window.action = (action) => {
+        console.log("action triggered", action);
+      };
+      Object.entries(wfpComponents).forEach((entry) => {
+        window[entry[0]] = entry[1];
+      });
+
+      let codeNew = "";
+
+      console.log("transformedCode.code", transformedCode.code);
+
+      codeNew = eval(transformedCode.code);
+
+      // .replace("{...args}", "")
+      /*const options = {
+      htmlparser2: {
+        lowerCaseTags: false,
+      },
+    };
+
+    const codeNew = parse(sampleCode.replace("{...args}", ""), options);*/
+
+      const enhancedElement = React.cloneElement(codeNew, {
+        ...filterEmptyValues(defaultProps),
+        ...filterEmptyValues(componentProps),
+      });
+
+      code = reactElementToJSXString(enhancedElement);
+    } catch (error) {
+      console.log("Transform failed");
+    }
+
+    // console.log("codeNew", reactElementToJSXString(enhancedElement));
+    /*const codeFiltered = reactElementToJSXString(
       <MyComponent
-        // {...defaultProps}
+        {...defaultProps}
         {...componentProps}
-        // eslint-disable-next-line react/no-children-prop
-        //childrenINTERN={componentProps.children}
+        children={<div>ddsadsa</div>}
       />,
       { filterProps: (val) => (val === undefined ? false : true) }
-    )
-      .replace(`<${mainComponent}`, ``)
-      .replace(`</${mainComponent}>`, ``);
+    ); */
+    // .replace(`<${mainComponent}`, ``)
+    // .replace(`</${mainComponent}>`, ``);
 
-    code = sampleCode
+    //code = codeFiltered
+    /* sampleCode
       .replace("PROPS_HERE", codeFiltered)
-      .replace("{...args}", codeFiltered);
+      .replace("{...args}", codeFiltered) */
   }
 
-  if (componentProps.children) {
-    code = code.replace("/>", `</${mainComponent}>`);
-  }
+  //if (componentProps.children) {
+  //code = code.replace("/>", `</${mainComponent}>`);
+  //  }
 
   // TODO: MainNavigation replace improve string replace
-  code = code
+  /* code = code
     .replaceAll(`/>>`, `>`)
     .replaceAll(` /> />`, `/>`)
-    .replaceAll(`/> />`, `/>`);
+    .replaceAll(`/> />`, `/>`); */
   //.replaceAll(`/>`, ``);
 
-  const componentList = [mainComponent, ...components].join(", ");
+  const componentsUsedInCode = [];
+  Object.entries(wfpComponents).forEach(([index, c]) => {
+    if (code.includes("<" + index)) {
+      componentsUsedInCode.push(index);
+    }
+  });
+
+  const componentList =
+    /* [mainComponent, ...components] */ componentsUsedInCode.join(", ");
 
   code = `import { ${componentList} } from "@wfp/react";
 
@@ -254,7 +346,8 @@ export default function PropTypes({
         <CodeBlockLive
           source={code}
           // live
-          // hideWrapper
+          width={componentsNew?.[propTypes?.displayName]?.width}
+          hideWrapper={hideWrapper}
           center
           // smallPreview
           live
@@ -276,6 +369,7 @@ export default function PropTypes({
         source={code}
         className={styles.codeBlock}
         live
+        width={componentsNew?.[propTypes?.displayName]?.width}
         // hideWrapper
         center
         view={view}
@@ -286,10 +380,9 @@ export default function PropTypes({
           <MyComponent {...defaultProps} {...componentProps} />
         </div>
   )}*/}
-
       {view === "propsTable" && (
         <form onSubmit={handleSubmit(onSubmit)}>
-          {view === "propsTable" && (
+          {view === "propsTable" && propsAsList.length > 0 ? (
             <Table className={styles.propTable}>
               <thead>
                 <tr>
@@ -343,7 +436,11 @@ export default function PropTypes({
                 })}
               </tbody>
             </Table>
-          )}
+          ) : view === "propsTable" ? (
+            <Empty kind="large">
+              This component does not have any custom props.
+            </Empty>
+          ) : null}
         </form>
       )}
     </div>

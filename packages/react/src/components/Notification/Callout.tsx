@@ -1,11 +1,11 @@
-import React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import { NotificationTextDetails } from './NotificationTextDetails';
-import { NotificationIcon } from './NotificationIcon';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import { NotificationTextDetails } from "./NotificationTextDetails";
+import { NotificationIcon } from "./NotificationIcon";
 
 export interface CalloutProps
-  extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> {
+  extends Omit<React.ComponentPropsWithRef<"div">, "title"> {
   /**
    * Pass in the action nodes that will be rendered within the Notification
    */
@@ -34,7 +34,7 @@ export interface CalloutProps
   /**
    * Specify what state the notification represents
    */
-  kind?: 'error' | 'info' | 'success' | 'warning' | 'warning-alt';
+  kind?: "error" | "info" | "success" | "warning" | "warning-alt";
 
   /**
    * Specify whether you are using the low contrast variant of the Notification.
@@ -45,7 +45,7 @@ export interface CalloutProps
    * By default, this value is "inline". You can also provide an alternate type
    * if it makes sense for the underlying `<NotificationTextDetails>` and `<NotificationButton>`
    */
-  notificationType?: 'toast' | 'inline';
+  notificationType?: "toast" | "inline";
 
   /**
    * Provide a function that is called when menu is closed
@@ -78,15 +78,15 @@ export const Callout: React.FC<CalloutProps> = React.forwardRef(
   (props, ref) => {
     const {
       actions,
-      role = 'alert',
-      notificationType = 'inline',
+      role = "alert",
+      notificationType = "inline",
       icon,
       //  iconDescription = 'closes notification',
       statusIconDescription,
       className,
       subtitle,
       title,
-      kind = 'info',
+      kind = "info",
       lowContrast = true,
       hideCloseButton = false,
       children,
@@ -113,14 +113,16 @@ export const Callout: React.FC<CalloutProps> = React.forwardRef(
           )}
           {icon && (
             <div
-              className={`${prefix}--${notificationType}-notification__icon`}>
+              className={`${prefix}--${notificationType}-notification__icon`}
+            >
               {icon}
             </div>
           )}
           <NotificationTextDetails
             title={title}
             subtitle={subtitle}
-            notificationType={notificationType}>
+            notificationType={notificationType}
+          >
             {children}
           </NotificationTextDetails>
           {actions && (
@@ -134,6 +136,6 @@ export const Callout: React.FC<CalloutProps> = React.forwardRef(
   }
 );
 
-Callout.displayName = 'Callout';
+Callout.displayName = "Callout";
 
 export default Callout;

@@ -1,4 +1,4 @@
-@use 'scss/meta' as *;
+@use "scss/meta" as *;
 
 .componentsSubList {
   display: flex;
@@ -23,9 +23,13 @@
 }
 
 .name {
+  font-weight: 500;
   position: absolute;
-  top: 0.3em;
-  left: 0.7em;
+  z-index: 10000;
+  background: $layer-primary;
+  top: 0em;
+  left: 0em;
   color: $text-primary;
+  padding: 0.3em 0.9em;
   font-size: 0.8em;
 }

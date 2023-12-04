@@ -1,0 +1,42 @@
+---
+category: "Core"
+title: "Text"
+excerpt: "Tags are used for items that need to be labeled, categorized, or organized using keywords that describe them."
+coverImage: "../sample-image.jpg"
+slug: "Components/Structure/Text/tab:Code"
+storybook: true
+mainComponent: "Text"
+status: "published"
+---
+
+The `Tag` component is a versatile UI element used to label, categorize, or organize items using keywords. It's an essential part of the user interface, allowing for the easy identification and grouping of items based on their attributes or statuses.
+
+### Types
+
+```jsx live
+<>
+  <Tag type="info">Info</Tag>
+  <Tag type="warning">Warning</Tag>
+  <Tag type="error">Error</Tag>
+  <Tag type="success">Success</Tag>
+  <Tag type="custom">Custom (without formatting)</Tag>
+</>
+```
+
+### Customize colors
+
+Customize the colors of the `Tag` by passing a `style` or `className` prop.
+
+```jsx live
+<>
+  <Tag type="custom" style={{ color: "#ff0000", background: "yellow" }}>
+    Custom
+  </Tag>
+</>
+```
+
+## Customization
+
+- The `type` prop allows for the customization of the tag based on predefined types or custom strings.
+- Additional CSS classes can be added via the `className` prop for further styling.
+- Inherits attributes from `HTMLSpanElement`, allowing for standard HTML attributes like `id`, `style`, etc., to be applied.

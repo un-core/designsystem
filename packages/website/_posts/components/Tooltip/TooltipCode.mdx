@@ -1,72 +1,44 @@
 ---
 category: "Core"
-title: "Modal"
-excerpt: "Modal are surfaces that display content and actions on a single topic."
+title: "Tooltip"
 slug: "Components/Overlay/Tooltip/tab:Code"
 storybook: true
-mainComponent: "Modal"
-components: ["ModuleBody", "ModuleHeader", ModuleFooter]
+mainComponent: "Tooltip"
 ---
 
-##### Custom footer
+The `Tooltip` component is a React component designed to display additional information upon user interaction like click, hover, or focus. The information provided by the tooltip is contextual, useful, and nonessential.
 
-To display custom footer content, pass a function (or React component) to `modalFooter` prop
+### Style Constants
 
-```js
-<Modal open modalFooter={() => <div>The Modal Footer content</div>} />
-```
+There are two style constants available:
 
-#### Full screen Dialog (`Dialog` example)
+- `tooltipStyle`: Default style for the tooltip.
+- `tooltipStyleDark`: Dark theme style for the tooltip.
 
-Full screen dialogs only show the Modal element without any other content like the navigation. They can be used for login, password reset or very important dialogs.
+### Usage
 
-```js
-<Modal open hideClose backgroundImage={yourBackgroundImage.jpg} />
-```
-
-#### Handle the `open` state
-
-Modal allows you to control the `open` State on your own. Use the Modal Wrapper component to use a controlled version of Modal.
+Here's an example of how to use the `Tooltip` component:
 
 ```jsx live
-() => {
-  const [open, setOpen] = useState();
-
-  submitAndClose = () => {
-    alert("Submit now and close the modal");
-    setOpen(false);
-  };
-
-  return (
-    <div>
-      <button onClick={() => setOpen(!open)}>Open Modal</button>
-      <Modal
-        open={open}
-        primaryButtonText="Submit"
-        onRequestSubmit={this.submitAndClose}
-        secondaryButtonText="Cancel Modal"
-        onSecondarySubmit={this.toggleModal}
-        onRequestClose={this.toggleModal}
-      >
-        <p className="wfp--modal-content__text">Nothing to see here</p>
-      </Modal>
-    </div>
-  );
-};
+<Tooltip content="This is a tooltip" placement="bottom">
+  <button>Hover over me!</button>
+</Tooltip>
 ```
 
-#### Disable closing the Modal if the user clicks on the background
+This will create a tooltip with the content "This is a tooltip" that appears at the bottom of the button when hovered over.
 
-```js
-onRequestClose={(evt, trigger) => {
-  if (trigger !== 'background') {
-    return props.onClose(evt, trigger);
-  }
-  return null;
-}}
+### Placement
 
-<Modal
-  onRequestClose={this.onRequestClose}
-  {...otherProps}
-/>
+Control the placement of the tooltip by using the `placement` prop.
+
 ```
+'auto' | 'auto-start' | 'auto-end' | 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end';
+```
+
+### Internal Components
+
+`TooltipPortal`: This internal component is used for rendering the tooltip in a portal if `usePortal` is true.
+
+### Note
+
+The `Tooltip` component utilizes [react-popper-tooltip](https://github.com/mohsinulhaq/react-popper-tooltip) for positioning and `classNames` for handling dynamic class names.

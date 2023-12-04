@@ -8,24 +8,7 @@ storybook: true
 mainComponent: "RadioButton"
 defaultProps:
   labelText: "Checkbox label"
-sampleCode: >
-  <>
-    <RadioButton
-      name="Option"
-      labelText="Option-1"
-      value="option-1"
-    />
-    <RadioButton
-      name="Option"
-      labelText="Option-2"
-      value="option-2"
-    />
-  </>
 ---
-
-```jsx live
-<Checkbox id="check-1" labelText="Label text" />
-```
 
 ### Grouping
 
@@ -33,9 +16,24 @@ sampleCode: >
 
 ```jsx live
 <InputGroup labelText="Input group" helperText="Describing the input group">
-  <RadioButton id="check-1" labelText="Option 1" />
-  <RadioButton id="check-2" labelText="Option 2" />
-  <RadioButton id="check-3" labelText="Option 3" />
+  <RadioButton
+    id="check-1"
+    name="radio-horizontal"
+    labelText="Option 1"
+    value="option1"
+  />
+  <RadioButton
+    id="check-2"
+    name="radio-horizontal"
+    labelText="Option 2"
+    value="option2"
+  />
+  <RadioButton
+    id="check-3"
+    name="radio-horizontal"
+    labelText="Option 3"
+    value="option3"
+  />
 </InputGroup>
 ```
 
@@ -47,9 +45,9 @@ sampleCode: >
   helperText="Describing the input group"
   vertical
 >
-  <RadioButton id="check-1" labelText="Option 1" />
-  <RadioButton id="check-2" labelText="Option 2" />
-  <RadioButton id="check-3" labelText="Option 3" />
+  <RadioButton name="radio-vertical" labelText="Option 1" value="option1" />
+  <RadioButton name="radio-vertical" labelText="Option 2" value="option2" />
+  <RadioButton name="radio-vertical" labelText="Option 3" value="option3" />
 </InputGroup>
 ```
 

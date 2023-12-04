@@ -22,7 +22,29 @@ export const config = ({
         fileHeader({ file, commentStyle: "short" }) +
         `@mixin theme-${theme} () {\n` +
         dictionary.allTokens
-          .map((token) => `--${token.name}: ${token.value};`)
+          .map((token) => {
+            if (typeof token.value === "string") {
+              return `--${token.name}: ${token.value};`;
+            } else if (typeof token.value === "object") {
+              const tokensObject = Object.entries(token.value).map(([k, t]) => {
+                if (k === "fontFamily") {
+                  return `--${`${token.name}__${k}`}: "${t}";`;
+                }
+                return `--${`${token.name}__${k}`}: ${t};`;
+              });
+
+              var addition = "";
+              if (Object.keys(token.value).find((t) => t === "fontFamily")) {
+                addition = `\n--${token.name}: ${token.value.fontWeight} ${token.value.fontSize}/${token.value.lineHeight} "${token.value.fontFamily}", sans-serif;`;
+              }
+
+              if (Object.keys(token.value).find((t) => t === "spread")) {
+                addition = `\n--${token.name}: box-shadow: ${token.value.x}px ${token.value.y}px ${token.value.blur}px ${token.value.spread}px ${token.value.color};`;
+              }
+
+              return tokensObject.join("\n") + addition;
+            }
+          })
           .join("\n") +
         "\n}\n"
       );

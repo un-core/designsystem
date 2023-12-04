@@ -8,9 +8,13 @@ storybook: true
 mainComponent: "Button"
 ---
 
+### Primary button
+
 ```jsx live
 <Button kind="primary">Button</Button>
 ```
+
+### All button kinds
 
 ```jsx live
 <>
@@ -22,9 +26,7 @@ mainComponent: "Button"
         padding: "0.3rem",
       }}
     >
-      <Button {...args} kind={e}>
-        {e}
-      </Button>
+      <Button kind={e}>{e}</Button>
     </div>
   ))}
 </>
@@ -45,25 +47,24 @@ By changing the `kind` prop you can use different styles of the button.
 | `inverse`          | should be used on dark backgrounds                                                       |
 | `navigation`       | should be only used in the main navigation                                               |
 
+### Icon examples
+
 ```jsx live
 <>
   <Button icon={AddCircle} kind="primary">
-    Button with icon
+    With icon
   </Button>{" "}
-  <Button kind="tertiary" icon={AddCircle}></Button>
-  <Button iconReverse kind="tertiary" icon={AddCircle}>
-    With iconReverse
-  </Button>{" "}
-  <Button href="#" icon={AddCircle} kind="primary">
-    Button with icon link
-  </Button>{" "}
-  <Button href="#" kind="tertiary" icon={AddCircle}></Button> <Button
-    href="#"
+  <Button kind="tertiary" icon={AddCircle}></Button> <Button
     iconReverse
     kind="tertiary"
     icon={AddCircle}
   >
-    With iconReverse link
+    iconReverse
+  </Button> <Button href="#" icon={AddCircle} kind="primary">
+    Icon link
+  </Button> <Button href="#" kind="tertiary" icon={AddCircle}></Button>{" "}
+  <Button href="#" iconReverse kind="tertiary" icon={AddCircle}>
+    IconReverse link
   </Button>
 </>
 ```
@@ -95,16 +96,21 @@ import { AddCircle } from "@un/icons-react";
 </>;
 ```
 
-```jsx live
-<>
-  <Button kind="primary" small>
-    Small button
-  </Button>
-  <Button icon={AddCircle} kind="tertiary" small>
-    With icon
-  </Button>
-</>
+#### Link vs. Button
+
+When applying a `href` prop the button will use an `<a>` anchor element instead of a button. This way `Button` can be used like a link.
+
+```jsx
+<Button href="https://wfp.org">Small button</Button>
+/*
+Will result in 
+<a href="https://wfp.org" class="wfp--btn wfp--btn--primary" role="button">
+  Small button
+</a>
+*/
 ```
+
+#### Small
 
 Small buttons may be used when there is not enough space for a
 regular sized button. This issue is most found in tables. Small button should have three words
@@ -122,20 +128,9 @@ import { AddCircle } from "@un/icons-react";
 </>;
 ```
 
-```jsx live
-<>
-  <Button kind="primary" large>
-    Large button
-  </Button>{" "}
-  <Button icon={AddCircle} kind="tertiary" large>
-    With icon
-  </Button>
-</>
-```
+#### Large
 
-Small buttons may be used when there is not enough space for a
-regular sized button. This issue is most found in tables. Small button should have three words
-or less.
+Large buttons may be used for main primary actions where they are uses as the call-to-action.
 
 ```jsx live
 import { Button } from "@wfp/react";
@@ -143,16 +138,33 @@ import { AddCircle } from "@un/icons-react";
 
 <>
   <Button large>Large button</Button>{" "}
-  <Button {...args} icon={AddCircle} kind="tertiary" large>
+  <Button icon={AddCircle} kind="tertiary" large>
     With icon
   </Button>
 </>;
 ```
 
-```jsx live
-<Button large icon={<div>Hello</div>}>
-  Large button
-</Button>
+#### Animating
+
+When clicking the `Button` a `wfp--btn--animating` class will be added to the element for 500 ms, which can be used for custom `onClick` animations.
+
+```jsx
+// After onClick for 500ms
+<button class="wfp--btn wfp--btn--primary wfp--btn--animating" type="button">
+  Button
+</button>
+```
+
+#### Removing focus
+
+When using the button without page transition the focus will stay on the button when clicking it. By customzing the `onClick` function you can disable the focus.
+
+```jsx
+function handleButtonClick(event) {
+  btnRef.current.blur();
+}
+
+<Button onClick={handleButtonClick}>Text</Button>;
 ```
 
 ### html
@@ -164,11 +176,13 @@ To use a button with plain html add `wfp--btn` and `wfp--btn--{kind}` as class t
 <button class="wfp--btn wfp--btn--primary">Button</button>
 ```
 
-All buttons can use icons. It's recommended to inline SVG icons when possible. Simply add the appropriate `svg` image to the button HTML with the `wfp--btn__icon` class. You can also include a `title` tag for better accessibility to describe what the button does.
+All buttons can use icons. It's recommended to inline SVG icons when possible. Add the appropriate `svg` image to the button HTML with the `wfp--btn__icon` class. You can also include a `title` tag for better accessibility to describe what the button does.
+
+All possible css classes can be found on the [css Tab](./css).
 
 ### Related
 
-[Link](?path=/docs/components-link--link-regular)
+[Link](../link)
 
 ### Reference
 

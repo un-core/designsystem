@@ -1,28 +1,27 @@
-import React from 'react';
-import markdown from './README.mdx';
-import ModalWrapper from '.';
+import React from "react";
+import markdown from "./README.mdx";
+import ModalWrapper from ".";
 
 export default {
-  title: 'Components/Content Related/ModalWrapper',
+  title: "Components/Content Related/ModalWrapper",
   component: ModalWrapper,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
 
-export const Regular = (args) => (
-  <ModalWrapper {...args}>{args.children}</ModalWrapper>
-);
-
-Regular.args = {
-  buttonTriggerText: 'Open modal',
-  children:
-    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.',
-  modalLabel: 'Modal label',
-  modalHeading: 'Modal heading',
-  modalText: 'Modal text',
+export const ModalWrapperDefault: Story = {
+  render: (args) => <ModalWrapper {...args} />,
+  args: {
+    buttonTriggerText: "Open modal",
+    children:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.",
+    modalLabel: "Modal label",
+    modalHeading: "Modal heading",
+    modalText: "Modal text",
+  },
 };
 
 export const PassiveModal = (args) => (
@@ -30,7 +29,7 @@ export const PassiveModal = (args) => (
 );
 
 PassiveModal.args = {
-  buttonTriggerText: 'Open modal',
+  buttonTriggerText: "Open modal",
   passiveModal: true,
 };
 
@@ -51,8 +50,8 @@ export const ModalWithHeading = (args) => (
 );
 
 ModalWithHeading.args = {
-  buttonTriggerText: 'Open modal',
-  modalHeading: 'Header Text',
+  buttonTriggerText: "Open modal",
+  modalHeading: "Header Text",
   withHeader: true,
 };
 
@@ -73,8 +72,8 @@ export const ModalWithLabel = (args) => (
 );
 
 ModalWithLabel.args = {
-  buttonTriggerText: 'Open modal',
-  modalLabel: 'modal Label',
+  buttonTriggerText: "Open modal",
+  modalLabel: "modal Label",
   withHeader: true,
 };
 
@@ -95,7 +94,7 @@ export const Disabled = (args) => (
 );
 
 Disabled.args = {
-  buttonTriggerText: 'Open modal',
+  buttonTriggerText: "Open modal",
   disabled: true,
 };
 

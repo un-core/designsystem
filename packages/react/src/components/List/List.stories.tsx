@@ -16,16 +16,23 @@ export default {
 
 export const ListDefault = (args) => (
   <List {...args}>
-    <ListItem title="List item with title">First item</ListItem>
-    <ListItem title="Another item with title">Second item</ListItem>
+    <ListItem title="List item title">First item</ListItem>
+    <ListItem title="Another title">Second item</ListItem>
     <ListItem>Third item</ListItem>
-    <ListItem>Fourth item</ListItem>
-    <ListItem>Fifth item</ListItem>
   </List>
 );
 
 ListDefault.args = {
   colon: true,
+  kind: "bullets",
+};
+
+export const ListItemDefault: Story = {
+  render: (args) => <ListItem {...args}>List item</ListItem>,
+  args: {
+    title: "Title",
+    // children: "ListItem",
+  },
 };
 
 export const SimpleInline = (args) => (

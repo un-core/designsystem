@@ -1,0 +1,51 @@
+---
+category: "Core"
+title: "Callout"
+coverImage: "../sample-image.jpg"
+slug: "Components/Structure/Callout/tab:Code"
+storybook: true
+mainComponent: "Callout"
+componentsNew:
+  Callout:
+    path: "Notification/Callout"
+    demo: "Notification"
+---
+
+The `Callout` component is a flexible and customizable notification component used to display a variety of messages to users, such as alerts, warnings, information, and success messages.
+
+## Usage
+
+```jsx live
+<Callout
+  title="Your Title"
+  subtitle="Your subtitle"
+  kind="info"
+  // ...other props
+>
+  Your content here
+</Callout>
+```
+
+## Example
+
+```jsx live
+<Callout
+  title="Network Error"
+  subtitle="There was an error connecting to the server"
+  kind="error"
+  onClose={() => console.log("Closed")}
+>
+  Please check your internet connection and try again.
+</Callout>
+```
+
+## Accessibility Considerations
+
+- Ensure the `role` prop is set appropriately to ensure screen readers interpret the notification correctly.
+- Use the `iconDescription` and `statusIconDescription` props to provide meaningful descriptions for icons.
+
+## Best Practices
+
+- Use appropriate `kind` values to indicate the nature of the notification (e.g., error, success).
+- Keep titles and subtitles concise and informative.
+- Use actions sparingly to avoid overwhelming the user.

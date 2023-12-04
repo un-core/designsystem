@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
   ToastNotification,
   //InlineNotification,
   NotificationActionButton,
   Callout,
-} from '.';
-import Button from '../Button';
-import { notificationtypes } from '../../prop-types/types';
+} from ".";
+import Button from "../Button";
+import { notificationtypes } from "../../prop-types/types";
 
-import markdown from './README.mdx';
+import markdown from "./README.mdx";
 
 export default {
-  title: 'Components/UI Elements/Notification',
+  title: "Components/UI Elements/Notification",
   component: NotificationActionButton,
   subcomponents: { ToastNotification /*, InlineNotification*/ },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
@@ -24,18 +24,18 @@ export default {
 export const Toast = (args) => (
   <ToastNotification
     {...args}
-    caption={'00:00:00 AM'}
-    style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+    caption={"00:00:00 AM"}
+    style={{ minWidth: "30rem", marginBottom: ".5rem" }}
   />
 );
 Toast.args = {
-  kind: 'error',
+  kind: "error",
   lowContrast: false,
-  role: 'alert',
-  title: 'Notification title',
-  subtitle: 'Subtitle text goes here.',
-  iconDescription: 'describes the close button',
-  statusIconDescription: 'describes the status icon',
+  role: "alert",
+  title: "Notification title",
+  subtitle: "Subtitle text goes here.",
+  iconDescription: "describes the close button",
+  statusIconDescription: "describes the status icon",
   hideCloseButton: false,
 };
 
@@ -44,15 +44,16 @@ export const NotificationTypes = (args) => (
     {notificationtypes.map((e) => (
       <div
         style={{
-          display: 'inline-block',
-          background: e === 'inverse' ? '#ccc' : '',
-          padding: '0.3rem',
-        }}>
+          display: "inline-block",
+          background: e === "inverse" ? "#ccc" : "",
+          padding: "0.3rem",
+        }}
+      >
         <ToastNotification
           {...args}
           kind={e}
-          caption={'00:00:00 AM'}
-          style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+          caption={"00:00:00 AM"}
+          style={{ minWidth: "30rem", marginBottom: ".5rem" }}
         />
       </div>
     ))}
@@ -60,13 +61,13 @@ export const NotificationTypes = (args) => (
 );
 
 NotificationTypes.args = {
-  kind: 'error',
+  kind: "error",
   lowContrast: false,
-  role: 'alert',
-  title: 'Notification title',
-  subtitle: 'Subtitle text goes here.',
-  iconDescription: 'describes the close button',
-  statusIconDescription: 'describes the status icon',
+  role: "alert",
+  title: "Notification title",
+  subtitle: "Subtitle text goes here.",
+  iconDescription: "describes the close button",
+  statusIconDescription: "describes the status icon",
   hideCloseButton: false,
 };
 
@@ -89,9 +90,9 @@ By changing the \`kind\` prop you can use different styles of the notification.
 `;
 
 NotificationTypes.story = {
-  name: 'NotificationTypes',
+  name: "NotificationTypes",
   parameters: {
-    markdown: 'hello',
+    markdown: "hello",
     docs: {
       storyDescription: hello,
     },
@@ -103,34 +104,34 @@ export const ToastLowContrast = (args) => (
     <ToastNotification
       {...args}
       kind="success"
-      style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+      style={{ minWidth: "30rem", marginBottom: ".5rem" }}
     />
     <ToastNotification
       {...args}
       kind="error"
-      style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+      style={{ minWidth: "30rem", marginBottom: ".5rem" }}
     />
     <ToastNotification
       {...args}
       kind="warning"
-      style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+      style={{ minWidth: "30rem", marginBottom: ".5rem" }}
     />
     <ToastNotification
       {...args}
       kind="info"
-      style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+      style={{ minWidth: "30rem", marginBottom: ".5rem" }}
     />
   </>
 );
 
 ToastLowContrast.args = {
   lowContrast: true,
-  caption: '00:00:00 AM',
-  role: 'alert',
-  title: 'Notification title',
-  subtitle: 'Subtitle text goes here.',
-  iconDescription: 'describes the close button',
-  statusIconDescription: 'describes the status icon',
+  caption: "00:00:00 AM",
+  role: "alert",
+  title: "Notification title",
+  subtitle: "Subtitle text goes here.",
+  iconDescription: "describes the close button",
+  statusIconDescription: "describes the status icon",
   hideCloseButton: false,
 };
 
@@ -142,37 +143,54 @@ ToastLowContrast.story = {
   },
 };
 
+export const CalloutDefault: Story = {
+  render: (args) => (
+    <Callout
+      {...args}
+      kind="success"
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
+    />
+  ),
+  args: {
+    role: "alert",
+    title: "Notification title",
+    subtitle: "Subtitle text goes here.",
+    iconDescription: "describes the close button",
+    statusIconDescription: "describes the status icon",
+  },
+};
+
 export const Inline = (args) => (
   <>
     <Callout
       {...args}
       kind="success"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       {...args}
       kind="error"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       {...args}
       kind="warning"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       {...args}
       kind="info"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
   </>
 );
 
 Inline.args = {
-  role: 'alert',
-  title: 'Notification title',
-  subtitle: 'Subtitle text goes here.',
-  iconDescription: 'describes the close button',
-  statusIconDescription: 'describes the status icon',
+  role: "alert",
+  title: "Notification title",
+  subtitle: "Subtitle text goes here.",
+  iconDescription: "describes the close button",
+  statusIconDescription: "describes the status icon",
 };
 
 Inline.story = {
@@ -188,33 +206,33 @@ export const InlineLowContrast = (args) => (
     <Callout
       {...args}
       kind="success"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       {...args}
       kind="error"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       {...args}
       kind="warning"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       {...args}
       kind="info"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
   </>
 );
 
 InlineLowContrast.args = {
-  role: 'alert',
+  role: "alert",
   lowContrast: true,
-  title: 'Notification title',
-  subtitle: 'Subtitle text goes here.',
-  iconDescription: 'describes the close button',
-  statusIconDescription: 'describes the status icon',
+  title: "Notification title",
+  subtitle: "Subtitle text goes here.",
+  iconDescription: "describes the close button",
+  statusIconDescription: "describes the status icon",
 };
 
 export const CalloutElement = (args) => (
@@ -222,7 +240,7 @@ export const CalloutElement = (args) => (
     <Callout
       {...args}
       kind="success"
-      actions={<NotificationActionButton>{'Action'}</NotificationActionButton>}
+      actions={<NotificationActionButton>{"Action"}</NotificationActionButton>}
     />
     <Callout
       advancedActions
@@ -253,15 +271,15 @@ export const CalloutElement = (args) => (
       {...args}
       kind="warning"
       icon={<div>Icon</div>}
-      actions={<Button small>{'Action'}</Button>}
+      actions={<Button small>{"Action"}</Button>}
     />
   </>
 );
 
 CalloutElement.args = {
-  role: 'alert',
-  title: 'Notification title',
-  subtitle: 'Subtitle text goes here.',
-  iconDescription: 'describes the close button',
-  statusIconDescription: 'describes the status icon',
+  role: "alert",
+  title: "Notification title",
+  subtitle: "Subtitle text goes here.",
+  iconDescription: "describes the close button",
+  statusIconDescription: "describes the status icon",
 };

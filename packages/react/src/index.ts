@@ -13,9 +13,12 @@ export { default as Breadcrumb } from "./components/Breadcrumb";
 export { default as BreadcrumbItem } from "./components/BreadcrumbItem";
 export { default as BreadcrumbHome } from "./components/BreadcrumbHome";
 export { default as Button } from "./components/Button";
+
+export { buttonKinds, notificationtypes } from "./prop-types/types";
 export { default as Empty } from "./components/Empty";
 export { Hero, HeroExternal } from "./components/Hero";
 export { Card, CardExternal } from "./components/Card";
+export { DateRangePickerInput } from "./components/DatePicker";
 export { default as Checkbox } from "./components/Checkbox";
 export { default as Credits } from "./components/Credits";
 //export { default as ContentSwitcher } from './components/ContentSwitcher';

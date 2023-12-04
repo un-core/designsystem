@@ -10,12 +10,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Checkmark, Close, WarningSolid } from "@un/icons-react";
-import { withWFPCoreSettings } from "../WFPCoreSettings";
-import useSettings from "../../hooks/useSettings";
+import { withWFPCoreSettings } from "../../src/components/WFPCoreSettings";
+import useSettings from "../../src/hooks/useSettings";
 
-import Loading from "../Loading";
-import uid from "../../tools/uniqueId";
-import { ButtonTypes } from "../../prop-types/types";
+import Loading from "../../src/components/Loading";
+import uid from "../../src/tools/uniqueId";
+import { ButtonTypes } from "../../src/prop-types/types";
 
 class FileUploaderButton extends Component {
   state = {};

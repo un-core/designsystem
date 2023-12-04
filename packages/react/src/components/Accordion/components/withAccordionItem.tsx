@@ -28,8 +28,10 @@ const withAccordionItem = <
     )
   );
 
-  WithAccordionItem.displayName = "WithAccordionItem";
+  WithAccordionItem.displayName = "withAccordionItem";
   return WithAccordionItem;
 };
+
+withAccordionItem.displayName = "withAccordionItem";
 
 export { withAccordionItem, ItemStateProps };

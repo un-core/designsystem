@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { SingleDatePickerInput } from './SingleDatePickerInput';
-import { DateRangePickerInput } from './DateRangePickerInput';
-import Input from '../Input';
-import moment from 'moment';
-import { Controller, useForm } from 'react-hook-form';
+import { SingleDatePickerInput } from "./SingleDatePickerInput";
+import { DateRangePickerInput } from "./DateRangePickerInput";
+import Input from "../Input";
+import moment from "moment";
+import { Controller, useForm } from "react-hook-form";
 
-import 'react-dates/initialize';
-import { SingleDatePicker, DateRangePicker } from 'react-dates';
-import markdown from './README.mdx';
-import useInput from '../Input/useInput';
+import "react-dates/initialize";
+import { SingleDatePicker, DateRangePicker } from "react-dates";
+import markdown from "./README.mdx";
+import useInput from "../Input/useInput";
 
 export default {
-  title: 'Components/UI Elements/DatePicker',
+  title: "Components/UI Elements/DatePicker",
   component: SingleDatePickerInput,
-  markdown: 'hello',
+  markdown: "hello",
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
@@ -27,16 +27,16 @@ export const SingleDatePickerDefault = (args) => (
 );
 SingleDatePickerDefault.args = {
   datePicker: SingleDatePicker,
-  labelText: 'Label text (labelText)',
-  placeholder: 'Placeholder text (placeholder)',
+  labelText: "Label text (labelText)",
+  placeholder: "Placeholder text (placeholder)",
   disabled: false,
   hideLabel: false,
   showClearDate: false,
   invalid: false,
-  invalidText: 'A valid value is required',
+  invalidText: "A valid value is required",
   showDefaultInputIcon: true,
-  inputIconPosition: 'after',
-  helperText: 'Optional helper text.',
+  inputIconPosition: "after",
+  helperText: "Optional helper text.",
 };
 
 const singleSourceCode = `
@@ -77,7 +77,8 @@ export const SingleDatePickerNew = (args) => {
   return (
     <Input
       labelText="Input using SingleDatePicker by Airbnb"
-      helperText="HelperText">
+      helperText="HelperText"
+    >
       <SingleDatePicker
         showDefaultInputIcon={true}
         inputIconPosition="after"
@@ -134,7 +135,7 @@ SingleDatePickerNew.story = {
 
 export const DatePickerHookForm = (args) => {
   const { control, watch } = useForm();
-  const input = watch('test');
+  const input = watch("test");
 
   return (
     <>
@@ -209,16 +210,16 @@ export const DateRangePickerDefault = (args) => (
 DateRangePickerDefault.args = {
   datePicker: DateRangePicker,
   date: moment(),
-  labelText: 'Label text (labelText)',
-  placeholder: 'Placeholder text (placeholder)',
+  labelText: "Label text (labelText)",
+  placeholder: "Placeholder text (placeholder)",
   disabled: false,
   hideLabel: false,
   showClearDate: false,
   invalid: false,
-  invalidText: 'A valid value is required',
+  invalidText: "A valid value is required",
   showDefaultInputIcon: true,
-  inputIconPosition: 'after',
-  helperText: 'Optional helper text.',
+  inputIconPosition: "after",
+  helperText: "Optional helper text.",
 };
 const dateRangeSourceCode = `
 import 'react-dates/initialize';
@@ -252,7 +253,7 @@ DateRangePickerDefault.story = {
 
 export const DatePickerRangeHookForm = (args) => {
   const { control, watch } = useForm();
-  const datePickerRange = watch('datePickerRange');
+  const datePickerRange = watch("datePickerRange");
   return (
     <>
       {JSON.stringify(datePickerRange)}

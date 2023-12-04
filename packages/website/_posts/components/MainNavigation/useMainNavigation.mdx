@@ -16,6 +16,7 @@ sampleCode: >
 ---
 
 The `useMainNavigation` hook can be used inside the `MainNavigation` to access and control the state of the Navigation.
+It allows you to access the context of the MainNavigation which stores the state of the `MainNavigation`.
 
 ### Usage
 
@@ -30,14 +31,14 @@ function ComponentInsideMainNavigation() {
 }
 ```
 
-### Definition
+### Return value definitions
 
 ```jsx
 export interface MainNavigationContextType {
   /**
    * Callback when the user clicks on a sub menu item
    */
-  onChangeSub: (action: string, i?: string, e?: any) => void;
+  onChangeSub: (action: string, i?: string, event?: any) => void;
   /**
    * The active menu item
    */
@@ -51,4 +52,46 @@ export interface MainNavigationContextType {
    */
   toggleMenu: () => void;
 }
+```
+
+#### `onChangeSub`
+
+The `action` can be `toggle` or `close`. `i` is the ID (number) of the `SubMenuItem` that should be triggered. Optionally add the native `event` to prevent it's default behaviour.
+
+```jsx
+toggleFirstSubMenuItem = () => {
+  onChangeSub("toggle", 0);
+};
+
+closeMenu = () => {
+  onChangeSub("close");
+};
+```
+
+#### `activeMenuItem`
+
+Returns the index of the currently active `SubMenuItem`. Returns `null` if no SubMenu is opened.
+
+```jsx
+const { activeMenuItem } = useMainNavigation();
+```
+
+#### `toggleMenu`
+
+TODO: Rename the function name to toggleMobileMenu, also add true/false optional.
+
+The `toggleMenu` function allows you to toggle mobile navigation
+
+```jsx
+const toggleMenu = () => {
+  setOpenMobileMenu(!openMobileMenu);
+};
+```
+
+#### `openMobileMenu`
+
+Opens or closes the mobile navigation.
+
+```jsx
+setOpenMobileMenu(true);
 ```

@@ -1,7 +1,7 @@
-import React from 'react';
-import Button from '../Button/Button';
-import useSettings from '../../hooks/useSettings';
-import classNames from 'classnames';
+import * as React from "react";
+import Button from "../Button/Button";
+import useSettings from "../../hooks/useSettings";
+import classNames from "classnames";
 
 interface NotificationActionButton {
   /**
@@ -40,7 +40,8 @@ export const NotificationActionButton: React.FC<NotificationActionButton> = ({
       kind="ghost"
       onClick={onClick}
       small //TODO size="small"
-      {...other}>
+      {...other}
+    >
       {children}
     </Button>
   );

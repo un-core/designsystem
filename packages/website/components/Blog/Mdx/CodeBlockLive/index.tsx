@@ -29,6 +29,15 @@ import { Button, Empty } from "@wfp/react";
 import prettier from "prettier/standalone";
 import babelParser from "prettier/parser-babel";
 import htmlParser from "prettier/parser-html";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckSquare,
+  faMinusSquare,
+} from "@fortawesome/free-solid-svg-icons";
+
+const countLines = (str) => {
+  return str.split("\n").length;
+};
 
 function LiveHtml({ live }: any /* { live?: Record<string, unknown> } */) {
   // const Result = live.element as React.FunctionComponent | React.ComponentClass;
@@ -68,10 +77,14 @@ const CodeBlockLive = (props: any) => {
     showEditor = true,
     view,
     source,
+    width,
+    expandCode,
     reactHookForm,
   } = props;
   const [showHtml, setShowHtml] = useState(false);
   const [showCode, setShowCode] = useState(showEditor);
+  const [showAllCode, setShowAllCode] = useState(expandCode);
+  // const [showExpandButton, setShowExpandButtons] = useState(true);
   const [rtl, setRtl] = useState(false);
   let code = source ? source : children ? children.trim() : "";
 
@@ -144,7 +157,6 @@ const CodeBlockLive = (props: any) => {
             printWidth: 55,
           })
         : code;
-    console.log("prettier", formatedCode, code);
   } catch (error) {
     console.log("prettier not working");
   }
@@ -174,6 +186,8 @@ const CodeBlockLive = (props: any) => {
       DoNotUse,
     };
 
+    const showExpandButton = countLines(formatedCode) > 12;
+
     const codeBlockClasses = classNames(stylesModule.editor, {
       btn: true,
       [stylesModule.hideWrapper]: hideWrapper,
@@ -182,6 +196,9 @@ const CodeBlockLive = (props: any) => {
       [stylesModule.notCenter]: !center,
       [stylesModule.fullWidth]: forceFullWidth,
       [stylesModule.normalWidth]: !forceFullWidth,
+      [stylesModule.expandCode]: showAllCode,
+      [stylesModule.collapseCode]: !showAllCode,
+      [stylesModule.showExpandButton]: showExpandButton,
       [stylesModule.rtl]: rtl,
       [`${stylesModule[view]}`]: view,
     });
@@ -191,18 +208,38 @@ const CodeBlockLive = (props: any) => {
         {view !== "smallPreview" && (
           <div className={stylesModule.buttons}>
             <Button
-              kind="ghost"
               className={stylesModule.showAllPropsButton}
+              iconReverse
+              icon={
+                <FontAwesomeIcon icon={rtl ? faCheckSquare : faMinusSquare} />
+              }
               onClick={() => setRtl(!rtl)}
             >
               RTL
             </Button>
             <Button
-              kind="ghost"
               className={stylesModule.showAllPropsButton}
               onClick={() => setShowCode(!showCode)}
+              iconReverse
+              icon={
+                <FontAwesomeIcon
+                  icon={showCode ? faCheckSquare : faMinusSquare}
+                />
+              }
             >
-              {showCode && view !== "propTable" && "C"} code
+              code
+            </Button>
+            <Button
+              className={stylesModule.showAllPropsButton}
+              onClick={() => setShowHtml(!showHtml)}
+              iconReverse
+              icon={
+                <FontAwesomeIcon
+                  icon={showHtml ? faCheckSquare : faMinusSquare}
+                />
+              }
+            >
+              html
             </Button>
           </div>
         )}
@@ -223,7 +260,10 @@ const CodeBlockLive = (props: any) => {
           ) : (
             <div className={stylesModule.previewWrapper}>
               <div className={stylesModule.previewInside}>
-                <LivePreview className={stylesModule.preview} />
+                <LivePreview
+                  className={stylesModule.preview}
+                  style={{ width: width ? width + "px" : undefined }}
+                />
               </div>
             </div>
           )}
@@ -231,14 +271,14 @@ const CodeBlockLive = (props: any) => {
           {showCode && (
             <>
               <div className={stylesModule.liveEditor}>
-                <Button
-                  className={stylesModule.htmlButton}
-                  small
-                  kind="ghost"
-                  onClick={() => setShowHtml(!showHtml)}
-                >
-                  {showHtml ? "Hide HTML" : "Show HTML"}
-                </Button>
+                {showExpandButton && (
+                  <div
+                    className={stylesModule.showAllCodeWrapper}
+                    onClick={() => setShowAllCode(!showAllCode)}
+                  >
+                    {showAllCode ? "Collapse code" : "Expand code"}
+                  </div>
+                )}
                 <h3> Editable Example</h3>
                 <LiveEditor theme={themes.vsDark} />
               </div>

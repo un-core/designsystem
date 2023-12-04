@@ -20,6 +20,6 @@
   "rules": {
     "@typescript-eslint/no-explicit-any": "off"
   },
-  "include": ["src"],
+  "include": ["src", "othersrc/FileUploader"],
   "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "src/**/*.test.ts"]
 }

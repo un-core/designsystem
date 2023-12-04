@@ -1,29 +1,41 @@
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import { ScreenSize } from '../../utils';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import { ScreenSize } from "../../utils";
 
-export const pageWidths = ['sm', 'md', 'lg', 'full'];
+export const pageWidths = ["sm", "md", "lg", "full"];
 
 /** Wrapper can wrap it's content in a specific width depending on if the application has a full or fixed width. */
-export type WrapperProps = PropsWithChildren<{
+export interface WrapperProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Defines the width of the wrapper. Can be one of 'xs', 'sm', 'md', 'lg', 'full', 'narrow', 'narrower', or 'narrowest'. */
   pageWidth?:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'full'
-    | 'narrow'
-    | 'narrower'
-    | 'narrowest';
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "full"
+    | "narrow"
+    | "narrower"
+    | "narrowest";
+
+  /** Specifies the page width for mobile devices. It uses the ScreenSize type. */
   mobilePageWidth?: ScreenSize;
-  spacing?: 'md' | 'xl';
-  background?: 'lighter' | 'dark';
+
+  /** Determines the spacing around the wrapper. Can be 'md' for medium or 'xl' for extra large. */
+  spacing?: "md" | "xl";
+
+  /** Sets the background theme. Can be 'lighter' for a light background or 'dark' for a dark background. */
+  background?: "lighter" | "dark";
+
+  /** Additional CSS class names to be applied to the wrapper. */
   className?: string;
+
+  /** CSS class names specifically for the background of the wrapper. */
   backgroundClassName?: string;
+
+  /** Custom CSS properties for the background styling. */
   backgroundStyle?: React.CSSProperties;
-}>;
+}
 
 const Wrapper: React.FC<WrapperProps> = (props) => {
   const { prefix } = useSettings();
@@ -42,22 +54,22 @@ const Wrapper: React.FC<WrapperProps> = (props) => {
   const wrapperClasses = classNames({
     [`${prefix}--wrapper`]: true,
     [`${prefix}--wrapper--width-lg`]:
-      pageWidth === 'narrow' || pageWidth === 'lg',
+      pageWidth === "narrow" || pageWidth === "lg",
     [`${prefix}--wrapper--width-md`]:
-      pageWidth === 'narrower' || pageWidth === 'md',
+      pageWidth === "narrower" || pageWidth === "md",
     [`${prefix}--wrapper--width-sm`]:
-      pageWidth === 'narrowest' || pageWidth === 'sm',
+      pageWidth === "narrowest" || pageWidth === "sm",
     [`${prefix}--wrapper--width-xs`]:
-      pageWidth === 'narrowest' || pageWidth === 'xs',
-    [`${prefix}--wrapper--width-mobile-full`]: mobilePageWidth === 'full',
-    [`${prefix}--wrapper--spacing-md`]: spacing === 'md',
-    [`${prefix}--wrapper--spacing-xl`]: spacing === 'xl',
+      pageWidth === "narrowest" || pageWidth === "xs",
+    [`${prefix}--wrapper--width-mobile-full`]: mobilePageWidth === "full",
+    [`${prefix}--wrapper--spacing-md`]: spacing === "md",
+    [`${prefix}--wrapper--spacing-xl`]: spacing === "xl",
     [`${className}`]: className,
   });
   if (background || backgroundStyle) {
     const backgroundClasses = classNames(backgroundClassName, {
-      [`${prefix}--wrapper--background-lighter`]: background === 'lighter',
-      [`${prefix}--wrapper--background-dark`]: background === 'dark',
+      [`${prefix}--wrapper--background-lighter`]: background === "lighter",
+      [`${prefix}--wrapper--background-dark`]: background === "dark",
     });
 
     return (

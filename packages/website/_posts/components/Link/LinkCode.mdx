@@ -37,14 +37,6 @@ Inline links should not be used on their own and should not be paired with icons
 
 Some links trigger actions to aid task completion in addition to navigation. These links should still serve a navigation purpose. A common example is linking phone numbers so clicking the website automatically opens and calls the phone number when clicked. The label and any accompanying icons should make it clear what action will be triggered and where the user will be directed.
 
-### CSS only use (react-router)
-
-Use the Link styling by adding the className `wfp--link` to `<NavLink />`
-
-```js
-<a className="wfp--link">Link</a>
-```
-
 ### Use with external routing libraries
 
 #### next/link
@@ -62,4 +54,14 @@ function MyComponent() {
     </NextLink>
   );
 }
+```
+
+### html only use
+
+This can be useful for usages outside of react or with libraries like [react-router](https://reactrouter.com).
+
+For example you can use the Link styling by adding the className `wfp--link` to `<NavLink />`.
+
+```js
+<a className="wfp--link">Link</a>
 ```

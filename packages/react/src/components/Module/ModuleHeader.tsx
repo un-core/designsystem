@@ -1,11 +1,10 @@
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
+import * as React from "react";
+import classNames from "classnames";
 
-type ModuleHeaderProps = PropsWithChildren<{
+interface ModuleHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   filter?: React.ReactNode;
-}>;
+}
 
 const ModuleHeader: React.FC<ModuleHeaderProps> = ({
   filter,
@@ -13,7 +12,7 @@ const ModuleHeader: React.FC<ModuleHeaderProps> = ({
   className,
   ...other
 }) => {
-  const wrapperClasses = classNames('wfp--module__header', className);
+  const wrapperClasses = classNames("wfp--module__header", className);
 
   return (
     <div className={wrapperClasses} {...other}>

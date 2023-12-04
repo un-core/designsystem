@@ -142,4 +142,6 @@ const AccordionItem = withAccordionItem<AccordionItemProps, HTMLDivElement>(
   WrappedItem
 );
 
+AccordionItem.displayName = "AccordionItem";
+
 export { AccordionItem, AccordionItemProps };

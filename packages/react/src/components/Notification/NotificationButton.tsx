@@ -1,13 +1,13 @@
-import classNames from 'classnames';
-import React from 'react';
-import useSettings from '../../hooks/useSettings';
-import { InputProps } from '../Input';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import { InputProps } from "../Input";
 
-import { Close } from '@un/icons-react';
+import { Close } from "@un/icons-react";
 
 interface NotificationButtonProps
   extends InputProps,
-    React.ComponentPropsWithRef<'button'> {
+    React.ComponentPropsWithRef<"button"> {
   /**
    * Specify a label to be read by screen readers on the notification button
    */
@@ -32,7 +32,7 @@ interface NotificationButtonProps
   /**
    * Specify the notification type
    */
-  notificationType?: 'toast' | 'inline';
+  notificationType?: "toast" | "inline";
 
   /**
    * Optional prop to allow overriding the icon rendering.
@@ -43,17 +43,17 @@ interface NotificationButtonProps
   /**
    * Optional prop to specify the type of the Button
    */
-  type?: 'button' | 'submit' | 'reset' | undefined;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 export const NotificationButton: React.FC<NotificationButtonProps> = ({
-  ariaLabel = 'close notification',
+  ariaLabel = "close notification",
   className,
-  iconDescription = 'close icon',
-  type = 'button',
+  iconDescription = "close icon",
+  type = "button",
   renderIcon: IconTag = Close, // IconTag, // Close
   name,
-  notificationType = 'toast',
+  notificationType = "toast",
   ...other
 }) => {
   const { prefix } = useSettings();
@@ -76,7 +76,8 @@ export const NotificationButton: React.FC<NotificationButtonProps> = ({
       type={type}
       aria-label={iconDescription}
       title={iconDescription}
-      className={buttonClassName}>
+      className={buttonClassName}
+    >
       {IconTag && (
         <IconTag aria-label={ariaLabel} className={iconClassName} name={name} />
       )}

@@ -14,7 +14,12 @@ export default {
   },
 };
 
-export const EmptyDefault = (args) => <Empty {...args} />;
+export const EmptyDefault = (args) => (
+  <Empty
+    icon={<img alt="Moving van" src="../illustrations/moving-van.svg" />}
+    {...args}
+  />
+);
 
 EmptyDefault.args = {
   title: "No entries found",
