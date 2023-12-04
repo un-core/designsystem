@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import markdown from './README.mdx';
-import { List, ListItem } from '../List';
-import Dropzone, { useDropzone } from 'react-dropzone';
-import { Upload } from '@un/icons-react';
-import classNames from 'classnames';
+import React, { useState } from "react";
+import markdown from "./README.mdx";
+import { List, ListItem } from "../List";
+import Dropzone, { useDropzone } from "react-dropzone";
+import { Upload } from "@wfp/icons-react";
+import classNames from "classnames";
 
 export default {
-  title: 'Components/Forms/FileUploader (react-dropzone)',
+  title: "Components/Forms/FileUploader (react-dropzone)",
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
     introText: `[react-dropzone](https://github.com/react-dropzone/react-dropzone) for handling file uploads. It allows using simple react hooks to create a HTML5-compliant drag'n'drop zone for files.`,
   },
@@ -29,7 +29,7 @@ export const Regular = (args) => {
       <Dropzone onDrop={(acceptedFiles) => setfile(acceptedFiles)}>
         {({ getRootProps, getInputProps }) => (
           <section className="wfp--dropzone">
-            <div {...getRootProps({ className: 'wfp--dropzone__input' })}>
+            <div {...getRootProps({ className: "wfp--dropzone__input" })}>
               <input {...getInputProps()} />
               <div>Drag 'n' drop some files here, or click to select files</div>
             </div>
@@ -53,7 +53,7 @@ Regular.parameters = {
       code: ` 
 import { Icon, List, ListItem } from '@wfp/react';
 import Dropzone from 'react-dropzone';
-import { UploadGlyph } from '@un/icons-react';
+import { UploadGlyph } from '@wfp/icons-react';
 
 export const Regular = (args) => {
   const [file, setfile] = useState([])
@@ -98,8 +98,8 @@ export const Advanced = (args) => {
     </ListItem>
   ));
 
-  const wrapperClassNames = classNames('wfp--dropzone__input', {
-    'wfp--dropzone__input--drag-active': isDragActive,
+  const wrapperClassNames = classNames("wfp--dropzone__input", {
+    "wfp--dropzone__input--drag-active": isDragActive,
   });
 
   return (
@@ -126,7 +126,7 @@ Advanced.parameters = {
       code: `
 import Dropzone, { useDropzone } from 'react-dropzone';
 import { Icon, List, ListItem } from '@wfp/react';
-import { UploadGlyph } from '@un/icons-react';
+import { UploadGlyph } from '@wfp/icons-react';
 import classNames from 'classnames';
 
 export const Advanced = (args) => {

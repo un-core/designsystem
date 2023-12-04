@@ -140,7 +140,9 @@ export default function SidebarWrapper({
 
           {filteredPosts.length >= 1 && (
             <Tabs className={styles.tabs}>
-              <NextTab href={`/${slugifyWithSlashes(mainSlug)}`}>Usage</NextTab>
+              <NextTab href={`/${slugifyWithSlashes(mainSlug)}`}>
+                Design
+              </NextTab>
               {filteredPosts.map((p, key) => (
                 <NextTab key={key} href={`/${slugifyWithSlashes(p.slug)}`}>
                   {p.slug.split("/").pop().replace("tab:", "")}

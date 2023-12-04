@@ -1,8 +1,8 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import Button from '../Button';
-// import { ArrowLeft, ArrowRight } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
+import * as React from "react";
+import classNames from "classnames";
+import Button from "../Button";
+// import { ArrowLeft, ArrowRight } from '@wfp/icons-react';
+import useSettings from "../../hooks/useSettings";
 
 interface FormControlsProps {
   className?: string;
@@ -53,7 +53,8 @@ const FormControls: React.FC<FormControlsProps> = ({
             kind="secondary"
             className={`${prefix}--form-controls__prev`}
             icon={previousIcon}
-            onClick={onPreviousClick}>
+            onClick={onPreviousClick}
+          >
             {previousText}
           </Button>
         )}
@@ -66,7 +67,8 @@ const FormControls: React.FC<FormControlsProps> = ({
             className={`${prefix}--form-controls__next`}
             icon={nextIcon}
             type="submit"
-            onClick={onNextClick}>
+            onClick={onNextClick}
+          >
             {nextText}
           </Button>
         )}
@@ -76,7 +78,8 @@ const FormControls: React.FC<FormControlsProps> = ({
             type="submit"
             className="next"
             icon={submitIcon}
-            onClick={onSubmitClick}>
+            onClick={onSubmitClick}
+          >
             {submitText}
           </Button>
         )}

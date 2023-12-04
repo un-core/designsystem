@@ -1,8 +1,8 @@
-import invariant from 'invariant';
-import PropTypes from 'prop-types';
-import React from 'react';
-//import icons from '@un/icons-react';
-import isRequiredOneOf from '../../prop-types/isRequiredOneOf';
+import invariant from "invariant";
+import PropTypes from "prop-types";
+import React from "react";
+//import icons from '@wfp/icons-react';
+import isRequiredOneOf from "../../prop-types/isRequiredOneOf";
 
 /**
  * @param {Object} svgData - JSON Object for an SVG icon
@@ -19,7 +19,7 @@ export function svgShapes(svgData) {
     .map((svgProp) => {
       const data = svgData[svgProp];
 
-      if (svgProp === 'circles') {
+      if (svgProp === "circles") {
         return data.map((circle, index) => {
           const circleProps = {
             cx: circle.cx,
@@ -31,13 +31,13 @@ export function svgShapes(svgData) {
 
           return <circle {...circleProps} />;
         });
-      } else if (svgProp === 'paths') {
+      } else if (svgProp === "paths") {
         return data.map((path, index) => (
           <path fill={path.fill} d={path.d} key={`key${index}`} />
         ));
       }
 
-      return '';
+      return "";
     });
 
   return svgElements;
@@ -45,9 +45,9 @@ export function svgShapes(svgData) {
 
 export function isPrefixed(name) {
   if (__DEV__) {
-    invariant(typeof name === 'string', '[Icon] icon name is missing.');
+    invariant(typeof name === "string", "[Icon] icon name is missing.");
   }
-  return name && name.split('--')[0] === 'icon';
+  return name && name.split("--")[0] === "icon";
 }
 
 /** Icons are visual representations of commands, devices, directories, or common actions. */
@@ -98,7 +98,7 @@ const Icon = ({
     ...other,
   };
 
-  const svgContent = icon ? svgShapes(icon.svgData) : '';
+  const svgContent = icon ? svgShapes(icon.svgData) : "";
 
   return (
     <svg {...props} aria-label={description} alt={description}>
@@ -180,9 +180,9 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  fillRule: 'evenodd',
-  role: 'img',
-  description: 'Provide a description that will be used as the title',
+  fillRule: "evenodd",
+  role: "img",
+  description: "Provide a description that will be used as the title",
 };
 
 //export { icons };

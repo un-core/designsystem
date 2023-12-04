@@ -1,11 +1,11 @@
-import React from 'react';
-import { AddCircle } from '@un/icons-react';
-import Button from '.';
-import ButtonSkeleton from './Button.Skeleton';
-import { shallow, mount } from 'enzyme';
+import React from "react";
+import { AddCircle } from "@wfp/icons-react";
+import Button from ".";
+import ButtonSkeleton from "./Button.Skeleton";
+import { shallow, mount } from "enzyme";
 
-describe('Button', () => {
-  describe('Renders common props as expected', () => {
+describe("Button", () => {
+  describe("Renders common props as expected", () => {
     const wrapper = shallow(
       // eslint-disable-next-line jsx-a11y/tabindex-no-positive
       <Button tabIndex={2} className="extra-class">
@@ -22,23 +22,23 @@ describe('Button', () => {
       </Button>
     );
 
-    it('Renders children as expected', () => {
-      expect(wrapper.find('.child').length).toBe(2);
-      expect(wrapperHref.find('.child').length).toBe(2);
+    it("Renders children as expected", () => {
+      expect(wrapper.find(".child").length).toBe(2);
+      expect(wrapperHref.find(".child").length).toBe(2);
     });
 
-    it('Should set tabIndex if one is passed via props', () => {
+    it("Should set tabIndex if one is passed via props", () => {
       expect(wrapper.props().tabIndex).toEqual(2);
       expect(wrapperHref.props().tabIndex).toEqual(2);
     });
 
-    it('Should add extra classes via className', () => {
-      expect(wrapper.hasClass('extra-class')).toBe(true);
-      expect(wrapperHref.hasClass('extra-class')).toBe(true);
+    it("Should add extra classes via className", () => {
+      expect(wrapper.hasClass("extra-class")).toBe(true);
+      expect(wrapperHref.hasClass("extra-class")).toBe(true);
     });
   });
 
-  describe('Renders <button> props as expected', () => {
+  describe("Renders <button> props as expected", () => {
     const wrapper = shallow(
       // eslint-disable-next-line jsx-a11y/tabindex-no-positive
       <Button tabIndex={2}>
@@ -47,32 +47,32 @@ describe('Button', () => {
       </Button>
     );
 
-    it('Renders as a <button> element without an href', () => {
-      expect(wrapper.is('button')).toBe(true);
+    it("Renders as a <button> element without an href", () => {
+      expect(wrapper.is("button")).toBe(true);
     });
 
-    it('Should set disabled to false by default', () => {
+    it("Should set disabled to false by default", () => {
       expect(wrapper.props().disabled).toBe(false);
     });
 
-    it('Should set disabled if one is passed via props', () => {
+    it("Should set disabled if one is passed via props", () => {
       wrapper.setProps({ disabled: true });
       expect(wrapper.props().disabled).toBe(true);
     });
 
-    it('Should set type to button by default', () => {
-      expect(wrapper.props().type).toEqual('button');
+    it("Should set type to button by default", () => {
+      expect(wrapper.props().type).toEqual("button");
     });
 
-    it('Should only set type to [button, reset or submit] if one is passed via props', () => {
-      wrapper.setProps({ type: 'reset' });
-      expect(wrapper.props().type).toEqual('reset');
-      wrapper.setProps({ type: 'submit' });
-      expect(wrapper.props().type).toEqual('submit');
+    it("Should only set type to [button, reset or submit] if one is passed via props", () => {
+      wrapper.setProps({ type: "reset" });
+      expect(wrapper.props().type).toEqual("reset");
+      wrapper.setProps({ type: "submit" });
+      expect(wrapper.props().type).toEqual("submit");
     });
   });
 
-  describe('Renders <a> props as expected', () => {
+  describe("Renders <a> props as expected", () => {
     const wrapper = shallow(
       // eslint-disable-next-line jsx-a11y/tabindex-no-positive
       <Button href="#" tabIndex={2}>
@@ -81,16 +81,16 @@ describe('Button', () => {
       </Button>
     );
 
-    it('Renders as an <a> element with an href', () => {
-      expect(wrapper.is('a')).toBe(true);
+    it("Renders as an <a> element with an href", () => {
+      expect(wrapper.is("a")).toBe(true);
     });
 
     it('Should always render with [role="button"] by default', () => {
-      expect(wrapper.props().role).toEqual('button');
+      expect(wrapper.props().role).toEqual("button");
     });
   });
 
-  describe('Renders icon buttons', () => {
+  describe("Renders icon buttons", () => {
     const iconButton = shallow(
       <Button icon={AddCircle} kind="tertiary">
         With icon
@@ -102,154 +102,154 @@ describe('Button', () => {
     //   expect(iconButton.find('svg')).toHaveLength(1);
     // });
 
-    it('should return error if icon given without description', () => {
+    it("should return error if icon given without description", () => {
       const props = {
-        icon: 'search',
+        icon: "search",
       };
       // eslint-disable-next-line quotes
       const error = new Error(
-        'icon property specified without also providing an iconDescription property.'
+        "icon property specified without also providing an iconDescription property."
       );
       expect(Button.propTypes.iconDescription(props)).toEqual(error);
     });
   });
 });
 
-describe('Primary Button', () => {
-  describe('Renders as expected', () => {
+describe("Primary Button", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(<Button className="extra-class" />);
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--btn')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--btn")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('Secondary Button', () => {
-  describe('Renders as expected', () => {
+describe("Secondary Button", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(
       <Button kind="secondary" className="extra-class" />
     );
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--btn--secondary')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--btn--secondary")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('Ghost Button', () => {
-  describe('Renders as expected', () => {
+describe("Ghost Button", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(<Button kind="ghost" className="extra-class" />);
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--btn--ghost')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--btn--ghost")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('Small Button', () => {
-  describe('Renders as expected', () => {
+describe("Small Button", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(<Button small className="extra-class" />);
 
-    it('Has the expected classes for small', () => {
-      expect(wrapper.hasClass('wfp--btn--sm')).toEqual(true);
+    it("Has the expected classes for small", () => {
+      expect(wrapper.hasClass("wfp--btn--sm")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('DangerButton', () => {
-  describe('Renders as expected', () => {
+describe("DangerButton", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(<Button kind="danger" className="extra-class" />);
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--btn--danger')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--btn--danger")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('danger--primaryButton', () => {
-  describe('Renders as exptected', () => {
+describe("danger--primaryButton", () => {
+  describe("Renders as exptected", () => {
     const wrapper = shallow(
       <Button kind="danger--primary" className="extra-class" />
     );
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--btn--danger--primary')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--btn--danger--primary")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('TertiaryButton', () => {
-  describe('Renders as exptected', () => {
+describe("TertiaryButton", () => {
+  describe("Renders as exptected", () => {
     const wrapper = shallow(<Button kind="tertiary" className="extra-class" />);
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--btn--tertiary')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--btn--tertiary")).toEqual(true);
     });
 
-    it('Should add extra classes that are passed via className', () => {
-      expect(wrapper.hasClass('extra-class')).toEqual(true);
+    it("Should add extra classes that are passed via className", () => {
+      expect(wrapper.hasClass("extra-class")).toEqual(true);
     });
   });
 });
 
-describe('ButtonSkeleton', () => {
-  describe('Renders as expected', () => {
+describe("ButtonSkeleton", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(<ButtonSkeleton />);
 
-    it('Has the expected classes', () => {
-      expect(wrapper.hasClass('wfp--skeleton')).toEqual(true);
-      expect(wrapper.hasClass('wfp--btn')).toEqual(true);
+    it("Has the expected classes", () => {
+      expect(wrapper.hasClass("wfp--skeleton")).toEqual(true);
+      expect(wrapper.hasClass("wfp--btn")).toEqual(true);
     });
   });
 
-  describe('Renders <a> props as expected', () => {
+  describe("Renders <a> props as expected", () => {
     const wrapper = shallow(
       // eslint-disable-next-line jsx-a11y/tabindex-no-positive
       <ButtonSkeleton href="#" />
     );
 
-    it('Renders as an <a> element with an href', () => {
-      expect(wrapper.is('a')).toBe(true);
+    it("Renders as an <a> element with an href", () => {
+      expect(wrapper.is("a")).toBe(true);
     });
 
     it('Should always render with [role="button"] by default', () => {
-      expect(wrapper.props().role).toEqual('button');
+      expect(wrapper.props().role).toEqual("button");
     });
   });
 });
 
-describe('Small ButtonSkeleton', () => {
-  describe('Renders as expected', () => {
+describe("Small ButtonSkeleton", () => {
+  describe("Renders as expected", () => {
     const wrapper = shallow(<ButtonSkeleton small />);
 
-    it('Has the expected classes for small', () => {
-      expect(wrapper.hasClass('wfp--btn--sm')).toEqual(true);
-      expect(wrapper.hasClass('wfp--skeleton')).toEqual(true);
+    it("Has the expected classes for small", () => {
+      expect(wrapper.hasClass("wfp--btn--sm")).toEqual(true);
+      expect(wrapper.hasClass("wfp--skeleton")).toEqual(true);
     });
   });
 });

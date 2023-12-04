@@ -1,17 +1,17 @@
-import React from 'react';
-import styles from './tools.module.scss';
-import Link from 'next/link';
-import MoreLink from '../MoreLink';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Wrapper } from '@wfp/react';
+import React from "react";
+import styles from "./tools.module.scss";
+import Link from "next/link";
+import MoreLink from "../MoreLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Wrapper } from "@wfp/react";
 import {
   faBell,
   faGlassWaterDroplet,
   faHandshakeAlt,
   faLeaf,
   faSatellite,
-} from '@fortawesome/free-solid-svg-icons';
-import { faFigma, faNpm } from '@fortawesome/free-brands-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
+import { faFigma, faNpm } from "@fortawesome/free-brands-svg-icons";
 
 /* interface PossibilitiesContainerProps {
   title?: string;
@@ -25,7 +25,7 @@ import { faFigma, faNpm } from '@fortawesome/free-brands-svg-icons';
 function PossibilitiesContainer({
   title,
   content,
-  link = '',
+  link = "",
   npmLink,
   figmaLink,
 }: any) {
@@ -67,11 +67,12 @@ export default function Tools() {
           content={
             <>
               Exports the design tokens like colors, fonts, text styles,
-              spacings directly into cross plattform design tokens using{' '}
+              spacings directly into cross plattform design tokens using{" "}
               <a
                 href="https://amzn.github.io/style-dictionary"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 styled dictionary
               </a>
               .
@@ -109,11 +110,12 @@ export default function Tools() {
           content={
             <>
               Transforming your icons and pictograms into a component library
-              ready to use in your application using{' '}
+              ready to use in your application using{" "}
               <a
                 href="https://github.com/gregberge/svgr"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 svgr
               </a>
               .
@@ -121,7 +123,7 @@ export default function Tools() {
           }
           // background="#DFF0FF"
           icon={faGlassWaterDroplet}
-          link="https://npmjs.com/package/@un/icons-core"
+          link="https://npmjs.com/package/@wfp/icons-core"
           npmLink
         />
 
@@ -130,11 +132,12 @@ export default function Tools() {
           content={
             <>
               Transforming your icons and pictograms into a component library
-              ready to use in your application using{' '}
+              ready to use in your application using{" "}
               <a
                 href="https://github.com/gregberge/svgr"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 svgr
               </a>
               .
@@ -142,7 +145,7 @@ export default function Tools() {
           }
           // background="#DFF0FF"
           icon={faGlassWaterDroplet}
-          link="https://npmjs.com/package/@un/icons-core"
+          link="https://npmjs.com/package/@wfp/icons-core"
           npmLink
         />
 
@@ -151,18 +154,19 @@ export default function Tools() {
           content={
             <>
               Transforming your icons and pictograms into a component library
-              ready to use in your application using{' '}
+              ready to use in your application using{" "}
               <a
                 href="https://github.com/gregberge/svgr"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 svgr
               </a>
               .
             </>
           }
           icon={faGlassWaterDroplet}
-          link="https://npmjs.com/package/@un/icons-core"
+          link="https://npmjs.com/package/@wfp/icons-core"
           npmLink
         />
       </div>

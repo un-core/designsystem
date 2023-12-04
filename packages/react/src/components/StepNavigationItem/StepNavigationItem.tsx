@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/ban-types */
-import * as React from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
+import * as React from "react";
+import type { PropsWithChildren } from "react";
+import classNames from "classnames";
 import {
   Ellipsis,
   WarningOutline,
@@ -11,8 +11,8 @@ import {
   Checkmark,
   Menu,
   OverflowMenu,
-} from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
+} from "@wfp/icons-react";
+import useSettings from "../../hooks/useSettings";
 
 type StepNavigationItemProps = PropsWithChildren<{
   /**
@@ -99,7 +99,7 @@ const StepNavigationItem: React.FC<StepNavigationItemProps> = ({
   };
 
   const icon = {
-    'not-started': { icon: Ellipsis },
+    "not-started": { icon: Ellipsis },
     warning: { icon: WarningOutline },
     locked: { icon: Locked },
     skip: { icon: OverflowMenu },
@@ -114,12 +114,13 @@ const StepNavigationItem: React.FC<StepNavigationItemProps> = ({
       tabIndex={-1}
       className={classes}
       onClick={(evt) => {
-        if (status !== 'locked') {
+        if (status !== "locked") {
           handleTabClick(evt, index, label);
           onClick(evt);
         }
       }}
-      role="presentation">
+      role="presentation"
+    >
       <>
         {renderAnchor ? (
           renderAnchor(anchorProps)
@@ -138,7 +139,8 @@ const StepNavigationItem: React.FC<StepNavigationItemProps> = ({
               </span>
               {helperText && (
                 <span
-                  className={`${prefix}--step-navigation__nav-item__helper-text`}>
+                  className={`${prefix}--step-navigation__nav-item__helper-text`}
+                >
                   {helperText}
                 </span>
               )}

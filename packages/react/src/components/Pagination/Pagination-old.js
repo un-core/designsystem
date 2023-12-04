@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import classNames from 'classnames';
-import { ChevronLeft, ChevronRight } from '@un/icons-react';
-import Select from '../Select';
-import SelectItem from '../SelectItem';
-import { equals } from '../../tools/array';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import classNames from "classnames";
+import { ChevronLeft, ChevronRight } from "@wfp/icons-react";
+import Select from "../Select";
+import SelectItem from "../SelectItem";
+import { equals } from "../../tools/array";
 
 let instanceId = 0;
 
@@ -130,11 +130,11 @@ export default class Pagination extends Component {
   };
 
   static defaultProps = {
-    backwardText: 'Backward',
+    backwardText: "Backward",
     itemRangeText: (min, max, total) => `${min}-${max} of ${total} items`,
-    forwardText: 'Forward',
-    itemsPerPageText: 'Items per page:',
-    pageNumberText: 'Page Number',
+    forwardText: "Forward",
+    itemsPerPageText: "Items per page:",
+    pageNumberText: "Page Number",
     pageRangeText: (current, total) => `${current} of ${total} pages`,
     disabled: false,
     page: 1,
@@ -247,12 +247,12 @@ export default class Pagination extends Component {
     const statePageSize = this.props.pageSize
       ? this.props.pageSize
       : this.state.pageSize;
-    const classes = classNames('wfp--pagination', className);
+    const classes = classNames("wfp--pagination", className);
     const backButtonClasses = classNames(
-      'wfp--pagination__button',
-      'wfp--pagination__button--backward',
+      "wfp--pagination__button",
+      "wfp--pagination__button--backward",
       {
-        'wfp--pagination__button--no-index': pageInputDisabled,
+        "wfp--pagination__button--no-index": pageInputDisabled,
       }
     );
     const inputId = id || this.uniqueId;
@@ -274,7 +274,8 @@ export default class Pagination extends Component {
                 inline
                 onChange={this.handleSizeChange}
                 // value={statePageSize}
-                value={this.state.pageSize}>
+                value={this.state.pageSize}
+              >
                 {pageSizes.map((size) => (
                   <SelectItem key={size} value={size} text={String(size)} />
                 ))}
@@ -307,7 +308,8 @@ export default class Pagination extends Component {
           <button
             className={backButtonClasses}
             onClick={this.decrementPage}
-            disabled={this.props.disabled || statePage === 1}>
+            disabled={this.props.disabled || statePage === 1}
+          >
             <ChevronLeft
               className="wfp--pagination__button-icon"
               description={backwardText}
@@ -320,7 +322,8 @@ export default class Pagination extends Component {
               hideLabel
               inline
               onChange={this.handlePageInputChange}
-              value={statePage}>
+              value={statePage}
+            >
               {selectItems}
             </Select>
           )}
@@ -329,7 +332,8 @@ export default class Pagination extends Component {
             onClick={this.incrementPage}
             disabled={
               this.props.disabled || statePage === totalPages || isLastPage
-            }>
+            }
+          >
             <ChevronRight
               className="wfp--pagination__button-icon"
               description={forwardText}

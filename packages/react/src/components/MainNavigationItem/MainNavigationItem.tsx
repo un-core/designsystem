@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import { Close, AngleDown } from "@un/icons-react";
+import { Close, AngleDown } from "@wfp/icons-react";
 import useSettings from "../../hooks/useSettings";
 import useMainNavigation from "../MainNavigation/useMainNavigation";
 

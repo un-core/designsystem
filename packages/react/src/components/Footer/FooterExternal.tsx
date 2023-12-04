@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Wrapper from '../Wrapper';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import { WfpLogoVerticalEn } from '@un/pictograms-react';
+import * as React from "react";
+import Wrapper from "../Wrapper";
+import type { PropsWithChildren } from "react";
+import classNames from "classnames";
+import { WfpLogoVerticalEn } from "@wfp/pictograms-react";
 import {
   LinkedIn,
   Facebook,
@@ -10,10 +10,10 @@ import {
   TikTok,
   Twitter,
   Instagram,
-} from '@un/icons-react';
-import { ScreenSize } from '../../utils';
+} from "@wfp/icons-react";
+import { ScreenSize } from "../../utils";
 
-import useSettings from '../../hooks/useSettings';
+import useSettings from "../../hooks/useSettings";
 
 type FooterExternalProps = PropsWithChildren<{
   className?: string;
@@ -28,7 +28,7 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
   productName,
   children,
   metaContent,
-  pageWidth = 'lg',
+  pageWidth = "lg",
   metaLinks,
 }) => {
   const { prefix } = useSettings();
@@ -58,7 +58,8 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
                   <a
                     href="https://twitter.com/WFP"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                  >
                     <Twitter />
                   </a>
                 </li>
@@ -66,7 +67,8 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
                   <a
                     href="https://www.facebook.com/WorldFoodProgramme"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                  >
                     <Facebook />
                   </a>
                 </li>
@@ -74,7 +76,8 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
                   <a
                     href="https://www.instagram.com/Worldfoodprogramme/"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                  >
                     <Instagram />
                   </a>
                 </li>
@@ -82,7 +85,8 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
                   <a
                     href="https://www.linkedin.com/company/world-food-programme"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                  >
                     <LinkedIn />
                   </a>
                 </li>
@@ -90,7 +94,8 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
                   <a
                     href="https://www.youtube.com/user/WORLDFOODPROGRAM"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                  >
                     <YouTube />
                   </a>
                 </li>
@@ -98,7 +103,8 @@ const FooterExternal: React.FC<FooterExternalProps> = ({
                   <a
                     href="https://www.tiktok.com/@worldfoodprogramme"
                     target="_blank"
-                    rel="noopener">
+                    rel="noopener"
+                  >
                     <TikTok />
                   </a>
                 </li>

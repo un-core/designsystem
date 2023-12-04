@@ -20,7 +20,7 @@ import Markdown from "react-markdown";
 import formatTypes from "./formatTypes";
 // import parse from "html-react-parser";
 import { transform } from "@babel/standalone";
-import { AddCircle, CloseCircle, Settings, StarSolid } from "@un/icons-react";
+import { AddCircle, CloseCircle, Settings, StarSolid } from "@wfp/icons-react";
 
 import * as componentsSource from "@../../../demoCode/dist/bundle";
 

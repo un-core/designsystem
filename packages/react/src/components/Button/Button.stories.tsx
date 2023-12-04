@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { buttonKinds } from "../../prop-types/types";
-import { AddCircle } from "@un/icons-react";
+import { AddCircle } from "@wfp/icons-react";
 import markdown from "./README.mdx";
 import Button from "./Button";
 
@@ -197,7 +197,7 @@ ButtonSolid.parameters = {
 
 // const buttoniconsnippet = `
 // import { Button } from '@wfp/react';
-// import { AddCircleGlyph } from '@un/icons-react';
+// import { AddCircleGlyph } from '@wfp/icons-react';
 
 //   <>
 //   <Button icon={AddCircleGlyph} kind="primary">
@@ -239,7 +239,7 @@ ButtonSolid.parameters = {
 
 // const smallbuttonsnippet = `
 // import { Button } from '@wfp/react';
-// import { AddCircleGlyph } from '@un/icons-react';
+// import { AddCircleGlyph } from '@wfp/icons-react';
 
 //   <>
 //     <Button small>Small button</Button>{' '}
@@ -275,7 +275,7 @@ ButtonSolid.parameters = {
 
 // const largebuttonsnippet = `
 // import { Button } from '@wfp/react';
-// import { AddCircleGlyph } from '@un/icons-react';
+// import { AddCircleGlyph } from '@wfp/icons-react';
 
 //   <>
 //     <Button large>Large button</Button>{' '}

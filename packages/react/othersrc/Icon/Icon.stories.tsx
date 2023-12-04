@@ -1,13 +1,13 @@
-import React from 'react';
-import markdown from './README.mdx';
-import { Add, Home } from '@un/icons-react';
+import React from "react";
+import markdown from "./README.mdx";
+import { Add, Home } from "@wfp/icons-react";
 
 export default {
-  title: 'Components/UI Elements/Icon',
+  title: "Components/UI Elements/Icon",
   component: Add,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'legacy',
+    componentSubtitle: "Component",
+    status: "legacy",
     mdx: markdown,
   },
 };

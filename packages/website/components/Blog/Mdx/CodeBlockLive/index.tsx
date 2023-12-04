@@ -22,9 +22,9 @@ import classNames from "classnames";
 import * as ReactDOMServer from "react-dom/server";
 
 import * as unComponents from "@wfp/react";
-import * as unHumanitarianIcons from "@un/humanitarian-icons-react";
-import * as unPictograms from "@un/pictograms-react";
-import * as icons from "@un/icons-react";
+import * as unHumanitarianIcons from "@wfp/humanitarian-icons-react";
+import * as unPictograms from "@wfp/pictograms-react";
+import * as icons from "@wfp/icons-react";
 import { Button, Empty } from "@wfp/react";
 import prettier from "prettier/standalone";
 import babelParser from "prettier/parser-babel";

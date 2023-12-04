@@ -1,5 +1,5 @@
 import * as React from "react";
-import { User as UserIcon } from "@un/icons-react";
+import { User as UserIcon } from "@wfp/icons-react";
 import useSettings from "../../hooks/useSettings";
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {

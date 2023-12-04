@@ -1,14 +1,14 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import { /* CaretDown, */ ChevronDown } from '@un/icons-react';
+import * as React from "react";
+import classNames from "classnames";
+import { /* CaretDown, */ ChevronDown } from "@wfp/icons-react";
 
-import useSettings from '../../hooks/useSettings';
-import Input, { InputProps, useInput } from '../Input';
-import { UseInputProps } from '../Input/useInput';
+import useSettings from "../../hooks/useSettings";
+import Input, { InputProps, useInput } from "../Input";
+import { UseInputProps } from "../Input/useInput";
 
 interface SelectProps
   extends InputProps,
-    React.ComponentPropsWithRef<'select'> {
+    React.ComponentPropsWithRef<"select"> {
   /**
    * Specify whether you want the inline version of this control
    */
@@ -69,7 +69,8 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
     <Input
       {...wrapperProps}
       inputWrapperClassName={`${prefix}--select`}
-      hideLabel={hideLabel}>
+      hideLabel={hideLabel}
+    >
       <select
         //{...other}
         //{...ariaProps}
@@ -79,7 +80,8 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
         /*disabled={disabled || undefined}
           data-invalid={invalid || undefined}
           aria-invalid={invalid || undefined} */
-        ref={ref as React.Ref<HTMLSelectElement>}>
+        ref={ref as React.Ref<HTMLSelectElement>}
+      >
         {children}
       </select>
 
@@ -91,6 +93,6 @@ const Select: React.FC<SelectProps> = React.forwardRef((props, ref) => {
   );
 });
 
-Select.displayName = 'Select';
+Select.displayName = "Select";
 
 export default Select;

@@ -1,16 +1,16 @@
-import React from 'react';
-import ContentSwitcher from './ContentSwitcher';
-import markdown from './README.mdx';
-import Switch from '../Switch';
-import { Add16, AddCircle } from '@un/icons-react';
+import React from "react";
+import ContentSwitcher from "./ContentSwitcher";
+import markdown from "./README.mdx";
+import Switch from "../Switch";
+import { Add16, AddCircle } from "@wfp/icons-react";
 
 export default {
-  title: 'Components/Content Related/ContentSwitcher',
+  title: "Components/Content Related/ContentSwitcher",
   component: ContentSwitcher,
   subcomponents: { Switch },
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
   },
 };
@@ -29,7 +29,7 @@ export const Regular = (args) => {
 };
 
 Regular.args = {
-  children: 'ContentSwitcher',
+  children: "ContentSwitcher",
 };
 
 const regularsourcecode = `
@@ -74,7 +74,7 @@ export const ButtonSwitch = (args) => {
 };
 
 ButtonSwitch.args = {
-  children: 'ContentSwitcher',
+  children: "ContentSwitcher",
 };
 
 const description = `

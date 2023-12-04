@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 // import Icon from '../Icon';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import { ChevronLeft } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
+import type { PropsWithChildren } from "react";
+import classNames from "classnames";
+import { ChevronLeft } from "@wfp/icons-react";
+import useSettings from "../../hooks/useSettings";
 
 type SidebarProps = PropsWithChildren<{
   /**
