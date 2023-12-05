@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2023-12-04)
+
+
+### Features
+
+* **packages:** renamed packages @un/icons and more ([233b6ec](https://dev.azure.com/commits/233b6ecc195f3ff7f52344033d1e858f73c09020))
+
+
+
+
+
 ## 1.1.8 (2023-12-04)
 
 **Note:** Version bump only for package @un/fonts

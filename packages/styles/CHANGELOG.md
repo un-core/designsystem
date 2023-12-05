@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.28.0 (2023-12-04)
+
+
+### Features
+
+* **packages:** renamed packages @un/icons and more ([233b6ec](https://github.com/wfp/designsystem/commit/233b6ecc195f3ff7f52344033d1e858f73c09020))
+
+
+
+
+
 ## 10.27.8 (2023-12-04)
 
 **Note:** Version bump only for package @wfp/styles
