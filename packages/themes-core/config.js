@@ -1,4 +1,3 @@
-//import StyleDictionary from "style-dictionary";
 import StyleDictionary from "style-dictionary";
 import * as changeCase from "change-case";
 
@@ -86,6 +85,7 @@ export const config = ({
               });
             });
           }
+
           return `$${token.name}: var(--${token.name}, ${value}) !default;`;
         })
         .join(`\n`);

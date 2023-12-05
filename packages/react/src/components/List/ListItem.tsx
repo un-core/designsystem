@@ -6,8 +6,20 @@ import { Cross, Check } from "@wfp/icons-react";
 // extends Omit<React.LiHTMLAttributes<HTMLLIElement>, 'title'> {
 export interface ListItemProps
   extends Omit<React.ComponentPropsWithRef<"li">, "title"> {
+  /**
+   * Specify the kind of icon to use in the list item. Options are 'checkmark' or 'cross'.
+   * This provides a visual cue about the nature or status of the list item. @design
+   */
   kind?: "checkmark" | "cross";
+  /**
+   * Specify whether the list item should be a small variant. Useful for denser lists
+   * or when space is a constraint. @size
+   */
   small?: boolean;
+  /**
+   * Content to be displayed as the title of the list item. This can be simple text or
+   * a React node for more complex content. @content
+   */
   title?: React.ReactNode;
 }
 

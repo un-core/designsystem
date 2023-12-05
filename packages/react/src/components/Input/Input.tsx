@@ -30,7 +30,7 @@ export interface InputProps {
   formItemClassName?: string;
   /**
    * Provide a custom className that is applied directly to the underlying
-   * &lt;textarea&gt; node
+   * &lt;input&gt; or &lt;textarea&gt; node
    */
   inputWrapperClassName?: string;
   /**

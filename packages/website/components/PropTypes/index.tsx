@@ -135,7 +135,8 @@ export default function PropTypes({
       (prop.name === "kind" ||
         prop.name === "type" ||
         prop.name === "size" ||
-        prop.name === "pageWidth") &&
+        prop.name === "pageWidth" ||
+        prop.name === "margin") &&
       prop.type.name.includes("|")
     ) {
       //const propOptionsList = inputString.split(" | ").map(s => s.replace(/"/g, ''));
@@ -145,6 +146,10 @@ export default function PropTypes({
           {...register(prop.name, { required: prop.required })}
           defaultValue={prop.defaultValue && prop.defaultValue.value}
         >
+          {prop.required === false && (
+            <SelectItem key="none" value="" text="None" />
+          )}
+          )
           {Object.values(prop.type.name.split("|")).map((kind: string, i) => (
             <SelectItem
               key={i}

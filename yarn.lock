@@ -4960,16 +4960,6 @@
   dependencies:
     prettier "^2.2.1"
 
-"@un/themes-core@^0.0.38":
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/@un/themes-core/-/themes-core-0.0.38.tgz#6bb639525cf142daa6d4cd39da2a7d0b4eaac53c"
-  integrity sha512-+mXFGZhVu9epAkeO8y/WU34HpidIKqkkBI9Y8Q/w/SWBYIA+xMUIX7QHhO/ZbJNhKp7stRGiieGS0N854RJOWA==
-  dependencies:
-    change-case "^4.1.2"
-    deepdash "^5.3.9"
-    lodash "^4.17.21"
-    style-dictionary "^3.7.0"
-
 "@un/themes@^10.40.13":
   version "10.40.13"
   resolved "https://registry.yarnpkg.com/@un/themes/-/themes-10.40.13.tgz#0b3213e50b0968d6edfdf5bd83d7a698c977d2f5"
@@ -5032,16 +5022,6 @@
     "@babel/plugin-transform-react-jsx-source" "^7.19.6"
     magic-string "^0.27.0"
     react-refresh "^0.14.0"
-
-"@wfp/themes-core@^0.0.48":
-  version "0.0.48"
-  resolved "https://registry.yarnpkg.com/@wfp/themes-core/-/themes-core-0.0.48.tgz#2a0dc45ab6a3c0c6de6dd30c1bd60bf960bb180e"
-  integrity sha512-sija+5siRYDNwSrKqs+Sd74n6S+ZSOGH0nGehAeena0sSKZzz/kqvbRenXJitTDgGfEyOfERS6KEgD/rXH4Omw==
-  dependencies:
-    change-case "^4.1.2"
-    deepdash "^5.3.9"
-    lodash "^4.17.21"
-    style-dictionary "^3.8.0"
 
 "@yarnpkg/esbuild-plugin-pnp@^3.0.0-rc.10":
   version "3.0.0-rc.15"
@@ -17373,6 +17353,16 @@ rollup-plugin-terser@^7.0.2:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
+rollup-plugin-visualizer@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-visualizer/-/rollup-plugin-visualizer-5.10.0.tgz#a71c733255dff4cb1ca57ecf31fd62f895c0535f"
+  integrity sha512-N4AkNL0qFvipegbDJ0kupS+8eKGjL0q+lYwV46NflLX/B8Rh73wz3kCIdg50bR6XVhNcaMA4Eb519xtm90Ckfg==
+  dependencies:
+    open "^8.4.0"
+    picomatch "^2.3.1"
+    source-map "^0.7.4"
+    yargs "^17.5.1"
+
 rollup-pluginutils@^2.4.1:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
@@ -18033,7 +18023,7 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==
 
-source-map@^0.7.0, source-map@^0.7.3:
+source-map@^0.7.0, source-map@^0.7.3, source-map@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
   integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
@@ -18433,7 +18423,7 @@ strong-log-transformer@2.1.0, strong-log-transformer@^2.1.0:
     minimist "^1.2.0"
     through "^2.3.4"
 
-style-dictionary@^3.7.0, style-dictionary@^3.8.0, style-dictionary@^3.9.0:
+style-dictionary@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-3.9.0.tgz#c89ba60b81a821c52515ae45d5e5c2da41c34546"
   integrity sha512-mnq8QfPJoj3ellKHRKZwmCgYUGgwYtoagW5edyKpR09O1W4/XqBdeKXoY/LbeIKqHrqVR7sGgk6E/dNYkPS4aA==
@@ -20226,7 +20216,7 @@ yargs@^15.0.1, yargs@^15.4.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^17.6.2:
+yargs@^17.5.1, yargs@^17.6.2:
   version "17.7.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.7.2.tgz#991df39aca675a192b816e1e0363f9d75d2aa269"
   integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { InputGroup, List, ListItem, RadioButton, Text } from '@wfp/react';
+import React, { useState } from "react";
+import { InputGroup, List, ListItem, RadioButton, Text } from "@wfp/react";
 
-import tokens from '@un/themes-core/dist/json/variables-full.json';
+import tokens from "@wfp/themes-core/dist/json/variables-full.json";
 
-import styles from './typeset.module.scss';
+import styles from "./typeset.module.scss";
 
 // extended logo versions are removed from documentation based on recommendations from CAM, but they still exist in assets for developers already using them in their code.
 export default function Typeset() {
@@ -26,21 +26,21 @@ export default function Typeset() {
     <ListItem title="line-height"> {entry.lineHeight?.value}</ListItem>*/}
 
             {Object.entries(entry).map(([iKey, token]: any) => {
-              if (iKey === 'md') {
+              if (iKey === "md") {
                 return (
                   <ListItem key={iKey}>
                     <h4>Breakpoint medium</h4>
                     {Object.entries(token).map(
                       ([iKeyBreakpoint, tokenBreakpoint]: any) => (
                         <ListItem key={iKeyBreakpoint} title={iKeyBreakpoint}>
-                          {tokenBreakpoint.value}{' '}
+                          {tokenBreakpoint.value}{" "}
                           {tokenBreakpoint.value !==
                             tokenBreakpoint.original?.value && (
                             <>
                               (
                               {tokenBreakpoint.original.value
-                                .replace('{', '')
-                                .replace('}', '')}
+                                .replace("{", "")
+                                .replace("}", "")}
                               )
                             </>
                           )}
@@ -53,10 +53,10 @@ export default function Typeset() {
 
               return (
                 <ListItem key={iKey} title={iKey}>
-                  {token.value}{' '}
+                  {token.value}{" "}
                   {token.value !== token.original?.value && (
                     <>
-                      ({token.original.value.replace('{', '').replace('}', '')})
+                      ({token.original.value.replace("{", "").replace("}", "")})
                     </>
                   )}
                 </ListItem>

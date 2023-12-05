@@ -12,7 +12,7 @@ import { wfpColorsMeta } from '@un/themes';
 import { hex, score } from 'wcag-contrast';
 import './colours.scss';
 
-import tokens from '@un/themes-core/tokens/design-tokens.tokens.json';
+import tokens from '@wfp/themes-core/tokens/design-tokens.tokens.json';
 
 export const ColourList = ({ filter }) => {
   console.log(wfpColorsMeta);

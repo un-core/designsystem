@@ -13,7 +13,7 @@ interface ModuleProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   className?: string;
   /**
-   * Disables the default margin
+   * @deprecated Disables the default margin
    */
   noMargin?: boolean;
   /**
@@ -32,6 +32,9 @@ interface ModuleProps extends React.HTMLAttributes<HTMLDivElement> {
    * Additional hover styling @design
    */
   withHover?: boolean;
+  /**
+   * Margin size around the module @design
+   */
   margin?: "xs" | "md" | "lg";
 }
 
@@ -50,9 +53,9 @@ const Module: React.FC<ModuleProps> = ({
   const wrapperClasses = classNames(
     {
       [`${prefix}--module--dark`]: dark,
-      [`${prefix}--module--no-margin`]: noMargin,
+      [`${prefix}--module--no-margin`]: noMargin || margin === undefined,
       [`${prefix}--module--full-height`]: fullHeight,
-      [`${prefix}--module--margin-x`]: margin === "xs",
+      [`${prefix}--module--margin-xs`]: margin === "xs",
       [`${prefix}--module--margin-md`]: margin === "md",
       [`${prefix}--module--margin-lg`]: margin === "lg",
       [`${prefix}--module--light`]: light,

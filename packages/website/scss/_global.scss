@@ -9,8 +9,8 @@ $css--body: true;
   $theme: meta.$carbon--theme--memo
 )*/;
 
-@use "@un/themes-core/dist/scss/default-css-theme" as defaulttheme;
-@use "@un/themes-core/distDark/scss/default-css-theme" as darkTheme;
+@use "@wfp/themes-core/dist/scss/default-css-theme" as defaulttheme;
+@use "@wfp/themes-core/distDark/scss/default-css-theme" as darkTheme;
 
 //@use "./dist/scss/default-css-theme" as memotheme;
 

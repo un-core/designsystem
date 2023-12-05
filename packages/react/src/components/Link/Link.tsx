@@ -30,7 +30,7 @@ export interface LinkProps extends React.ComponentPropsWithRef<"a"> {
   /**
    * Use an icon with the link element @design
    */
-  icon?: React.ComponentType | React.ElementType;
+  icon?: React.ReactNode | React.ComponentType | React.ElementType;
 }
 
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
@@ -42,7 +42,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       disabled,
       inline,
       visited,
-      icon: Icon,
+      icon,
       size,
       ...other
     } = props;
@@ -54,6 +54,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       [`${prefix}--link--inline`]: inline,
       [`${prefix}--link--visited`]: visited,
       [`${prefix}--link--${size}`]: size,
+      [`${prefix}--link--icon`]: icon,
     });
 
     const rel = other.target === "_blank" ? "noopener" : undefined;
@@ -63,14 +64,15 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         className={classes}
         rel={rel}
         ref={ref}
+        aria-disabled={disabled}
         {...other}
       >
         {children}
-        {Icon && (
-          <div className={`${prefix}--link__icon`}>
-            <Icon />
-          </div>
-        )}
+        {icon && React.isValidElement(icon) ? (
+          <span className={`${prefix}--link__icon`}>{icon}</span>
+        ) : icon ? (
+          <props.icon />
+        ) : null}
       </a>
     );
   }

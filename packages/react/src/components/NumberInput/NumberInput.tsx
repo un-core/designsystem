@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import * as React from 'react';
-import { useState, useRef, useEffect } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import Input, { InputProps } from '../Input';
-import useInput, { UseInputProps } from '../Input/useInput';
+import * as React from "react";
+import { useState, useRef, useEffect } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import Input, { InputProps } from "../Input";
+import useInput, { UseInputProps } from "../Input/useInput";
 
 interface NumberInputProps
   extends InputProps,
-    React.ComponentPropsWithRef<'input'> {
+    React.ComponentPropsWithRef<"input"> {
   /**
    * The maximum value.
    */
@@ -46,6 +46,9 @@ interface NumberInputProps
    * `true` to use the light version.
    */
   light?: boolean;
+  /**
+   * Specify the regular expression that the value should match using the html pattern attribute
+   */
   pattern?: string;
   /**
    * The new value is available in 'imaginaryTarget.value'
@@ -67,13 +70,13 @@ interface NumberInputProps
   /**
    * Specify the value of the input, if undefined or null the value is empty
    */
-  value?: '' | number | string;
+  value?: "" | number | string;
 }
 
 const countDecimals = (value: string) => {
   const valueFloat = parseFloat(value);
   if (Math.floor(valueFloat) === valueFloat) return 0;
-  return value.split('.')[1].length || 0;
+  return value.split(".")[1].length || 0;
 };
 
 const capMin = (min, value) =>
@@ -103,7 +106,7 @@ const NumberInput: React.FC<NumberInputProps> = React.forwardRef(
       helperText,
       light,
       //allowEmpty,
-      pattern = '[0-9]*',
+      pattern = "[0-9]*",
       // ...other
     } = props;
     const { prefix } = useSettings();
@@ -129,17 +132,17 @@ const NumberInput: React.FC<NumberInputProps> = React.forwardRef(
     };
 
     const handleArrowClick = (evt, direction) => {
-      let valueState = typeof value === 'string' ? Number(value) : value;
+      let valueState = typeof value === "string" ? Number(value) : value;
       valueState = isNaN(valueState) ? 0 : valueState;
 
       const conditional =
-        direction === 'down'
+        direction === "down"
           ? (min !== undefined && valueState > min) || min === undefined
           : (max !== undefined && valueState < max) || max === undefined;
 
       const stepString = step.toString();
       valueState =
-        direction === 'down'
+        direction === "down"
           ? valueState - step
           : valueState + parseFloat(stepString);
       valueState = capMax(max, capMin(min, valueState));
@@ -175,7 +178,7 @@ const NumberInput: React.FC<NumberInputProps> = React.forwardRef(
     const useInputProps = props as UseInputProps;
     const { inputProps, wrapperProps } = useInput({
       ...useInputProps,
-      type: 'number',
+      type: "number",
     });
 
     return (
@@ -185,14 +188,16 @@ const NumberInput: React.FC<NumberInputProps> = React.forwardRef(
             className={`${prefix}--number__control-btn up-icon`}
             type="button"
             disabled={disabled}
-            onClick={(evt) => handleArrowClick(evt, 'up')}>
+            onClick={(evt) => handleArrowClick(evt, "up")}
+          >
             +
           </button>
           <button
             className={`${prefix}--number__control-btn down-icon`}
             type="button"
             disabled={disabled}
-            onClick={(evt) => handleArrowClick(evt, 'down')}>
+            onClick={(evt) => handleArrowClick(evt, "down")}
+          >
             −
           </button>
           <input pattern={pattern} {...inputProps} {...newProps} ref={ref} />
@@ -202,6 +207,6 @@ const NumberInput: React.FC<NumberInputProps> = React.forwardRef(
   }
 );
 
-NumberInput.displayName = 'NumberInput';
+NumberInput.displayName = "NumberInput";
 
 export default NumberInput;

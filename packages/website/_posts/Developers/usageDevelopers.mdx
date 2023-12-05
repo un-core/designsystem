@@ -62,7 +62,7 @@ import "@wfp/styles/styles.css";
 To import the full SCSS through React, first make sure to have a `sass` loader installed, then use the following code:
 
 ```bash
-npm install @un/themes-core --save-dev
+npm install @wfp/themes-core --save-dev
 ```
 
 In your custom `.scss` file, import the theme and the components you need.
@@ -79,7 +79,7 @@ import '@wfp/styles';
 
 
 // Use a theme
-@use "@un/themes-core/dist/scss/default-css-theme" as defaulttheme;
+@use "@wfp/themes-core/dist/scss/default-css-theme" as defaulttheme;
 
 :root {
   @include defaulttheme.theme-default();

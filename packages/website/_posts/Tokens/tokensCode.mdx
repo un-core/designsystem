@@ -1,0 +1,73 @@
+---
+title: "Design Tokens"
+excerpt: "Tokens are used in our build system to allow us to define styles once. This way they can be consumed across all plattforms and keep the design system consistent."
+coverImage: "../sample-image.jpg"
+slug: "Documentation/Guidelines/Tokens/tab:Developers"
+figma: "https://figma.com"
+github: "https://github.com/component"
+storybook: "https://uikit.wfp.org/next-docs/index.html?path=/docs/components-button--button-regular"
+npm: "@wfp/themes-core"
+---
+
+You can import the tokens as a `JSON` file, `CSS` variables or `sass`.
+
+### JSON
+
+This file contains all tokens with a lot of additional information and can be used in any build system.
+
+<Callout kind="warning">
+  Make sure to not import the full file in your production build, as it is quite
+  large.
+</Callout>
+
+TODO: Instead, you can import the `variables.json` file, which only contains the token values.
+
+```jsx
+import tokens from "@wfp/themes-core/dist/json/variables-full.json";
+```
+
+### CSS
+
+The CSS file contains all tokens as CSS variables as a sass mixin.
+
+```css
+@use "@wfp/themes-core/dist/scss/default-css-theme" as defaulttheme;
+
+// Use the WFP theme
+:root {
+  @include defaulttheme.theme-default();
+}
+```
+
+### SASS
+
+[sass](https://sass-lang.com/) is a CSS preprocessor that allows you to use variables, nested rules, mixins, functions, and more with a fully CSS-compatible syntax.
+It helps keep large stylesheets well-organized and makes it easy to share design within and across projects.
+
+#### tokens.scss
+
+`tokens.scss` contains all tokens as `sass` variables. This file is used to generate the CSS file.
+
+```css
+@use "@wfp/themes-core/dist/scss/tokens" as tokens;
+
+/* Contains
+$content-content4-earthy-brown-content4-80: var(--content-content4-earthy-brown-content4-80, "#fda987") !default;
+*/
+```
+
+#### tokensMapDeep.scss
+
+`tokensMapDeep.scss` contains all tokens as a nested scss object.
+
+```css
+@use "@wfp/themes-core/dist/scss/tokensMapDeep" as tokensMapDeep;
+```
+
+#### tokensMapFlat.scss
+
+`tokensMapFlat.scss` contains all tokens as a flat scss object.
+
+```css
+@use "@wfp/themes-core/dist/scss/tokensMapFlat" as tokensMapFlat;
+```

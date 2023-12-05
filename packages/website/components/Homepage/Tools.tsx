@@ -80,7 +80,7 @@ export default function Tools() {
           }
           background="#E7DFFF"
           icon={faSatellite}
-          link="https://npmjs.com/package/@un/themes-core"
+          link="https://npmjs.com/package/@wfp/themes-core"
           npmLink
         />
         <PossibilitiesContainer

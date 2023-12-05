@@ -14,6 +14,18 @@ defaultProps:
   labelB: "On"
 ---
 
+**ReadMore** is used to hide or reveal content. It saves space while preserving visual balance and maintaining information hierarchy.
+
+## Examples
+
+Using the **Read More** component is a simple way to keep longer content from cluttering up your page, giving you more control over how much content is displayed to visitors.
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=242%3A1337" />
+
+## Anatomy
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=242%3A1424" />
+
 The `ReadMore` component is a versatile UI element designed to manage the display of long content sections in a user-friendly manner. It allows users to choose between viewing the entire content or a condensed version, enhancing the user experience, especially in content-heavy interfaces.
 
 ## Design Purpose
@@ -33,3 +45,31 @@ The `ReadMore` component is a versatile UI element designed to manage the displa
 - **Blogs and Articles**: For long-form content where readers might prefer an overview before diving into the full article.
 - **Product Descriptions**: In e-commerce, where detailed descriptions can be initially hidden to not overwhelm the shopper.
 - **FAQ Sections**: For FAQs, allowing users to quickly scan through questions and expand only those they are interested in.
+
+<Callout>
+  Use a smooth animation to expand content and drive user through reading.
+</Callout>
+
+## How to use
+
+<DoUse>
+
+- Use when you have long content and you need to hide part of it to avoid page cluttering
+
+</DoUse>
+
+<DoNotUse>
+
+- Expand content on-click and not on hover to recognise user’s intent.
+
+</DoNotUse>
+
+### Accessibility
+
+Use the **`aria-label`** attribute to add context for screen reader users.
+
+This will announce to the screen reader exactly where the link will take them.
+
+### Resources
+
+- [Nielsen Norman Group: Timing Guidelines for Exposing Hidden Content](https://www.nngroup.com/articles/timing-exposing-content/)

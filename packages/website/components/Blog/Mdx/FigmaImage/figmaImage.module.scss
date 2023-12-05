@@ -1,0 +1,26 @@
+@use "scss/meta" as *;
+
+.figmaImage {
+  display: flex;
+  width: 100%;
+  > img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.background {
+  background: $layer-primary;
+  border-radius: 6px;
+}
+
+.figmaImage {
+  position: relative;
+  top: -3em;
+  text-align: right;
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7em;
+  margin-bottom: -1em;
+}

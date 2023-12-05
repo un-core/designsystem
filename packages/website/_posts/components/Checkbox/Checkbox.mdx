@@ -1,17 +1,31 @@
 ---
 category: "Core"
 title: "Checkbox"
-excerpt: "Checkboxes are used for multiple choices, not for mutually exclusive choices."
-coverImage: "../sample-image.jpg"
+excerpt: "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected."
 slug: "Components/Forms/Checkbox"
 storybook: true
 mainComponent: "Checkbox"
 ---
 
-Each checkbox works independently from other checkboxes in the list, therefore checking an additional box does not affect any other selections.
+### Examples
+
+Checkboxes can be selected, not selected, or in an indeterminate state.
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=405%3A1077" />
+
+### Anatomy
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=405%3A1278" />
+
+Checkboxes should always have a label.
+
+### How to use
+
+Checkboxes and radio buttons are not interchangeable. A set of checkboxes should be used to select as many options as desired (or none). A set of radio buttons should be used to select only a single option from a list of mutually exclusive options.
 
 <DoUse>
 
+- TODO: Check if more are fine Checkboxes are best used for communicating selection (e.g., multiple table rows) while switches are best used for communicating activation (e.g., on/off states). Checkboxes, unlike switches, can have an error state.
 - Filtering and batch action: Used to filter data either on a page, in a menu, or within a component. Checkboxes are found in Data table for batch editing purposes.
 - Terms and conditions: Turning the checkbox input on or off can indicate whether you agree to the terms.
 - Lists with sub-selections: Used when there is a parent and child relationship. You can use a parent checkbox to make a bulk selection of all list items. Unchecking the parent deselects all of the list items. Alternatively, you can select children individually when the parent is not selected, which is where the indeterminate state comes in to play.

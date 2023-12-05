@@ -1,7 +1,7 @@
-const { readFileSync, writeFileSync } = require("fs");
-const _ = require("lodash");
-const filterDeep = require("deepdash/getFilterDeep")(_);
-const mapValuesDeep = require("deepdash/getMapValuesDeep")(_);
+import { readFileSync, writeFileSync } from "fs";
+import _ from "lodash";
+import filterDeep from "deepdash/getFilterDeep";
+import mapValuesDeep from "deepdash/getMapValuesDeep";
 
 function removeKeys(obj) {
   // Base case: if the object is not an object or is null, return it as is
@@ -48,7 +48,33 @@ if (!String.prototype.endsWith) {
 
 let json = JSON.parse(readFileSync("./tokensRepository/tokens.json", "utf8"));
 
-json = { ...json.Global, ...json.System, ...json.Component };
+function addCategoryToLeaves(obj, category) {
+  let newObj = Array.isArray(obj) ? [] : {};
+
+  Object.keys(obj).forEach((key) => {
+    // If the property is a 'value', add 'category'
+    if (key === "value") {
+      newObj["category"] = category;
+    }
+
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      // Recursively call the function for nested objects
+      newObj[key] = addCategoryToLeaves(obj[key], category);
+    } else {
+      // Copy the property to the new object
+      newObj[key] = obj[key];
+    }
+  });
+
+  return newObj;
+}
+const Global = json.Global;
+
+json = {
+  ...addCategoryToLeaves(json.Global, "global"),
+  ...addCategoryToLeaves(json.System, "system"),
+  ...addCategoryToLeaves(json.Component, "component"),
+};
 json = removeKeys(json);
 
 /*
