@@ -51,16 +51,6 @@ steps:
       script: |
         git fetch --all
         git checkout $(branchName)
-
-  #- task: CmdLine@2
-  #  displayName: Git Branch $(branchName)
-  #  inputs:
-  #    script: "git branch -r"
-
-  #  - task: CmdLine@2
-  #    displayName: Checkout $(branchName)
-  #    inputs:
-  #      script: "git checkout develop" #$(branchName)
   - task: NodeTool@0
     inputs:
       versionSpec: "18.x"
@@ -68,7 +58,7 @@ steps:
     
   - task: DownloadSecureFile@1
     name: npmrcFile
-    displayName: "Download CA certificate"
+    displayName: "Download npmrc certificate"
     inputs:
       secureFile: "npmrc"
   - task: CmdLine@2
@@ -79,6 +69,7 @@ steps:
       npm run lerna:versionNoPush
       git push --follow-tags origin HEAD:$(branchName)
     displayName: "npm run lerna:version"
+    condition: or( eq(variables.isMain, 'true'), eq(variables.isDevelop, 'true') )
 
   - bash: echo "##vso[task.setvariable variable=yarnCacheDir;]$(yarn cache dir)"
     displayName: Set yarn cache dir variable
