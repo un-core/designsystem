@@ -25,20 +25,14 @@
     align-items: center;
   }
 
-  .#{$prefix}--user__icon {
-    @include reset;
-    //width: calcRem(25px);
-    //height: calcRem(25px);
-    border-radius: 50%;
-    //margin-right: calcRem(10px);
-    overflow: hidden;
-    font-size: 1em;
+  .#{$prefix}--avatar {
+    font-size: 1.2em;
 
     > img {
       display: block;
       object-fit: cover;
-      width: 1em;
-      height: 1em;
+      width: 1.2em;
+      height: 1.2em;
     }
 
     .#{$prefix}--user--has-description & {
@@ -51,21 +45,11 @@
       }
     }
 
-    @include rtl {
-      margin-left: calcRem(10px);
-      margin-right: inherit;
-    }
-  }
+    margin-right: var(--spacing-100);
 
-  .#{$prefix}--user__icon--empty {
-    border-radius: 50%;
-    background-size: 100%;
-    border: 2px solid $border-subtle;
-    background-color: $icon-secondary;
-    text {
-      fill: $background-main; // TODO $text-on-color
-      font-weight: 600;
-      font-family: "Arial";
+    @include rtl {
+      margin-left: var(--spacing-100);
+      margin-right: inherit;
     }
   }
 

@@ -1,7 +1,4 @@
 import { readFileSync, writeFileSync } from "fs";
-import _ from "lodash";
-import filterDeep from "deepdash/getFilterDeep";
-import mapValuesDeep from "deepdash/getMapValuesDeep";
 
 function removeKeys(obj) {
   // Base case: if the object is not an object or is null, return it as is
@@ -61,7 +58,6 @@ function addCategoryToLeaves(obj, category) {
       // Recursively call the function for nested objects
       newObj[key] = addCategoryToLeaves(obj[key], category);
     } else {
-      // Copy the property to the new object
       newObj[key] = obj[key];
     }
   });
@@ -76,45 +72,6 @@ json = {
   ...addCategoryToLeaves(json.Component, "component"),
 };
 json = removeKeys(json);
-
-/*
-
-let filtrate = filterDeep(json, (value, key, parent) => {
-  console.log(key);
-
-  if (key == "description") return true;
-  if (key === "extensions" || key === "styleId" || key === "exportKey")
-    return false;
-  if (typeof value !== "object") {
-    return true;
-  }
-  //return true;
-});
-
-filtrate = mapValuesDeep(
-  filtrate,
-  (v) =>
-    typeof v === "string" &&
-    v.endsWith("ff") &&
-    v.substring(0, 1) === "#" &&
-    v.length === 9
-      ? v.slice(0, -2)
-      : v,
-  { leavesOnly: true }
-);
-
-filtrate = mapValuesDeep(
-  filtrate,
-  (v) => {
-    if (typeof v === "object" && v.type === "color")
-      v.attributes = { category: "color" };
-
-    return v;
-  },
-  /*  typeof v === 'object' && v.type === 'color'
-      ? (v.attributes.category = 'color')
-      : v*/ //{ leavesOnly: false }
-//);
 
 writeFileSync(
   "./tokens/design-tokens.tokens.new.json",

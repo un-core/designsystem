@@ -1,0 +1,101 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "name": "babel-preset-wfp",
+      "path": "config/babel-preset-wfp"
+    },
+    {
+      "name": "react",
+      "path": "packages/react"
+    },
+    {
+      "name": "html-handlebars",
+      "path": "packages/react/examples/html-handlebars"
+    },
+    {
+      "name": "create-react-app",
+      "path": "packages/react/examples/create-react-app"
+    },
+    {
+      "name": "fonts",
+      "path": "packages/fonts"
+    },
+    {
+      "name": "pictograms",
+      "path": "packages/pictograms"
+    },
+    {
+      "name": "humanitarian-icons",
+      "path": "packages/humanitarian-icons"
+    },
+    {
+      "name": "icons-react",
+      "path": "packages/icons-react"
+    },
+    {
+      "name": "icons",
+      "path": "packages/icons"
+    },
+    {
+      "name": "icons-core",
+      "path": "packages/icons-core"
+    },
+    {
+      "name": "styles",
+      "path": "packages/styles"
+    },
+    {
+      "name": "themes-core",
+      "path": "packages/themes-core"
+    },
+    {
+      "name": "website",
+      "path": "packages/website"
+    },
+    {
+      "name": ".next",
+      "path": "packages/website/.next"
+    },
+    {
+      "name": "types",
+      "path": "packages/website/.next/types"
+    },
+    {
+      "name": "pictograms-react",
+      "path": "packages/pictograms-react"
+    },
+    {
+      "name": "logos",
+      "path": "packages/logos"
+    },
+    {
+      "name": "humanitarian-icons-react",
+      "path": "packages/humanitarian-icons-react"
+    }
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": [
+      "babel-preset-wfp",
+      "react",
+      "html-handlebars",
+      "create-react-app",
+      "fonts",
+      "pictograms",
+      "humanitarian-icons",
+      "icons-react",
+      "icons",
+      "icons-core",
+      "styles",
+      "themes-core",
+      "website",
+      ".next",
+      "types",
+      "pictograms-react",
+      "logos",
+      "humanitarian-icons-react"
+    ]
+  }
+}

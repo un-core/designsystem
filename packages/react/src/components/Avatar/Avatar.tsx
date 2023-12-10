@@ -33,7 +33,7 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
 function Avatar({
   alt,
   image,
-  missingImage,
+  missingImage = "avatar",
   name,
   userIconProps,
   ...other
@@ -44,10 +44,8 @@ function Avatar({
     return (
       <UserIcon
         fill="#ffffff"
-        width="14"
-        height="14"
         description={alt}
-        className={`${prefix}--user__icon ${prefix}--user__icon--empty`}
+        className={`${prefix}--avatar ${prefix}--avatar--empty`}
         {...userIconProps}
       />
     );
@@ -55,7 +53,7 @@ function Avatar({
     return (
       <svg
         id="Layer_1"
-        className={`${prefix}--user__icon ${prefix}--user__icon--empty ${prefix}--user__icon--letter`}
+        className={`${prefix}--avatar ${prefix}--avatar--empty ${prefix}--avatar--letter`}
         x="0px"
         y="0px"
         viewBox="0 0 25 25"
@@ -69,7 +67,7 @@ function Avatar({
     );
   } else {
     return (
-      <div className={`${prefix}--user__icon`} {...other}>
+      <div className={`${prefix}--avatar`} {...other}>
         <img alt={alt} src={image} />
       </div>
     );

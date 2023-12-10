@@ -115,7 +115,7 @@ export default function SidebarWrapper({
                 if (posts.find((p) => p.slug.includes(overviewLink))) {
                   return (
                     <BreadcrumbItem key={i} href="#">
-                      <NextLink href={`${slugifyWithSlashes(overviewLink)}`}>
+                      <NextLink href={`/${slugifyWithSlashes(overviewLink)}`}>
                         {s}
                       </NextLink>
                     </BreadcrumbItem>

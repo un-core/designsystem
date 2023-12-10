@@ -15,7 +15,7 @@ import { hex, score } from "wcag-contrast";
 import styles from "./typeset.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronCircleRight,
+  //  faChevronCircleRight,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -371,10 +371,13 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
     return <div>LetterSpacing</div>;
   }
 
-  const isLastStep = Object.values(Object.values(token)[0])[0].filePath;
-  const lastStepPath = Object.values(Object.values(token)[0])[0].path;
+  const isLastStep = (token as any)[Object.keys(token)[0]][
+    Object.keys((token as any)[Object.keys(token)[0]])[0]
+  ].filePath;
+  const lastStepPath = (token as any)[Object.keys(token)[0]][
+    Object.keys((token as any)[Object.keys(token)[0]])[0]
+  ].path;
 
-  console.log("lastStepPath", token);
   const lastStepBreadcrumb = lastStepPath
     ? [...lastStepPath].splice(0, lastStepPath.length - 2)
     : [];
@@ -435,7 +438,11 @@ const DesignTokenDisplay: React.FC<DesignTokenProps> = ({ tokens }) => {
   );
 };
 
-export default function TokenExplorer({ category }: string) {
+interface TokenExplorerProps {
+  category: string;
+}
+
+export default function TokenExplorer({ category }: TokenExplorerProps) {
   return (
     <div>
       <DesignTokenDisplay tokens={deepFilter(tokens, category)} />

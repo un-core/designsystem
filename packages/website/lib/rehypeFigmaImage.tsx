@@ -1,7 +1,7 @@
 async function getImage({ document, node }) {
   try {
     const response = await fetch(
-      `https://api.figma.com/v1/images/${document}?ids=${node}&format=png&scale=4`,
+      `https://api.figma.com/v1/images/${document}?ids=${node}&format=png&scale=2`,
       {
         headers: {
           'Content-Type': 'application/json',

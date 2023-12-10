@@ -3,6 +3,7 @@ import {
   Select,
   SelectItem,
   Empty,
+  NumberInput,
   Tag,
   Table,
   Text,
@@ -132,11 +133,11 @@ export default function PropTypes({
 
   const renderInput = (prop) => {
     if (
-      (prop.name === "kind" ||
+      /*( prop.name === "kind" ||
         prop.name === "type" ||
         prop.name === "size" ||
         prop.name === "pageWidth" ||
-        prop.name === "margin") &&
+        prop.name === "margin") && */
       prop.type.name.includes("|")
     ) {
       //const propOptionsList = inputString.split(" | ").map(s => s.replace(/"/g, ''));
@@ -198,15 +199,18 @@ export default function PropTypes({
         </Select>
       );
     }
-    if (
-      prop.type.name === "ReactNode" ||
-      prop.type.name === "string" ||
-      prop.type.name === "number"
-    ) {
+    if (prop.type.name === "ReactNode" || prop.type.name === "string") {
       return (
         <TextInput
           {...register(prop.name, { required: prop.required })}
           type={prop.type.name === "number" ? "number" : "text"}
+          defaultValue={prop.defaultValue && prop.defaultValue.value}
+        />
+      );
+    } else if (prop.type.name === "number") {
+      return (
+        <NumberInput
+          {...register(prop.name, { required: prop.required })}
           defaultValue={prop.defaultValue && prop.defaultValue.value}
         />
       );

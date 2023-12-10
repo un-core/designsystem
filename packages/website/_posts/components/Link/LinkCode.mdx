@@ -33,6 +33,18 @@ Inline links should not be used on their own and should not be paired with icons
 </>
 ```
 
+### Link with icon
+
+Links can be paired with icons to help users understand where they will be directed. Icons should always be the same color as the link text.
+
+```jsx live
+<Link href="https://www.wfp.org" icon={<Info />}>
+  Link text
+</Link>
+```
+
+````jsx live
+
 ### Links that trigger actions
 
 Some links trigger actions to aid task completion in addition to navigation. These links should still serve a navigation purpose. A common example is linking phone numbers so clicking the website automatically opens and calls the phone number when clicked. The label and any accompanying icons should make it clear what action will be triggered and where the user will be directed.
@@ -54,7 +66,7 @@ function MyComponent() {
     </NextLink>
   );
 }
-```
+````
 
 ### html only use
 

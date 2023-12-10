@@ -1,24 +1,31 @@
 ---
-title: 'Design Tokens'
-excerpt: 'Tokens are used in our build system to allow us to define styles once. This way they can be consumed across all plattforms and keep the design system consistent.'
-coverImage: '../sample-image.jpg'
-slug: 'Documentation/Guidelines/Maps'
+title: "Maps & Cartography"
+slug: "Documentation/Guidelines/Maps"
 ---
 
-### Official UN boundaries
+<Callout title="This page is currently a draft. Please help us by contributing to it." kind="warning">
 
-Make sure your map follows these rules:
+The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations.
+
+</Callout>
+### GeoCore API 🌎
+
+The [GeoCore](https://catalog.efs.wfp.org/store/apis/info) endpoints in the WFP API Store are providing different data sources for
+geocoding.
+
+<DoUse title="Make sure your map follows these rules">
 
 - use the official UN boundaries
 - use official UN country names
 - use the default base map
 
-### GeoCore API
-
-The [GeoCore](https://catalog.efs.wfp.org/store/apis/info) endpoints in the WFP API Store are providing different data sources for
-geocoding.
+</DoUse>
 
 ### Recommended tools
+
+#### react-simple-maps
+
+[react-simple-maps](https://www.react-simple-maps.io/) is a library of React components to make SVG maps using d3-geo and topojson. It is a great way to build simple maps.
 
 #### Mapbox.gl
 
@@ -31,11 +38,11 @@ is a react friendly wrapper around Mapbox GL JS.
   title="@esri/react-arcgis example"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   style={{
-    width: '100%',
-    height: '500px',
-    border: '0',
-    borderRadius: '4px',
-    overflow: 'hidden',
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
   }}
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 />
@@ -51,15 +58,15 @@ app needs to access ArchGIS functions, like editing the map.
   title="@esri/react-arcgis example"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
   style={{
-    width: '100%',
-    height: '500px',
-    border: '0',
-    borderRadius: '4px',
-    overflow: 'hidden',
+    width: "100%",
+    height: "500px",
+    border: "0",
+    borderRadius: "4px",
+    overflow: "hidden",
   }}
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 />
 
 ### Reference
 
-- https://brand.unocha.org/d/xEPytAUjC3sH/maps
+- [OCHA Guidelines on maps](https://brand.unocha.org/d/xEPytAUjC3sH/maps)

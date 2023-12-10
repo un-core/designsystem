@@ -8,15 +8,15 @@ import useInput, { UseInputProps } from "../Input/useInput";
 
 interface NumberInputProps
   extends InputProps,
-    React.ComponentPropsWithRef<"input"> {
+    Omit<React.ComponentPropsWithRef<"input">, "onChange" | "value"> {
   /**
    * The maximum value.
    */
-  max?: number;
+  max?: string | number;
   /**
    * The minimum value.
    */
-  min?: number;
+  min?: string | number;
   /**
    * Specify how much the valus should increase/decrease upon clicking on up/down button
    */
@@ -41,6 +41,9 @@ interface NumberInputProps
    * Specify whether you want the underlying label to be visually hidden
    */
   hideLabel?: boolean;
+  /**
+   * Specify whether you want the up/down buttons to be hidden
+   */
   hideControls?: boolean;
   /**
    * `true` to use the light version.

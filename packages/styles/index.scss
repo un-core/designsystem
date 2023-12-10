@@ -1,12 +1,12 @@
-@forward 'scss/config';
-@forward 'scss/colors' hide $white;
-@forward 'scss/font-face';
+@forward "scss/config";
+@forward "scss/colors" hide $white;
+@forward "scss/font-face";
 //TODO: Check @forward 'scss/grid';
-@forward 'scss/motion';
-@forward 'scss/type';
-@forward 'scss/themes';
-@forward 'scss/theme';
-@forward 'scss/global-defaults';
+@forward "scss/motion";
+@forward "scss/type";
+@forward "scss/themes";
+@forward "scss/theme";
+@forward "scss/global-defaults";
 
-@use 'scss/reset';
-@use 'scss/components';
+@use "scss/reset";
+@use "scss/components";

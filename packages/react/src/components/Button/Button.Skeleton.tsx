@@ -1,8 +1,15 @@
-import PropTypes from "prop-types";
-import React from "react";
+import * as React from "react";
 import classNames from "classnames";
 
-const ButtonSkeleton = ({ small, href }) => {
+interface ButtonSkeletonProps {
+  small?: boolean;
+  href?: string;
+}
+
+const ButtonSkeleton: React.FC<ButtonSkeletonProps> = ({
+  small = false,
+  href,
+}) => {
   const buttonClasses = classNames({
     "wfp--skeleton": true,
     "wfp--btn": true,
@@ -18,15 +25,6 @@ const ButtonSkeleton = ({ small, href }) => {
   const anchor = <a {...commonProps} href={href} role="button" />; // eslint-disable-line
 
   return href ? anchor : button;
-};
-
-ButtonSkeleton.propTypes = {
-  small: PropTypes.bool,
-  href: PropTypes.string,
-};
-
-ButtonSkeleton.defaultProps = {
-  small: false,
 };
 
 export default ButtonSkeleton;

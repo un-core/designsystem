@@ -58,6 +58,8 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     });
 
     const rel = other.target === "_blank" ? "noopener" : undefined;
+
+    const IconAsComponent = icon as React.ComponentType<any>;
     return (
       <a
         href={disabled ? undefined : href}
@@ -71,56 +73,12 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         {icon && React.isValidElement(icon) ? (
           <span className={`${prefix}--link__icon`}>{icon}</span>
         ) : icon ? (
-          <props.icon />
+          <IconAsComponent />
         ) : null}
       </a>
     );
   }
 );
-/*
-const Linkd = React.forwardRef<HTMLButtonElement, LinkProps>((props, ref) => {
-  const {
-    children,
-    className,
-    href,
-    disabled,
-    inline,
-    visited,
-    icon: Icon,
-    size,
-    ...other
-  } = props;
-
-  const { prefix } = useSettings();
-
-  const classes = classNames(`${prefix}--link`, className, {
-    [`${prefix}--link--disabled`]: disabled,
-    [`${prefix}--link--inline`]: inline,
-    [`${prefix}--link--visited`]: visited,
-    [`${prefix}--link--${size}`]: size,
-  });
-
-  //const Tag = disabled ? 'p' : 'a';
-  //const TagEl = Tag as 'button' | 'link';
-
-  const rel = other.target === '_blank' ? 'noopener' : undefined;
-  return (
-    <a
-      href={disabled ? undefined : href}
-      className={classes}
-      rel={rel}
-      ref={ref}
-      //{...other}
-    >
-      {children}
-      {!inline && Icon && (
-        <div className={`${prefix}--link__icon`}>
-          <Icon />
-        </div>
-      )}
-    </a>
-  );
-});*/
 
 Link.displayName = "Link";
 
