@@ -92,7 +92,7 @@ export default async function getPostContent(params: any) {
       const file = require(`../../types/src/components/${post.mainComponent}/${post.mainComponent}.json`);
       propTypes.push(file[0]);
     } catch (e) {
-      console.log("Can't load typescript definitions!");
+      // console.log("Can't load typescript definitions!");
     }
   }
 
@@ -107,7 +107,7 @@ export default async function getPostContent(params: any) {
         const file = require(`../../types/src/components/${component.path}.json`);
         propTypes.push(file[0]);
       } catch (e) {
-        console.log("Can't load typescript definitions!");
+        // console.log("Can't load typescript definitions!");
       }
     });
   }
@@ -119,7 +119,7 @@ export default async function getPostContent(params: any) {
         const file = require(`../../types/src/components/${component}/${component}.json`);
         propTypes.push(file[0]);
       } catch (e) {
-        console.log("Can't load typescript definitions!");
+        // console.log("Can't load typescript definitions!");
       }
     });
   }
@@ -134,7 +134,7 @@ export default async function getPostContent(params: any) {
           const file = require(`../../types/src/components/${p.title}/${p.title}.json`);
           propTypes.push(file[0]);
         } catch (e) {
-          console.log("Can't load typescript definitions!");
+          // console.log("Can't load typescript definitions!");
         }
       }
       if (p.componentsNew) {
@@ -146,7 +146,7 @@ export default async function getPostContent(params: any) {
             propTypes.push(fileCn[0]);
           });
         } catch (e) {
-          console.log("Can't load typescript definitions!");
+          // console.log("Can't load typescript definitions!");
         }
       }
     });

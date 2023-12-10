@@ -158,7 +158,7 @@ const CodeBlockLive = (props: any) => {
           })
         : code;
   } catch (error) {
-    console.log("prettier not working");
+    //console.log("prettier not working");
   }
 
   const handleCopyCode = (textToCopy) => {

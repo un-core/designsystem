@@ -55,10 +55,10 @@ interface NumberInputProps
   pattern?: string;
   /**
    * The new value is available in 'imaginaryTarget.value'
-   * i.e. to get the value: evt.imaginaryTarget.value
+   * i.e. to get the value: evt.imaginaryTarget.value or in th second argument provided to the onChange prop
    */
   onChange?: (
-    evt?: React.ChangeEvent,
+    evt?: React.ChangeEvent | any,
     value?: number,
     direction?: string
   ) => void;

@@ -37,6 +37,7 @@ export default async function walk(directory: string) {
   const tsxFileList = fileList.filter(
     (file) =>
       file.endsWith(".tsx") &&
+      !file.includes("test") &&
       !file.includes("stories") &&
       !file.includes("indexStories")
   );
@@ -44,6 +45,8 @@ export default async function walk(directory: string) {
   await Promise.all(
     tsxFileList.map(async (file) => {
       console.log("read file", file);
+
+      //TODO: improve performance https://github.com/styleguidist/react-docgen-typescript/issues/112
       const propTypes = JSON.parse(JSON.stringify(parse(file, options)));
 
       try {

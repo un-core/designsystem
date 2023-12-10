@@ -292,7 +292,7 @@ export default function PropTypes({
 
       code = reactElementToJSXString(enhancedElement);
     } catch (error) {
-      console.log("Transform failed");
+      // console.log("Transform failed");
     }
 
     // console.log("codeNew", reactElementToJSXString(enhancedElement));

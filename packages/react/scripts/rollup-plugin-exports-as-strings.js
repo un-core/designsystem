@@ -1,4 +1,3 @@
-import { readFileSync } from "fs";
 import { parse } from "@babel/parser";
 import generate from "@babel/generator";
 

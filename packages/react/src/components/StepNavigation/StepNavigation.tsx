@@ -6,6 +6,10 @@ import useSettings from "../../hooks/useSettings";
 /** Step Navigation provide indications to help users reach their destination from their current position */
 interface StepNavigationProps {
   /**
+   * Provide the contents of your StepNavigation
+   */
+  children: React.ReactNode;
+  /**
    * Provide a className that is applied to the root <nav> component for the
    * <Tabs>
    */
@@ -45,6 +49,7 @@ function StepNavigation({
   vertical,
   className,
   role,
+  children,
 }: //selectedPage,
 // onSelectionChange,
 StepNavigationProps) {
