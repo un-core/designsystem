@@ -19,19 +19,19 @@ steps:
     persistCredentials: true
 
   - script: |
-      
+
       # Install urlencode function to encode reserved characters in passwords
       sudo apt-get install gridsite-clients
 
       # Create local mirror of Azure DevOps repository
       git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror
-      
-      
+
+
       # Sync AWS CodeCommit repository
       cd repo-mirror
       git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
-      
-    displayName: 'Sync repository with AWS CodeCommit'
+
+    displayName: "Sync repository with AWS CodeCommit"
     env:
       AZURE_REPO_URL: $(AZURE_REPO_URL)
       AZURE_GIT_USERNAME: $(AZURE_GIT_USERNAME)
@@ -51,24 +51,14 @@ steps:
       script: |
         git fetch --all
         git checkout $(branchName)
-
-  #- task: CmdLine@2
-  #  displayName: Git Branch $(branchName)
-  #  inputs:
-  #    script: "git branch -r"
-
-  #  - task: CmdLine@2
-  #    displayName: Checkout $(branchName)
-  #    inputs:
-  #      script: "git checkout develop" #$(branchName)
   - task: NodeTool@0
     inputs:
       versionSpec: "18.x"
     displayName: "Install Node.js"
-    
+
   - task: DownloadSecureFile@1
     name: npmrcFile
-    displayName: "Download CA certificate"
+    displayName: "Download npmrc certificate"
     inputs:
       secureFile: "npmrc"
   - task: CmdLine@2
@@ -79,6 +69,7 @@ steps:
       npm run lerna:versionNoPush
       git push --follow-tags origin HEAD:$(branchName)
     displayName: "npm run lerna:version"
+    condition: or( eq(variables.isMain, 'true'), eq(variables.isDevelop, 'true') )
 
   - bash: echo "##vso[task.setvariable variable=yarnCacheDir;]$(yarn cache dir)"
     displayName: Set yarn cache dir variable
