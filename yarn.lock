@@ -4946,21 +4946,6 @@
     "@typescript-eslint/types" "6.13.1"
     eslint-visitor-keys "^3.4.1"
 
-"@un/babel-preset-wfp@^0.2.8":
-  version "0.1.21"
-  resolved "https://registry.yarnpkg.com/@un/babel-preset-wfp/-/babel-preset-wfp-0.1.21.tgz#d7b3d10c6ad223d1b9de41749b8a56d527fef63a"
-  integrity sha512-bmlblpA/j7DswpLdY0sWDS4xxNmcGcfE9LIKc90jJ+trsaJlN21VRQA21ayXjKjmUnk/KSh6G6Vw86ADWNH8ug==
-  dependencies:
-    "@babel/core" "^7.14.6"
-    "@babel/plugin-proposal-class-properties" "^7.14.5"
-    "@babel/plugin-proposal-export-default-from" "^7.14.5"
-    "@babel/plugin-proposal-export-namespace-from" "^7.14.5"
-    "@babel/plugin-transform-react-constant-elements" "^7.14.5"
-    "@babel/preset-env" "^7.14.7"
-    "@babel/preset-react" "^7.14.5"
-    babel-plugin-dev-expression "^0.2.2"
-    browserslist-config-carbon "^10.6.1"
-
 "@un/layout@^10.26.14":
   version "10.26.14"
   resolved "https://registry.yarnpkg.com/@un/layout/-/layout-10.26.14.tgz#eda408d766820144d66dd8fb2ad2eef297cc344d"

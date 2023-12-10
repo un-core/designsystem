@@ -90,7 +90,6 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
-    "@un/babel-preset-wfp": "^0.2.8",
     "@wfp/icons-react": "^10.35.8",
     "@wfp/pictograms-react": "^11.15.8",
     "@wfp/styles": "^10.27.8",

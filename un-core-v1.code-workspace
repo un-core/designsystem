@@ -4,10 +4,6 @@
       "path": "."
     },
     {
-      "name": "babel-preset-wfp",
-      "path": "config/babel-preset-wfp"
-    },
-    {
       "name": "react",
       "path": "packages/react"
     },
