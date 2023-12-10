@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.21.0 (2023-12-10)
+
+
+### Features
+
+* **react:** added tests, documentation and more ([93479c3](https://github.com/wfp/ui/commit/93479c3295ed5499edc38a5f702371cb78ae7b10))
+
+
+
+
+
 # 1.20.0 (2023-12-04)
 
 
