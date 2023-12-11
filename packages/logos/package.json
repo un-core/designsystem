@@ -1,6 +1,6 @@
 {
   "name": "@un/logos",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Logos of the World Food Programme",
   "main": "index.json",
   "scripts": {
@@ -13,6 +13,6 @@
   "gitHead": "5d9678f4a62413b834d07736413c50ff2f851824",
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@wfp/icons-core": "^0.3.0"
+    "@wfp/icons-core": "^0.3.1"
   }
 }
