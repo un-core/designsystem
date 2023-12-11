@@ -103,6 +103,10 @@ steps:
     displayName: "yarn build"
 
   - script: |
+      yarn test
+    displayName: "yarn test"
+
+  - script: |
       npm run lerna:publishFromPackage
     displayName: "lerna publish"
     condition: eq(variables.isMain, 'true')
