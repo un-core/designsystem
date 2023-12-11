@@ -4,7 +4,7 @@ import type { PropsWithChildren } from "react";
 import classNames from "classnames";
 import useSettings from "../../hooks/useSettings";
 import FormItem from "../FormItem/FormItem";
-import { WarningSolid } from "@un/icons-react";
+import { WarningSolid } from "@wfp/icons-react";
 import * as HookForm from "react-hook-form";
 
 /**
@@ -30,7 +30,7 @@ export interface InputProps {
   formItemClassName?: string;
   /**
    * Provide a custom className that is applied directly to the underlying
-   * &lt;textarea&gt; node
+   * &lt;input&gt; or &lt;textarea&gt; node
    */
   inputWrapperClassName?: string;
   /**

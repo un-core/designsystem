@@ -1,4 +1,3 @@
-//import StyleDictionary from "style-dictionary";
 import StyleDictionary from "style-dictionary";
 import * as changeCase from "change-case";
 
@@ -86,6 +85,7 @@ export const config = ({
               });
             });
           }
+
           return `$${token.name}: var(--${token.name}, ${value}) !default;`;
         })
         .join(`\n`);
@@ -192,7 +192,7 @@ export const config = ({
           ///  'attribute/cti',
           "attribute/color",
           "attribute/variablenames",
-          "value/spacingPxToRem",
+          "size/rem",
         ],
         files: [
           {
@@ -204,11 +204,7 @@ export const config = ({
       scss: {
         transformGroup: "scss",
         buildPath: buildPath + "/scss/",
-        transforms: [
-          "name/scss",
-          "value/fontSizePxToRem",
-          "value/spacingPxToRem",
-        ],
+        transforms: ["name/scss", "value/fontSizePxToRem", "size/rem"],
         files: [
           {
             destination: "tokens.scss",
@@ -222,11 +218,7 @@ export const config = ({
       scssMapFlat: {
         transformGroup: "scss",
         buildPath: buildPath + "/scss/",
-        transforms: [
-          "name/scss",
-          "value/fontSizePxToRem",
-          "value/spacingPxToRem",
-        ],
+        transforms: ["name/scss", "value/fontSizePxToRem", "size/rem"],
         files: [
           {
             destination: "tokensMapFlat.scss",
@@ -240,11 +232,7 @@ export const config = ({
       scssMapDeep: {
         transformGroup: "scss",
         buildPath: buildPath + "/scss/",
-        transforms: [
-          "name/scss",
-          "value/fontSizePxToRem",
-          "value/spacingPxToRem",
-        ],
+        transforms: ["name/scss", "value/fontSizePxToRem", "size/rem"],
         files: [
           {
             destination: "tokensMapDeep.scss",
@@ -261,7 +249,8 @@ export const config = ({
         transforms: [
           "name/scss",
           "value/fontSizePxToRem",
-          "value/spacingPxToRem",
+          "size/rem",
+          "size/px",
         ],
         files: [
           {

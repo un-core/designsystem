@@ -12,16 +12,17 @@ export default {
   },
 };
 
-export const Regular = (args) => (
-  <Input {...args}>
-    <input placeholder="This can be any type of custom input" />
-  </Input>
-);
-
-Regular.args = {
-  name: "inputname",
-  helperText: "Optional helperText",
-  labelText: "The labelText",
+export const InputDefault: Story = {
+  render: (args) => (
+    <Input {...args}>
+      <input placeholder="This can be any type of custom input" />
+    </Input>
+  ),
+  args: {
+    name: "inputname",
+    helperText: "Optional helperText",
+    labelText: "The labelText",
+  },
 };
 
 const inputsourcecode = `

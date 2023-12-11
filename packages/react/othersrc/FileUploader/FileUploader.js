@@ -9,7 +9,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Checkmark, Close, WarningSolid } from "@un/icons-react";
+import { Checkmark, Close, WarningSolid } from "@wfp/icons-react";
 import { withWFPCoreSettings } from "../../src/components/WFPCoreSettings";
 import useSettings from "../../src/hooks/useSettings";
 

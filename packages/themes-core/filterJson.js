@@ -1,7 +1,4 @@
-const { readFileSync, writeFileSync } = require("fs");
-const _ = require("lodash");
-const filterDeep = require("deepdash/getFilterDeep")(_);
-const mapValuesDeep = require("deepdash/getMapValuesDeep")(_);
+import { readFileSync, writeFileSync } from "fs";
 
 function removeKeys(obj) {
   // Base case: if the object is not an object or is null, return it as is
@@ -48,47 +45,33 @@ if (!String.prototype.endsWith) {
 
 let json = JSON.parse(readFileSync("./tokensRepository/tokens.json", "utf8"));
 
-json = { ...json.Global, ...json.System, ...json.Component };
+function addCategoryToLeaves(obj, category) {
+  let newObj = Array.isArray(obj) ? [] : {};
+
+  Object.keys(obj).forEach((key) => {
+    // If the property is a 'value', add 'category'
+    if (key === "value") {
+      newObj["category"] = category;
+    }
+
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      // Recursively call the function for nested objects
+      newObj[key] = addCategoryToLeaves(obj[key], category);
+    } else {
+      newObj[key] = obj[key];
+    }
+  });
+
+  return newObj;
+}
+const Global = json.Global;
+
+json = {
+  ...addCategoryToLeaves(json.Global, "global"),
+  ...addCategoryToLeaves(json.System, "system"),
+  ...addCategoryToLeaves(json.Component, "component"),
+};
 json = removeKeys(json);
-
-/*
-
-let filtrate = filterDeep(json, (value, key, parent) => {
-  console.log(key);
-
-  if (key == "description") return true;
-  if (key === "extensions" || key === "styleId" || key === "exportKey")
-    return false;
-  if (typeof value !== "object") {
-    return true;
-  }
-  //return true;
-});
-
-filtrate = mapValuesDeep(
-  filtrate,
-  (v) =>
-    typeof v === "string" &&
-    v.endsWith("ff") &&
-    v.substring(0, 1) === "#" &&
-    v.length === 9
-      ? v.slice(0, -2)
-      : v,
-  { leavesOnly: true }
-);
-
-filtrate = mapValuesDeep(
-  filtrate,
-  (v) => {
-    if (typeof v === "object" && v.type === "color")
-      v.attributes = { category: "color" };
-
-    return v;
-  },
-  /*  typeof v === 'object' && v.type === 'color'
-      ? (v.attributes.category = 'color')
-      : v*/ //{ leavesOnly: false }
-//);
 
 writeFileSync(
   "./tokens/design-tokens.tokens.new.json",

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import classNames from "classnames";
 import Link from "../Link";
-import { CaretUp, CaretDown } from "@un/icons-react";
+import { CaretUp, CaretDown } from "@wfp/icons-react";
 import useSettings from "../../hooks/useSettings";
 
 const MoreLink = ({ handleToggleClick, link, text, showMore }) => {

@@ -25,48 +25,71 @@ componentsNew:
   withAccordionItem:
     path: "Accordion/components/withAccordionItem"
 previewScale: 0.7
-sampleCode: >
-  <Accordion>
-    <AccordionItem header="What is Lorem Ipsum?">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </AccordionItem>
-
-    <AccordionItem header="Where does it come from?">
-      Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla vel erat quis
-      sodales. Nam ex enim, eleifend venenatis lectus vitae, accumsan auctor mi.
-    </AccordionItem>
-
-    <AccordionItem header="Why do we use it?">
-      Suspendisse massa risus, pretium id interdum in, dictum sit amet ante. Fusce
-      vulputate purus sed tempus feugiat.
-    </AccordionItem>
-  </Accordion>
 ---
-
-TODO: Change text color to black
-Use FontAwesome icon
-
-Chevron left of right, or both side?
 
 The accordion is a vertically stacked set of interactive headings that each contain a title representing a section of content.
 
 Accordions can also be a useful design element when dealing with complex interfaces or displaying large amounts of data.
 
-They can help to organize information Pby adding an additional layer of hierarchy to the page.
+They can help to organize information by adding an additional layer of hierarchy to the page.
+
+At its most granular form an accordion can be broken down into an individual component. This can be referred to as a drawer. This is made up of a drawer header and content panel.
+
+TODO: Change text color to black
+
+Use FontAwesome icon
+
+Drawers within an accordion have three different states: collapsed, hover and expanded.
+
+- **Collapsed state**: The title should be clearly identifiable in bold with the arrow pointing down, showing the direction that content will expand.
+- **Hover state**: Interacting with the component triggers the hover state. Examples of a hover state could be changing the background colour.
+- **Expanded state**: The content panel has expanded showing content. The title should be clearly identifiable in bold with the arrow pointing up, the direction that content will collapse.
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=270%3A1781" />
+
+### Anatomy
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=271%3A1888" />
+
+<Callout>
+  According to specific need the chevron can be placed at the right side too (eg
+  in mobile).
+</Callout>
+
+## How to use
+
+Desktop
+
+- On click, the drawer expands with a fade-in animation.
+- (Optional) On click, when a drawer opens, the previous one, if expanded, collapses.
+
+Mobile
+
+- (Optional) On tap, when a drawer opens, the previous one, if expanded, collapses.
+- (Optional) On tap, when a drawer opens it scrolls-up at the top of the screen.
+
+## Accessibility
+
+If you're using a screen reader with Javascript turned on, you should be able to navigate the accordion in the same way as the tab pattern, as follows:
+
+- Use the tab key on your keyboard to access the drawer header.
+- Use the return key to expand the drawer.
+- On selection, keyboard focus is pushed to the content within the content panel.
 
 <DoUse>
 
+- The title of the accordion must always be labelled bold to show there's an interaction.
+- An accordion must always expand information below the title.
+- An accordion must always have the same width.
 - Use accordions to organize information
 - Use accordions to reduce the amount of scrolling required
-- Use accordions to reduce the amount of information displayed on the screen at once
+- Use to reduce the amount of information displayed on the screen at once
 
 </DoUse>
 
 <DoNotUse>
 
-- Do not use accordions to display information that is not related
-- Do not use accordions to display information that is not hierarchical
-- Do not use accordions to display information that is not collapsible
+- Do not use accordions to display information that is not related, not hierarchical or not collapsible
+- The arrows do not face the way the content will expand (when in the default state) or collapse (when in it's expanded state)
 
 </DoNotUse>

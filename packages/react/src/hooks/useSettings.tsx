@@ -8,9 +8,9 @@ import {
 
 export default function useSettings(): AppContextInterface {
   const settings = useContext(WFPCoreContext);
-  if (settings?.initialized === false) {
+  /* if (settings?.initialized === false) {
     console.warn("useSettings: WFPCoreContext not initialized");
-  }
+  } */
 
   if (settings === undefined) {
     return defaultWFPContext;

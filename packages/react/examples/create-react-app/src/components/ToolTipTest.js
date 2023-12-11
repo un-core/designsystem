@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import { Table, Tooltip, Icon, Search } from '@wfp/react';
-import { OverflowMenu16 } from '@un/icons-react';
+import React, { useRef, useEffect } from "react";
+import { Table, Tooltip, Icon, Search } from "@wfp/react";
+import { OverflowMenu16 } from "@wfp/icons-react";
 
 function ToolTipTest() {
   const searchRef = useRef(null);
@@ -13,7 +13,7 @@ function ToolTipTest() {
   }, []);
 
   const onChangeSearch = () => {
-    console.log('serachRef', searchRef.current);
+    console.log("serachRef", searchRef.current);
   };
 
   return (
@@ -39,9 +39,10 @@ function ToolTipTest() {
             <td>
               <Tooltip
                 trigger="click"
-                placement={'bottom'}
+                placement={"bottom"}
                 useWrapper={false}
-                content="Label Text">
+                content="Label Text"
+              >
                 <Icon
                   description="options"
                   icon={OverflowMenu16}
@@ -61,7 +62,8 @@ function ToolTipTest() {
                 content="Label text"
                 placement="bottom"
                 trigger="click"
-                useWrapper>
+                useWrapper
+              >
                 <span className="hello">Click</span>
               </Tooltip>
             </td>

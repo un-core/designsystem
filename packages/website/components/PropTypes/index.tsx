@@ -3,6 +3,7 @@ import {
   Select,
   SelectItem,
   Empty,
+  NumberInput,
   Tag,
   Table,
   Text,
@@ -20,7 +21,7 @@ import Markdown from "react-markdown";
 import formatTypes from "./formatTypes";
 // import parse from "html-react-parser";
 import { transform } from "@babel/standalone";
-import { AddCircle, CloseCircle, Settings, StarSolid } from "@un/icons-react";
+import { AddCircle, CloseCircle, Settings, StarSolid } from "@wfp/icons-react";
 
 import * as componentsSource from "@../../../demoCode/dist/bundle";
 
@@ -132,10 +133,11 @@ export default function PropTypes({
 
   const renderInput = (prop) => {
     if (
-      (prop.name === "kind" ||
+      /*( prop.name === "kind" ||
         prop.name === "type" ||
         prop.name === "size" ||
-        prop.name === "pageWidth") &&
+        prop.name === "pageWidth" ||
+        prop.name === "margin") && */
       prop.type.name.includes("|")
     ) {
       //const propOptionsList = inputString.split(" | ").map(s => s.replace(/"/g, ''));
@@ -145,6 +147,10 @@ export default function PropTypes({
           {...register(prop.name, { required: prop.required })}
           defaultValue={prop.defaultValue && prop.defaultValue.value}
         >
+          {prop.required === false && (
+            <SelectItem key="none" value="" text="None" />
+          )}
+          )
           {Object.values(prop.type.name.split("|")).map((kind: string, i) => (
             <SelectItem
               key={i}
@@ -193,15 +199,18 @@ export default function PropTypes({
         </Select>
       );
     }
-    if (
-      prop.type.name === "ReactNode" ||
-      prop.type.name === "string" ||
-      prop.type.name === "number"
-    ) {
+    if (prop.type.name === "ReactNode" || prop.type.name === "string") {
       return (
         <TextInput
           {...register(prop.name, { required: prop.required })}
           type={prop.type.name === "number" ? "number" : "text"}
+          defaultValue={prop.defaultValue && prop.defaultValue.value}
+        />
+      );
+    } else if (prop.type.name === "number") {
+      return (
+        <NumberInput
+          {...register(prop.name, { required: prop.required })}
           defaultValue={prop.defaultValue && prop.defaultValue.value}
         />
       );
@@ -283,7 +292,7 @@ export default function PropTypes({
 
       code = reactElementToJSXString(enhancedElement);
     } catch (error) {
-      console.log("Transform failed");
+      // console.log("Transform failed");
     }
 
     // console.log("codeNew", reactElementToJSXString(enhancedElement));

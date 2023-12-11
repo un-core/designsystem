@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["ES5", "ES2015", "ES2016", "DOM", "ESNext"],
+    "types": ["jest", "node", "mdx"],
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "allowJs": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "ES6"
+  },
+  "typeRoots": ["./node_modules/@types", "./typings"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "src/**/*.test.ts"]
+}

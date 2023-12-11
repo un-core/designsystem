@@ -19,19 +19,19 @@ steps:
     persistCredentials: true
 
   - script: |
-      
+
       # Install urlencode function to encode reserved characters in passwords
       sudo apt-get install gridsite-clients
 
       # Create local mirror of Azure DevOps repository
       git clone --mirror https://$(System.AccessToken)@dev.azure.com/worldfoodprogramme/Design%20System/_git/bridge repo-mirror
-      
-      
+
+
       # Sync AWS CodeCommit repository
       cd repo-mirror
       git push --mirror https://${AWS_GIT_USERNAME}:$(urlencode ${AWS_GIT_PASSWORD})@${AWS_REPO_URL}
-      
-    displayName: 'Sync repository with AWS CodeCommit'
+
+    displayName: "Sync repository with AWS CodeCommit"
     env:
       AZURE_REPO_URL: $(AZURE_REPO_URL)
       AZURE_GIT_USERNAME: $(AZURE_GIT_USERNAME)
@@ -55,7 +55,7 @@ steps:
     inputs:
       versionSpec: "18.x"
     displayName: "Install Node.js"
-    
+
   - task: DownloadSecureFile@1
     name: npmrcFile
     displayName: "Download npmrc certificate"
@@ -101,6 +101,10 @@ steps:
   - script: |
       yarn build
     displayName: "yarn build"
+
+  - script: |
+      yarn test
+    displayName: "yarn test"
 
   - script: |
       npm run lerna:publishFromPackage

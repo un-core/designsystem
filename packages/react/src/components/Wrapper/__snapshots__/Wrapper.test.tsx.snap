@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Wrapper Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="wfp--wrapper"
+  >
+    Snapshot Wrapper
+  </div>
+</DocumentFragment>
+`;

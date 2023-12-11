@@ -34,18 +34,22 @@ mainComponent: "Button"
 
 By changing the `kind` prop you can use different styles of the button.
 
-| kind               | When to use                                                                              |
-| ------------------ | ---------------------------------------------------------------------------------------- |
-| `primary`          | the principle call to action on the page                                                 |
-| `secondary`        | secondary actions on each page                                                           |
-| `tertiary`         | simple actions on the page                                                               |
-| `accent`           | very important actions and only once or twice on each page                               |
-| `danger`           | a negative action (such as Delete) on the page                                           |
-| `danger--primary`  | a negative principle call to action (such as Delete) on the page                         |
-| `ghost`            | in places where a regular button would draw too much attention and look similar to links |
-| `inverse--primary` | should be used on dark backgrounds                                                       |
-| `inverse`          | should be used on dark backgrounds                                                       |
-| `navigation`       | should be only used in the main navigation                                               |
+| kind               | When to use                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| `primary`          | the principle call to action on the page                                                     |
+| `secondary`        | secondary actions on each page                                                               |
+| `tertiary`         | simple actions on the page                                                                   |
+| `accent`           | very important actions and only once or twice on each page **Outdated:** Do not use anymore! |
+| `danger`           | a negative action (such as Delete) on the page                                               |
+| `danger--primary`  | a negative principle call to action (such as Delete) on the page                             |
+| `ghost`            | in places where a regular button would draw too much attention and look similar to links     |
+| `inverse--primary` | should be used on dark backgrounds                                                           |
+| `inverse`          | should be used on dark backgrounds                                                           |
+| `navigation`       | should be only used in the main navigation                                                   |
+
+<Callout title="Accent button outdated" kind="warning">
+  Do not use the accent button anylonger.
+</Callout>
 
 ### Icon examples
 
@@ -80,7 +84,7 @@ Using an Button with only an Icon while not beeing recommended can be achieved b
 
 ```jsx live
 import { Button } from "@wfp/react";
-import { AddCircle } from "@un/icons-react";
+import { AddCircle } from "@wfp/icons-react";
 
 <>
   <Button icon={AddCircle} kind="primary">
@@ -118,7 +122,7 @@ or less.
 
 ```jsx live
 import { Button } from "@wfp/react";
-import { AddCircle } from "@un/icons-react";
+import { AddCircle } from "@wfp/icons-react";
 
 <>
   <Button small>Small button</Button>{" "}
@@ -134,7 +138,7 @@ Large buttons may be used for main primary actions where they are uses as the ca
 
 ```jsx live
 import { Button } from "@wfp/react";
-import { AddCircle } from "@un/icons-react";
+import { AddCircle } from "@wfp/icons-react";
 
 <>
   <Button large>Large button</Button>{" "}

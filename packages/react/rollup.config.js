@@ -9,6 +9,7 @@ import stripBanner from "rollup-plugin-strip-banner";
 import { terser } from "rollup-plugin-terser";
 import packageJson from "./package.json";
 import typescript from "@rollup/plugin-typescript";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const baseConfig = {
   input: "./src/index.ts",
@@ -130,6 +131,7 @@ module.exports = [
         preventAssignment: true,
         "process.env.NODE_ENV": JSON.stringify("development"),
       }),
+      visualizer(),
     ],
     output: {
       ...umdBundleConfig.output,
@@ -145,6 +147,7 @@ module.exports = [
         preventAssignment: true,
         "process.env.NODE_ENV": JSON.stringify("development"),
       }),
+      visualizer(),
     ],
     output: {
       ...umdBundleConfig.output,
@@ -163,6 +166,7 @@ module.exports = [
         "process.env.NODE_ENV": JSON.stringify("production"),
       }),
       terser(),
+      visualizer(),
     ],
     output: {
       ...umdBundleConfig.output,

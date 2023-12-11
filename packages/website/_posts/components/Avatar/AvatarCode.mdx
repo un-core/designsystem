@@ -8,6 +8,8 @@ mainComponent: "Avatar"
 
 ### Usage
 
+In this example, the `Avatar` component displays the image from the provided URL.
+
 ```jsx
 <Avatar image="user-image-url.jpg" name="John Doe" alt="John Doe's Avatar" />
 ```
@@ -26,15 +28,20 @@ mainComponent: "Avatar"
 
 - The `alt` prop should be used to provide descriptive alternative text for the avatar image, enhancing accessibility for screen reader users.
 
-### Example
+### `missingImage` prop
 
-```jsx
-<Avatar
-  image="https://example.com/avatar.jpg"
-  alt="User's name"
-  missingImage="avatar"
-  name="Jane Doe"
-/>
+#### Default avatar
+
+If the URL is not available, it falls back to the default user icon.
+
+```jsx live
+<Avatar alt="User's name" missingImage="avatar" name="Jane Doe" />
 ```
 
-In this example, the `Avatar` component displays the image from the provided URL. If the URL is not available, it falls back to the default user icon. The `alt` text for the image is "User's name", and the user's name "Jane Doe" is used for generating the initial in the fallback letter mode.
+#### Letter
+
+In this case the `alt` text the user's name "Albert Doe" is used for generating the initial in the fallback letter mode.
+
+```jsx live
+<Avatar alt="User's name" missingImage="letter" name="Albert Doe" />
+```

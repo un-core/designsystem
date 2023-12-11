@@ -13,13 +13,19 @@ import tokens from "@wfp/themes-core/dist/json/variables-full.json";
 import { hex, score } from "wcag-contrast";
 
 import styles from "./typeset.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  //  faChevronCircleRight,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
-function deepFilter(obj) {
+function deepFilter(obj, category) {
   // Base case: If the current object has the desired property and value, return the object
   if (
     obj &&
     typeof obj === "object" &&
-    obj.filePath === "tokens/design-tokens.tokens.new.json"
+    obj.filePath === "tokens/design-tokens.tokens.new.json" &&
+    (!category || obj.category === category)
   ) {
     return obj;
   }
@@ -29,7 +35,7 @@ function deepFilter(obj) {
     let hasValidChildren = false;
 
     for (const key of Object.keys(obj)) {
-      const child = deepFilter(obj[key]);
+      const child = deepFilter(obj[key], category);
       if (child !== null) {
         newObj[key] = child;
         hasValidChildren = true;
@@ -41,16 +47,6 @@ function deepFilter(obj) {
 
   return null;
 }
-
-/*
-interface DesignValue {
-  fontFamily: string;
-  fontWeight: string;
-  lineHeight: string;
-  fontSize: string;
-  letterSpacing: string;
-}
-*/
 
 interface DesignToken {
   value?: any;
@@ -69,7 +65,7 @@ interface Token {
 }
 
 function TokenDisplaySmall({ name, token, depth = 0 }: TokenDisplayProps) {
-  if (depth > 3) return null;
+  if (depth > 4) return <div>Token not available</div>;
 
   if (
     token.value &&
@@ -375,9 +371,33 @@ const TokenDisplay: React.FC<TokenDisplayProps> = ({
     return <div>LetterSpacing</div>;
   }
 
+  const isLastStep = (token as any)[Object.keys(token)[0]][
+    Object.keys((token as any)[Object.keys(token)[0]])[0]
+  ].filePath;
+  const lastStepPath = (token as any)[Object.keys(token)[0]][
+    Object.keys((token as any)[Object.keys(token)[0]])[0]
+  ].path;
+
+  const lastStepBreadcrumb = lastStepPath
+    ? [...lastStepPath].splice(0, lastStepPath.length - 2)
+    : [];
   return (
     <div className="token-category">
-      <h1 className={styles.heading}>{name}</h1>
+      <h4 className={styles.heading}>
+        {isLastStep &&
+          lastStepPath &&
+          lastStepBreadcrumb.map((p, i) => (
+            <span key={i}>
+              {i !== 0 && (
+                <FontAwesomeIcon
+                  icon={faChevronRight}
+                  className={styles.chevron}
+                />
+              )}
+              {p}
+            </span>
+          ))}
+      </h4>
       {typeof token === "object" && (
         <div className={styles.nestedTokens}>
           {Object.entries(token).map(([nestedName, nestedToken]) => {
@@ -417,12 +437,15 @@ const DesignTokenDisplay: React.FC<DesignTokenProps> = ({ tokens }) => {
     </div>
   );
 };
-// extended logo versions are removed from documentation based on recommendations from CAM, but they still exist in assets for developers already using them in their code.
-export default function Typeset() {
+
+interface TokenExplorerProps {
+  category: string;
+}
+
+export default function TokenExplorer({ category }: TokenExplorerProps) {
   return (
     <div>
-      <DesignTokenDisplay tokens={deepFilter(tokens)} />
-      {/* typesetList */}
+      <DesignTokenDisplay tokens={deepFilter(tokens, category)} />
     </div>
   );
 }

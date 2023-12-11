@@ -1,0 +1,45 @@
+@use "../../config" as *;
+@use "../../spacing" as *;
+@use "../../motion" as *;
+@use "../../type" as *;
+@use "../../breakpoint" as *;
+@use "../../theme" as *;
+@use "../../utilities/component-reset";
+@use "../../utilities/convert" as *;
+@use "../../utilities/rtl" as *;
+@use "../../utilities/high-contrast-mode" as *;
+
+/// Avatar styles
+/// @access public
+/// @group avatar
+@mixin avatar {
+  .#{$prefix}--avatar {
+    @include reset;
+    //width: calcRem(25px);
+    //height: calcRem(25px);
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 1.2em;
+
+    > img {
+      display: block;
+      object-fit: cover;
+      width: 1.2em;
+      height: 1.2em;
+    }
+  }
+
+  .#{$prefix}--avatar__icon--empty {
+    border-radius: 50%;
+    background-size: 100%;
+    border: 2px solid var(--body-tbc-on-secondary-container);
+    background-color: var(--body-tbc-on-secondary-container);
+    padding-top: 2px;
+    color: var(--action-solid-link-default);
+    text {
+      fill: $background-main; // TODO $text-on-color
+      font-weight: 600;
+      font-family: "Arial";
+    }
+  }
+}

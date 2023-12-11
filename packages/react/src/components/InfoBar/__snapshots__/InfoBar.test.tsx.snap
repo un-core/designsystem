@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoBar Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="wfp--info-bar"
+  >
+    <div
+      class="wfp--wrapper"
+    >
+      Snapshot InfoBar
+    </div>
+  </div>
+</DocumentFragment>
+`;

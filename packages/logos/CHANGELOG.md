@@ -3,9 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.1.9 (2023-12-04)
+# 0.3.0 (2023-12-10)
 
-**Note:** Version bump only for package @un/logos
+
+### Features
+
+* **react:** added tests, documentation and more ([93479c3](https://dev.azure.com/commits/93479c3295ed5499edc38a5f702371cb78ae7b10))
+
+
+
+
+
+# 0.2.0 (2023-12-04)
+
+
+### Features
+
+* **packages:** renamed packages @un/icons and more ([233b6ec](https://dev.azure.com/commits/233b6ecc195f3ff7f52344033d1e858f73c09020))
 
 
 

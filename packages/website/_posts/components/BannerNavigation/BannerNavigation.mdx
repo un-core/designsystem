@@ -1,16 +1,29 @@
 ---
 title: "BannerNavigation"
-coverImage: "../sample-image.jpg"
 slug: "Components/Navigation/BannerNavigation"
 mainComponent: "BannerNavigation"
+excerpt: "The Banner navigation is an optional menu at the top of every WFP page. It may contains external navigation links or links not directly connected with the main navigation structure."
 previewScale: 0.3
 components: ["BannerNavigationWithContent", "BannerNavigationItem", "Link"]
 storybook: true
+componentsNew:
+  BannerNavigationWithContent:
+    width: 900
+  BannerNavigationItem:
+    width: 900
 ---
+
+### Example
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=401%3A2779" />
+
+### Anatomy
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=401%3A3597" />
 
 <Callout>
 
-The default component is used mainly to crosslink among specific WFP applications for **internal use only**. Thus, **the default component does not have to be used for external facing products**.
+Banner navigation layout follows the Main Navigation grid (Fixed VS Flexible)
 
 </Callout>
 
@@ -38,3 +51,16 @@ Used exclusively by specific applications which are actually listed on the bar t
 ### `BannerNavigation`
 
 It allows you to use custom `BannerNavigationItem` components inside.
+
+<DoUse>
+
+- Show only links needed for the specific product
+
+</DoUse>
+
+<DoNotUse>
+
+- Don’t insert links present in the main navigation
+- Don’t use with less than 2 links TODO: Discuss more?
+
+</DoNotUse>

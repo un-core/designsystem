@@ -2,10 +2,11 @@
 title: "Design Tokens"
 excerpt: "Tokens are used in our build system to allow us to define styles once. This way they can be consumed across all plattforms and keep the design system consistent."
 coverImage: "../sample-image.jpg"
-slug: "Documentation/Guidelines/Tokens"
+slug: "Documentation/Tokens"
 figma: "https://figma.com"
 github: "https://github.com/component"
 storybook: "https://uikit.wfp.org/next-docs/index.html?path=/docs/components-button--button-regular"
+npm: "@wfp/themes-core"
 ---
 
 ### Introduction
@@ -104,7 +105,7 @@ We are using [Style Dictionary](https://amzn.github.io/style-dictionary) to gene
 You can customize the theme by adding a `theme.config.js` file to your project.
 
 ```bash
-npx @un/themes-core --config theme.config.js
+npx @wfp/themes-core --config theme.config.js
 ```
 
 TODO better text: Usually you always want to import the `defaultTheme` when starting a customization. This will give you a base to work with.

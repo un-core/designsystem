@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link Component matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="wfp--link"
+    href="https://example.com"
+  >
+    Snapshot Link
+  </a>
+</DocumentFragment>
+`;

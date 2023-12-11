@@ -1,8 +1,8 @@
-import React from 'react';
-import Blockquote from '.';
-import Button from '../Button';
-import { AddOutline } from '@un/icons-react';
-import blockquoteTwig from './Blockquote.twig';
+import React from "react";
+import Blockquote from ".";
+import Button from "../Button";
+import { AddOutline } from "@wfp/icons-react";
+import blockquoteTwig from "./Blockquote.twig";
 
 const props = {
   children: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.`,
@@ -16,11 +16,11 @@ const props = {
 // };
 
 export default {
-  title: 'Components/Content Related/Blockquote',
+  title: "Components/Content Related/Blockquote",
   component: Blockquote,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     twig: blockquoteTwig,
   },
 };
@@ -34,8 +34,8 @@ Default.args = {
 Default.argTypes = {
   kind: {
     control: {
-      type: 'select',
-      options: ['info', 'warning', 'error', 'success'],
+      type: "select",
+      options: ["info", "warning", "error", "success"],
     },
   },
 };
@@ -62,7 +62,7 @@ export const light = (args) => <Blockquote {...args} />;
 light.args = {
   ...props,
   light: true,
-  title: 'Title',
+  title: "Title",
 };
 
 light.story = {
@@ -78,7 +78,7 @@ export const Warning = (args) => <Blockquote {...args} />;
 Warning.args = {
   ...props,
   withIcon: true,
-  kind: 'warning',
+  kind: "warning",
 };
 
 Warning.story = {
@@ -94,7 +94,7 @@ export const Error = (args) => <Blockquote {...args} />;
 Error.args = {
   ...props,
   withIcon: true,
-  kind: 'error',
+  kind: "error",
 };
 
 Error.story = {
@@ -110,7 +110,7 @@ export const Success = (args) => <Blockquote {...args} />;
 Success.args = {
   ...props,
   withIcon: true,
-  kind: 'success',
+  kind: "success",
 };
 
 Success.story = {
@@ -130,7 +130,7 @@ CustomIcon.args = {
 
 const customiconsourcecode = `
 import { Blockquote,  Icon } from "@wfp/react";
-import { AddOutlineGlyph } from '@un/icons-react';
+import { AddOutlineGlyph } from '@wfp/icons-react';
 
 <Blockquote icon={<AddOutlineGlyph height={48} width={48} />}>
  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -152,7 +152,7 @@ export const Togglable = (args) => <Blockquote {...args} />;
 
 Togglable.args = {
   ...props,
-  title: 'Togglable title',
+  title: "Togglable title",
   toggleable: true,
 };
 

@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": [
+      "babel-preset-wfp",
+      "react",
+      "html-handlebars",
+      "create-react-app",
+      "fonts",
+      "pictograms",
+      "humanitarian-icons",
+      "icons-react",
+      "icons",
+      "icons-core",
+      "styles",
+      "themes-core",
+      "website",
+      ".next",
+      "types",
+      "pictograms-react",
+      "logos",
+      "humanitarian-icons-react"
+    ]
+  }
+}

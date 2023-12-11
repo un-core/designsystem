@@ -16,11 +16,17 @@ interface EmptyProps extends Omit<React.ComponentPropsWithRef<"div">, "title"> {
    * The kind of empty state to be rendered. @design
    */
   kind?: "undefined" | "large";
+  /**
+   * The icon to be rendered in the empty state. @design
+   */
   icon?: React.ReactNode;
   /**
    * The button to be rendered in the empty state. @design
    */
   button?: React.ReactNode;
+  /**
+   * The CSS class name to be appended to the top-level node.
+   */
   className?: string;
   /**
    * The replaceable components to be used for the empty state.

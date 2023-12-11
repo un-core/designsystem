@@ -7,7 +7,7 @@ import { ScreenSize } from "../../utils";
 import MainNavigationContext from "./MainNavigationContext";
 import MobileButtonDefault, { MobileButtonProps } from "./MobileButton";
 import { WrapperProps } from "../Wrapper/Wrapper";
-import { WfpLogoVerticalEn, WfpLogoStandardBlackEn } from "@un/icons-react";
+import { WfpLogoVerticalEn, WfpLogoStandardBlackEn } from "@wfp/icons-react";
 
 /** The Main Navigation is a Horizontal Menu which consists of multiple clickable items placed at the top of the page. The navigation stays unchanged when browswing through the site and is present on every page. The currently selected item is usually highlighted. */
 

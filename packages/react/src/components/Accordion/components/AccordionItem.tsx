@@ -12,7 +12,7 @@ import useSettings from "../../../hooks/useSettings";
 import { useAccordionItem } from "../hooks/useAccordionItem";
 import { useHeightTransition } from "../hooks/useHeightTransition";
 import { useMergeRef } from "../hooks/useMergeRef";
-import { ChevronDown } from "@un/icons-react";
+import { ChevronDown } from "@wfp/icons-react";
 import { withAccordionItem, ItemStateProps } from "./withAccordionItem";
 import classNames from "classnames";
 
@@ -26,12 +26,46 @@ type NodeOrFunc = React.ReactNode | ((props: ItemState) => React.ReactNode);
 interface AccordionItemProps
   extends ItemStateOptions,
     ElementProps<HTMLDivElement, TransitionState> {
+  /**
+   * Either a React node or a function that returns a React node.
+   * This property defines the content of the accordion item's header.
+   */
   header?: NodeOrFunc;
+
+  /**
+   * Can be either a React node or a function that returns a React node.
+   * This property defines the main content of the accordion item.
+   */
   children?: NodeOrFunc;
+
+  /**
+   * Specifies the HTML tag to be used for the heading element of the accordion item.
+   * It can be any of the heading tags from 'h1' to 'h6'.
+   */
   headingTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+  /**
+   * Properties to be passed to the heading element of the accordion item.
+   * It extends from `ItemElementProps` which includes standard HTML attributes and a ref.
+   */
   headingProps?: ItemElementProps<HTMLHeadingElement>;
+
+  /**
+   * Properties to be passed to the button element within the accordion item.
+   * It extends from `ItemElementProps` which includes standard HTML attributes and a ref.
+   */
   buttonProps?: ItemElementProps<HTMLButtonElement>;
+
+  /**
+   * Properties to be passed to the content container element of the accordion item.
+   * It extends from `ItemElementProps` which includes standard HTML attributes and a ref.
+   */
   contentProps?: ItemElementProps<HTMLDivElement>;
+
+  /**
+   * Properties to be passed to the panel element inside the content container of the accordion item.
+   * It extends from `ItemElementProps` which includes standard HTML attributes and a ref.
+   */
   panelProps?: ItemElementProps<HTMLDivElement>;
 }
 

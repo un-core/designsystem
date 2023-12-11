@@ -53,14 +53,11 @@ const Wrapper: React.FC<WrapperProps> = (props) => {
   } = props;
   const wrapperClasses = classNames({
     [`${prefix}--wrapper`]: true,
-    [`${prefix}--wrapper--width-lg`]:
-      pageWidth === "narrow" || pageWidth === "lg",
-    [`${prefix}--wrapper--width-md`]:
-      pageWidth === "narrower" || pageWidth === "md",
-    [`${prefix}--wrapper--width-sm`]:
-      pageWidth === "narrowest" || pageWidth === "sm",
-    [`${prefix}--wrapper--width-xs`]:
-      pageWidth === "narrowest" || pageWidth === "xs",
+    [`${prefix}--wrapper--width-lg`]: pageWidth === "narrow",
+    [`${prefix}--wrapper--width-md`]: pageWidth === "narrower",
+    [`${prefix}--wrapper--width-sm`]: pageWidth === "narrowest",
+    [`${prefix}--wrapper--width-xs`]: pageWidth === "narrowest",
+    [`${prefix}--wrapper--width-${pageWidth}`]: pageWidth,
     [`${prefix}--wrapper--width-mobile-full`]: mobilePageWidth === "full",
     [`${prefix}--wrapper--spacing-md`]: spacing === "md",
     [`${prefix}--wrapper--spacing-xl`]: spacing === "xl",
@@ -68,8 +65,7 @@ const Wrapper: React.FC<WrapperProps> = (props) => {
   });
   if (background || backgroundStyle) {
     const backgroundClasses = classNames(backgroundClassName, {
-      [`${prefix}--wrapper--background-lighter`]: background === "lighter",
-      [`${prefix}--wrapper--background-dark`]: background === "dark",
+      [`${prefix}--wrapper--background-${background}`]: background,
     });
 
     return (

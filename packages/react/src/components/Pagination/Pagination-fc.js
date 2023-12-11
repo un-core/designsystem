@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import classnames from 'classnames';
-import { ChevronLeft, ChevronRight } from '@un/icons-react';
-import Select from '../Select';
-import SelectItem from '../SelectItem';
-import { equals } from '../../tools/array';
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import classnames from "classnames";
+import { ChevronLeft, ChevronRight } from "@wfp/icons-react";
+import Select from "../Select";
+import SelectItem from "../SelectItem";
+import { equals } from "../../tools/array";
 
 let instanceId = 0;
 
@@ -85,12 +85,12 @@ function Pagination(props) {
     return itemArr;
   };
 
-  const classNames = classnames('wfp--pagination', className);
+  const classNames = classnames("wfp--pagination", className);
   const backButtonClasses = classnames(
-    'wfp--pagination__button',
-    'wfp--pagination__button--backward',
+    "wfp--pagination__button",
+    "wfp--pagination__button--backward",
     {
-      'wfp--pagination__button--no-index': pageInputDisabled,
+      "wfp--pagination__button--no-index": pageInputDisabled,
     }
   );
   const inputId = id || uniqueId;
@@ -111,13 +111,14 @@ function Pagination(props) {
               hideLabel
               inline
               onChange={handleSizeChange}
-              value={pageSizeState}>
+              value={pageSizeState}
+            >
               {pageSizes.map((size) => (
                 <SelectItem key={size} value={size} text={String(size)} />
               ))}
             </Select>
             <span className="wfp--pagination__text">
-              {' '}
+              {" "}
               &nbsp;&nbsp;|&nbsp;&nbsp;
             </span>
           </React.Fragment>
@@ -139,7 +140,8 @@ function Pagination(props) {
         <button
           className={backButtonClasses}
           onClick={decrementPage}
-          disabled={props.disabled || page === 1}>
+          disabled={props.disabled || page === 1}
+        >
           <ChevronLeft
             className="wfp--pagination__button-icon"
             description={backwardText}
@@ -152,14 +154,16 @@ function Pagination(props) {
             hideLabel
             inline
             onChange={handlePageInputChange}
-            value={page}>
+            value={page}
+          >
             {selectItems}
           </Select>
         )}
         <button
           className="wfp--pagination__button wfp--pagination__button--forward"
           onClick={incrementPage}
-          disabled={props.disabled || page === totalPages || isLastPage}>
+          disabled={props.disabled || page === totalPages || isLastPage}
+        >
           <ChevronRight
             className="wfp--pagination__button-icon"
             description={forwardText}
@@ -194,11 +198,11 @@ Pagination.propTypes = {
 };
 
 Pagination.defaultProps = {
-  backwardText: 'Backward',
+  backwardText: "Backward",
   itemRangeText: (min, max, total) => `${min}-${max} of ${total} items`,
-  forwardText: 'Forward',
-  itemsPerPageText: 'Items per page:',
-  pageNumberText: 'Page Number',
+  forwardText: "Forward",
+  itemsPerPageText: "Items per page:",
+  pageNumberText: "Page Number",
   pageRangeText: (current, total) => `${current} of ${total} pages`,
   disabled: false,
   page: 1,

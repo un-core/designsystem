@@ -115,7 +115,7 @@ export default function SidebarWrapper({
                 if (posts.find((p) => p.slug.includes(overviewLink))) {
                   return (
                     <BreadcrumbItem key={i} href="#">
-                      <NextLink href={`${slugifyWithSlashes(overviewLink)}`}>
+                      <NextLink href={`/${slugifyWithSlashes(overviewLink)}`}>
                         {s}
                       </NextLink>
                     </BreadcrumbItem>
@@ -140,7 +140,11 @@ export default function SidebarWrapper({
 
           {filteredPosts.length >= 1 && (
             <Tabs className={styles.tabs}>
-              <NextTab href={`/${slugifyWithSlashes(mainSlug)}`}>Usage</NextTab>
+              <NextTab href={`/${slugifyWithSlashes(mainSlug)}`}>
+                {post.slug.split("/").includes("Components")
+                  ? "Design"
+                  : "Overview"}
+              </NextTab>
               {filteredPosts.map((p, key) => (
                 <NextTab key={key} href={`/${slugifyWithSlashes(p.slug)}`}>
                   {p.slug.split("/").pop().replace("tab:", "")}

@@ -11,7 +11,7 @@
 }
 
 .color {
-  width: 3rem;
+  width: 2rem;
   height: 2rem;
   display: flex;
   border-radius: 5px;
@@ -22,8 +22,9 @@
 
 .value {
   min-height: 2rem;
-  padding: 0.5em 0.5rem;
+  padding: 0.5em 0.3rem;
   width: 100%;
+  min-width: 2rem;
   font-size: 0.8em;
   font-weight: 500;
   display: flex;
@@ -76,9 +77,9 @@ h5.tokenHeading {
   line-height: 1.1;
 }
 
-h1.heading {
-  font-size: 1.5em;
-  margin-top: 0.7em;
+h4.heading {
+  font-size: 1.2em;
+  margin-top: 2em;
   margin-bottom: 0em;
 }
 
@@ -150,4 +151,11 @@ h3.name {
   border: 1px solid $text-secondary;
   width: 4em;
   height: 4em;
+}
+
+.chevron {
+  font-size: 0.6em;
+  margin: 0 0.6em;
+  position: relative;
+  top: -0.2em;
 }

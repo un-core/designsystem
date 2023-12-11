@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import markdown from './README.mdx';
+import markdown from "./README.mdx";
 
-import { Hero, HeroExternal } from '.';
-import Button from '../Button';
-import { WfpHumEmergencyResponsePos } from '@un/pictograms-react';
+import { Hero, HeroExternal } from ".";
+import Button from "../Button";
+import { WfpHumEmergencyResponsePos } from "@wfp/pictograms-react";
 //import heroTwig from './Hero.twig';
 
 export default {
-  title: 'Components/Content Related/Hero',
+  title: "Components/Content Related/Hero",
   component: Hero,
   parameters: {
-    componentSubtitle: 'Component',
-    status: 'released',
+    componentSubtitle: "Component",
+    status: "released",
     mdx: markdown,
     //twig: heroTwig,
   },
@@ -21,12 +21,12 @@ export default {
 export const Regular = (args) => <Hero {...args} />;
 
 Regular.args = {
-  href: '#',
-  image: 'http://www1.wfp.org/sites/default/files/images/yemen-hero-min.jpg',
+  href: "#",
+  image: "http://www1.wfp.org/sites/default/files/images/yemen-hero-min.jpg",
   subTitle:
-    'Food security and climate change analyses, adaptation planning, and good practices in food security adaptation programming.',
-  title: 'The Climate Adaption Mangement and Innovation Initiative',
-  kind: 'landscape',
+    "Food security and climate change analyses, adaptation planning, and good practices in food security adaptation programming.",
+  title: "The Climate Adaption Mangement and Innovation Initiative",
+  kind: "landscape",
 };
 
 export const HeroKinds = () => <></>;
@@ -49,9 +49,9 @@ By changing the \`kind\` prop you can use different styles of the card.
 `;
 
 HeroKinds.story = {
-  name: 'Hero kinds',
+  name: "Hero kinds",
   parameters: {
-    markdown: 'hello',
+    markdown: "hello",
     docs: {
       storyDescription: herokinds,
     },
@@ -62,7 +62,7 @@ export const Landscape = (args) => <Hero {...args} />;
 
 Landscape.args = {
   ...Regular.args,
-  kind: 'landscape',
+  kind: "landscape",
 };
 
 Landscape.story = {
@@ -77,7 +77,7 @@ export const LandscapeLight = (args) => <Hero {...args} />;
 
 LandscapeLight.args = {
   ...Regular.args,
-  kind: 'landscape-light',
+  kind: "landscape-light",
 };
 
 LandscapeLight.story = {
@@ -92,8 +92,8 @@ export const Split = (args) => <Hero {...args} />;
 
 Split.args = {
   ...Regular.args,
-  metadata: 'Climate Change, Publication',
-  kind: 'split',
+  metadata: "Climate Change, Publication",
+  kind: "split",
 };
 
 Split.story = {
@@ -108,11 +108,11 @@ export const HeroCard = (args) => <Hero {...args} />;
 
 HeroCard.args = {
   ...Regular.args,
-  kind: 'hero',
+  kind: "hero",
 };
 
 HeroCard.story = {
-  name: 'Hero',
+  name: "Hero",
   parameters: {
     docs: {
       storyDescription: `Hero block with title and a background image. It can feature an optional subtitle.`,
@@ -124,10 +124,10 @@ export const Splash = (args) => <Hero {...args} />;
 
 Splash.args = {
   ...Regular.args,
-  kind: 'splash',
+  kind: "splash",
   subTitle: (
     <>
-      <div style={{ marginBottom: '1rem' }}>
+      <div style={{ marginBottom: "1rem" }}>
         Cras dapibus. Aenean ut eros et nisl sagittis vestibulum. Fusce risus
         nisl, viverra et, tempor et, pretium in.
       </div>
@@ -166,7 +166,7 @@ export const SplashImage = (args) => <Hero {...args} />;
 
 SplashImage.args = {
   ...Regular.args,
-  kind: 'splash-image',
+  kind: "splash-image",
 };
 
 SplashImage.story = {
@@ -186,14 +186,14 @@ SplashCompact.args = {
   ...Regular.args,
   title: (
     <>
-      <span style={{ marginRight: '1rem' }}>
+      <span style={{ marginRight: "1rem" }}>
         Nulla consequat massa quis enim
       </span>
       <Button kind="inverse--primary">Read more</Button>
     </>
   ),
   subTitle: undefined,
-  kind: 'splash-compact',
+  kind: "splash-compact",
   image: undefined,
 };
 
@@ -222,8 +222,8 @@ export const Related = (args) => <Hero {...args} />;
 
 Related.args = {
   ...Regular.args,
-  metadata: 'Climate Change, Publication',
-  kind: 'related',
+  metadata: "Climate Change, Publication",
+  kind: "related",
 };
 
 Related.story = {
@@ -240,21 +240,21 @@ Emergencies.args = {
   ...Regular.args,
   title: (
     <>
-      <WfpHumEmergencyResponsePos fill="#FFF" style={{ marginRight: '1rem' }} />
+      <WfpHumEmergencyResponsePos fill="#FFF" style={{ marginRight: "1rem" }} />
       <span>
-        Curabitur ullamcorper ultricies nisi. Proin magna.{' '}
+        Curabitur ullamcorper ultricies nisi. Proin magna.{" "}
         <a>Etiam iaculis nunc ac metus</a>
       </span>
     </>
   ),
   subTitle: undefined,
   image: undefined,
-  kind: 'emergencies',
+  kind: "emergencies",
 };
 
 const sourcecode = `
 import { Hero, Icon } from "@wfp/react";
-import { iconWfpHumEmergencyResponsePos } from '@un/icons-react';
+import { iconWfpHumEmergencyResponsePos } from '@wfp/icons-react';
         
 <Hero
   href="#"
@@ -307,12 +307,12 @@ External.args = {
   ),
   subTitle: (
     <>
-      A description that can contain a <a>link</a> and{' '}
+      A description that can contain a <a>link</a> and{" "}
       <strong>a bold text</strong> to highlight important content. We have room
       for one or more sentences. Like this.
     </>
   ),
-  image: 'http://www1.wfp.org/sites/default/files/images/yemen-hero-min.jpg',
+  image: "http://www1.wfp.org/sites/default/files/images/yemen-hero-min.jpg",
 };
 
 const externalsourcecode = `
@@ -347,7 +347,7 @@ import { HeroExternal, Button } from "@wfp/react";
 External.story = {
   parameters: {
     docs: {
-      storyDescription: 'Add a description',
+      storyDescription: "Add a description",
       source: {
         code: externalsourcecode,
       },

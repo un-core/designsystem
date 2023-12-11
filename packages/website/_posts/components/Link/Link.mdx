@@ -1,22 +1,29 @@
 ---
 category: "Core"
 title: "Link"
-excerpt: "Links are typically used as a means of navigation either within the application, to a place outside, or to a resource."
+excerpt: "Links allow users to navigate to a different location. They can be presented inside a paragraph or as standalone text."
 slug: "Components/Actions/Link"
 storybook: true
 mainComponent: "Link"
 ---
 
-Links can have the same properties as a regular `<a>`-element.
+Link maybe to internal pages or the external resources.
 
-<FigmaImage url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?node-id=735%3A21440&t=eFfGsO7k7LGjWFwo-1" />
+### Example
 
-<FigmaImage url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?node-id=735%3A21440&t=eFfGsO7k7LGjWFwo-1" />
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=241%3A1323" />
 
-<FigmaImage url="https://www.figma.com/file/KWrOuAzzykyysIDFpLikx1/WFP---Bridge?node-id=735%3A21440&t=eFfGsO7k7LGjWFwo-1" />
+### Anatomy
+
+<FigmaImage url="https://www.figma.com/file/h0OBnVRCmPzMmCpYIYsj8H/Bridge-Documentation?node-id=241%3A1422" />
+
+### How to use
+
+The default variant of the primary link is indicated by the color blue. It is intended to attract attention to the link and is most suitable when the blue color does not create an overwhelming visual experience.
 
 <DoUse>
 
+- Links are for usage in body copy and are not appropriate in titles. TODO: Discuss if more are fine
 - Use text for links rather than graphics or icons.
 - Links should be three words or less.
 - Text should be consistent with the title of the intended destination.
@@ -33,6 +40,11 @@ Links can have the same properties as a regular `<a>`-element.
 - Use a button instead of a link for actions that will change data or manipulate how it is displayed, change a state, or trigger an action. Buttons should never be used for navigational actions.
 
 </DoNotUse>
+
+### Accessibility
+
+- Keyboard interaction: Enter
+  Executes the link and moves the focus to the link target.
 
 ### Related
 

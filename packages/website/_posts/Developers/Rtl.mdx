@@ -1,9 +1,8 @@
 ---
-title: 'Right-to-Left (RTL) Support'
-excerpt: 'Themes'
-subtitle: 'Themes (Dark Mode)'
-coverImage: '../sample-image.jpg'
-slug: 'Documentation/Guidelines/Right-to-left'
+title: "Right-to-Left (RTL) Support"
+excerpt: "Themes (Dark Mode)"
+coverImage: "../sample-image.jpg"
+slug: "Documentation/Guidelines/Right-to-left"
 ---
 
 <Callout title="Draft" kind="warning">
@@ -22,10 +21,11 @@ Click here to test rtl on this page:
 <Button
   large
   onClick={() =>
-    document.body.getAttribute('dir') === 'rtl'
-      ? document.body.setAttribute('dir', 'ltr')
-      : document.body.setAttribute('dir', 'rtl')
-  }>
+    document.body.getAttribute("dir") === "rtl"
+      ? document.body.setAttribute("dir", "ltr")
+      : document.body.setAttribute("dir", "rtl")
+  }
+>
   Try right-to-left on this page
 </Button>
 ## Implementation
@@ -62,10 +62,10 @@ The `rtl` and `ltr` scss helper mixin helps changing the direction in `scss`. It
 
 ```scss
 // Import the entire components library
-@use '@wfp/styles/scss/components' as *;
+@use "@wfp/styles/scss/components" as *;
 
 // Or only import the rtl mixin
-@use '@wfp/styles/scss/utilities/_rtl.scss' as *;
+@use "@wfp/styles/scss/utilities/_rtl.scss" as *;
 
 .element {
   @include ltr {

@@ -17,6 +17,9 @@ export interface UserProps extends React.HTMLAttributes<HTMLSpanElement> {
    * of the Avatar use &lt;List kind="simple" small /&gt; as default content
    */
   description?: React.ReactNode;
+  /**
+   * Optional components to replace the default ones, the Icon component is used for the avatar
+   */
   components?: { Icon: React.ReactNode };
   /**
    * Extended Description column
@@ -36,7 +39,13 @@ export interface UserProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Show the name next to the avatar
    */
   showName?: boolean;
+  /**
+   * The CSS class name for the user.
+   */
   className?: string;
+  /**
+   * Shows a smaller version of the user
+   */
   small?: boolean;
   /**
    * The username which will be displayed. Usually `Firstname Lastname`.

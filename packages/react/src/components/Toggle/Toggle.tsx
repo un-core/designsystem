@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import * as React from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import Input, { InputProps, useInput } from '../Input';
-import { UseInputProps } from '../Input/useInput';
+import * as React from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import Input, { InputProps, useInput } from "../Input";
+import { UseInputProps } from "../Input/useInput";
 
 /** A toggle is used to quickly switch between two possible states. They are commonly used for “on/off” switches */
 
-interface ToggleProps extends InputProps, React.ComponentPropsWithRef<'input'> {
+interface ToggleProps extends InputProps, React.ComponentPropsWithRef<"input"> {
   /**
    * Specify whether the toggle should be on by default
    */
@@ -38,6 +38,9 @@ interface ToggleProps extends InputProps, React.ComponentPropsWithRef<'input'> {
    * Provide an name that unique represents the underlying `input`
    */
   name?: string;
+  /**
+   * Provide a function that is called when a change event occurs on the control
+   */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -51,8 +54,8 @@ const Toggle: React.FC<ToggleProps> = React.forwardRef((props, ref) => {
     //    onChange,
     //    onToggle = () => {},
     id,
-    labelA = 'Off',
-    labelB = 'On',
+    labelA = "Off",
+    labelB = "On",
     ...other
   } = props;
   const { prefix } = useSettings();
@@ -77,7 +80,7 @@ const Toggle: React.FC<ToggleProps> = React.forwardRef((props, ref) => {
 
   const input = useInput(useInputProps);
 
-  const otherInputProps = other as React.ComponentPropsWithRef<'input'>;
+  const otherInputProps = other as React.ComponentPropsWithRef<"input">;
 
   return (
     <Input className={wrapperClasses} {...props}>
@@ -105,6 +108,6 @@ const Toggle: React.FC<ToggleProps> = React.forwardRef((props, ref) => {
   );
 });
 
-Toggle.displayName = 'Toggle';
+Toggle.displayName = "Toggle";
 
 export default Toggle;

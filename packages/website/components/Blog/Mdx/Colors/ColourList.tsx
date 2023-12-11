@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import { List, ListItem, Table, Text, Story } from '@wfp/react';
+import { List, ListItem, Table, Text, Story } from "@wfp/react";
 
-import tokens from '@un/themes-core/dist/json/variables-full.json';
+import tokens from "@wfp/themes-core/dist/json/variables-full.json";
 
-import { hex, score } from 'wcag-contrast';
-import styles from './colours.module.scss';
+import { hex, score } from "wcag-contrast";
+import styles from "./colours.module.scss";
 
 export const ColourList = ({ tokens }: any) => {
   /*
@@ -33,7 +33,7 @@ export const ColourList = ({ tokens }: any) => {
             </List>
           </Story>
         </td>
-        <td className={styles.content} style={{ width: '20%' }}>
+        <td className={styles.content} style={{ width: "20%" }}>
           <List kind="simple" colon>
             {color.attributes?.hex && (
               <ListItem title="hex">
@@ -51,24 +51,25 @@ export const ColourList = ({ tokens }: any) => {
           </List>
         </td>
         {color.attributes?.rgb && (
-          <td style={{ width: '10px' }}>
+          <td style={{ width: "10px" }}>
             <div
               className={`${styles.field} ${
                 color.attributes.rgb.r +
                   color.attributes.rgb.g +
                   color.attributes.rgb.b >
                 2.5
-                  ? 'color__field__light'
-                  : ''
+                  ? "color__field__light"
+                  : ""
               }`}
-              style={{ backgroundColor: `${color.value}` }}>
+              style={{ backgroundColor: `${color.value}` }}
+            >
               <div className={styles.contrast}>
                 <span>A</span>
-                <div>{score(hex(color.value, '#000000'))}</div>
+                <div>{score(hex(color.value, "#000000"))}</div>
               </div>
               <div className={`${styles.contrast} ${styles.contrastLight}`}>
                 <span>A</span>
-                <div>{score(hex(color.value, '#FFFFFF'))}</div>
+                <div>{score(hex(color.value, "#FFFFFF"))}</div>
               </div>
             </div>
 

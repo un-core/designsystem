@@ -1,8 +1,8 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import ReactDOMServer from 'react-dom/server';
-import { Colour } from './ColourDocs';
-import { ColourList } from './ColourList';
-import tokens from '@un/themes-core/dist/json/variables-full';
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import ReactDOMServer from "react-dom/server";
+import { Colour } from "./ColourDocs";
+import { ColourList } from "./ColourList";
+import tokens from "@wfp/themes-core/dist/json/variables-full";
 
 <Meta
   title="Documentation/Core/Colours"
@@ -77,10 +77,10 @@ interactive and to be distinguishable from black.
 <img
   alt="Brand colour"
   style={{
-    width: '100%',
-    height: 'auto',
-    marginTop: '1em',
-    marginLeft: '0em',
+    width: "100%",
+    height: "auto",
+    marginTop: "1em",
+    marginLeft: "0em",
   }}
   src={`${process.env.STORYBOOK_INTERNAL_ASSETS}internal/brand-color.png`}
 />
@@ -213,10 +213,10 @@ The colours can be used via JavaScript or different frameworks.
 
 ```jsx
 // Import colours as json (needs a json loader)
-import colors from '@wfp/react/src/globals/data/colors.json';
+import colors from "@wfp/react/src/globals/data/colors.json";
 
 // Import colours as js
-import colors from '@wfp/react/src/globals/data/colors.js';
+import colors from "@wfp/react/src/globals/data/colors.js";
 
 const barChartColor = colors.navy;
 ```
@@ -227,7 +227,7 @@ Setting colour variables makes it easy to reuse colours, without the hassle of u
 
 ```css
 // Only use variables
-@import '~@wfp/react/src/globals/scss/vars';
+@import "~@wfp/react/src/globals/scss/vars";
 
 body {
   background: var(--ui-02);

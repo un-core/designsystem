@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "es6",
     "moduleResolution": "node",
     "outDir": "./dist",
@@ -8,7 +8,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "lib": ["ES5", "ES2015", "ES2016", "DOM", "ESNext"],
-    "types": ["node", "mdx"],
+    "types": ["jest", "node", "mdx"],
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "allowJs": true,

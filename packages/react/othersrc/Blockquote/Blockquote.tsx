@@ -1,15 +1,15 @@
-import React, { CSSProperties, useState } from 'react';
-import type { PropsWithChildren } from 'react';
-import classNames from 'classnames';
-import useSettings from '../../hooks/useSettings';
-import { IIcon, StatusKind } from '../../utils';
+import React, { CSSProperties, useState } from "react";
+import type { PropsWithChildren } from "react";
+import classNames from "classnames";
+import useSettings from "../../hooks/useSettings";
+import { IIcon, StatusKind } from "../../utils";
 
 import {
   Checkmark,
   WarningAlt,
   WarningSolid,
   InfoSolid,
-} from '@un/icons-react';
+} from "@wfp/icons-react";
 
 const iconLookup = {
   warning: {
@@ -82,10 +82,10 @@ const Blockquote: React.FC<BlockquoteProps> = ({
     [`${prefix}--blockquote--light`]: light,
     [`${prefix}--blockquote--code`]: code,
     [`${prefix}--blockquote--no-content`]: !children,
-    [`${prefix}--blockquote--error`]: kind === 'error' || error,
-    [`${prefix}--blockquote--warning`]: kind === 'warning' || warning,
-    [`${prefix}--blockquote--success`]: kind === 'success',
-    [`${prefix}--blockquote--info`]: kind === 'info' || info,
+    [`${prefix}--blockquote--error`]: kind === "error" || error,
+    [`${prefix}--blockquote--warning`]: kind === "warning" || warning,
+    [`${prefix}--blockquote--success`]: kind === "success",
+    [`${prefix}--blockquote--info`]: kind === "info" || info,
     [`${prefix}--blockquote--with-icon`]: withIcon || icon,
     [`${prefix}--blockquote--toggle--open`]: open,
     [`${className}`]: className,
@@ -97,19 +97,20 @@ const Blockquote: React.FC<BlockquoteProps> = ({
 
   // @deprecated Only kind is allowed
   const lookup =
-    warning || kind === 'warning'
-      ? iconLookup['warning']
-      : error || kind === 'error'
-      ? iconLookup['error']
-      : kind === 'success'
-      ? iconLookup['success']
-      : iconLookup['info'];
+    warning || kind === "warning"
+      ? iconLookup["warning"]
+      : error || kind === "error"
+      ? iconLookup["error"]
+      : kind === "success"
+      ? iconLookup["success"]
+      : iconLookup["info"];
 
   const Icon = lookup.icon;
 
   const iconElement = React.isValidElement(icon) ? (
     <div
-      className={`${prefix}--blockquote__icon ${prefix}--blockquote__icon--custom`}>
+      className={`${prefix}--blockquote__icon ${prefix}--blockquote__icon--custom`}
+    >
       {icon}
     </div>
   ) : withIcon || icon ? (
@@ -135,8 +136,9 @@ const Blockquote: React.FC<BlockquoteProps> = ({
             onKeyDown={toggleBlockquote}
             className={`${prefix}--blockquote__title`}
             role="button"
-            tabIndex={0}>
-            {title ? title : open ? 'Hide content' : 'Show content'}
+            tabIndex={0}
+          >
+            {title ? title : open ? "Hide content" : "Show content"}
           </div>
         )}
         <div className={`${prefix}--blockquote__inside`}>{children}</div>

@@ -23,7 +23,7 @@
  *   the `:not([tabindex='-1'])` pseudo class
  */
 const settings = {
-  prefix: 'no-prefix',
+  prefix: "wfp",
   initialized: false,
   selectorTabbable: `
     a[href], area[href], input:not([disabled]):not([tabindex='-1']),
@@ -41,7 +41,7 @@ const settings = {
   actualTheme: `light`,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   setTheme: (theme: string) => {
-    console.warn('setTheme not initialized');
+    console.warn("setTheme not initialized");
   },
 };
 

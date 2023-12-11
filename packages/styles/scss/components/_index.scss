@@ -1,112 +1,82 @@
-//
-// Copyright IBM Corp. 2018, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
-
-@use 'accordion';
-@use 'anchor-navigation';
-@use 'auth-layout';
-@use 'button';
-@use 'banner-navigation';
-@use 'blockquote';
-@use 'breadcrumb';
-@use 'checkbox';
-@use 'card';
-@use 'content-switcher';
-@use 'context-menu';
-@use 'credits';
-@use 'date-picker';
-@use 'date-picker-new';
-@use 'empty';
-/*
-@use 'code-snippet';
-@use 'combo-box';
-@use 'content-switcher';
-@use 'copy-button';
-@use 'data-table';
-@use 'data-table/action';
-@use 'data-table/expandable';
-@use 'data-table/skeleton';
-@use 'data-table/sort';
-
-@use 'dropdown';
-*/
-@use 'file-uploader';
-@use 'form';
-@use 'form-controls';
-@use 'form-error';
-@use 'form-group';
-@use 'form-hint';
-@use 'form-wizard';
-@use 'hero';
-@use 'inline-loading';
-@use 'link';
-@use 'list';
-@use 'loading'; // TODO look into it more
-@use 'input';
-@use 'notification';
-@use 'text-input';
-@use 'text-area';
-@use 'modal';
-@use 'module';
+@use "accordion";
+@use "anchor-navigation";
+@use "auth-layout";
+@use "avatar";
+@use "button";
+@use "banner-navigation";
+@use "blockquote";
+@use "breadcrumb";
+@use "checkbox";
+@use "card";
+@use "content-switcher";
+@use "context-menu";
+@use "credits";
+@use "date-picker";
+@use "date-picker-new";
+@use "empty";
+@use "file-uploader";
+@use "form";
+@use "form-controls";
+@use "form-error";
+@use "form-group";
+@use "form-hint";
+@use "form-wizard";
+@use "hero";
+@use "inline-loading";
+@use "link";
+@use "list";
+@use "loading"; // TODO look into it more
+@use "input";
+@use "notification";
+@use "text-input";
+@use "text-area";
+@use "modal";
+@use "module";
 
 /*
 @use 'list-box';
-
 @use 'menu';
-
 @use 'multiselect';
-
-
 @use 'overflow-menu';
-
 @use 'pagination-nav';
 @use 'popover';
 @use 'progress-bar';
 @use 'progress-indicator';
-
-
 @use 'structured-list';
-
-
-
-
 @use 'tile';
 @use 'time-picker';
-
 @use 'treeview';
 @use 'ui-shell';
 */
-@use 'pagination';
-@use 'select';
-@use 'secondary-navigation';
-@use 'story';
-@use 'slider';
-@use 'sidebar';
-@use 'step-navigation';
-@use 'step-navigation-item';
-@use 'sub-navigation';
-@use 'table';
-@use 'tabs';
-@use 'tag';
-@use 'tooltip';
-@use 'toggle';
-@use 'number-input';
-@use 'radio-button';
-@use 'main-navigation';
-@use 'wrapper';
-@use 'footer';
-@use 'read-more';
-@use 'react-select';
-@use 'react-dropzone';
-@use 'search';
-@use 'info-bar';
-@use 'item';
-@use 'unit';
-@use 'user';
-@use 'value';
-@use 'col';
-@use 'grid';
-@use 'skeleton-text';
+
+@use "pagination";
+@use "select";
+@use "secondary-navigation";
+@use "story";
+@use "slider";
+@use "sidebar";
+@use "step-navigation";
+@use "step-navigation-item";
+@use "sub-navigation";
+@use "table";
+@use "tabs";
+@use "tag";
+@use "tooltip";
+@use "toggle";
+@use "number-input";
+@use "radio-button";
+@use "main-navigation";
+@use "wrapper";
+@use "footer";
+@use "read-more";
+@use "react-select";
+@use "react-dropzone";
+@use "search";
+@use "info-bar";
+@use "item";
+@use "unit";
+@use "user";
+@use "value";
+@use "col";
+@use "grid";
+@use "skeleton-text";

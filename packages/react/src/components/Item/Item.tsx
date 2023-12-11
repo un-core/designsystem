@@ -1,10 +1,10 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import { ChevronRight } from '@un/icons-react';
-import useSettings from '../../hooks/useSettings';
-import { IIcon } from '../../utils';
+import * as React from "react";
+import classNames from "classnames";
+import { ChevronRight } from "@wfp/icons-react";
+import useSettings from "../../hooks/useSettings";
+import { IIcon } from "../../utils";
 
-interface ItemProps extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> {
+interface ItemProps extends Omit<React.ComponentPropsWithRef<"div">, "title"> {
   /**
    * Provide the title for the item contet
    */
@@ -21,11 +21,11 @@ interface ItemProps extends Omit<React.ComponentPropsWithRef<'div'>, 'title'> {
   /**
    * Provide a kind to use different appearances.
    */
-  kind?: 'undefined' | 'horizontal' | 'large';
+  kind?: "undefined" | "horizontal" | "large";
   /**
    * Provide a wrap to use different borders.
    */
-  wrapper?: 'undefined' | 'sidebar' | 'repeater';
+  wrapper?: "undefined" | "sidebar" | "repeater";
   showAdditionalIcon?: boolean;
   subContent?: React.ReactNode;
   hint?: React.ReactNode;
@@ -51,8 +51,8 @@ const Item: React.FC<ItemProps> = React.forwardRef(
       unread,
       showAdditionalIcon,
       title,
-      kind = 'large',
-      wrapper = 'none',
+      kind = "large",
+      wrapper = "none",
       ...other
     },
     ref
@@ -77,7 +77,8 @@ const Item: React.FC<ItemProps> = React.forwardRef(
             <div className={`${prefix}--item__image`}>{image}</div>
           ) : noImage ? (
             <div
-              className={`${prefix}--item__image ${prefix}--item__image-empty`}></div>
+              className={`${prefix}--item__image ${prefix}--item__image-empty`}
+            ></div>
           ) : null}
 
           {title && (

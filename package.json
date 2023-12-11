@@ -23,7 +23,7 @@
     "lerna:version": "lerna version --conventional-commits",
     "lerna:versionNoPush": "lerna version --no-push --conventional-commits --yes",
     "publish:main": "lerna publish",
-    "test": "jest"
+    "test": "cd packages/react && yarn test"
   },
   "keywords": [
     "WFP",
