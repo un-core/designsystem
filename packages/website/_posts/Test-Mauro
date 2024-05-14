@@ -1,1 +1,11 @@
-yyyyyy
+---
+title: 'Test Mauro'
+subtitle: 'This is a page for testing markdown'
+slug: 'Documentation/Developing/Naming convention'
+excerpt: 'Excerpt example'
+coverImage: './components.png'
+ogImage: 
+url: './components.png'
+---
+
+Content bla bla bla
